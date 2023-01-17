@@ -1,6 +1,7 @@
 import { createDraftSafeSelector, createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Buffer } from 'buffer';
 import { useSelector } from 'react-redux';
+// eslint-disable-next-line import/no-cycle
 import { RootState } from '../store';
 
 export interface ROMState {

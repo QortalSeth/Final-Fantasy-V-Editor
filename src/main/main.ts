@@ -79,14 +79,14 @@ const createWindow = async () => {
     // useContentSize: true, // (auto width/height)
     icon: getAssetPath('FF5 Icon (Square).png'),
     webPreferences: {
-      nodeIntegration: true,
+      // nodeIntegration: true,
       contextIsolation: true,
       devTools: true, // (removes inspect devtools addon window if false)
       preload: app.isPackaged ? path.join(__dirname, 'preload.js') : path.join(__dirname, '../../.erb/dll/preload.js'),
     },
   });
-
-  mainWindow.loadURL(resolveHtmlPath('index.html'));
+  mainWindow.loadURL('http://localhost:1212');
+  // mainWindow.loadURL(resolveHtmlPath('index.html'));
   // mainWindow.loadFile(...createFileRoute(path.join(__dirname, '../renderer/index.html'), 'main'));
   mainWindow.on('ready-to-show', () => {
     if (!mainWindow) {
@@ -134,15 +134,61 @@ app.on('window-all-closed', () => {
 app
   .whenReady()
   .then(() => {
-    ipcMain.handle('openROM', async (event, params) => {
-      const fileNames = dialog.showOpenDialogSync(params);
-      if (fileNames) {
-        const file = fileNames[0];
-        const fileData = openFileAsBytes(file);
-        console.log('buffer: ', fileData);
-        return { rom: Array.from(fileData), data: { path: file, header: getHeader(fileData.length) } } as ROMState;
+    ipcMain.handle('openROM', async (event, params, defaultROM?: string) => {
+      console.log('default ROM: ', defaultROM);
+      let file: string;
+      if (!defaultROM) {
+        const fileNames = dialog.showOpenDialogSync(params);
+
+        if (fileNames) {
+          [file] = fileNames;
+          console.log('Selected File is: ', file.toString());
+        } else return undefined;
+      } else file = defaultROM;
+
+      const fileData = openFileAsBytes(file);
+      console.log('buffer: ', fileData);
+      mainWindow?.webContents.openDevTools();
+      return { rom: Array.from(fileData), data: { path: file, header: getHeader(fileData.length) } } as ROMState;
+    });
+
+    ipcMain.handle('openEditor', async (event, url) => {
+      if (mainWindow) {
+        mainWindow.hide();
+
+        const editorWindow = new BrowserWindow({
+          show: true,
+          parent: mainWindow,
+          width: 1300,
+          height: 1300,
+          minWidth: 900,
+          autoHideMenuBar: true,
+          // resizable: false,
+          // useContentSize: true, // (auto width/height)
+          // icon: getAssetPath('FF5 Icon (Square).png'),
+          webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: true,
+            devTools: true, // (removes inspect devtools addon window if false)
+            preload: app.isPackaged
+              ? path.join(__dirname, 'preload.js')
+              : path.join(__dirname, '../../.erb/dll/preload.js'),
+          },
+        });
+        editorWindow.on('closed', () => {
+          mainWindow?.show();
+        });
+        editorWindow.on('ready-to-show', () => {
+          //  editorWindow.webContents.send('routeChange', url);
+          editorWindow.show();
+        });
+        // editorWindow.loadURL(resolveHtmlPath('index.html/spell'));
+
+        // await editorWindow.loadURL(`file:/${path.join(__dirname, '../renderer/index.html')}`);
+        // await editorWindow.loadURL(`file://${path.resolve(__dirname, '../components/pages/', url)}`);
+        await editorWindow.loadURL(`http://localhost:1212/${url}`);
+        // await editorWindow.loadURL(`file://${__dirname}../renderer/index.html#/spell')}`);
       }
-      return undefined;
     });
 
     // eslint-disable-next-line promise/no-nesting

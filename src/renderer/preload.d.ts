@@ -1,17 +1,15 @@
-import { Channels } from 'main/preload';
 import { ROMState } from '../redux/slices/ROM-Slice';
 
 declare global {
   interface Window {
     electron: {
       ipcRenderer: {
-        sendMessage(channel: Channels, args: unknown[]): void;
-        on(channel: Channels, func: (...args: unknown[]) => void): (() => void) | undefined;
-        once(channel: Channels, func: (...args: unknown[]) => void): void;
-        openROM(params: object): Promise<ROMState>;
+        openROM(params: object, defaultROM?: string): Promise<ROMState>;
+        openEditor(url: string): Promise<void>;
       };
+      // ipcMain: {
+      //   routeEditorWindow(url: string): Promise<void>;
+      // };
     };
   }
 }
-
-export {};

@@ -1,5 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import IconButton, { IconButtonProps } from './IconButton';
 import openIcon from '../../assets/Open Icon.png';
 import saveIcon from '../../assets/Save Icon.png';
@@ -12,19 +13,18 @@ import enemyIcon from '../../assets/Gilgamesh.png';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { byteSelector, setROM } from '../redux/slices/ROM-Slice';
 
-const OpenEditor = (editorName: string) => {};
-
 export const EditorChooser = () => {
+  const defaultROM = '/home/seth/WebstormProjects/Final-Fantasy-V-Editor/assets/Final Fantasy V+.smc';
+  const useDefaultROM = true;
   const [isDisabled, setDisabled] = useState(true);
-
   const dispatch = useAppDispatch();
-
+  const navigate = useNavigate();
   // console.log(
   //   '10th byte is: ',
   //   useAppSelector((state) => byteSelector(state, 10))
   // );
 
-  const openFile = async () => {
+  const openFile = async (defaultFile?: string) => {
     const options = {
       title: 'Open a ROM',
       defaultPath: '.',
@@ -36,24 +36,49 @@ export const EditorChooser = () => {
     };
     console.log('in openFile clickEvent');
     await window.electron.ipcRenderer
-      .openROM(options)
+      .openROM(options, defaultFile)
       .then(
         // eslint-disable-next-line promise/always-return
         (romState) => {
-          setDisabled(false);
+          // eslint-disable-next-line promise/always-return
+          if (romState.rom) setDisabled(false);
           dispatch(setROM(romState));
         }
       )
       .catch((e) => console.log('No File Selected'));
   };
 
+  const openEditor = async (editorURL: string) => {
+    await window.electron.ipcRenderer.openEditor(editorURL);
+    //  navigate('/spell');
+  };
+
+  // useEffect(() => {
+  //   if (useDefaultROM) {
+  //     openFile(defaultROM);
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
+  // useEffect(() => {
+  //   window.electron.ipcRenderer.on('routeChange', (event, route) => {
+  //     navigate(route);
+  //   });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
   const buttonProps: IconButtonProps[] = [
-    { name: 'Open', icon: openIcon, clickListener: () => openFile(), disabled: false },
+    {
+      name: 'Open',
+      icon: openIcon,
+      clickListener: useDefaultROM ? () => openFile(defaultROM) : () => openFile(),
+      disabled: false,
+    },
     { name: 'Save', icon: saveIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
     { name: 'Character', icon: characterIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
     { name: 'Job', icon: jobIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
     { name: 'Item', icon: itemIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
-    { name: 'Spell', icon: spellIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
+    { name: 'Spell', icon: spellIcon, clickListener: () => openEditor('spell'), disabled: isDisabled },
     { name: 'Shop', icon: shopIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
     { name: 'Enemy', icon: enemyIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
   ];
@@ -69,7 +94,6 @@ export const EditorChooser = () => {
     bottom: 0,
     position: 'fixed' as const,
   };
-
   return (
     <div style={divStyle}>
       {buttonProps.map((props) => (
