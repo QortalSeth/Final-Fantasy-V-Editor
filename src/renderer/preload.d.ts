@@ -7,9 +7,6 @@ declare global {
         openROM(params: object, defaultROM?: string): Promise<ROMState>;
         openEditor(url: string): Promise<void>;
       };
-      // ipcMain: {
-      //   routeEditorWindow(url: string): Promise<void>;
-      // };
     };
   }
 }

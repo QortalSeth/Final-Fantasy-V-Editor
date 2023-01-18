@@ -70,7 +70,7 @@ const ROMSlice = createSlice({
   },
 });
 
-const romState = (state: RootState) => state.ROM;
+export const romState = (state: RootState) => state.ROM;
 
 export const byteSelector = createSelector(
   [romState, (state, offset?: number) => offset],
@@ -90,6 +90,7 @@ export const shortSelector = createSelector(
     let short = romState.rom[shortOffset];
     short <<= 8;
     short |= romState.rom[shortOffset + 1];
+    if (!offset) romState.offset += 2;
     return short;
   }
 );
@@ -104,6 +105,7 @@ export const tripleSelector = createSelector(
     triple |= romState.rom[tripleOffset + 1];
     triple <<= 8;
     triple |= romState.rom[tripleOffset + 2];
+    if (!offset) romState.offset += 3;
     return triple;
   }
 );

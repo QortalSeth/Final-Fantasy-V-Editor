@@ -85,8 +85,9 @@ const createWindow = async () => {
       preload: app.isPackaged ? path.join(__dirname, 'preload.js') : path.join(__dirname, '../../.erb/dll/preload.js'),
     },
   });
-  mainWindow.loadURL('http://localhost:1212');
+  // mainWindow.loadURL('http://localhost:1212');
   // mainWindow.loadURL(resolveHtmlPath('index.html'));
+  mainWindow.loadURL(resolveHtmlPath(''));
   // mainWindow.loadFile(...createFileRoute(path.join(__dirname, '../renderer/index.html'), 'main'));
   mainWindow.on('ready-to-show', () => {
     if (!mainWindow) {
@@ -182,7 +183,7 @@ app
           //  editorWindow.webContents.send('routeChange', url);
           editorWindow.show();
         });
-        // editorWindow.loadURL(resolveHtmlPath('index.html/spell'));
+        editorWindow.loadURL(resolveHtmlPath('/spell'));
 
         // await editorWindow.loadURL(`file:/${path.join(__dirname, '../renderer/index.html')}`);
         // await editorWindow.loadURL(`file://${path.resolve(__dirname, '../components/pages/', url)}`);
