@@ -18,6 +18,8 @@ node_modules
 # ignored files
 assets/Final Fantasy V+.smc
 assets/Final Fantasy V translated.smc
+Link to Roms
+
 # OSX
 .DS_Store
 
@@ -30,3 +32,4 @@ npm-debug.log.*
 *.css.d.ts
 *.sass.d.ts
 *.scss.d.ts
+/Link to Roms/

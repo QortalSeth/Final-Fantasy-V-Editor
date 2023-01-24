@@ -1,63 +1,34 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, CSSProperties, useState } from 'react';
+import CSS from 'csstype';
+import { byteListener, pointerListener, shortListener, tripleListener } from './TextFieldFunctions';
 
-export const setMaxValueDec = (value: string, maxValue: number) => {
-  const valueNum = Number(`${value}`);
-  return valueNum > maxValue ? maxValue.toString() : valueNum.toString();
-};
-
-export const setMaxValueHex = (value: string, maxValue: string) => {
-  const valueNum = Number(`0x${value}`);
-  const maxValueNum = Number(`0x${maxValue}`);
-
-  return (valueNum & maxValueNum).toString(16);
-};
-
-export const pointerListener = (e: React.ChangeEvent<HTMLInputElement>, value: string) => {
-  const input = e.currentTarget.value.toUpperCase();
-
-  console.log('input starting value is: ', input);
-  const isHex = /^[0-9A-F]+$/.test(input);
-
-  if (input.length > 6) {
-    return value;
-  }
-  if (isHex || input.length === 0) {
-    return input;
-  }
-  return value;
-};
-
-const numListener = (e: React.ChangeEvent<HTMLInputElement>, value: string, maxValue: number) => {
-  const input = e.currentTarget.value;
-
-  console.log('input starting value is: ', input);
-  const isNum = /^[0-9]+$/.test(input);
-
-  if (isNum) {
-    return setMaxValueDec(input, maxValue);
-  }
-  return value;
-};
-
-export const byteListener = (e: React.ChangeEvent<HTMLInputElement>, value: string) => {
-  return numListener(e, value, 0xff);
-};
-
-export const shortListener = (e: React.ChangeEvent<HTMLInputElement>, value: string) => {
-  return numListener(e, value, 0xffff);
-};
-
-export const tripleListener = (e: React.ChangeEvent<HTMLInputElement>, value: string) => {
-  return numListener(e, value, 0xffffff);
-};
-
-export const PointerTextfield = () => {
+export const BaseTextfield = ({
+  textFieldStyle = {},
+  listener,
+}: {
+  textFieldStyle?: CSS.Properties;
+  listener: (e: React.ChangeEvent<HTMLInputElement>, value: string) => string;
+}) => {
   const [value, setValue] = useState('');
-  return <input onChange={(e) => setValue(pointerListener(e, value))} value={value} />;
+  return <input onChange={(e) => setValue(listener(e, value))} value={value} style={{ ...textFieldStyle }} />;
 };
 
-export const pointerToOffset = (pointer: number | string) => {
-  const pointerValue = typeof pointer === 'string' ? Number(`0x${pointer}`) : pointer;
-  const clearhighBits = 0x7fffff;
-  return pointerValue & clearhighBits;
+export const PointerTextfield = ({ textFieldStyle = {} }: { textFieldStyle?: CSS.Properties }) => {
+  const defaultStyle = { width: '60px', height: '20px' };
+  return <BaseTextfield textFieldStyle={{ ...defaultStyle, ...textFieldStyle }} listener={pointerListener} />;
+};
+
+export const ByteTextfield = ({ textFieldStyle = {} }: { textFieldStyle?: CSS.Properties }) => {
+  const defaultStyle = { width: '60px', height: '20px' };
+  return <BaseTextfield textFieldStyle={{ ...defaultStyle, ...textFieldStyle }} listener={byteListener} />;
+};
+
+export const ShortTextfield = ({ textFieldStyle = {} }: { textFieldStyle?: CSS.Properties }) => {
+  const defaultStyle = { width: '60px', height: '20px' };
+  return <BaseTextfield textFieldStyle={{ ...defaultStyle, ...textFieldStyle }} listener={shortListener} />;
+};
+
+export const tripleTextfield = ({ textFieldStyle = {} }: { textFieldStyle?: CSS.Properties }) => {
+  const defaultStyle = { width: '60px', height: '20px' };
+  return <BaseTextfield textFieldStyle={{ ...defaultStyle, ...textFieldStyle }} listener={tripleListener} />;
 };

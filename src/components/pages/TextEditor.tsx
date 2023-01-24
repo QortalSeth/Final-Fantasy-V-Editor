@@ -2,14 +2,22 @@ import React from 'react';
 import { PointerTextfield } from '../TextFields';
 
 export const TextEditor = () => {
-  const style = { display: 'grid', gridTemplateColumns: '200px 200px' };
+  const divStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    // textAlign: 'right',
+    //  verticalAlign: 'bottom',
+    alignItems: 'end',
+    gridGap: '4px',
+  };
   //       <style>color: None;</style>
   return (
-    <div style={style}>
-      <p>Text Location/Pointer to read:</p>
+    <div style={divStyle}>
+      <p>Text Location to read:</p>
       <PointerTextfield />
     </div>
   );
 };
 
+// textFieldStyle={{ width: '50px' }}
 export default TextEditor;
