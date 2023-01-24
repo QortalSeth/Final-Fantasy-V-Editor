@@ -1,0 +1,299 @@
+ASM Glossary
+
+BRA = Branch Always
+BNE = Branch if Not Equal to zero
+BEQ = Branch if Equal to zero
+BCS = Branch if Carry Flag is Set
+BCC = Branch if Carry Flag is Clear
+BPL = Branch if < 80h
+BMI = Branch if >= 80h
+
+CMP (Accumulator with Value): if Accumulator >= Value, Carry Flag = Set
+                              if Accumulator < Value, Carry Flag = Clear
+$04F2 = Terrain type
+
+$2000 = Row (0 = Front, 80h = Back)
+$2002 = Level
+$2003,4 = Experience
+$2006,7 = Current HP
+$2008,9 = Max HP
+$200A,B = Current MP
+$200C,D = Max MP
+$200E = Headgear
+$200F = Bodywear
+$2010 = Accessory
+$2011 = Right Hand Shield
+$2012 = Left Hand Shield
+$2013 = Right Hand Weapon
+$2014 = Left Hand Weapon
+
+$2015 = Caught Monster
+
+$201A = Status Effect 1
+$201B = Status Effect 2
+$201C = Status Effect 3
+$201D = Status Effect 4:  01h: Hidden
+                          04h: Singing
+                          08h: HP Leak
+                          10h: Countdown
+                          20h: Controlled
+                          40h: False Image
+                          80h: Erased
+
+$201E = 08h: If Flirted
+        10h: If Jumping
+        40h: If Guarding
+        80h: If Defending
+$201F = Damage Modifier:
+        80h: Auto hit
+        40h: Damage = Damage * 2
+        20h: Damage = Damage / 2
+        10h: M = M * 2
+         8h: M = M / 2
+         4h: Defense = 0
+
+$2020 = 01h:Passages
+        02h:Pitfalls
+        04h:DamageFloor
+        08h:Dash
+        10h:Learning
+        20h:Barrier
+        40h:Evade
+        80h:Counter
+$2021 = 01h:2-Handed
+        02h:Pre-Emptive
+        04h:Caution
+        08h:Berserk
+        10h:Medicine
+        20h:Double Grip
+        40h:Brawl
+        80h:Cover
+$2022 = Magic Element Up
+$2023 = Equipment Weight
+$2024 = Strength
+$2025 = Agility
+$2026 = Vitality
+$2027 = Magic Power
+$2028 = Strength
+$2029 = Agility
+$202A = Vitality
+$202B = Magic Power
+$202C = Evade%
+$202D = Defense
+$202E = Magic Evade%
+$202F = Magic Defense
+$2030 = Elemental Absorb
+$2032 = Elemental Immunity
+$2033 = Elemental Half
+$2034 = Elemental Weakness
+$2035 = Status Immune 1
+$2036 = Status Immune 2
+$2037 = Status Immune 3
+
+$2039 = Weapon Special Effect Byte
+$2039 = Armour Special Effect Byte
+
+$2044 = Attack (Right Hand) (Goblin Punch Damage)
+$2045 = Attack (Left Hand)  (Goblin Punch Damage)
+
+$2050 = Level 1 Magic Sword Element (Fire, Ice, Bolt, Venom)
+$2051 = Level 2 Magic Sword Element (Fire2, Ice2, Bolt2)
+$2052 = Level 3 Magic Sword Element (Fire3, Ice3, Bolt3, Bio, Holy)
+$2053 = Status 1 Magic Sword
+$2054 = Status 2 Magic Sword
+$2055 = Status 3 Magic Sword (40h = Drain, 20h = Psyche)
+
+$2057 = 4Eh for BuildUp
+      = 4Fh for Jump
+      = 50h for Interceptor Rocket
+
+$2058 = Cursor Select 1
+$2059 = Cursor Select 2
+$205A = Cursor Select 3
+
+$2062 = Monster Attack Multiplier
+$2064 = Can't Evade Byte?
+$2065 = Creature Type
+$2066 = Immunity to HP Scan, Catch, Control
+
+$206E = Specialty Effect
+$206F = Song being sung
+
+$2070 = Status Effect 1
+$2071 = Status Effect 2
+$2072 = Status Effect 3
+$2073 = Status Effect 4
+$2074 = Bonus Strength due to Power Song
+$2075 = Bonus Agility due to Speed Song
+$2077 = Bonus Magic due to Magic Song
+$2078 = Bonus Level due to Hero Song
+$207A = Parameter 1 of Magic type 03h, 04, 05h (Magic Sword)
+
+$2640 = (Default AI Script)
+
+$2720 = (AI Attack Chosen?)
+
+$3D75 = Status Timer (Fast)
+$3D77 = Status Timer (Slow)
+$3D79 = Status Timer (Mute Magic Sword, player 1)
+$3D7F = ATB
+$3ED6 = Wait Delay for ATB
+$3ED8 = Status Duration
+
+$3EF0 = Flee Chance = 80h if Can't Run
+$3EFE = 40h if Can't use Void
+
+$4020, $4021 = Monster Index (2 bytes required for 384 monsters)
+
+$41D5 = Command entered (character 1)
+
+Attacking weapon/spell
+$79FC = Parameter 1
+$79FD = Parameter 2
+$79FE = Parameter 3
+$79FF = Parameter 4
+$7A00 = Parameter 5
+$7A01 = Parameter 6
+$7A02 = Parameter 7
+$7A03 = Parameter 8
+$7A04 = Parameter 9
+$7A05 = Parameter 10
+$7A06 = Parameter 11
+$7A07 = Parameter 12
+
+$7AFC, $7AFD = Targets selected
+
+$7BE1 = Attacker's Strength
+$7BE2 = Attacker's Agility
+$7BE3 = Attacker's Vitality
+$7BE4 = Attacker's Magic Power
+$7BE5 = Attacker's Level
+
+$7BE6 = 40h if Void
+
+$7B69 = Final Damage
+$7B6B = Final Damage
+$7B6D = Final Damage (if = 0?, for Undead?)
+$7B6F = Final Damage (for Undead?)
+$7B71 = Final Damage (for Healing?)
+
+$7B73 = Final Damage to MP (For Undead?)
+$7B75 = Final Damage to MP?
+$7B77 = Final Damage to MP?
+$7B79 = Final Damage to MP (For Undead?)
+
+$7C1E = Earth Wall Current HP
+$7C1F = Earth Wall Current HP
+
+$7C51 = 3h if Quick
+
+$7C59 = > 0 if Giant Drink used already
+
+$7C64 = Current HP (16-bit)
+
+$7C75 = Numbers of Times Escaped
+
+$7C85 = Records whether you've fought certain battles
+        04h for Gilgamesh (Morphed)
+        08h for Sekmet
+        30h for Golem
+        40h for Shoat
+        80h for Ramuh
+
+$7C86 = Records whether you've fought certain battles
+        80h for Exdeath (solo battle vs. Galuf)
+
+$2A = Net Damage = Damage - Defense
+$2C = Net Attack Multiplier
+
+$32 = Attacker offset (16-bit)
+Offset =  0h for 1st character
+         80h for 2nd character
+        100h for 3rd character
+        180h for 4th character
+        200h for 1st monster
+        280h for 2nd monster
+        300h for 3rd monster
+        380h for 4th monster
+
+$34, $36 = Enemy graphics? (16-bit)
+
+$39 = Attacker offset2 (smaller?)
+
+$47 = Attacker number:
+      0 for 1st character
+      1 for 2nd character
+      2 for 3rd character
+      3 for 4th character
+      4 for 1st monster
+      5 for 2nd monster
+
+$48 = Target number:  (Same targetting as $47)
+
+$49 = Target offset (Same as offsets as $32)
+
+$4D = Base Hit%
+$4E = Final Hit% 
+$4F = Evade or Magic Evade
+$50 = Base Damage = (Attack + (0..(Attack/8)))
+$51 = (Spell Power + (0..(Spell Power/8)))
+$52 = Multiplier
+$54 = Defense or Magic Defense
+$56 = Greater than 0 means attacks has missed
+
+$57 = Parameter 1
+$58 = Parameter 2 Spell Power
+$59 = Parameter 3 Spell Parameter
+
+$5A = 1 (
+$5B = 2 (
+$5C = 3 (Elf Cape Animation)
+$5D = 6 (Miss Animation)
+$5E = 5 (Evade Animation)
+
+$61 = 1 = dead?
+$62 = Damage or Heal?
+
+$65 = Target of Attack
+
+Monster parameters
+$D00000 = Speed
+$D00001 = Attack
+$D00002 = Attack Multiplier
+$D00003 = Evade
+$D00004 = Defense
+$D00005 = Magic Power
+$D00006 = Magic Defense
+$D00007 = Magic Evade
+$D00008 = HP
+$D00009 = HP
+$D0000A = MP
+$D0000B = MP
+$D0000C = Exp
+$D0000D = Exp
+$D0000E = Gil
+$D0000F = Gil
+$D00010 = Attack Animation
+$D00011 = Elemental Immunity
+$D00012 = Status Immune 1
+$D00013 = Status Immune 2
+$D00014 = Status Immune 3
+$D00015 = Elemental Absorb
+$D00016 = Can't Evade
+$D00017 = Elemental Weakness
+$D00018 = Creature Type
+$D00019 = Immunities
+$D0001A = Initial Status 1
+$D0001B = Initial Status 2
+$D0001C = Initial Status 3
+$D0001D = ??
+$D0001E = ??
+$D0001F = Level
+$D05000 = Steal (Rare)
+$D05001 = Steal (Common)
+$D05002 = Drop (Rare)
+$D05003 = Drop (Common)
+
+Final Fantasy V is Copyright Square
+This document was created by InstructrTrepe, Copyright 2004.
+For feedback, questions, comments etc. you can either e-mail instructrtrepe@hotmail.com or post at the GameFAQ FFV SNES message boards at www.gamefaqs.com

@@ -1,0 +1,380 @@
+_________
+
+ITEM DATA
+_________
+
+* D1/0000-05FF: Weapons                       [Item] (00-7F)
+* D1/0600-0A7F: Armor                         [Item] (80-DF)
+* D1/0A80-0B7F: Usables                       [Item] (E0-FF)
+- D1/2480-257F: [Equipment type] definitions  Equipment type value
+* D1/2580-26BF: Element defense definitions   [Element defense]
+* D1/26C0-287F: Status properties definitions [Status defense]
+
+_______
+
+Weapons
+_______
+
+- D1/0000
+
+[Item] * 12 bytes
+0 Targeting (when used as item)
+1 [Attack type]
+2 Throw + Equipment type value
+3 Element/stats up
+4 Double Grip + Description
+5 Special properties
+6 Used as item
+7 Attack power
+8 Attack formula
+9 Parameter 1 \
+A Parameter 2  (See Actions chapter)
+B Parameter 3 /
+
+________________________
+
+0: Targeting (when used as item)
+
+0 0 0 0   0 0 0 0
+M A T S   E R    
+
+80 Multi-target optional
+40 Hits all targets
+20 Target selectable
+10 Side selectable
+08 Target enemy (by default)
+04 Roulette
+02 
+01 
+
+
+2: Throw + Equipment type value
+
+0 0 0 0   0 0 0 0
+  nT{ ET. value }
+
+80 
+40 NOT throwable
+20-01 Equipment type value
+
+Equipment type value
+00 (Nothing)
+01 Common
+02 Knife
+03 Ninja sword
+04 Sword
+05 Knight sword
+06 Spear
+07 Axe
+08 Hammer
+09 Katana
+0A Rod
+0B Staff
+0C Flail (not used)
+0D Bow
+0E Harp
+0F Whip
+10 Bell
+11 Shield
+12 Heavy helmet
+13 Light helmet
+14 Mage hat
+15 Dancer gear
+16 Light armor
+17 Heavy armor
+18 Mage robe
+19 Glove
+1A Ring
+1B Accessory
+1C Thief gear
+1D Chemist gear
+1E Exotic weapon
+
+
+3: Element/stats up
+
+0 0 0 0   0 0 0 0
+/ W E H   P L I F
+  StSpV   M{Stats}
+
+80 Stats up ->
+40 Wind         Strength
+20 Earth        Speed
+10 Holy         Vitality
+08 Poison       Magic power
+04 Lightning    \
+02 Ice           Stat bonuses
+01 Fire         /
+
+Stat bonuses
+0 +1
+1 +2
+2 +3
+3 +1/-1 (not used)
+4 -1 (use inverted stat selection) (not used)
+5 +5/-5 (Giant Gloves)
+6 -5 (use inverted stat selection)
+7 +5
+
+Str +5 => C7
+Str/Mag+10 => CF
+Str/Spd+10 => A7
+
+4: Double Grip + Description
+
+0 0 0 0   0 0 0 0
+DoDa{Description}
+
+80 Double Grip only
+40 Double Grip allowed
+20-01 Description
+
+Description
+00 (No description)
+01 Restores HP
+02 Restores MP
+03 Completely restores HP/MP
+04 Recovers the wounded
+05 Cures 'Frog' status
+06 Cures 'Zombie' status
+07 Ingredient for 'Mix'
+08 Cures 'Poison' status
+09 Cures 'Darkness' status
+0A Cures 'Stone' status
+0B Cures 'Mini' status
+0C Summons an Esper | Use during battle
+0D Rest a night ro recover health
+0E 'Drink' - double max HP
+0F 'Drink' - raise attack power
+10 'Drink' - cause effect of 'Haste'
+11 'Drink' - raise defense power
+12 'Drink' - raise all powers
+13 Use at menu screen to learn an Esper spell
+14 'Throw' to damage all enemies
+15 'Double Grip' OK | 'Magic Sword' OK
+16 'Magic Sword' OK
+17 'Jump' to double attack power
+18 Back row OK | 'Double Grip' OK
+19 'Double Grip' OK (Axes, Hammers)
+1A 'Double Grip' OK (Katanas)
+1B 'Double Grip' only | Back row OK
+1C Halves MP cost during battle
+1D Improves 'Steal'!
+1E Improves fire/ice/bolt | earth magic strength!
+1F Improves 'Holy'!
+20 Prevents Zombie/Aging
+21 Prevents most status ailments
+22 Absorb water, nullify flame, weak vs. thunder (not used)
+23 Back row OK
+24 Improves 'Brawl'!
+25 Improves 'Control' rate
+26 Becomes easier to 'Catch' monsters!
+27 'Your bravery praised for victory.'
+28 'Your wisdom and bravery prevailed over the Ancients.'
+29 Uses MP for its power | 'Double Grip' OK
+2A Steadily decreases HP
+2B Undead armor!
+2C A Shield that does not evade
+2D A ring lain with a curse of 'Doom'!
+
+
+5: Special properties
+
+0 0 0 0   0 0 0 0
+SPKPI     AhMSA WR
+
+80 Sword parry (Hardened, Defender)
+40 Knife parry (Guardian)
+20 First strike
+10 
+08 Action on hit
+04 Magic Sword OK
+02 Ability instead of attack
+01 Wonder Rod
+
+
+6: Used as item
+
+0 0 0 0   0 0 0 0
+B {    Action   }
+
+80 Breaks after use
+40-01 [Magic] cast (00-7F)
+
+_____
+
+Armor
+_____
+
+- D1/0600
+
+[Item] * 12 bytes
+0 Equipment slots
+1 Equipment weight
+2 Equipment type value \
+3 Element/stats up      (See Weapons section)
+4 Description          /
+5 Special properties
+6 Evade %
+7 Defense
+8 Magic evade %
+9 Magic defense
+A Element defense
+B Status properties
+
+________________________
+
+0: Equipment slots
+
+0 0 0 0   0 0 0 0
+          S H B A
+
+80 
+40 
+20 
+10 
+08 Shield
+04 Headgear
+02 Bodywear
+01 Accessory
+
+
+5: Special properties
+
+0 0 0 0   0 0 0 0
+MBE B S   MPSDU C
+
+80 Magic block (Aegis shield)
+40 Elf Cape dodge
+20 Improved Brawl
+10 Improved Steal
+08 Half MP cost
+04 Sword Dance / Flirt up
+02 Become undead
+01 Improved Catch
+
+
+A: Element defense
+
+01 Diamond Shield/Helmet/Armor/Plate
+02 (Half all)
+03 Angel Suit
+04 Flame Ring
+05 Coral Ring
+06 Bone Mail
+07 Flame Shield
+08 Ice Shield
+
+
+B: Status properties
+
+01 Guard Ring
+02 Cursed Ring
+03 Running Shoes
+04 Aegis Shield
+05 Ribbon
+06 Tiara, Rainbow Suit, Red Shoes
+07 Bard's Clothes
+08 Glasses
+09 Angel Suit
+0A Bone Mail
+0B Wall Ring
+0C Giant's Glove
+0D Angel Ring
+0E Thornlet
+0F Mirage Vest
+10 Genji Shield
+11 Genji Helmet
+12 Genji Armor
+13 Genji Glove
+
+_______
+
+Usables
+_______
+
+- D1/0A80
+
+[Item] * 8 bytes
+0 Targeting
+1 [Attack Type]
+2 Misc.
+3 Description (see Weapons section)
+4 Unavoidable + Attack formula
+5 Parameter 1 \
+6 Parameter 2  (See Actions chapter)
+7 Parameter 3 /
+
+________________________
+
+0: Targeting
+
+0 0 0 0   0 0 0 0
+M A T S   E R    
+
+80 Multi-target optional
+40 Hits all targets
+20 Target selectable
+10 Side selectable
+08 Target enemy (by default)
+04 Roulette
+02 
+01 
+
+
+2: Misc.
+
+0 0 0 0   0 0 0 0
+  T B D   ML  M
+
+80 
+40 Can NOT be used with Throw
+20 Can NOT be used in battle
+10 Can NOT be used with Drink
+08 Magic Lamp
+04 
+02 Can NOT be used with Mix
+01 
+
+
+4: Unavoidable + Attack formula
+
+0 0 0 0   0 0 0 0
+U {   Formula   }
+
+80 Unavoidable
+40-01 [Attack formula]
+
+___________________________
+
+Element defense definitions
+___________________________
+
+- D1/2580
+
+Element defense * 5 bytes
+0 [Element] absorb
+1 [Element] evade
+2 [Element] immunity
+3 [Element] half
+4 [Element] weakness
+
+_____________________________
+
+Status properties definitions
+_____________________________
+
+- D1/26C0
+
+Status defense * 7 bytes
+0 [Status 0] initial
+1 [Status 1] initial
+2 [Status 2] initial
+3 [Status 3] initial
+4 [Status 0] immune
+5 [Status 1] immune
+6 [Status 2] immune
+
+________________________
+
+[Last update: 3 Jan 2010]

@@ -10,6 +10,7 @@ import itemIcon from '../../assets/Excalibur.png';
 import spellIcon from '../../assets/Comet.png';
 import shopIcon from '../../assets/Female NPC.png';
 import enemyIcon from '../../assets/Gilgamesh.png';
+import textIcon from '../../assets/Text.png';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { byteSelector, setROM } from '../redux/slices/ROM-Slice';
 
@@ -81,6 +82,7 @@ export const EditorChooser = () => {
     { name: 'Spell', icon: spellIcon, clickListener: () => openEditor('spell'), disabled: isDisabled },
     { name: 'Shop', icon: shopIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
     { name: 'Enemy', icon: enemyIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
+    { name: 'Text', icon: textIcon, clickListener: () => openEditor('text'), disabled: isDisabled },
   ];
   const buttonWidth = `${100 / buttonProps.length}%`;
 

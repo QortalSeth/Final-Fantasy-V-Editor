@@ -1,0 +1,10 @@
+To apply ASM patches do the following:
+1. Move desired patches from "Available Asm" to "Applied Asm" folders
+2. Place ROM named "Final Fantasy V" in same directory as this document
+3. If ROM is headered, change its file extension to .smc, if unheadered, change it to .sfc
+   a. This must be done so that the Asar compiler writes the values to the correct locations
+   b. To change the file extension, simply rename the file with the correct extension.
+   c. Ignore any warnings from your operating system about changing the file extension
+4. Execute "Final Fantasy V.bat" and all asm files in the "Applied asm" directory will be applied to your ROM.
+
+

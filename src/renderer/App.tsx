@@ -13,6 +13,7 @@ import { store } from '../redux/store';
 import './App.css';
 import { MainMenu } from '../components/pages/MainMenu';
 import SpellEditor from '../components/pages/SpellEditor';
+import TextEditor from '../components/pages/TextEditor';
 
 // const router = createHashRouter(
 //   createRoutesFromElements(
@@ -30,6 +31,7 @@ export default function App() {
         <Routes>
           <Route path='/' element={<MainMenu />} />
           <Route path='/spell' element={<SpellEditor />} />
+          <Route path='/text' element={<TextEditor />} />
         </Routes>
       </BrowserRouter>
     </Provider>

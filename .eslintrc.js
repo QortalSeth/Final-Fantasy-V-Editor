@@ -11,6 +11,7 @@ module.exports = {
     '@typescript-eslint/return-await': 'off',
     singleAttributePerLine: 0,
     jsxSingleQuote: 0,
+    'import/prefer-default-export': 'off',
     'max-len': 'off',
     'prettier/prettier': ['error', { printWidth: 120 }],
     objectPropertyNewline: 0,

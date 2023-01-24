@@ -1,0 +1,1526 @@
+____________
+
+COMMON LISTS
+____________
+
+Bit lists
+- Element
+- Attack type
+- Monster type
+- Status 0 (curable)
+- Status 1 (temporary)
+- Status 2 (dispellable)
+- Status 3 (special)
+- MSword effect
+
+Byte lists
+- Stats
+- Equipment type
+
+Value lists
+- Character
+- Magic
+- Ability effect
+- Item
+- Job
+- Ability
+- Monster / Monster name
+- Attack formula
+
+_________
+
+Bit lists
+_________
+
+Element
+
+0 0 0 0   0 0 0 0
+WaWiE H   P L I F
+
+80 Water
+40 Wind
+20 Earth
+10 Holy
+08 Poison
+04 Lightning
+02 Ice
+01 Fire
+
+
+Attack type
+
+0 0 0 0   0 0 0 0
+PhAeSoSum D BlW Blu
+
+80 Physical
+40 Aerial (weapons)
+20 Song
+10 Summon
+08 Dimen
+04 Black
+02 White
+01 Blue
+
+
+Monster type
+
+0 0 0 0   0 0 0 0
+HuDeHeDr  A C AtU
+
+80 Human
+40 Desert
+20 Heavy
+10 Dragon
+08 Avis
+04 Beast
+02 Archaetoad
+01 Undead
+
+
+Status 0 (curable)
+
+0 0 0 0   0 0 0 0
+D S T M   F P Z B
+
+80 Wounded ("Always" for Initial status)
+40 Stone
+20 Toad
+10 Mini
+08 Float
+04 Poison
+02 Zombie
+01 Darkness
+
+
+Status 1 (temporary)
+
+0 0 0 0   0 0 0 0
+A S P C   B M I2I1
+
+80 Aging
+40 Sleep
+20 Paralyze
+10 Charm
+08 Berserk
+04 Mute
+02 Image x2
+01 Image x1
+
+
+Status 2 (dispellable)
+
+0 0 0 0   0 0 0 0
+W A ShSt  H SlI R
+
+80 Wall
+40 Armor
+20 Shell
+10 Stop
+08 Haste
+04 Slow
+02 Invulnerable
+01 Regen
+
+
+
+Status 3 (special)
+
+0 0 0 0   0 0 0 0
+E FICtCd  HPS NDH
+
+80 Erased
+40 False Image
+20 Controlled (will only cast Fire Sword)
+10 Countdown
+08 HP Leak
+04 Singing
+02 Critical
+01 Hidden
+
+
+MSword effect
+
+0 0 0 0   0 0 0 0
+P H M
+
+80 Power-up (Flare sword)
+40 HP drain (Drain sword)
+20 MP drain (Psych sword)
+
+__________
+
+Byte lists
+__________
+
+Stats: 4 bytes
+0 Strength
+1 Agility
+2 Vitality
+3 Magic power
+
+Equipment type: 4 bytes
+80 Katana              Common
+40 Hammer    Bell      Mage robe
+20 Axe       Whip      Light a.
+10 Spear     Harp      Heavy a.  Mage hat
+08 Knight s. Bow       Dancer g. Chemist g.
+04 Sword     Flail     Light h.  Thief g.
+02 Ninja s.  Staff     Heavy h.  Ring
+01 Knife     Rod       Shield    Glove
+
+
+Job Bits
+80 Knight     Mystic Knight      Chemist
+40 Monk       White Mage         Geomancer
+20 Thief      Black Mage         Bard
+10 Dragoon    Time Mage          Dancer
+08 Ninja      Summoner           Mime
+04 Samurai    Blue Mage          Freelancer
+02 Berserker  Red Mage
+01 Hunter     Mediator
+___________
+
+Value lists
+___________
+
+Character
+0 Butz
+1 Lenna
+2 Galuf
+3 Faris
+4 Cara
+
+Job
+00 Knight
+01 Monk
+02 Thief
+03 Dragoon
+04 Ninja
+05 Samurai
+06 Berserker
+07 Hunter
+08 Mystic Knight
+09 White Mage
+0A Black Mage
+0B Time Mage
+0C Summoner
+0D Blue Mage
+0E Red Mage
+0F Mediator
+10 Chemist
+11 Geomancer
+12 Bard
+13 Dancer
+14 Mimic
+15 Normal
+
+________________________
+
+Magic
+
+Sword
+00 Fire
+01 Ice
+02 Bolt
+03 Venom
+04 Mute
+05 Sleep
+06 Fire2
+07 Ice 2
+08 Bolt2
+09 Drain
+0A Break
+0B Bio
+0C Fire3
+0D Ice 3
+0E Bolt3
+0F Holy
+10 Flare
+11 Psych
+
+White
+12 Cure
+13 Scan
+14 Antidote
+15 Mute
+16 Armor
+17 Size
+18 Cure2
+19 Life
+1A Charm
+1B Image
+1C Shell
+1D Heal
+1E Cure3
+1F Wall
+20 Berserk
+21 Life2
+22 Holy
+23 Dispel
+
+Black
+24 Fire
+25 Ice
+26 Bolt
+27 Venom
+28 Sleep
+29 Toad
+2A Fire2
+2B Ice2
+2C Bolt2
+2D Drain
+2E Break
+2F Bio
+30 Fire3
+31 Ice3
+32 Bolt3
+33 Flare
+34 Doom
+35 Psych
+
+Time
+36 Drag
+37 Slow
+38 Regen
+39 Void
+3A Haste
+3B Float
+3C Demi
+3D Stop
+3E Exit
+3F Comet
+40 Slow2
+41 Reset
+42 Qrter
+43 Hast2
+44 Old
+45 Meteo
+46 Quick
+47 XZone
+
+Summon
+48 Chocob
+49 Sylph
+4A Remora
+4B Shiva
+4C Ramuh
+4D Ifrit
+4E Titan
+4F Golem
+50 Shoat
+51 Crbnkl
+52 Syldra
+53 Odin
+54 Phenix
+55 Levia
+56 Bahmut
+
+Songs
+57 Power Song
+58 Speed Song
+59 Vitality Song
+5A Magic Song
+5B Hero Song
+5C Requiem
+5D Love Song
+5E Charm Song
+
+Summon (direct)
+5F Chocobo Kick
+60 Whispering Wind
+61 Latch On
+62 Diamond Dust
+63 Bolt of Judgement
+64 Hellfire
+65 Rage of the Earth
+66 Earth Wall
+67 Demon's Eye
+68 Ruby Light
+69 Thunder Storm
+6A True Edge
+6B Fire of Resurrection (always targets monsters)
+6C Big Wave
+6D Mega Flare 
+6E Fat Chocobo
+6F Gungnir
+70 Fire of Resurrection (resurrection)
+
+Misc
+71 Dragon Sword (HP)
+72 Dragon Sword (MP)
+73 Egg Chop
+74 ItemMagic05 (Silver Harp)
+75 ItemMagic06 (Dream Harp)
+76 ItemMagic07 (Lamia Harp)
+77 ItemMagic08 (Apollo Harp)
+78 ItemMagic09 (weapons: No effect when used in item menu)
+79 Mystery Waltz
+7A Jitterbug Duet
+7B Tempting Tango
+7C Magic Barrier (MKnight ability)
+7D "Sword Dance" (element guard)
+7E Ice Aura (element guard)
+7F Entangle (whip effect)
+
+Fight (monsters)
+80 Fight
+81 Specialty
+
+Blue
+82 Condemn
+83 Roulette 
+84 Aqua Rake
+85 L.5 Doom
+86 L.4 Quarter
+87 L.2 Old
+88 L.3 Flare
+89 Frog Song
+8A Tiny Song
+8B Flash
+8C Time Slip
+8D Moon Flute
+8E Death Claw
+8F Aero
+90 Aero2
+91 Aero3
+92 Emission
+93 Goblin Punch
+94 Dark Shock
+95 Guard Off
+96 Fusion
+97 Mind Blast
+98 Vampire
+99 Magic Hammer
+9A Big Guard
+9B Exploder
+9C ????
+9D Blowfish
+9E White Wind
+9F Missile
+
+Monster
+A0 Kurururu!
+A1 Level Down
+A2 Escape
+A3 Stalker Attack
+A4 Byblos Attack
+A5 "No Clue"
+A6 Grand Cross
+A7 Delta Attack
+A8 Interceptor Rocket
+A9 Barrier Change
+AA "Regeneration" (Nothing)
+AB Wind Slash
+AC No-Damage Magic
+AD Targeting
+AE Gravity 100
+AF Darkness
+B0 Reaper's Sword
+B1 Punishment
+B2 Blaster
+B3 Beak
+B4 Hug
+B5 Spore
+B6 Poison Breath
+B7 Dance of the Dead
+B8 Zombie Powder
+B9 Zombie Breath
+BA Spirit
+BB Allure
+BC Entangle
+BD Rainbow Wind
+BE Strange Dance
+BF Electromagnetic Field
+C0 White Hole
+C1 Needle
+C2 Maelstrom
+C3 Bone
+C4 Tailscrew
+C5 Stomach Acid
+C6 Rocket Punch
+C7 Mustard Bomb
+C8 Almagest
+C9 Quicksand
+CA Atomic Ray
+CB Mini Blaze
+CC Snowstorm
+CD Blaze
+CE Electric Shock
+CF Earth Shaker
+D0 True Edge
+D1 Tidal Wave
+D2 Mega Flare
+D3 Sonic Wave
+D4 Thread
+D5 Mucus
+D6 Quake
+D7 Fight (strong)
+D8 Medicine
+D9 Image
+DA Breath Wing
+DB Flame
+DC Thunder
+DD Surge Beam
+DE "Explosion" (Fight) (Ramuh, Shoat)
+DF Remedy
+E0 Valiant Attack
+E1 Giga Flare
+E2 Circle
+E3 Wormhole
+E4 Possess
+E5 Dynamo
+E6 Magnet
+E7 Reverse Polarity
+E8 Jump
+E9 X-Zone
+EA Hurricane
+EB Demon's Eye
+EC (Pull)
+ED (?) (Sandworm)
+EE (Hide monster)
+EF (End battle)
+
+Reserved for AI scripts
+F0-FF (Nothing) (displays default text)
+
+________________________
+
+Ability effect
+
+Animals
+00 Mysidian Rabbit
+01 Squirrel
+02 Bee Swarm
+03 Nightingale
+04 Momonga
+05 Falcon
+06 Skunk
+07 Wild Boar
+08 Unicorn
+
+09 "Failure" (?)
+
+Mix
+0A Potion (mix)
+0B Water of Life
+0C X-Potion
+0D Elixir (mix)
+0E Resurrection
+0F Maiden's Kiss (mix)
+10 Ether (mix)
+11 Neutralize
+12 Cure Blind
+13 Dragon Power
+14 Dark Potion
+15 HiPotion (mix)
+16 Half Elixir
+17 Ether Dry
+18 "Call1"
+19 Reincarnation
+1A Lillith's Kiss
+1B Resist Poison
+1C Resist Fire
+1D Dragon Shield
+1E Dark Ether
+1F Failure (EL+TS)
+20 "Mix0023"
+21 "Mix0024"
+22 Giant Drink (mix)
+23 Dark Elixir
+24 Fenix Down
+25 Kiss of Life
+26 Life Shield
+27 Panacea
+28 Resist Ice
+29 Resist Thunder
+2A Dragon Armor
+2B Death Potion
+2C Kiss of Blessing
+2D Drain Kiss
+2E Levitate
+2F Lamia's Kiss
+30 Dragon's Kiss
+31 Toad's Kiss
+32 Holywater
+33 Bacchus' Wine
+34 Sampson Power
+35 Elemental Power
+36 Holy Breath
+37 Failure (R+DM)
+38 Protect Drink (mix)
+39 Split Shell
+3A Haste Drink (mix)
+3B Failure (TS+DF)
+3C Explosive
+3D Antidote (mix)
+3E Restorative
+3F Poison Breath
+40 Poison
+41 Eyedrop (mix)
+42 Dark Sigh
+43 Dark Gas
+44 Dragon Breath
+45 Dark Breath
+46 Shadow Flare
+
+47 "Call2"
+48 "Call3"
+
+Terrain
+49 Gust
+4A Earthquake
+4B Gale Cut
+4C Tornado
+4D Branch Arrow
+4E Leaf Dance
+4F Branch Spear
+50 Vine Hell
+51 Dust Storm
+52 Quicksand
+53 Desert Storm
+54 Heat Sand
+55 Tsunami
+56 Whirlpool
+57 Big Tsunami (90)
+58 Big Tsunami (120)
+59 Faen Fantom
+5A Will-o-Wisp
+5B Bottomless Swamp
+5C Poison Mist
+5D Waterfall
+5E Stalactite
+5F Cave-in
+60 Sonic Boom
+
+________________________
+
+Item
+
+Weapons
+00 (Nothing)
+01 Empty
+02 Knife
+03 Dagger
+04 Mythril Dagger
+05 Kunai
+06 Mage Masher
+07 Guardian
+08 Kodachi
+09 Orihalcon
+0A Air Lancet
+0B Assassin Dagger
+0C Hardened Dagger
+0D Broad Sword
+0E Regal Cutlass
+0F Mythril Sword
+10 Coral Sword
+11 Ancient Sword
+12 Epee
+13 Slumber Sword
+14 Defender
+15 Excalibur
+16 Ragnarok
+17 Javelin
+18 Spear
+19 Mythril Spear
+1A Trident
+1B Wind Spear
+1C Partisan
+1D Gungnir
+1E Double Lance
+1F Holy Spear
+20 Dragoon Spear
+21 Battle Axe
+22 Mythril Hammer
+23 Ogre Axe
+24 War Hammer
+25 Venom Axe
+26 Earth Hammer
+27 Rune Axe
+28 Thor's Hammer
+29 Katana
+2A AirBlade
+2B Kotetsu Sword
+2C Bizen Sword
+2D Forged Sword
+2E Murasame
+2F Masamune
+30 Tempest Sword
+31 Rod
+32 Fire Rod
+33 Ice Rod
+34 Thunder Rod
+35 Venom Rod
+36 Lillith Rod
+37 Wizard Rod
+38 Staff
+39 Mythril Staff
+3A Power Staff
+3B Healing Staff
+3C Light Staff
+3D Sage Staff
+3E Staff of Judgement
+3F Fire Bow
+40 Ice Bow
+41 Thunder Bow
+42 Darkness Bow
+43 Killer Bow
+44 Elven Bow
+45 Yoichi Bow
+46 Artemis' Bow
+47 Silver Harp
+48 Dream Harp
+49 Lamia Harp
+4A Apollo Harp
+4B Whip
+4C Chain Whip
+4D Thunder Whip
+4E Flame Whip
+4F Dragon Whip
+50 Giyaman's Bell
+51 Earth Bell
+52 Rune Bell
+53 Tinker Bell
+54 Sabre (dummy)
+55 Drain Sword
+56 Rune Edge
+57 Flame Tongue
+58 Ice Brand
+59 Full Moon
+5A Shuriken
+5B Pinwheel
+5C Excailber
+5D Beastkiller
+5E Flail
+5F Morning Star
+60 Wonder Rod
+61 Brave Blade
+62 Soot
+63 Chicken Knife
+64 Rising Sun
+65 Silver Bow
+66 Gale Bow
+67 Anti-Magic Bow
+68 Aviskiller
+69 Doom Axe
+6A Giant's Axe
+6B Man Eater
+6C Thief's Knife
+6D Dancing Dagger
+6E Enhancer
+6F Left Hand
+70 Right Hand
+71 Item0000 (dummy)
+72 Item0000 (dummy)
+73 Item0000 (dummy)
+74 Item0000 (dummy)
+75 Item0000 (dummy)
+76 Item0000 (dummy)
+77 Item0000 (dummy)
+78 Item0000 (dummy)
+79 Item0000 (dummy)
+7A Item0000 (dummy)
+7B Item0000 (dummy)
+7C Item0000 (dummy)
+7D Item0000 (dummy)
+7E Item0000 (dummy)
+7F Item0000 (dummy)
+
+Armor
+80 (Nothing)
+81 Leather Shield
+82 Bronze Shield
+83 Iron Shield
+84 Mythril Shield
+85 Gold Shield
+86 Aegis Shield
+87 Diamond Shield
+88 Crystal Shield
+89 Leather Helmet
+8A Bronze Helmet
+8B Iron Helmet
+8C Mythril Helmet
+8D Gold Helmet
+8E Diamond Helmet
+8F Crystal Helmet
+90 Plumed Hat
+91 Tricorn
+92 Magus Hat
+93 Circlet
+94 Gold Hairpin
+95 Ribbon
+96 Bandana
+97 Green Beret
+98 Dark Hood
+99 Lamia's Tiara
+9A Leather Clothes
+9B Bronze Armor
+9C Iron Armor
+9D Mythril Armor
+9E Gold Armor
+9F Diamond Armor
+A0 Crystal Armor
+A1 Copper Armor
+A2 Training Suit
+A3 Silver Armor
+A4 Stealth Robe
+A5 Diamnd Plate
+A6 Dark Suit
+A7 Cotton Suit
+A8 Silk Robe
+A9 Gaia Gear
+AA Bard's Clothes
+AB Lumina Suit
+AC Black Suit
+AD White Suit
+AE Mirage Vest
+AF Guard Ring
+B0 Thief Glove
+B1 Giant's Glove
+B2 Elf Cape
+B3 Cursed Ring
+B4 Glasses
+B5 Running Shoes
+B6 Mythril Glove
+B7 Silver Ring
+B8 Diamond Ring
+B9 Strength Suit
+BA Power Ring
+BB Angel Suit
+BC Angel Ring
+BD Flame Ring
+BE Coral Ring
+BF Bone Mail
+C0 Leather Shoes
+C1 Kaiser Knuckles
+C2 Gauntlet
+C3 Tiger Mask
+C4 Flame Shield
+C5 Corna Jar
+C6 Genji Shield
+C7 Genji Helmet
+C8 Genji Armor
+C9 Genji Glove
+CA Wall Ring
+CB Coronet
+CC Thornlet
+CD Ice Shield
+CE Cursed Shield
+CF Rainbow Suit
+D0 Red Shoes
+D1 Item0000 (dummy)
+D2 Item0000 (dummy)
+D3 Item0000 (dummy)
+D4 Item0000 (dummy)
+D5 Item0000 (dummy)
+D6 Item0000 (dummy)
+D7 Item0000 (dummy)
+D8 Item0000 (dummy)
+D9 Item0000 (dummy)
+DA Item0000 (dummy)
+DB Item0000 (dummy)
+DC Item0000 (dummy)
+DD Item0000 (dummy)
+DE Item0000 (dummy)
+DF Item0000 (dummy)
+
+Usables
+E0 Potion
+E1 Hi-Potion
+E2 Ether
+E3 Elixir
+E4 Phoenix Down
+E5 Maiden's Kiss
+E6 Revivify
+E7 Turtle Shell
+E8 Antidote
+E9 Eyedrop
+EA Dragon Fang
+EB Dark Matter
+EC Soft
+ED Luck Mallet
+EE "Dummy"
+EF Magic Lamp
+F0 Tent
+F1 Cabin
+F2 Giant Drink
+F3 Power Drink
+F4 Speed Drink
+F5 Protect Drink
+F6 Hero Drink
+F7 Dragon Crest
+F8 Omega Medal
+F9 Ramuh
+FA Shoat
+FB Golem
+FC Flame Scroll
+FD Water Scroll
+FE Thunder Scroll
+FF "by RPGe"
+
+________________________
+
+Ability
+
+Command abilities
+00 (Nothing)
+01 Other
+02 Item
+03 Row
+04 Def.
+05 Fight
+06 Guard
+07 Kick
+08 BuildUp
+09 Mantra
+0A Escape
+0B Steal
+0C Capture
+0D Jump
+0E DrgnSwd
+0F Smoke
+10 Image
+11 Throw
+12 SwdSlap
+13 GilToss
+14 Slash
+15 Animals
+16 Aim
+17 X-Fight
+18 Conjure
+19 Observe
+1A Analyze
+1B Tame
+1C Control
+1D Catch
+1E Release
+1F Combine
+20 Drink
+21 Pray
+22 Revive
+23 Terrain
+24 "Dummy01" (Nothing)
+25 Hide
+26 Show
+27 "Dummy02" (MgcSwrd ?)
+28 Sing
+29 Flirt
+2A Dance
+2B Mimic
+2C MgcSwrd (Lv1)
+2D MgcSwrd (Lv2)
+2E MgcSwrd (Lv3)
+2F MgcSwrd (Lv4)
+30 MgcSwrd (Lv5)
+31 MgcSwrd (Lv6)
+32 White (Lv1)
+33 White (Lv2)
+34 White (Lv3)
+35 White (Lv4)
+36 White (Lv5)
+37 White (Lv6)
+38 Black (Lv1)
+39 Black (Lv2)
+3A Black (Lv3)
+3B Black (Lv4)
+3C Black (Lv5)
+3D Black (Lv6)
+3E Dimen (Lv1)
+3F Dimen (Lv2)
+40 Dimen (Lv3)
+41 Dimen (Lv4)
+42 Dimen (Lv5)
+43 Dimen (Lv6)
+44 Summon (Lv1)
+45 Summon (Lv2)
+46 Summon (Lv3)
+47 Summon (Lv4)
+48 Summon (Lv5)
+49 Red (Lv1)
+4A Red (Lv2)
+4B Red (Lv3)
+4C X-Magic
+4D Blue
+4E (Double damage)
+4F (Jump hit)
+50 "Dummy01" (Jump miss)
+51 "Dummy02" (Throbbing)
+52 "Dummy03" (Jump)
+53 "Dummy04" (AirBlade effect)
+54 "Dummy05" (show final stats)
+55 "Dummy06" (dual attack)
+56 "Dummy07" (Earthquake effect)
+57 "Dummy08" (Nothing)
+58 "Dummy09" (Nothing)
+59 "Dummy10" (Steal)
+5A "Dummy11" (Row)
+5B "Dummy12" (Nightingale)
+5C "Dummy13" (battle stance)
+5D "Dummy14" (Mysidian Rabbit)
+5E "Dummy15" (Buildup)
+5F "Dummy16" (Nothing)
+60-7F (Nothing)
+
+Support abilities
+80 Equip Shields
+81 Equip Armor
+82 Equip Ribbons
+83 Equip Swords
+84 Equip Spears
+85 Equip Katanas
+86 Equip Axes
+87 Equip Bows
+88 Equip Whips
+89 Equip Harps
+8A Agility Up
+8B HP Up 10%
+8C HP Up 20%
+8D HP Up 30%
+8E MP Up 10%
+8F MP Up 30%
+90 Brawl
+91 Double Grip
+92 2-Handed Grip (2 weapons)
+93 Medicine
+94 Cover
+95 Counter
+96 Evade
+97 Spell Learning
+98 Barrier
+99 Berserk
+9A Caution
+9B Alert
+9C See Passages
+9D Damage Floor
+9E See Pitfalls
+9F Equip Rods
+A0 Dash
+
+________________________
+
+Monster (name)
+
+00 Goblin
+01 Killer Bee
+02 Nut Eater
+03 Stray Cat
+04 Steel Bat
+05 Dearo
+06 Stroper
+07 Black Goblin
+08 White Snake
+09 Mold Wind
+0A ManiWizard
+0B Magic Pot
+0C Sucker
+0D Octoraken
+0E Gatlings
+0F Bighorn
+10 Tatu
+11 Bander S.
+12 Galura
+13 Skeleton
+14 Carcurser
+15 UndeadRusk
+16 PsychoHead
+17 RockGarter
+18 Gala Cat
+19 Cockatrice
+1A Blocks
+1B Elf Toad
+1C IceSoldier
+1D RikaldMage
+1E Wyvern
+1F Padosule
+20 Byblos
+21 Aegil
+22 Zuu
+23 Wild Nack
+24 GrassTurtle
+25 Silent Bee
+26 Mithril Drgn
+27 Ramuh
+28 Crew Dust
+29 Poltergeist
+2A Motor Trap
+2B Defeater
+2C Garkimasra
+2D Sergeant
+2E Sorcerer
+2F Karnak
+30 Gigas
+31 Page 32
+32 Page 64
+33 Page 128
+34 Page 256
+35 Ifrit
+36 Bomb
+37 TwinLizard
+38 BioSoldier
+39 Crescent
+3A BlackFlame
+3B StoneGolem
+3C MiniDragon
+3D Prototype
+3E D.Chimera
+3F Sand Porky
+40 Sand Killer
+41 Sand Bear
+42 Ra Mage
+43 LonkaKnght
+44 StonedMask
+45 Whirl Demon
+46 Lamia
+47 ArchaeToad
+48 Hyudora
+49 Hydra
+4A Water Buzz
+4B Torrent
+4C Rock Brain
+4D Tarantula
+4E Jail Bear
+4F Lunenta
+50 Dilure
+51 Faerie Orc
+52 Devourer
+53 Mandrake
+54 Kuzar
+55 Cactus
+56 Sand Crawl
+57 ShieldDrgn
+58 Blood Slime
+59 Acrophese
+5A MooglEater
+5B Lopros
+5C Skull Eater
+5D Aquathone
+5E Weresnake
+5F Conago
+60 Ridicule
+61 Andagranda
+62 Drippy
+63 Likaon
+64 BoneDragon
+65 Sting Eagle
+66 ZombieDrgn
+67 Golem
+68 Neon
+69 Magnetes
+6A Wall Knight
+6B Traveler
+6C Tricker
+6D Gravido
+6E Ziggurat
+6F Cure Beast
+70 Land Turtle
+71 Bold Mani
+72 Shoat
+73 MiniMage
+74 GajraGajri
+75 Mammon
+76 Imp
+77 Wyrm
+78 TwinLizard
+79 Blind Wolf
+7A Arage
+7B Wall Mage
+7C Magic Drgn
+7D DarkWizard
+7E AdamaGolem
+7F BandelKuar
+80 Motordrive
+81 BlueDragon
+82 Red Dragon
+83 Yellow Drgn
+84 Sleepy
+85 Treeman
+86 Hedgehog
+87 Python
+88 Shadow
+89 Elm Gigas
+8A Pao
+8B Radiator
+8C Metamorpha
+8D Unknown (Spore 2nd form)
+8E Desertpede
+8F Barette
+90 Sekmet
+91 BlandLamia
+92 Pyra Layer
+93 Nile
+94 Archaesaur
+95 ZephyrZone
+96 ExdethSoul
+97 Slug
+98 GloomWidow
+99 Mukare
+9A Ixecrator
+9B Owazoral
+9C ShdwDancer
+9D Cursed One
+9E Slownin
+9F TinyMage
+A0 Dim Master
+A1 BoneDragon
+A2 Flare
+A3 DuelKnight
+A4 Ion
+A5 Berserker
+A6 ZombieDrgn
+A7 Druid
+A8 Iron Dress
+A9 Statue
+AA Blizzard
+AB Isteritos
+AC Spizner
+AD Unknown (Blob)
+AE Unknown (Worm)
+AF Unknown (Spore 1st form)
+B0 Unknown (Skeleton)
+B1 MercuryBat
+B2 Coral
+B3 Tonberi
+B4 Gel Water
+B5 Fall Guard
+B6 Alcumia
+B7 Red Dragon (Alcumia)
+B8 Hydra (Alcumia)
+B9 BoneDragon (Alcumia)
+BA Grenade
+BB SwrdDancer
+BC Bardandels
+BD DoomDealer
+BE Anku Heggu
+BF Ammona
+C0 Land Crawl
+C1 Chamcubia
+C2 Bella Donna
+C3 Cherie
+C4 White Flame
+C5 MossFungus
+C6 Orcat
+C7 Iron Giant
+C8 Death Claw
+C9 K.Behemoth
+CA Farfarerro
+CB Necromancr
+CC Ninja
+CD Great Drgn
+CE AvisDragon
+CF Gorchimera
+D0 LevelCheck
+D1 Mind Mage
+D2 Fury
+D3 Thing
+D4 Mover
+D5 CrysDragon
+D6 Achelone
+D7 Bodyguard
+D8 Gilgamesh (X-Zone)
+D9 Sahagin
+DA Th.Anemone
+DB Sea Avis
+DC Corvette
+DD Armon
+DE SeaScorpio
+DF Silvune
+E0 Gel Fish
+E1 Giant Bird
+E2 Sea Devil
+E3 Stingray
+E4 ???? (Golem)
+E5 Golem
+E6 Chimera
+E7 Shiva (Metamorpha)
+E8 Ifrit (Metamorpha)
+E9 Ramuh (Metamorpha)
+EA Gala Cat (Metamorpha)
+EB Wyvern (Metamorpha)
+EC Elf Toad (Metamorpha)
+ED Crew Dust (Metamorpha)
+EE Whirl Demon (Metamorpha)
+EF ZombieDrgn (Metamorpha)
+F0 D.Chimera (Zephyr Zone)
+F1 AdamaGolem (Zephyr Zone)
+F2 Ziggurat (Zephyr Zone)
+F3 LonkaKnght (Zephyr Zone)
+F4 BioSoldier (Zephyr Zone)
+F5 Lunenta (Zephyr Zone)
+F6 Tote Avis
+F7 Belfegor
+F8 Imp (Exdeath Castle)
+F9 Owazoral (Exdeath Castle)
+FA Garkimasra (Exdeath Castle)
+FB Gabbldegak
+FC Gil Turtle
+FD Omega
+FE Big Boss
+FF (Dummy)
+
+Bosses
+00 WingRaptor (open)
+01 WingRaptor (closed)
+02 Karlabos
+03 Twin Tania (charging)
+04 Siren (human)
+05 Siren (undead)
+06 Forza
+07 Magisa
+08 Galura (boss)
+09 LiquiFlame (human)
+0A LiquiFlame (hand)
+0B LiquiFlame (whirlwind)
+0C Commander
+0D Sandworm
+0E Hole
+0F (Sandworm timer)
+10 AdamanTiMi
+11 Flamegun
+12 Rocket
+13 Exdeath
+14 Sol Cannon
+15 ArchaeAvis (Wind weakness)
+16 ArchaeAvis (Ice absorb)
+17 ArchaeAvis (Fire absorb)
+18 ArchaeAvis (Lightning absorb)
+19 ArchaeAvis (balanced)
+1A Chim.Brain
+1B Titan
+1C Puroboros
+1D Abductor (Butz solo battle)
+1E Gilgamesh (dungeon)
+1F Fishman
+20 FlyingKillr
+21 Lil'Chariot
+22 NeoGalura
+23 Gilgamesh (bridge)
+24 Tyrasaurus
+25 Shiva
+26 Abductor (Bal Castle)
+27 HiryuuPlant
+28 HiryuuFlowr (Aging)
+29 HiryuuFlowr (Poison)
+2A HiryuuFlowr (Blind)
+2B HiryuuFlowr (Paralyze)
+2C HiryuuFlowr (Charm)
+2D Gilgamesh (ship)
+2E Enkidou
+2F Atmos
+30 (Fire seal guardian)
+31 (Earth seal guardian)
+32 (Water seal guardian)
+33 (Air seal guardian)
+34 Carbunkle (safe)
+35 Merugene (?)
+36 Gilgamesh (Exdeath Castle 2nd form)
+37 Exdeath (Exdeath Castle)
+38 Antlion
+39 Mummy
+3A Aspis
+3B MachinHead
+3C Merugene (Fire weakness)
+3D Merugene (Ice weakness)
+3E Merugene (Lightning weakness)
+3F Merugene (no weakness)
+40 Odin
+41 Gargoyle
+42 Triton
+43 Neregeid
+44 Phobos
+45 Omniscient
+46 Minotauros
+47 Leviathan
+48 Stalker
+49 Gogo
+4A Bahamut
+4B Jura Avis
+4C Halicarnaso
+4D Exdeath (Galuf solo battle)
+4E NeoExdeath (fake 1)
+4F NeoExdeath (fake 2)
+50 Goblin (Butz solo battle)
+51 Iron Claw
+52 Sergeant (Iron Claw)
+53 Karnak (Iron Claw)
+54 Crayclaw
+55 NeoGoblin
+56 Calofisteri
+57 Apocalypse
+58 Catastroph
+59 Necrofobia
+5A Twin Tania (normal)
+5B Launcher
+5C Launcher
+5D Gilgamesh (Exdeath Castle)
+5E Carbunkle (vulnerable)
+5F GrandMummy
+60 Apanda
+61 Alte Roite
+62 Invisible
+63 Abductor (Exdeath Castle)
+64 BandelKuar (Phoenix Tower)
+65 LiquiFlame (Phoenix Tower)
+66 Kuzar (Phoenix Tower)
+67 Sol Cannon (Phoenix Tower)
+68 Pantera
+69 Shinryuu
+6A Barrier
+6B (Neo-Exdeath) (back)
+6C (Neo-Exdeath) (front)
+6D (Neo-Exdeath) (head)
+6E (Neo-Exdeath) (body)
+6F (Gilgamesh) (Necrofobia)
+
+Names only
+70 Chocobo
+71 FatChocobo
+72 Sylph
+73 Remora
+74 Shiva
+75 Ramuh
+76 Ifrit
+77 Titan
+78 Golem
+79 Shoat
+7A Carbunkle
+7B Syldra
+7C Odin
+7D Phoenix
+7E Leviathan
+7F Bahamut
+
+________________________
+
+Attack formula
+00 No effect
+01 Monster Fight
+02 Monster Specialty
+03 Magic Sword 1
+04 Magic Sword 2
+05 Magic Sword 3
+06 Offensive magic
+07 HP based damage + status
+08 Pierce defense
+09 Random damage
+0A Physical magic
+0B Level based damage + status
+0C Pierce defense + HP leak
+0D HP drain
+0E MP drain
+0F HP to critical
+10 Restore HP
+11 Restore full HP
+12 Status 0 infliction
+13 Status 1 infliction
+14 Status 2 infliction
+15 Toggle status
+16 Reversing status infliction
+17 Instant death
+18 Instant destroy
+19 Status removal
+1A Resurrection
+1B Whispering Wind
+1C Element attribute change
+1D View stats
+1E Drag
+1F Void
+20 End battle
+21 Reset
+22 Quick
+23 Earth Wall
+24 Constant HP restored
+25 Constant MP restored
+26 Full HP/MP
+27 Status added
+28 Constant damage
+29 Status 3 inflicted
+2A HP based damage + HP leak
+2B User HP based damage
+2C Random effect
+2D Ground attacks
+2E Reaper's Sword
+2F ?
+30 Unarmed
+31 Swords
+32 Knives
+33 Spears, Double Lance
+34 Axes, Staves
+35 Status infliction bows
+36 Bows
+37 Katanas
+38 Whips
+39 Bells
+3A Long reach axes
+3B Rods
+3C Rune weapons
+3D Death Claw
+3E Failure (EL+TS)
+3F Zombie Breath
+40 Change row
+41 ?
+42 HP and status restored
+43 !Steal
+44 Escape
+45 !Throw
+46 !GilToss
+47 !Tame
+48 !Catch
+49 Flirt
+4A !Dance
+4B L5 Doom
+4C L2 Old
+4D L4 Qrter
+4E L3 Flare
+4F Spirit
+50 Goblin Punch
+51 Stats up
+52 Mucus
+53 MP damage
+54 User HP based damage (negative)
+55 Fusion
+56 ?
+57 Random effect
+58 Mind Blast
+59 HP up
+5A White Wind
+5B ?
+5C Hug
+5D Zombie status
+5E ?
+5F ?
+60 ? (ends "Unhide" statements)
+61 "Stalker Attack"
+62 "Byblos Attack"
+63 Grand Cross
+64 Chicken Knife
+65 Interceptor Rocket
+66 Targeting
+67 Pull
+68 End battle
+69 !Control
+6A ? (Sandworm)
+6B Attribute change
+6C Monster type bonus
+6D Vampire
+6E Brave Blade
+6F Fight (strong)
+70 Wormhole
+71 Level Down
+72 Bows strong vs. monster type
+73 Spears Strong vs. monster type
+74 ?
+75 ?
+76 ?
+77 ?
+78 ?
+79 ?
+7A ?
+7B ?
+7C ?
+7D ?
+7E ?
+7F No attack
+
+________________________
+
+[Last update: 3 Jan 2010]

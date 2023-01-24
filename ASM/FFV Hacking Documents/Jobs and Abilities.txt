@@ -1,0 +1,185 @@
+__________________
+
+JOBS AND ABILITIES
+__________________
+
+- Job data
+- Ability data
+
+________
+
+Job data
+________
+
+- D1/52C0-52E9: 1st ability pointer table      [Job]
+- D1/52EA-52FF: Number of abilities per job    [Job]
+* D1/5300-542B: Job levels                     Joblevel
+- D1/56B0-5707: Base [Stats]                   [Job]
+- D1/5708-575F: [Equipment type] compatibility [Job]
+* D1/5760-57B7: Native abilities               [Job]
+* D1/57B8-57FF: Innate abilities               [Job]
+
+________________________
+
+Job levels: 3 bytes
+0 ABP low
+1 ABP high
+2 [Ability]
+
+Native abilities: 4 bytes
+0 [Ability] 1
+1 [Ability] 2
+2 [Ability] 3
+3 [Ability] 4
+
+Innate abilities: 2 bytes
+80 Counter   Cover
+40 Evade     Brawl
+20 Barrier   Dbl Grip
+10 Learning  Medicine
+08 Dash      Berserk
+04 DmgFloor  Caution
+02 Pitfalls  Preemtiv
+01 Passages  2-Handed
+
+________________________
+
+Joblevel
+00 Knight L1
+01 Knight L2
+02 Knight L3
+03 Knight L4
+04 Knight L5
+05 Knight L6
+06 Monk L1
+07 Monk L2
+08 Monk L3
+09 Monk L4
+0A Monk L5
+0B Monk L6
+0C Monk L7
+0D Thief L1
+0E Thief L2
+0F Thief L3
+10 Thief L4
+11 Thief L5
+12 Thief L6
+13 Thief L7
+14 Dragoon L1
+15 Dragoon L2
+16 Dragoon L3
+17 Ninja L1
+18 Ninja L2
+19 Ninja L3
+1A Ninja L4
+1B Ninja L5
+1C Samurai L1
+1D Samurai L2 
+1E Samurai L3
+1F Samurai L4
+20 Samurai L5
+21 Berserker L1
+22 Berserker L2
+23 Hunter L1
+24 Hunter L2
+25 Hunter L3
+26 Hunter L4
+27 Mystic Knight L1
+28 Mystic Knight L2
+29 Mystic Knight L3
+2A Mystic Knight L4
+2B Mystic Knight L5
+2C Mystic Knight L6
+2D Mystic Knight L7
+2E White Mage L1
+2F White Mage L2
+30 White Mage L3
+31 White Mage L4
+32 White Mage L5
+33 White Mage L6
+34 White Mage L7
+35 Black Mage L1
+36 Black Mage L2
+37 Black Mage L3
+38 Black Mage L4
+39 Black Mage L5
+3A Black Mage L6
+3B Black Mage L7
+3C Time Mage L1
+3D Time Mage L2
+3E Time Mage L3
+3F Time Mage L4
+40 Time Mage L5
+41 Time Mage L6
+42 Time Mage L7
+43 Summoner L1
+44 Summoner L2
+45 Summoner L3
+46 Summoner L4
+47 Summoner L5
+48 Summoner L6
+49 Blue Mage L1
+4A Blue Mage L2
+4B Blue Mage L3
+4C Blue Mage L4
+4D Red Mage L1
+4E Red Mage L2
+4F Red Mage L3
+50 Red Mage L4
+51 Mediator L1
+52 Mediator L2
+53 Mediator L3
+54 Mediator L4
+55 Chemist L1
+56 Chemist L2
+57 Chemist L3
+58 Chemist L4
+59 Chemist L5
+5A Geomancer L1
+5B Geomancer L2
+5C Geomancer L3
+5D Bard L1
+5E Bard L2
+5F Bard L3
+60 Dancer L1
+61 Dancer L2
+62 Dancer L3
+63 Mimic L1
+
+____________
+
+Ability data
+____________
+
+- D1/59E0-5CDF: Actions (see actions chapter)  [Ability] (00-5F)
+- D1/5CE0-5D9F: ?                              [Ability] (00-51)
+* D1/5DA0-5DFF: Action delays                  [Ability] (00-5F)
+- D1/5E00-61FF: Command ability [Stat] bonuses [Ability] (00-7F)
+- D1/6308-638B: Support ability [Stat] bonuses [Ability] (80-A0)
+* D1/638C-63CD: Innate ability  effects        [Ability] (80-A0)
+- D1/63CE-6451: [Equipment type] compat. added [Ability] (80-A0)
+- D1/6452-66FF: 
+
+________________________
+
+Action delays
+
+0 0 0 0   0 0 0 0
+I {    Delay    }
+
+80 Instantly act
+40-01 Delay
+
+
+Innate ability effects
+- See Jobs section
+
+
+
+Job Crystal Data
+------------------------------------
+Geomancer job crystal location 0x8809F 16
+
+________________________
+
+[Last update: 3 Jan 2010]

@@ -1,0 +1,774 @@
+_______
+
+ACTIONS
+_______
+
+- Action data
+- Parameters
+
+___________
+
+Action data
+___________
+
+- D1/0B80-137F: Magic           [Magic]
+- D1/59E0-5CDF: Abilities       [Ability] (00-5F)
+- D1/6AB1-6DF8: Ability effects [Ability effect]
+
+Action data: 8 bytes
+0 Targeting
+1 [Attack type]
+2 Misc.
+3 Reflectable + MP cost
+4 Unavoidable + Attack formula
+5 Parameter 1
+6 Parameter 2
+7 Parameter 3
+
+________________________
+
+0: Targeting
+
+0 0 0 0   0 0 0 0
+M A T S   E R    
+
+80 Multi-target optional
+40 Hits all targets
+20 Target selectable
+10 Side selectable
+08 Target enemy (by default)
+04 Roulette
+02 
+01 
+
+
+2: Misc.
+
+0 0 0 0   0 0 0 0
+M L       { Hits }
+
+80 Monster bit ?
+40 Learnable
+20 
+10 
+01-08 Number of hits (minus 1) (Meteo)
+
+
+3: Reflectable + MP cost
+
+0{0 0 0   0 0 0 0}
+nR    MP cost
+
+80 Not reflectable
+40-01 MP cost
+
+
+4: Unavoidable + Attack formula
+
+0 0 0 0   0 0 0 0
+U {   Formula   }
+
+80 Unavoidable
+40-01 [Attack formula]
+
+__________
+
+Parameters
+__________
+
+00: No effect
+- Anti-Magic Bow, ItemMagic09
+- Barrier Change, Nothing, No-Damage Magic, Reverse Polarity
+- "Mix0024"
+1 Duration/2 (if applicable)
+2 Chance of action %
+3 [Magic] used
+
+01: Fight (monsters), Fight (Monster magic)
+1 00
+2 00
+3 00
+
+02: Monster Specialty
+1 00
+2 00
+3 00
+
+03: Magic Sword 1
+- Fire Sword, Ice Sword, Bolt Sword, Venom Sword, Break Sword
+1 Spell #
+2 [Element]
+3 [Status 0]
+
+04: Magic Sword 2
+- Mute Sword, Sleep Sword, Fire2 Sword, Ice 2 Sword, Bolt2 Sword
+1 Spell #
+2 [Element]
+3 [Status 1]
+
+05: Magic Sword 3
+- Drain Sword, Bio Sword, Fire3 Sword, Ice 3 Sword, Bolt3 Sword
+  Holy Sword, Flare Sword, Psych Sword
+1 Spell #
+2 [Element]
+3 [Msword effect]
+
+06: Offensive magic
+- Light Staff, Staff of Judgment, Flame/Water/Thunder Scroll
+- Holy, Fire#, Ice#, Bolt#, Diamond Dust, Hellfire, Bolt of Judgement,
+  Thunder Storm, Fire of Resurrection, Big Wave, Mega Flare, Aero#, 
+  Emission, Wind Slash, Atomic Ray, Mini Blaze, Snowstorm, Electric shock,
+  Tidal Wave, Mega Flare (Monster magic)
+- Gust, Gale Cut, Desert Storm, Heat Sand, Tsunami, Big Tsunami (90), 
+  Big Tsunami (120), Waterfall, Stalactite
+1 00
+2 Attack power (*2 for magic staves)
+3 [Element]
+
+07: HP based damage + status
+- Demi, Qrter, ItemMagic05-07 (Harps), Missile, Rocket Punch, Valiant Attack
+- Falcon, "Mix0023", Failure (TS+DF), Sonic Boom
+1 Hit %
+2 HP damage (numerator of /16 fraction)
+3 [Status 1] added
+
+08: Pierce defense
+- Flare, Giga Flare
+1 00
+2 Attack power
+3 00
+
+09: Random damage
+- Comet, Meteo, True Edge (Monster magic)
+- Cave-in
+1 00
+2 Damage multiplier
+3 00, 00, 40, 00
+
+0A: Physical magic
+- Chocobo Kick, Fat Chocobo, Gungnir, Jump
+- Branch Arrow, Branch Spear
+1 Hit %
+2 Attack power
+3 00
+
+0B: Level based damage + status
+- Delta Attack, Poison Breath
+- Bee Swarm, Leaf Dance, Dust Storm, Will-o-Wisp, Poison Mist
+1 [Element]
+2 Attack power
+3 [Status 0] added
+
+0C: Pierce defense + HP leak
+- Bio, Stomach Acid, Mustard Bomb, Almagest, Quicksand, Blaze
+- Shadow Flare
+1 [Element]
+2 Attack power
+3 Duration/2
+
+0D: HP drain
+- Drain Sword
+- Drain, Dragon Sword 1 (HP), Jitterbug Duet
+- Drain Kiss
+1 Hit %
+2 Attack power
+3 00
+
+0E: MP drain
+- Psych, Dragon Sword 2 (MP), Mysterious Waltz
+- Lillith's Kiss
+1 Hit %
+2 Attack power
+3 00
+
+0F: HP to critical
+- Mealstrom, Bone, Tailscrew, Hurricane
+- Dark Elixir, Tornado, Whirlpool
+1 Hit %
+2 00
+3 00
+
+10: Restore HP
+- Cure, Cure2
+1 00
+2 Attack power
+3 00
+
+11: Restore full HP
+- Cure3, Remedy
+1 00
+2 Attack power
+3 00
+
+12: Status 0 infliction
+- Venom, Break, Float, Demon's Eye, Frog Song, Tiny Song, Flash
+  Beak, Spore, White Hole, Demon's Eye (Monster Magic)
+- Skunk, Levitate, Toad's Kiss, Failure (R+DM), Poison, Dark Gas
+1 Hit %
+2 Duration
+3 [Status 0] added
+
+13: Status 1 infliction
+- Mute, Charm, Image, Berserk, Sleep, Old, Latch On, 
+  Tempting Tango, Entangle (whip effect), Time Slip, Moonflute
+  Allure, Entangle, Strange Dance, Image (Monster Magic)
+- !Image
+- Momonga, Lamia's Kiss, Bacchus' Wine
+1 Hit %
+2 Duration/2
+3 [Status 1] added
+
+14: Status 2 infliction
+- Protect Drink
+- Armor, Shell, Wall, Regen, Stop, X-Zone, Ruby Light, 
+  Magic Barrier, Electromagnetic Field
+- Water of Life, Protect Drink (mix)
+1 Hit %
+2 Duration
+3 [Status 2] inflicted
+
+15: Toggle status
+- Size, Toad, Kurururu!
+1 Hit %
+2 00
+3 [Status 0] added/removed
+
+16: Reversing status infliction
+- Speed Drink
+- Slow, Haste, Slow2, Hast2, Thread
+- Haste Drink (mix), Vine Hell
+1 Hit %
+2 [Status 2] removed (inverted)
+3 [Status 2] added
+
+17: Instant death
+- Doom, Roulette
+- Death Potion, Faen Fantom
+1 Hit %
+2 00
+3 [Status 0] added
+
+18: Instant destroy
+- True Edge, !Slash
+- Quicksand, Bottomless Swamp
+1 Hit %
+2 00, 00, 00, 80
+3 00
+
+19: Status removal
+- Maiden's Kiss, Antidote, Eyedrop, Soft, LuckMallet, 
+  (Turtle Shell)
+- Antdt, Heal, Dispel, Gravity 100, Medicine
+- !Pray
+- Panacea, Antidote (mix), Restorative, Eyedrop (mix),
+? (Magic 2: 47 ), ? (Magic 2: 48 )
+1 [Status 0] removed (inverted)
+2 [Status 1] removed (inverted)
+3 [Status 2] removed (inverted)
+
+1A: Resurrection
+- Phoenix Down
+- Life, Life2, Fire of Resurrection (resurrection)
+- !Revive
+- Resurrection, Reincarnation, Fenix Down, Kiss of Life
+1 Hit % (undead)
+2 Flags
+ 80 Full MP
+ 40 ? (Fire of Resurrection)
+ 20 ? (Fire of Resurrection)
+3 HP restored (numerator of /16 fraction)
+
+1B: Whispering Wind
+1 00
+2 Attack power
+3 00
+
+1C: Element attribute change
+- "Sword Dance", Ice Aura
+- Resist Fire, Dragon Shield, Resist Ice, Resist Thunder
+1 [Element] absorb
+2 [Element] immunity
+3 [Element] half
+
+1D: View stats
+- Scan
+- !Observe, !Analyze
+1 Flags
+ 80 ? (!Analyze)
+ 40 Show level
+ 20 Show HP
+ 10 Show weakness
+ 08 Show status
+2 00
+3 00
+
+1E: Drag
+1 00
+2 00
+3 00
+
+1F: Void
+1 64
+2 00
+3 00
+
+20: End battle
+- Exit
+- !Escape, !Smoke
+1 64
+2 00
+3 00
+
+21: Reset
+1 64
+2 00
+3 00
+
+22: Quick
+1 64
+2 00
+3 00
+
+23: Earth Wall
+1 63
+2 22
+3 00
+
+24: Constant HP restored
+- Potion, Hipotion
+- Potion (mix), HiPotion (mix)
+1 Damage factor 1
+2 Damage factor 2
+3 00
+
+25: Constant MP restored
+- Ether
+- Ether (mix), Ether Dry
+1 Damage factor 1
+2 Damage factor 2
+3 00
+
+26: Full HP/MP
+- Elixir
+- Unicorn, X-Potion, Elixir (mix), Half Elixir, "Call1"
+1 Flags
+ 80 Full HP
+ 40 Full MP
+2 00
+3 00
+
+27: Status added
+- Big Guard, "No Clue", Darkness, Punishment, 
+  X-Zone (Monster magic)
+- Dragon Armor, Kiss of Blessing
+1 [Status 0] added
+2 [Status 1] added
+3 [Status 2] added
+
+28: Constant damage
+- Excailber, Blowfish
+- Dark Potion
+1 Hit %
+2 HP damage (LoByte)
+3 HP damage (HiByte)
+
+29: Status 3 inflicted
+- Condemn, Circle, Possess
+- "Failure" (Ability action 09)
+1 Hit %
+2 Countdown timer / duration ?
+3 [Status 3] added
+
+2A: HP based damage + HP leak
+- Breath Wing, Flame, Thunder, Surge Beam
+1 [Element]
+2 HP damage (numerator of /16 fraction)
+3 HP leak duration
+
+2B: User HP based damage
+- Exploder
+- Holy Breath, Explosive, Poison Breath, Dragon Breath
+1 00
+2 HP damage (numerator of /16 fraction)
+3 [Status 0] added
+
+2C: Random effect
+- Blaster, Needle
+1 [Status 0] added
+2 Duration/2
+3 [Status 1] added
+
+2D: Ground attacks
+- Rage of the Earth, Earth Shaker, Quake
+- Squirrel, Wild Boar, Earthquake
+1 00
+2 Attack power
+3 [Element]
+
+2E: Reaper's Sword
+1 Hit %
+2 Attack power
+3 [Status 0] added
+
+30: Unarmed
+- Fists
+- !Kick
+1 Critical hit %
+2 00
+3 00
+
+31: Swords
+1 Attack [Element]
+2 Chance of action %
+3 [Magic]/[Ability]
+
+32: Knives
+1 Attack [Element]
+2 Chance of action %
+3 [Magic]/[Ability]
+
+33: Spears, Double Lance
+1 Attack [Element]
+2 Chance of action %
+3 [Magic]/[Ability]
+
+34: Axes, Staves
+1 Hit %
+2 Chance of action %
+3 [Magic]/[Ability]
+
+35: Status infliction bows
+1 Hit %
+2 Status infliction
+ 80 Enabled
+ 40-01 Status hit %
+3 [Status 0] inflicted
+
+36: Bows
+1 Hit %
+2 Critical hit %
+3 Attack [Element]
+
+37: Katanas
+1 Critical hit %
+2 Chance of action %
+3 [Magic]/[Ability]
+
+
+38: Whips
+1 Hit %
+2 Chance of action %
+3 [Magic]/[Ability]
+
+39: Bells
+1 00
+2 00
+3 00
+
+3A: Long reach axes
+1 Hit %
+2 Chance of action %
+3 [Magic]/[Ability]
+
+3B: Rods
+1 Hit %
+2 00
+3 Attack [Element]
+
+3C: Rune weapons
+1 Hit %
+2 Rune bonus to attack
+3 Rune MP cost
+
+3D: Death Claw
+1 Hit %
+2 Duration/2
+3 [Status 1] added
+
+3E: Failure (EL+TS)
+1 Hit %
+2 Chance of HP to critical (numerator of /16 fraction)
+3 00
+
+3F: Zombie Breath
+1 00
+2 Damage multiplier
+3 00
+
+40: Change row
+- Dynamo, Magnet, !Row
+1 Hit %
+2 Flags
+ 80 Change row
+ 40 Go to front
+3 00
+
+42: HP and status restored
+- Revivify
+- !Mantra
+- Nightingale, Maiden's Kiss (mix), Neutralize, Cure Blind,
+  Holywater
+1 Hit %
+2 Attack power
+3 [Status 0] removed  (inverted)
+
+43: !Steal
+1 Success %
+2 00
+3 00
+
+44: Escape
+1 00
+2 00
+3 00
+
+45: !Throw
+1 80
+2 00
+3 00
+
+46: !GilToss
+1 Gil cost factor
+2 Damage multiplier
+3 00
+
+47: !Tame
+1 Success %
+2 Duration/2
+3 [Status 2] added
+
+48: !Catch
+1 00
+2 00
+3 00
+
+49: Flirt
+- Lillith Rod
+- !Flirt
+1 Hit %
+2 Chance of action %
+3 [Magic]
+
+4A: !Dance
+1 19
+2 00
+3 00
+
+4B: L5 Doom
+1 Level factor
+2 00
+3 [Status 0] added
+
+4C: L2 Old
+1 Level factor
+2 00
+3 [Status 1] added
+
+4D: L4 Qrter
+1 Level factor
+2 HP damage (numerator of /16 fraction)
+3 00
+
+4E: L3 Flare
+1 Level factor
+2 Attack power
+3 00
+
+4F: Spirit
+1 % chance for Zombie status
+2 00
+3 HP restored (numerator of /16 fraction)
+
+50: Goblin Punch
+1 Hit % ?
+2 03
+3 00
+
+51: Stats up/down
+- Power Drink, Hero Drink
+- Dark Shock, Guard Off, Sonic Wave
+- Dragon Power, Sampson Power, Split Shell
+1 Hit %
+2 Effect
+ 80 Level halved (Sonic Wave)
+ 40 Level halved (Dark Shock)
+ 20 Defense halved
+ 10 Level up
+ 04 Attack power up (not the value used in battle, due to a bug)
+3 Stat bonus
+
+52: Mucus
+1 Hit %
+2 [Status 2] removed (inverted)
+3 [Status 2] added
+
+53: MP damage
+- Magic Hammer
+- Dark Ether
+1 Hit %
+2 MP damage (numerator of /16 fraction)
+3 00
+
+54: User HP based damage (negative)
+- ????
+- Dark Breath
+1 Hit %
+2 00
+3 00
+
+55: Fusion
+1 00
+2 00
+3 80
+
+57: Random effect
+- Rainbow Wind
+- Dark Sigh
+1 [Status 0] added
+2 Duration/2
+3 [Status 1] added
+
+58: Mind Blast
+1 Hit % ?
+2 Attack power
+3 Duration/2
+
+59: HP up
+- Giant Drink
+- Giant Drink (mix)
+1 00
+2 00
+3 04
+
+5A: White Wind
+1 00
+2 00
+3 00
+
+5C: Hug
+1 Hit %
+2 00
+3 [Status 0] added
+
+5D: Zombie status
+- Dance of the Dead, Zombie Powder
+1 Hit %
+2 00
+3 00
+
+60: (Hide monster)
+1 00
+2 00
+3 00
+
+61: "Stalker Attack"
+1 00
+2 00
+3 00
+
+62: "Byblos Attack"
+1 00
+2 00
+3 00
+
+63: Grand Cross
+1 00
+2 00
+3 00
+
+64: Chicken Knife
+1 00
+2 Chance of action %
+3 [Magic]/[Ability]
+
+65: Interceptor Rocket
+1 80
+2 80
+3 80
+
+66: Targeting
+1 00
+2 00
+3 00
+
+67: Pull
+1 00
+2 00
+3 00
+
+68: End battle
+1 00
+2 00
+3 00
+
+69: !Control
+1 00
+2 00
+3 00
+
+6A: (?) (Sandworm)
+1 00
+2 00
+3 00
+
+6B: Attribute change
+- Resist Poison, Life Shield
+- Dragon's Kiss, Elemental Power
+1 [Monster type] applied
+2 [Status 0] immunity
+3 [Element] strengthened
+
+6C: Monster type bonus
+- Sage staff, Aqua Rake
+- ItemMagic05 (Apollo Harp)
+1 00
+2 Attack power
+3 Bonus vs. [Monster type]
+
+6D: Vampire
+1 Hit %
+2 02
+3 00
+
+6E: Brave Blade
+1 00
+2 00
+3 00
+
+6F: Fight (strong)
+1 00
+2 00
+3 00
+
+70: Wormhole
+1 80
+2 00
+3 80
+
+71: Level Down
+1 00
+2 00
+3 00
+
+72: Bows strong vs. monster type
+1 Strong vs. [Monster type]
+2 Chance of action %
+3 [Magic]
+
+73: Spears Strong vs. monster type
+1 Strong vs. [Monster type]
+2 00
+3 00
+
+7F: No attack
+- Power Staff, Healing Staff, Harps, Wonder Rod
+- Magic Lamp, Egg Chop
+- Most abilities
+- Mysidian Rabbit
+1 00 (Power Staff: 4B)
+2 Chance of action %
+3 [Magic]/[Ability]
+
+________________________
+
+[Last update: 3 Jan 2010]

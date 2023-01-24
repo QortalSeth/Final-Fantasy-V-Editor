@@ -1,0 +1,636 @@
+____________
+
+MONSTER DATA
+____________
+
+* D0/0000-1FFF: Stats               [Monster]
+* D0/2000-2FFF: Boss stats          [Monster] (Bosses)
+* D0/3000-4FFF: Encounters          Encounter
+* D0/5000-55FF: Drops/steals        [Monster]
+* D0/5600-5BFF: Control actions     [Monster]
+* D0/6800-6FFF: Groups              Group
+- D0/8600-88FF: Release [Magic]     [Monster]
+* D0/8900-98FF: Formations          Encounter
+* D0/9900-9BFF: Specialty data      [Monster]
+
+_____
+
+Stats
+_____
+
+- Monsters: D0/0000
+- Bosses: D0/2000
+
+[Monster] * 32 bytes
+00 Speed
+01 Attack power
+02 Damage multiplier
+03 Evade %
+04 Defense
+05 Magic power
+06 Magic defense
+07 Magic evade %
+08 HP (LoByte)
+09 HP (HiByte)
+0A MP (LoByte)
+0B MP (HiByte)
+0C Exp (LoByte)
+0D Exp (HiByte)
+0E Gil (LoByte)
+0F Gil (HiByte)
+10 Attack index (sound & animation)
+11 [Elemental] immunities
+12 [Status 0] immunities
+13 [Status 1] immunities
+14 [Status 2] immunities
+15 [Elemental] absorb
+16 Unavoidable [Attack Type]
+17 [Elemental] weaknesses
+18 [Monster type]
+19 Special immunities
+1A Initial [Status 0]
+1B Initial [Status 1]
+1C Initial [Status 2]
+1D Initial [Status 3]
+1E [Monster name] index
+1F Level
+
+________________________
+
+19: Special immunities
+
+0 0 0 0   0 0 0 0
+HP    Co  Ca
+
+80 HP scan
+40 
+20 
+10 Control
+08 Catch
+04 
+02 
+01 
+
+________________________
+
+Attack index
+00 Unarmed
+01 Unarmed
+02 Knife (grey)
+03 Knife (grey)
+04 Knife (l.blue)
+05 Knife (grey)
+06 Knife (blue)
+07 Knife (grey)
+08 Knife (grey)
+09 Knife (pink)
+0A Knife (green)
+0B Knife (red)
+0C Knife (grey)
+0D Sword (grey)
+0E Sword (grey)
+0F Sword (l.blue)
+10 Sword (pink)
+11 Sword (l.green)
+12 Sword (grey)
+13 Sword (l.blue)
+14 Sword (l.green)
+15 Knightsword
+16 Knightsword
+17 Spear (grey)
+18 Spear (grey)
+19 Spear (grey)
+1A Lightning spear
+1B Spear (l.green)
+1C Spear (grey)
+1D Spear (grey)
+1E Double Lance
+1F Spear (l.blue)
+20 Spear (red)
+21 Axe (grey)
+22 Hammer (blue)
+23 Axe (yellow)
+24 Hammer (grey)
+25 Axe (pink)
+26 Hammer (grey)
+27 Axe (yellow)
+28 Hammer throw
+29 Katana (grey)
+2A Katana (l.blue)
+2B Katana (grey)
+2C Katana (grey)
+2D Katana (grey)
+2E Katana (l.blue)
+2F Katana (grey)
+30 Katana (l.blue)
+31 Rod (grey)
+32 Rod (red)
+33 Rod (l.blue)
+34 Rod (yellow)
+35 Rod (l.blue)
+36 Rod (pink)
+37 Rod (grey)
+38 Staff (grey)
+39 Staff (l.blue)
+3A (Power staff)
+3B (Healing staff)
+3C Staff (yellow)
+3D Staff (blue)
+3E Staff (grey)
+3F Fire arrow
+40 Ice arrow
+41 Thunder arrow
+42 Arrow (grey)
+43 Arrow (l.grey)
+44 Arrow (pink)
+45 Large arrow (blue)
+46 Large arrow (grey)
+47 (Silver Harp)
+48 (Dream Harp)
+49 (Lamia's Harp)
+4A (Apollo's Harp)
+4B Whip (grey)
+4C Whip (l.blue)
+4D Whip (yellow)
+4E Whip (orange)
+4F Whip (red)
+50 Bells (yellow)
+51 Bells (yellow)
+52 Bells (green)
+53 Bells (pink)
+54 (Sabre)
+55 Sword (red)
+56 Sword (green)
+57 Fire sword
+58 Ice sword
+59 Wheel (l.blue)
+5A Shuriken
+5B Pinwheel
+5C Sword (yellow)
+5D Whip (grey)
+5E Flail (grey)
+5F Flail (l.blue)
+60 (Wonder rod)
+61 Sword (grey)
+62 Sword (black) (no sound) (Soot)
+63 Knife (grey)
+64 Wheel (red)
+65 Arrow (grey)
+66 Arrow (l.grey)
+67 (Antimagic bow)
+68 Arrow (grey)
+69 Axe (d.grey)
+6A Axe (d.grey)
+6B Knife (grey)
+6C Knife (grey)
+6D Knife (grey)
+6E Sword (grey)
+6F Sword (black) (no sound) (L.Hand)
+70 Sword (black) (no sound) (R.Hand)
+71 Sword (black) (no sound) (Item0000)
+72 Sword (black) (no sound) (Item0000)
+73 Sword (black) (no sound) (Item0000)
+74 Sword (black) (no sound) (Item0000)
+75 Sword (black) (no sound) (Item0000)
+76 Sword (black) (no sound) (Item0000)
+77 Sword (black) (no sound) (Item0000)
+78 Sword (black) (no sound) (Item0000)
+79 Sword (black) (no sound) (Item0000)
+7A Sword (black) (no sound) (Item0000)
+7B Sword (black) (no sound) (Item0000)
+7C Sword (black) (no sound) (Item0000)
+7D Sword (black) (no sound) (Item0000)
+7E Sword (black) (no sound) (Item0000)
+7F Sword (black) (no sound) (Item0000)
+80 Unarmed (critical)
+81 Katana (grey) (corrected)
+82 Katana (grey)
+83 Katana (l.blue) (corrected)
+84 Katana (l.blue)
+85 Katana (critical)
+86 Katana (critical)
+87 Katana (critical)
+88 Katana (critical)
+89 Sword (black) (no sound)
+8A Sword (black) (no sound)
+8B Sword (black) (no sound)
+8C Sword (black) (no sound)
+8D Sword (black) (no sound)
+8E Fire sword
+8F Ice sword
+90 Bolt sword
+91 Venom sword
+92 Mute sword
+93 Sleep sword
+94 Fire sword
+95 Ice sword
+96 Bolt sword
+97 Drain sword
+98 Break sword
+99 Bio sword
+9A Fire sword
+9B Ice sword
+9C Bolt sword
+9D Holy sword
+9E Flare sword
+9F Psych sword
+A0 Parry long (R.Hand)
+A1 Parry long (L.Hand)
+A2 Elf Cape dodge
+A3 Golem guard ?
+A4 Evade
+A5 Shield block
+A6 Monster critical
+A7 Rod (grey)
+A8 Elf cape dodge ?
+A9 Rod (l.blue)
+AA Golem guard ?
+AB ?
+AC Golem guard ?
+AD Katana (grey) (corrected)
+AE Parry short (L.Hand)
+AF Unarmed
+B0 Evade 2
+B1 Knife (l.blue)
+B2 Parry long (L.Hand)
+B3 ?
+B4 Parry short (L.Hand)
+B5 Arrow (l.grey)
+B6 Parry short (L.Hand)
+B7 Unarmed
+B8 Sword (grey)
+B9 ? (unused?)
+BA ???
+BB ? ?
+BC ? (crashes game)
+BD ? (crashes game)
+BE ? (crashes game) (reset?)
+BF ? (crashes game)
+C0 ?
+C1 Unarmed
+C2 ?
+C3 Unarmed
+C4 Rod (no animation)
+C5 ?
+C6 Knife (grey)
+C7 (Syldra?)
+C8 Venom sword
+C9 ?
+CA Glitch
+CB Axe (pink)
+CC Unarmed
+CD Rod (yellow)
+CE Rod (l.blue)
+CF Glitch (crashes game)
+D0 Glitch (crashes game)
+D1 Knife (grey)
+D2 Glitch (crashes game)
+D3 Unarmed
+D4 Axe (d.grey)
+D5 Scan?
+D6 ?
+D7 ?
+D8 Scan?
+D9 ? (crashes game)
+DA ?
+DB Knife (grey)
+DC Sword (black) (no sound)
+DD Sword (black) (no sound)
+DE Unarmed
+DF Unarmed
+E0 Sword (black) (no sound)
+E1 ?
+E2 ?
+E3 Show stats (endgame sequence)
+E4 Unarmed
+E5 Axe (yellow)
+E6 Axe (yellow)
+E7 Glitch (crashes game)
+E8 Rod (yellow)
+E9 Rod (pink)
+EA Glitch (crashes game)
+EB Glitch (crashes game)
+EC Glitch (crashes game)
+ED Glitch (crashes game)
+EE ?
+EF Glitch (crashes game) (Hiryu)
+F0 ? (Syldra)
+F1 Knife (grey)
+F2 ?
+F3 Katana (grey) (corrected)
+F4 Katana (grey) (corrected)
+F5 ?
+F6 ?
+F7 ?
+F8 ?
+F9 ?
+FA ?
+FB ?
+FC ?
+FD ?
+FE ?
+FF ?
+
+__________
+
+Encounters
+__________
+
+- D0/3000
+
+Encounter * 16 bytes
+0 Visual effects
+1 Escape %
+2 AP
+3 Visible monsters (bitwise)
+4 [Monster] 1
+5 [Monster] 2
+6 [Monster] 3
+7 [Monster] 4
+8 [Monster] 5
+9 [Monster] 6
+A [Monster] 7
+B [Monster] 8
+C Palettes 1
+D Palettes 2
+E Music
+F Misc.
+
+________________________
+
+0: Visual effects
+
+0 0 0 0   0 0 0 0
+D U ITHS   {Style}
+
+80 Demo battle (endgame)
+40 Underwater
+20 Invalid targets (final boss battle)
+10 Half sprite (Phoenix Tower walls)
+04-01 Intro style
+
+Intro style
+0 Normal
+1 Drop
+2 Scroll up
+3 Fade (not used)
+4 Cinematic (demo battles)
+5 Scroll right
+
+
+1: Escape %
+
+0 0 0 0   0 0 0 0
+C {   Escape %  }
+
+80 Can't escape
+40-01 Escape %
+
+
+C: Palettes 1
+
+0 0 0 0   0 0 0 0
+{1} {2}   {3} {4}
+
+80-40 Monster 1
+20-10 Monster 2
+08-04 Monster 3
+02-01 Monster 4
+
+
+D: Palettes 2
+
+0 0 0 0   0 0 0 0
+{5} {6}   {7} {8}
+
+80-40 Monster 5
+20-10 Monster 6
+08-04 Monster 7
+02-01 Monster 8
+
+
+E: Music
+
+0 0 0 0   0 0 0 0
+NCNF{Track}
+
+80 No track change (overrides Track)
+40 No fanfare (no track change)
+20-08 Track
+
+Track
+0 Battle
+1 Boss
+2 Neo-Exdeath
+3 Gilgamesh
+4 Exdeath
+5 Exdeath battle
+6 Gogo
+7 Exdeath destroyed
+
+
+F: Misc.
+
+0 0 0 0   0 0 0 0
+BAV B R     V N AD
+
+80 Always back attack (without Caution)
+40 Void NOT allowed
+20 Boss battle
+10 Reveal monster (Sandworm)
+08 
+04 Void cast
+02 No reward
+01 Alternate death
+
+____________
+
+Drops/steals
+____________
+
+- D0/5000
+
+[Monster] * 4 bytes
+0 [Item]: Steal (rare)
+1 [Item]: Steal (common)
+2 [Item]: Drop (rare)
+3 [Item]: Drop (common)
+
+_______________
+
+Control actions
+_______________
+
+- D0/5600
+
+[Monster] * 4 bytes
+0 [Magic]: Control action 1
+1 [Magic]: Control action 2
+2 [Magic]: Control action 3
+3 [Magic]: Control action 4
+
+______
+
+Groups
+______
+
+- D0/6800
+
+Group * 8 bytes
+0 Common Encounter 1 (LoByte)
+1 Common Encounter 1 (HiByte)
+2 Common Encounter 2 (LoByte)
+3 Common Encounter 2 (HiByte)
+4 Uncommon Encounter (LoByte)
+5 Uncommon Encounter (HiByte)
+6 Rare Encounter (LoByte)
+7 Rare Encounter (HiByte)
+
+__________
+
+Formations
+__________
+
+- D0/8900
+
+Encounter * 8 bytes
+0 Monster 1 Coordinates
+1 Monster 2 Coordinates 
+2 Monster 3 Coordinates
+3 Monster 4 Coordinates
+4 Monster 5 Coordinates
+5 Monster 6 Coordinates
+6 Monster 7 Coordinates
+7 Monster 8 Coordinates
+
+________________________
+
+Coordinates
+
+0 0 0 0   0 0 0 0
+[  X  ]   [  Y  ]
+
+80-10 X value from left
+08-01 Y value from top
+
+________________________
+
+A monster is in the back row if there is a space 
+of at least 1 tile against the monster in front:
+________________________
+
+   [A]
+    [B]
+
+[A] is in the front row
+________________________
+
+  [A]
+      [B]
+
+[A] is in the back row
+________________________
+
+   [A]
+      [B]
+
+[A] is in the front row
+
+______________
+
+Specialty data
+______________
+
+- D0/9900-9BFF
+
+[Monster] * 2 bytes
+0 Effects
+1 Name
+
+________________________
+
+0: Effects
+
+0 0 0 0   0 0 0 0
+UIAgPoB   PaC HPAt
+
+80 Unavoidable + Ignore defense
+40 Aging
+20 Poison
+10 Blind
+08 Paralyze
+04 Charm
+02 HP Leak
+01 +50% Attack
+
+
+1: Name
+
+00 Critical
+01 Needle
+02 Front Teeth
+03 Tail
+04 Claw
+05 Scissor
+06 Rod
+07 8 Legs
+08 10 Legs
+09 Horn
+0A Rush
+0B Body Blow
+0C TurtleShell
+0D Swoop
+0E Fin
+0F Tentacle
+10 Tongue
+11 Bite
+12 Elbow
+13 Axe
+14 Head Butt
+15 Right Arm
+16 Tackle
+17 Slap
+18 Spear
+19 Wing
+1A Stab
+1B Knee Kick
+1C Spirit Power
+1D Fang
+1E Invisible Fist
+1F Pierce
+20 Left Straight
+21 Swing
+22 Toe Kick
+23 Sword Slap
+24 Lunge
+25 Tear
+26 Vacuum Blade
+27 High Kick
+28 Crush
+29 Hard Hit
+2A Press
+2B Drill
+2C Squeeze
+2D Scythe
+2E Wild Bull
+2F Cat Kick
+30 Corner
+31 Bear Hug
+32 Swing Down
+33 Slip
+34 Fingertips
+35 Counter
+36 Vacuum Wave
+37 Cleaver!
+38 Vacuum Wave
+39 
+3A 
+3B Graying Pollen
+3C Poison Pollen
+3D Darkness Pollen
+3E Curse Pollen
+3F Charm Pollen
+
+________________________
+
+[Last update: 3 Jan 2010]

@@ -1,0 +1,336 @@
+C0/CA7C  Random Encounter
+C0/CC6D  (0..255)
+
+C2/007C  Random Number between Index X and Accumulator
+
+C2/00D2  Multiply $2A (16-bit) by $2C (16-bit) and store in $2E (32-bit). 
+
+C2/00F1  Multiply $24 (8-bit) by $25 (8-bit) and store in $26 (16-bit)
+
+C2/010C  Divide $7CB7 by $7CB9, check for remainder)
+
+C2/01B1  Multiply by 256
+C2/01B2  Multiply by 128
+C2/01B3  Multiply by 64
+C2/01B4  Multiply by 32
+C2/01B5  Multiply by 16
+C2/01B6  Multiply by 8
+C2/01B7  Multiply by 4
+C2/01B8  Multiply by 2
+C2/01BA  Divide by 256
+C2/01BB  Divide by 128
+C2/01BC  Divide by 64
+C2/01BD  Divide by 32
+C2/01BE  Divide by 16
+C2/01BF  Divide by 8
+C2/01C0  Divide by 4
+C2/01C1  Divide by 2
+
+C2/01C3  Count number of set bits in 8-bit accumulator, store in X
+C2/01E0  X = X + 128
+C2/01EC  $32 = A * 128
+
+C2/0248  Strength = Str + Str bonus (Power Song), Lvl = Lvl + Lvl Bonus (Hero Song)
+C2/02A2  (0..99)
+
+C2/0324  Cast Spell??
+
+C2/0632  Item Command
+C2/0767  Row Command??
+C2/0791  Defend Command
+C2/07A4  Fight Command
+C2/07A9  Guard Command
+C2/07AE  Kick Command
+C2/07CF  BuildUp Command
+C2/0814  Steal Subroutine
+C2/090B  Mantra Command
+C2/0933  Escape Command
+C2/094E  Steal Command
+C2/096F  Capture Command
+C2/0990  Jump Command
+C2/0AA4  Dragon Sword Command
+C2/0ADC  Smoke Command
+C2/0AFA  Image Command
+C2/0B4E  Throw Command
+C2/0B6F  SwordSlap Command
+C2/0B7A  GilToss Command
+C2/0B9B  Slash Command
+C2/0BBF  Animals Command
+C2/0C67  Aim Command
+C2/0C6F  X-Fight Command
+C2/0DA2  Observe Command
+C2/0DC3  Analyze Command
+C2/0DE4  Conjure Command
+C2/0EE0  Tame Command
+C2/0EFE  Control Command
+C2/0F1F  Catch Command
+C2/0F40  Release Command
+C2/1125  Combine Command
+C2/1169  Pray Command
+C2/118A  Revive Command
+C2/11B2  Terrain Command
+C2/125E  Hide Command
+C2/12B3  Show Command
+C2/1306  Flirt
+C2/1333  Dance Command
+
+
+C2/16FA  Display Message
+
+C2/1C9A  Make Berserk ability have Berserk Status
+
+C2/2482  ATB increase
+
+C2/313B  Load Monster AI parameters?
+C2/334D  Choose One of Three Random Attacks (FD AI Script)
+C2/33EC  Set Target routine
+
+C2/4F7A  Encounter Type (Back attack or Pre-emptive)
+
+C2/5674  Item Drop
+
+C2/60A3  Summon Subroutine
+
+C2/6163  Haste or Slow Modifier
+
+C2/6870  Attack type 01h (Monster Fight)
+C2/6898  Attack type 02h (Monster Specialty)
+C2/68E2  Attack type 03h (Magic Sword Level 1)
+C2/68F7  Attack type 04h (Magic Sword Level 2)
+C2/690C  Attack type 05h (Magic Sword Level 3)
+C2/6921  Attack type 06h (Magic attack)
+C2/694A  Attack type 07h (Gravity)
+C2/6971  Attack type 08h (Flare)
+C2/6993  Attack type 09h (Random)
+C2/69B5  Attack type 0Ah (Physical Magic)
+C2/69DB  Attack type 0Bh (Level Based Damage)
+C2/6A07  Attack type 0Ch (HP Leak)
+C2/6A3C  Attack type 0Dh (Drain)
+C2/6A65  Attack type 0Eh (Psyche)
+C2/6A76  Attack type 0Fh (Reduce HP to Critical)
+C2/6A81  Attack type 10h (Heal)
+C2/6A8E  Attack type 11h (Fully Heal)
+C2/6AC4  Attack type 12h (Status Effect 1)
+C2/6ACF  Attack type 13h (Status Effect 2)
+C2/6ADD  Attack type 14h (Status Effect 3)
+C2/6AEB  Attack type 15h (Status Effect 1 Toggle)
+C2/6AF6  Attack type 16h (Status Effect 3, Mutually exclusive statuses))
+C2/6B01  Attack type 17h (Status Effect 1, Life2 to Undead)
+C2/6B32  Attack type 18h (Kill, Miss vs. Heavy)
+C2/6B35  Attack type 19h (Remove Statuses)
+C2/6B52  Attack type 1Ah (Revive)
+C2/6B7D  Attack type 1Bh (Drain to party)
+C2/6BFC  Attack type 1Ch (Grant Elemental Absorption, Immunity, or Weakness)
+C2/6C17  Attack type 1Dh (Scan)
+C2/6CE4  Attack type 1Eh (Drag)
+C2/6CEF  Attack type 1Fh (Void)
+C2/6D2E  Attack type 20h (Exit)
+C2/6D4B  Attack type 21h (Reset)
+C2/6D5B  Attack type 22h (Quick)
+C2/6D83  Attack type 23h (Earth Wall)
+C2/6DAB  Attack type 24h (Potions)
+C2/6DB4  Attack type 25h (Ethers)
+C2/6DBD  Attack type 26h (Full Heal)
+C2/6DD7  Attack type 27h (Status Effects)
+C2/6DED  Attack type 28h (Ignore Defense)
+C2/6E12  Attack type 29h (Kill, not Heavy)
+C2/6E2D  Attack type 2Ah (% on Max HP)
+C2/6E4C  Attack type 2Bh (Damage % on Attacker Current HP)
+C2/6E5E  Attack type 2Ch (50/50 chance of Status 1 or Status 2)
+C2/6E72  Attack type 2Dh (Ground Attack)
+C2/6E9B  Attack type 2Eh (Reaper's Sword)
+C2/6EB1  Attack type 2Fh (Not Used?)
+C2/6EBC  Attack type 30h (Fists)
+C2/6EE1  Attack Type 31h (Swords)
+C2/6F1E  Attack Type 32h (Knives)
+C2/6F58  Attack Type 33h (Spears)
+C2/6F84  Attack Type 34h (Axes)
+C2/6FA8  Attack Type 35h (Bows)
+C2/6FC9  Attack Type 36h (Bows with Elemental)
+C2/6FF9  Attack Type 37h (Katanas)
+C2/7020  Attack Type 38h (Whips)
+C2/703E  Attack Type 39h (Bells)
+C2/7053  Attack Type 3Ah (Long Reach Axes)
+C2/7074  Attack Type 3Bh (Rods)
+C2/709D  Attack Type 3Ch (Rune Weapons)
+C2/70C4  Attack Type 3Dh (Death Claw)
+C2/70DB  Attack Type 3Eh (Failure)
+C2/70EC  Attack Type 3Fh (Zombie Breath)
+C2/7119  Attack type 40h (Change Row)
+C2/7134  Attack type 41h (Unused??)
+C2/7140  Attack type 42h (Heal HP & Status)
+C2/7150  Attack type 43h (Steal)
+C2/71B9  Attack type 44h (Escape)
+C2/71D7  Attack type 45h (Throw)
+C2/71F5  Attack type 46h (GilToss)
+C2/71FB  Attack type 47h (Tame)
+C2/720D  Attack type 48h (Catch)
+C2/7255  Attack type 49h (Flirt, Lilith Rod)
+C2/7266  Attack type 4Bh (L5 Doom)
+C2/728D  Attack type 4Ch (L2 Old)
+C2/729B  Attack type 4Dh (L4 Qrter)
+C2/72B2  Attack type 4Eh (L3 Flare)
+C2/72DB  Attack type 4Fh (Spirit)
+C2/7300  Attack type 50h (Goblin Punch)
+C2/7319  Attack type 51h (Modify Level or Defense)
+C2/735E  Attack type 52h (Mucus)
+C2/7379  Attack type 53h (Damage % MP)
+C2/7384  Attack type 54h (Damage = Max HP - Current HP)
+C2/738F  Attack type 55h (Fusion)
+C2/7398  Attack type 56h (Unused?)
+C2/73A3  Attack type 57h (HP Leak + Status)
+C2/73C0  Attack type 58h (Mind Blast)
+C2/73F0  Attack type 59h (Giant Drink)
+C2/7407  Attack type 5Ah (White Wind)
+C2/740E  Attack type 5Bh (Unused??)
+C2/7419  Attack type 5Ch (Hug)
+C2/7427  Attack type 5Dh (Dance of the Dead, Zombie Powder)
+C2/743D  Attack type 5Eh (Song magic)
+C2/745C  Attack type 5Fh (Requiem)
+C2/7476  Attack type 60h (]Item)
+C2/7562  Attack type 61h (Stalker Attacker)
+C2/7662  Attack type 62h (Byblos Attack)
+C2/76CE  Attack type 63h (Grand Cross)
+C2/7774  Attack type 64h (Chicken Knife)
+C2/77A4  Attack type 65h (Interceptor Rocket)
+C2/77B6  Attack type 66h (Targetting)
+C2/77D3  Attack type 67h (Pull)
+C2/77E0  Attack type 68h (Terminate)
+C2/77E9  Attack type 69h (Control)
+C2/78BC  Attack type 6Ah (]Item)
+C2/78DD  Attack type 6Bh (Grant Immunity or Creature Type)
+C2/78EE  Attack type 6Ch (Strong vs. Creature Type)
+C2/78FA  Attack type 6Dh (Vampire)
+C2/791B  Attack type 6Eh (Brave Blade)
+C2/794D  Attack type 6Fh (Strong Fight)
+C2/7964  Attack type 70h (Wormhole)
+C2/7AD9  Attack type 72h (Bows Strong vs. Creature)
+C2/7AFA  Attack type 73h (Spears Strong vs. Creature)
+C2/7B1E  Attack type 7Fh (No Action)
+
+C2/7C0D  Hit = Attacker Level + Hit - Target Level, Evade = Magic Evade
+C2/7C3B  Hit = 1st Parameter, Evade = Evade
+C2/7C47  Hit = 100, Evade = Evade
+C2/7C53  Hit = 100, Evade = Evade/2
+C2/7C60  Hit = 1st Parameter, Evade = Evade
+C2/7C6C  Hit = 1st Parameter, Evade = Evade/2
+C2/7C79  Hit = 1st Paramter, Evade = Magic Evade
+C2/7C85  Steal Success Determination
+C2/7C97  Aegis Shield Check 
+C2/7CC3  Multitargetting effect on Hit%
+C2/7CFC  Check for Evade, Weapon Block or Elf Cape
+C2/7D7F  Sword Dance Up Modifier
+C2/7D8B  Target Status Effect Modifiers to Magical Hit%
+C2/7DAC  Target Status Effect Modifiers to Physical Hit%
+C2/7DD1  Attacker Status Effect Modifiers to Physical Hit%
+C2/7DE2  Check for Target Image to Miss
+C2/7DF1  Check for Void to Miss
+C2/7E03  Check for Target Float to Miss
+C2/7E12  Hit Determination for status
+C2/7E23  Hit Determination for physical?
+C2/7E5B  Creature Type Hit Determination
+C2/7E67  Hit if Target Level = Multiple of Parameter 1
+C2/7E81  Hit Determination for Magic, Autohit Party
+C2/7EBE  Hit Determination for physical
+C2/7EF6  Hit Determination for Magic
+C2/7F1B  Hit Determination for physical Magic
+C2/7F30  Magic damage formula
+C2/7F6A  Flare Magic damage formula
+C2/7FA7  Random Magic damage formula
+C2/7FC2  Physical magic damage formula
+C2/7FFC  Swords damage formula
+C2/803E  Fists damage formula
+C2/80D4  Knives damage formula
+C2/812B  Axes damage formula
+C2/816F  Bells damage formula
+C2/81CB  Rods damage formula
+C2/8205  Level based damage formula
+C2/8227  Monster damage formula
+C2/8252  Healing damage formula
+C2/8261  damage formula?
+C2/8299  Throw damage formula
+C2/830A  GilToss damage formula
+C2/8366  Multitargetting Modifications to Damage
+C2/839B  Back Row Modifications to Damage
+C2/83BD  Command Modifiers to Damage
+C2/8430  Double Grip Modifiers to Damage
+C2/8452  Check for Jump?
+C2/8467  Bonus to Attack and M, Costing MP
+C2/84AF  Specialy Effect Modifier to damage
+C2/84CF  Medicine modifier to damage
+C2/84DD  Creature type modifier to damage
+C2/84F3  Target Status Effect Modifiers to Magic Damage
+C2/8512  Target Status Effect Modifiers to Damage
+C2/8533  Attacker Status Effect Modifiers to Damage
+C2/855D  Bonus if Equal Level Damage formula
+C2/8577  Brave Blade Damage formula
+C2/85AD  Goblin Punch Damage formula
+C2/85F1  Strong Fight Damage formula
+C2/8626  Chicken Knife Damage formula
+C2/866D  Magic Element Up Modifers
+C2/8684  Magic Sword Modifiers
+C2/8734  Attack Element Modifiers
+C2/876E  Magic Attack Element Modifiers
+C2/87B5  Magic Attack Element Modifiers (ii)?
+C2/87DF  Check for Critical Hit
+C2/87F9  Check Creature type for Critical Hit
+C2/8811  Calculate Final Damage
+C2/8874  Gravity Attack Damage
+C2/88C1  Heal or Damage Undead
+C2/88DE  Full Heal or Reduce HP to Critical for Undead
+C2/88FD  Reduce HP to critical Damage
+C2/8926  Magic Sword Drain
+C2/8946  Magic Sword Psyche
+C2/8985  Psyche
+C2/89F7  Fully Heal MP
+C2/8A05  Calculate Magic Final Damage
+C2/8A43  Calculate Damage from % of Target Max HP
+C2/8A9D  Calculate Damage from % of Attacker Current HP
+C2/8AEC  Calculate Damage from % of Target Current MP
+C2/8B33  Calculate Damage = Attacker Max HP - Attacker Current HP
+C2/8B4D  Calculate Damage = Target Max HP / 2 
+C2/8B7D  Status Effect Duration Determination
+C2/8BCF  Apply Magic Sword Status Effects
+C2/8BF9  Apply Bow Status Effects
+C2/8C2F  Apply Monster Specialty Effects
+C2/8CAC  Apply Status Effect 1
+C2/8D2E  Apply Status Effect 2
+C2/8DCB  Apply Status Effect 3
+C2/8E05  Apply Status Effect 4
+C2/8E25  Toggle Status Effect 1
+C2/8E3A  Apply Flirt, miss if Heavy
+C2/8E51  Apply Status Effect 3, Mutually exclusive Statuses
+C2/8EB6  Remove Status 1
+C2/8F11  Remove Status 2
+C2/8F6E  Remove Status 3
+C2/8F82  Kill target, miss if Heavy
+C2/8FAA  Revive Target
+C2/902B  Apply Status 1 to Target, bypass Status Immunity
+C2/9039  Apply Status 2 to Target, bypass Status Immunity
+C2/90CD  Apply Status 3 to Target, bypass Status Immunity
+C2/90DB  Apply Status 1 to Attacker, bypass Status Immunity
+C2/90E9  Remove Magic Sword Effects
+C2/9101  Change Target Row
+C2/9117  Move Target to Front Row
+C2/9122  Move Attacker to Back Row
+C2/91D1  Toggle Status 4 on Target
+C2/91E7  Grant Creature Type
+C2/91F2  Grant Status 1 Immunity
+C2/91FD  Grant Magic Element Up
+C2/912D  Defense & Magic Defense = Half
+C2/9136  Level = Half
+C2/9143  Add to Level
+C2/9153  Subtract from Level
+C2/9163  Double Max HP
+C2/9197  Increase Monster Attack
+C2/91B4  Increase Target Defense and Magic Defense
+C2/9208  Steal Subroutine
+C2/92A5  Poison Status Effect
+C2/938F  Lose one Image
+C2/93F8  Subtract Defense from Damage, Store in $7B69
+C2/940A  Multipy Net Damage by M
+C2/964D  Cover?
+
+Final Fantasy V is Copyright Square
+This document was created by InstructrTrepe, Copyright 2004.
+For feedback, questions, comments etc. you can either e-mail instructrtrepe@hotmail.com or post at the GameFAQ FFV SNES message boards at www.gamefaqs.com

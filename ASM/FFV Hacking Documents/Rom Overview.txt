@@ -1,0 +1,117 @@
+____________
+
+ROM OVERVIEW
+____________
+
+C0/D380-C0/D97F: 4BPP: Field message symbols
+C0/DF00-C0/E7FF: 1BPP: Background priority maps
+C0/F410-C0/F459: Text: Main character naming screen
+C2/0000-C2/FFFF:  ASM: Battle related code
+C3/EB00-C3/EF7F: 1BPP: Japanese font
+C3/EF80-C3/FFFF: 1BPP: Field font
+CD/FE00-CD/FFFF: 4BPP: Menu/battle hex numbers
+CF/D800-CF/DBFF: 4BPP: World Map (background)
+
+D0/0000-D0/2FFF: Monster stats
+D0/3000-D0/4FFF: Monster encounters
+D0/5000-D0/55FF: Monster drops/steals
+D0/5600-D0/5BFF: Monster control actions
+D0/5C00-D0/67FF: Monster names (Jap.)
+D0/6800-D0/6FFF: Monster groups
+D0/7000-D0/71FF: ? (pointer table)
+D0/7200-D0/77FF: ?
+D0/7800-D0/79FF: Event encounters
+D0/7A00-D0/7FFF: ? (8*192)
+D0/8000-D0/83FF: ? (2*512)
+D0/8400-D0/85FF: ? (fragmented data)
+D0/8600-D0/88FF: Monster Release actions
+D0/8900-D0/98FF: Monster formations
+D0/9900-D0/9BFF: Monster Specialty data
+D0/9C00-D0/C7FF: Monster AI scripts
+D0/C800-D0/CFFF: ? (8*256 ?)
+D0/D000-D0/D003: ?
+D0/D004-D0/DC29: 1-2BPP: Monster shapes
+D0/DC2A-D0/E002: ?
+D0/E003-D0/E162: 4BPP: Monster Mini, Toad and shadow graphics
+D0/E163-D0/EBFF: ? (some graphics ?)
+D0/EC00-D0/EFFF: Game engine constants
+D0/F000-D0/FFFF: Battle dialogue (Jap.)
+
+D1/0000-D1/0B7F: Item data
+D1/0B80-D1/137F: Magic data
+D1/1380-D1/1C7F: Item names (menu)
+D1/1C80-D1/247F: Magic names (field menu)
+D1/2480-D1/287F: Item definition tables
+D1/2880-D1/28B5: ? (pointer table ?)
+D1/28B6-D1/2975: Status names (battle menu)
+D1/2976-D1/29FF: ? (fragmented data)
+D1/2A00-D1/2CFF: Item/magic prices
+D1/2D00-D1/2FFF: Shop data
+D1/3000-D1/320F: ? (rising values)
+D1/3210-D1/35FF: ? (4*252)
+D1/3600-D1/39A8: ? (fragmented values)
+D1/39A9-D1/3BA8: ? (pointer table)
+D1/3BA9-D1/3FFF: ? (Jap.)
+D1/4000-D1/4FFF: Item descriptions
+D1/5000-D1/52B4: Level tables
+D1/52B5-D1/52C0: 
+D1/52C1-D1/54FF: Job levels
+D1/5500-D1/551D: Character names
+D1/551E-D1/5531: Character stat bonuses
+D1/5532-D1/55FF: 
+D1/5600-D1/56AF: Job names
+D1/56B0-D1/57FF: Job data
+D1/5800-D1/6AB0: Ability data/names (support) (menu) + (Jap.)
+D1/6AB1-D1/6DF8: Ability effect data (Animals, Mix, Terrain actions)
+D1/6DF9-D1/6FFF: ? (rising, varying values) (400 bytes)
+D1/7000-D1/713F: Character initial data
+D1/7140-D1/7F9F: Job/ability descriptions
+D1/7FA0-D1/A39F: ? (2*~4600)
+D1/A3A0-D1/AB9F: ? (16*128 ?)
+D1/ABA0-D1/BDFF: 4BPP: Misc. spell effects
+D1/BE00-D1/BFFF: ? (2*256)
+D1/C000-D1/EFFF: 2BPP?: Terrain spell effects ?
+D1/F000-D1/FFFF: 2BPP: Font
+
+D2/0000-D4/97BF: 4BPP: Character battle sprites
+D4/97C0-D4/A3BF: 3BPP: Misc. battle sprites
+D4/A3C0-D4/FFFF: Palettes (needs detailed research)
+D5/0000-D8/2FFF: 4BPP: Monster sprites
+D8/3000-D8/FFFF: ? (several patterns)
+D9/0000-D9/7CCF: 3BPP: Attack animations
+D9/7CD0-D9/FFFF: ?
+DA/0000-DB/39FF: 4BPP: Field sprites
+DB/3A00-DB/4D7F: 3BPP: Overworld / World map sprites
+DB/4D80-DB/7FFF: 4BPP: Overworld sprites
+DB/8000-DB/CFFF: Palettes ?
+DB/D000-DB/F7FF: 1BPP: Kanji
+DB/F800-DB/FFFF: ?
+DC/0000-DC/2E43: 2BPP: Background/Foreground tiles
+DC/2E44-DF/FFBF: 4BPP: Field graphics
+DF/FFC0-DF/FFFF: ?
+
+RPGe Extension
+E0/0000-E0/0FF0: Monster names
+E0/1150-E0/13EF: Ability names (commands)
+E0/3100-E0/3140: Misc. menu text fields
+E0/3720-E0/4A1F: 1BPP: Ending poem
+E1/0000-E6/FFFF: Game script
+E7/0000-E7/08FF: Area headings
+E7/0900-E7/0F8F: Effect names
+E7/0F90-E7/177F: Magic names (57-FF) (battle menu) (Song)
+E7/1780-E7/275F: Magic names (57-FF) (battle message)
+E7/2760-E7/2CA9: Battle messages
+E7/2F00-E7/33FF: Menu/shop text
+E7/3560-E7/36FF: Rare item names
+E7/3700-E7/3AF0: Monster Speciality names
+E7/3B00-E7/50FF: Battle dialogue
+E7/5100-E7/57FF: Item descriptions
+E7/5800-E7/585F: Battle record text
+E7/5860-E7/705F: Item names (battle message)
+E7/7060-E7/739F: Ability names (support) (battle message)
+E7/73A0-E7/751F: Crystal prophecy
+E7/FAD9-E7/FFFF: Misc. menu text fields
+
+________________________
+
+[Last update: 3 Jan 2010]

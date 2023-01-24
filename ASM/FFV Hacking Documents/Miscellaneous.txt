@@ -1,0 +1,331 @@
+_____________
+
+MISCELLANEOUS
+_____________
+
+- Character data
+- Level tables
+- Shop data
+- Item/magic prices
+- Game text
+
+______________
+
+Character data
+______________
+
+- D1/5500-551D: Names            [Character]
+- D1/551E-5531: [Stat] bonuses   [Character]
+* D1/7000-713F: Initial data     Character slot
+
+________________________
+
+Initial data: 80 bytes
+00 Misc. + Character
+01 [Job]
+02 Level
+03 Exp (LoByte)
+04 Exp (MidByte)
+05 Exp (HiByte)
+06 Current HP (LoByte)
+07 Current HP (HiByte)
+08 Max HP (LoByte)
+09 Max HP (HiByte)
+0A Current MP (LoByte)
+0B Current MP (HiByte)
+0C Max MP (LoByte)
+0D Max MP (HiByte)
+0E [Item]: Headgear
+0F [Item]: Bodywear
+10 [Item]: Accessory
+11 [Item]: Right hand shield
+12 [Item]: Left hand shield
+13 [Item]: Right hand weapon
+14 [Item]: Left hand weapon
+15 [Monster] caught
+16 Command [Ability] 1
+17 Command [Ability] 2
+18 Command [Ability] 3
+19 Command [Ability] 4
+1A Initial [Status 0]
+1B Initial [Status 1]
+1C Initial [Status 2]
+1D Initial [Status 3]
+1E 
+1F 
+20 [Innate abilities]
+21  -
+22 [Element] up
+23 Equipment weight
+24 Base Strength
+25 Base Agility
+26 Base Stamina
+27 Base Magic Power
+28 Current Strength
+29 Current Agility
+2A Current Stamina
+2B Current Magic
+2C Evade %
+2D Defense
+2E Magic evade %
+2F Magic defense
+30 [Element] absorb
+31 [Element] block
+32 [Element] immunity
+33 [Element] half
+34 [Element] weakness
+35 [Status 0] immune
+36 [Status 1] immune
+37 [Status 2] immune
+38 "Weapon cast type"
+39 "Equipment specialty"
+3A Job level
+3B ABP (LoByte)
+3C ABP (HiByte)
+
+44 Attack power
+
+________________________
+
+00: Misc. + Character
+
+0 0 0 0   0 0 0 0
+B nT      G{Char.}
+
+80 Back row
+40 Not in team
+20 
+10 
+08 Gender (female)
+04-01 Character
+
+Character
+0 Butz
+1 Lenna
+2 Galuf
+3 Faris
+4 Cara
+
+____________
+
+Level tables
+____________
+
+- D1/5000-5128: Experience table      Level
+- D1/5129-51EE: Base HP table         Level
+- D1/51EF-52B4: Base MP table         Level
+
+________________________
+
+Experience table: 3 bytes
+0 Exp requirement (LoByte)
+1 Exp requirement (MidByte)
+2 Exp requirement (HiByte)
+
+Experience table: 2 bytes
+0 Base HP (Lobyte)
+1 Base HP (Hibyte)
+
+Experience table: 2 bytes
+0 Base MP (Lobyte)
+1 Base MP (Hibyte)
+
+_________
+
+Shop data 
+_________
+
+- D1/2D00-2D3F: Shop names      Shop type
+* D1/2D40-2FFF: Shop data       [Shop]
+
+________________________
+
+Shop data: 9 bytes
+0 Properties
+1 [Item]/[Magic] 1
+2 [Item]/[Magic] 2
+3 [Item]/[Magic] 3
+4 [Item]/[Magic] 4
+5 [Item]/[Magic] 5
+6 [Item]/[Magic] 6
+7 [Item]/[Magic] 7
+8 [Item]/[Magic] 8
+
+________________________
+
+0: Properties
+
+0 0 0 0   0 0 0 0 
+D           {Type}
+
+80 Discount
+04-01 Shop type
+
+Shop type
+0 Magic
+1 Weapon
+2 Armor
+3 Item
+4 Relic
+5 Guild
+6 Medicine
+7 General
+
+_________________
+
+Shop
+00 Tule W
+01 Tule A
+02 Tule I
+03 Tule M
+04 Carwen W
+05 Carwen A
+06 Carwen I
+07 Carwen M
+08 Worus W
+09 Worus A
+0A Worus M
+0B Karnak W
+0C Karnak W
+0D Karnak A
+0E Common W1 I
+0F Karnak M
+10 Karnak M
+11 Karnak M
+12 Crescent W
+13 Crescent A
+14 0 M
+15 Istory R
+16 0 A
+17 0 I
+18 Jacole W
+19 Jacole A
+1A Common W2 I
+1B Lix G
+1C Lix A
+1D Lix M
+1E Rugor W
+1F Rugor A
+20 Common W2 I
+21 Bal/Kelb W
+22 Bal/Kelb A
+23 Kelb W
+24 Kelb A
+25 Common W2 M
+26 Common W2 M
+27 Common W2 M
+28 Surgate W
+29 Surgate A
+2A Mua W
+2B Mua A
+2C Mua M
+2D Mua M
+2E Mua M
+2F 0 W
+30 0 A
+31 Lix I
+32 Dwarf M ? (not used ?)
+33 Dwarf W
+34 Dwarf A
+35 0 I
+36 Mirage W
+37 Mirage G
+38 Mirage A
+39 Mirage R
+3A Mirage M
+3B Mirage M
+3C Mirage I
+3D Mirage I
+3E Karnak W (before arrest)
+3F Karnak A (before arrest)
+
+_________________
+
+Item/magic prices
+_________________
+
+- D1/2A00-2BFF
+
+[Item+Magic] * 2 bytes
+0 Flags
+1 Factor 1
+
+________________________
+
+0: Flags
+
+80 Can't be sold
+40 Sells for 5 gil
+20 
+10 
+08 
+04-01  Factor 2
+
+Factor 2
+1 10
+2 100
+3 1000
+4 10000
+5 100000
+
+_________
+
+Game text
+_________
+
+MONSTERS & BATTLE
+
+- D0/5C00-67FF: Monster names (Jap.)
+- D0/F000-F1D3: Battle dialogue pointer table (Jap.)
+- D0/F1D4-FFFF: Battle dialogue (Jap.)
+- E0/0000-0FF0: Monster names
+- E7/2760-2CA9: Battle messages
+- E7/3700-3AF0: Monster Speciality names
+- E7/3B00-50FF: Battle dialogue
+
+________________________
+
+ITEMS & ACTIONS
+
+- D1/1380-1C7F: Item names (menu)
+- D1/1C80-247F: Magic names (field menu)
+- D1/28B6-2975: Status names (battle menu)
+- D1/4000-40FF: Item descriptions pointer table
+- D1/4100-4FFF: Item descriptions
+- E7/0900-0F8F: Effect names
+- E7/0F90-177F: Magic names (battle menu) (57-FF) (Song)
+- E7/1780-275F: Magic names (battle message) (57-FF)
+- E7/3560-36FF: Rare item names
+- E7/5100-51FF: Item descriptions pointer table
+- E7/5200-57FF: Item descriptions
+- E7/5860-705F: Item names (battle message)
+
+________________________
+
+JOBS & ABILITIES
+
+- D1/5600-56AF: Job names
+- D1/5800-59DF: Ability names (Jap.) (00-5F)
+- D1/6200-6307: Ability names (menu) (80-A0)
+- D1/6700-6AB0: Ability names (Jap.) (80-A0)
+- D1/7140-7249: Descriptions pointer table
+- D1/724A-7C9D: Descriptions
+- E0/1150-137F: Ability names (00-5F)
+- E7/7060-739F: Ability names (battle message) (80-A0)
+
+________________________
+
+OTHER
+
+- D1/5500-551D: Character names
+- E0/3100-3140: Misc. menu text fields
+- E1/0000-E6/FFFF: Game script
+- E7/0000-08FF: Area headings
+- E7/2F00-33FF: Menu/shop text
+- E7/5800-585F: Battle record text
+- E7/73A0-751F: Crystal prophecy
+- E7/FAD9-FFFF: Misc. menu text fields
+
+________________________
+
+[Last update: 3 Jan 2010]
