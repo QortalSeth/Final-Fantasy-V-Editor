@@ -26,6 +26,7 @@ export const IconButton = ({
     paddingTop: 0,
     paddingBottom: 0,
     userSelect: 'none',
+    backgroundColor: 'white',
   };
 
   const imageDefaultStyle: CSS.Properties = {
@@ -44,7 +45,13 @@ export const IconButton = ({
   }
 
   return (
-    <button type='button' style={{ ...buttonDefaultStyle, ...buttonStyle }} onClick={clickListener} disabled={disabled}>
+    <button
+      type='button'
+      className='button'
+      style={{ ...buttonDefaultStyle, ...buttonStyle }}
+      onClick={clickListener}
+      disabled={disabled}
+    >
       <img src={icon} alt='' style={{ ...imageDefaultStyle, ...imageStyle }} />
       {name}
     </button>

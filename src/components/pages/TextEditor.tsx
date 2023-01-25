@@ -4,17 +4,28 @@ import { PointerTextfield } from '../TextFields';
 export const TextEditor = () => {
   const divStyle = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(4, 1fr)',
-    // textAlign: 'right',
-    //  verticalAlign: 'bottom',
-    alignItems: 'end',
-    gridGap: '4px',
+    gridTemplateColumns: '1fr 1fr',
+    gridGap: '0px',
+    width: '50%',
   };
-  //       <style>color: None;</style>
   return (
     <div style={divStyle}>
-      <p>Text Location to read:</p>
-      <PointerTextfield />
+      <span
+        style={{
+          gridColumn: 'span 2',
+          fontWeight: 'bold',
+          textDecoration: 'underline',
+          textAlign: 'center',
+          marginBottom: '15px',
+        }}
+      >
+        Text Reader
+      </span>
+      <span style={{ textAlign: 'right', marginTop: '2px', marginRight: '3px' }}>Text Location to read:</span>
+      <PointerTextfield textFieldStyle={{ width: '100%' }} />
+      <button type='button' style={{ width: '100%', height: '30px', gridColumnStart: '2' }}>
+        Generate Results
+      </button>
     </div>
   );
 };

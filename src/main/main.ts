@@ -160,8 +160,8 @@ app
         const editorWindow = new BrowserWindow({
           show: true,
           parent: mainWindow,
-          width: 1300,
-          height: 1300,
+          width: 1600,
+          height: 720,
           minWidth: 900,
           autoHideMenuBar: true,
           // resizable: false,
