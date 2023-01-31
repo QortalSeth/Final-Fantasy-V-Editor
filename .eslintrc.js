@@ -13,7 +13,7 @@ module.exports = {
     jsxSingleQuote: 0,
     'import/prefer-default-export': 'off',
     'max-len': 'off',
-    'prettier/prettier': ['error', { printWidth: 120 }],
+    'prettier/prettier': ['error', { printWidth: 125 }],
     objectPropertyNewline: 0,
     'react/jsx-props-no-spreading': 'off',
     'react/destructuring-assignment': 'off',

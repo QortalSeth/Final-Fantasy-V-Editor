@@ -10,14 +10,7 @@ export interface IconButtonProps extends React.HTMLProps<HTMLButtonElement> {
   disabled: boolean;
 }
 
-export const IconButton = ({
-  buttonStyle = {},
-  imageStyle = {},
-  name,
-  icon,
-  clickListener,
-  disabled,
-}: IconButtonProps) => {
+export const IconButton = ({ buttonStyle = {}, imageStyle = {}, name, icon, clickListener, disabled }: IconButtonProps) => {
   const buttonDefaultStyle: CSS.Properties = {
     height: '100%',
     paddingLeft: 0,

@@ -1,7 +1,7 @@
 import { createDraftSafeSelector, createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Buffer } from 'buffer';
 import { useSelector } from 'react-redux';
-// eslint-disable-next-line import/no-cycle
+/* eslint-disable import/no-cycle */
 import { RootState } from '../store';
 
 export interface ROMState {
@@ -62,25 +62,35 @@ const ROMSlice = createSlice({
       payloadNextByte(action);
       setByte2(state, action);
       payloadNextByte(action);
-      ROMSlice.caseReducers.setByte(state, action);
+      setByte2(state, action);
     },
     setOffset(state, action: PayloadAction<number>) {
       state.offset = action.payload + state.data.header;
+      // console.log('Offset Payload: ', action.payload);
+      // console.log('New offset is: ', state.offset);
     },
   },
 });
 
 export const romState = (state: RootState) => state.ROM;
 
-export const byteSelector = createSelector(
-  [romState, (state, offset?: number) => offset],
-  // eslint-disable-next-line @typescript-eslint/no-shadow
-  (romState, offset) => {
-    const finalOffset = (offset || romState.offset) + romState.data.header;
-    if (!offset) romState.offset += 1;
-    return romState.rom[finalOffset];
-  }
-);
+// export const byteSelector = createSelector(
+//   [romState, (offset?: number) => offset],
+//   // eslint-disable-next-line @typescript-eslint/no-shadow
+//   (romState, offset) => {
+//     console.log('In byte selector');
+//     console.log('offset: ', offset);
+//     console.log('romstate: ', romState);
+//     const finalOffset = (offset || romState.offset) + romState.data.header;
+//     if (!offset) romState.offset += 1;
+//     return romState.rom[finalOffset];
+//   }
+// );
+
+export const byteSelector = (state: ROMState, offset?: number) => {
+  const finalOffset = (offset || state.offset) + state.data.header;
+  return state.rom[finalOffset];
+};
 
 export const shortSelector = createSelector(
   [romState, (state, offset?: number) => offset],

@@ -12,14 +12,14 @@ import shopIcon from '../../assets/Female NPC.png';
 import enemyIcon from '../../assets/Gilgamesh.png';
 import textIcon from '../../assets/Text.png';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
-import { byteSelector, setROM } from '../redux/slices/ROM-Slice';
+import { byteSelector, setOffset, setROM } from '../redux/slices/ROM-Slice';
 
 export const EditorChooser = () => {
   const defaultROM = '/home/seth/WebstormProjects/Final-Fantasy-V-Editor/assets/Final Fantasy V+.smc';
   const useDefaultROM = true;
   const [isDisabled, setDisabled] = useState(true);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+
   // console.log(
   //   '10th byte is: ',
   //   useAppSelector((state) => byteSelector(state, 10))
@@ -58,13 +58,6 @@ export const EditorChooser = () => {
   //   if (useDefaultROM) {
   //     openFile(defaultROM);
   //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
-  // useEffect(() => {
-  //   window.electron.ipcRenderer.on('routeChange', (event, route) => {
-  //     navigate(route);
-  //   });
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, []);
 

@@ -2,185 +2,218 @@ import store from '../redux/store';
 import { byteSelector, setOffset } from '../redux/slices/ROM-Slice';
 
 // prettier-ignore
-const textMap = new Map<number, (char: string) => string>([
-  [0x1, () => { return '\n';  } ],
-  [0x2, () => { return 'Bartz';  } ],
-  [0x20, () => { return 'A ';  } ],
-  [0x21, () => { return 'B ';  } ],
-  [0x22, () => { return 'C ';  } ],
-  [0x23, () => { return 'D ';  } ],
-  [0x24, () => { return 'E ';  } ],
-  [0x25, () => { return 'F ';  } ],
-  [0x26, () => { return 'G ';  } ],
-  [0x27, () => { return 'H ';  } ],
-  [0x28, () => { return 'I ';  } ],
-  [0x29, () => { return 'J ';  } ],
-  [0x2A, () => { return 'K ';  } ],
-  [0x2B, () => { return 'L ';  } ],
-  [0x2C, () => { return 'M ';  } ],
-  [0x2D, () => { return 'N ';  } ],
-  [0x2E, () => { return 'O ';  } ],
-  [0x2F, () => { return 'P ';  } ],
-  [0x30, () => { return 'Q ';  } ],
-  [0x31, () => { return 'R ';  } ],
-  [0x32, () => { return 'S ';  } ],
-  [0x33, () => { return 'T ';  } ],
-  [0x34, () => { return 'U ';  } ],
-  [0x35, () => { return 'V ';  } ],
-  [0x36, () => { return 'W ';  } ],
-  [0x37, () => { return 'X ';  } ],
-  [0x38, () => { return 'Y ';  } ],
-  [0x39, () => { return 'Z ';  } ],
-  [0x53, () => { return '0';  } ],
-  [0x54, () => { return '1';  } ],
-  [0x55, () => { return '2';  } ],
-  [0x56, () => { return '3';  } ],
-  [0x57, () => { return '4';  } ],
-  [0x58, () => { return '5';  } ],
-  [0x59, () => { return '6';  } ],
-  [0x5A, () => { return '7';  } ],
-  [0x5B, () => { return '8';  } ],
-  [0x5C, () => { return '9';  } ],
-  [0x60, () => { return 'A';  } ],
-  [0x61, () => { return 'B';  } ],
-  [0x62, () => { return 'C';  } ],
-  [0x63, () => { return 'D';  } ],
-  [0x64, () => { return 'E';  } ],
-  [0x65, () => { return 'F';  } ],
-  [0x66, () => { return 'G';  } ],
-  [0x67, () => { return 'H';  } ],
-  [0x68, () => { return 'I';  } ],
-  [0x69, () => { return 'J';  } ],
-  [0x6A, () => { return 'K';  } ],
-  [0x6B, () => { return 'L';  } ],
-  [0x6C, () => { return 'M';  } ],
-  [0x6D, () => { return 'N';  } ],
-  [0x6E, () => { return 'O';  } ],
-  [0x6F, () => { return 'P';  } ],
-  [0x70, () => { return 'Q';  } ],
-  [0x71, () => { return 'R';  } ],
-  [0x72, () => { return 'S';  } ],
-  [0x73, () => { return 'T';  } ],
-  [0x74, () => { return 'U';  } ],
-  [0x75, () => { return 'V';  } ],
-  [0x76, () => { return 'W';  } ],
-  [0x77, () => { return 'X';  } ],
-  [0x78, () => { return 'Y';  } ],
-  [0x79, () => { return 'Z';  } ],
-  [0x7A, () => { return 'a';  } ],
-  [0x7B, () => { return 'b';  } ],
-  [0x7C, () => { return 'c';  } ],
-  [0x7D, () => { return 'd';  } ],
-  [0x7E, () => { return 'e';  } ],
-  [0x7F, () => { return 'f';  } ],
-  [0x80, () => { return 'g';  } ],
-  [0x81, () => { return 'h';  } ],
-  [0x82, () => { return 'i';  } ],
-  [0x83, () => { return 'j';  } ],
-  [0x84, () => { return 'k';  } ],
-  [0x85, () => { return 'l';  } ],
-  [0x86, () => { return 'm';  } ],
-  [0x87, () => { return 'n';  } ],
-  [0x88, () => { return 'o';  } ],
-  [0x89, () => { return 'p';  } ],
-  [0x8A, () => { return 'q';  } ],
-  [0x8B, () => { return 'r';  } ],
-  [0x8C, () => { return 's';  } ],
-  [0x8D, () => { return 't';  } ],
-  [0x8E, () => { return 'u';  } ],
-  [0x8F, () => { return 'v';  } ],
-  [0x90, () => { return 'w';  } ],
-  [0x91, () => { return 'x';  } ],
-  [0x92, () => { return 'y';  } ],
-  [0x93, () => { return 'z';  } ],
-  [0x94, () => { return 'il';  } ],
-  [0x95, () => { return 'it';  } ],
-  [0x97, () => { return 'li';  } ],
-  [0x98, () => { return 'll';  } ],
-  [0x99, () => { return '\'';  } ],
-  [0x9B, () => { return ':';  } ],
-  [0x9D, () => { return ',';  } ],
-  [0x9E, () => { return '(';  } ],
-  [0x9F, () => { return ')';  } ],
-  [0xA0, () => { return '/';  } ],
-  [0xA1, () => { return '!';  } ],
-  [0xA2, () => { return '?';  } ],
-  [0xA3, () => { return '.';  } ],
-  [0xA4, () => { return 'ti';  } ],
-  [0xA5, () => { return 'fi';  } ],
-  [0xAC, () => { return 'if';  } ],
-  [0xAD, () => { return 'It';  } ],
-  [0xAE, () => { return 'tl';  } ],
-  [0xAF, () => { return 'ir';  } ],
-  [0xB0, () => { return 'tt';  } ],
-  [0xBC, () => { return 'KEY';  } ],
-  [0xBD, () => { return 'SHOE';  } ],
-  [0xBE, () => { return 'MISC';  } ],
-  [0xBF, () => { return 'HAMR';  } ],
-  [0xC0, () => { return 'TENT';  } ],
-  [0xC1, () => { return 'RIBN';  } ],
-  [0xC2, () => { return 'DRNK';  } ],
-  [0xC3, () => { return 'SUIT';  } ],
-  [0xC4, () => { return 'SONG';  } ],
-  [0xC5, () => { return '-';  } ],
-  [0xC6, () => { return 'SHUR';  } ],
-  [0xC7, () => { return '...';  } ],
-  [0xC8, () => { return 'SCRL';  } ],
-  [0xC9, () => { return '!';  } ],
-  [0xCA, () => { return 'CLAW';  } ],
-  [0xCB, () => { return '?';  } ],
-  [0xCC, () => { return 'GLOV';  } ],
-  [0xCD, () => { return '%';  } ],
-  [0xCE, () => { return '/';  } ],
-  [0xCF, () => { return ':';  } ],
-  [0xD0, () => { return '|-';  } ],
-  [0xD1, () => { return ' |';  } ],
-  [0xE0, () => { return '/\\';  } ],
-  [0xE1, () => { return '-}';  } ],
-  [0xE2, () => { return '+';  } ],
-  [0xE3, () => { return 'SWRD';  } ],
-  [0xE4, () => { return 'WHIT';  } ],
-  [0xE5, () => { return 'BLAK';  } ],
-  [0xE6, () => { return 'DIMN';  } ],
-  [0xE7, () => { return 'KNIF';  } ],
-  [0xE8, () => { return 'SPER';  } ],
-  [0xE9, () => { return 'AXE';  } ],
-  [0xEA, () => { return 'KATN';  } ],
-  [0xEB, () => { return 'ROD';  } ],
-  [0xEC, () => { return 'STAF';  } ],
-  [0xED, () => { return 'BOW';  } ],
-  [0xEE, () => { return 'HARP';  } ],
-  [0xEF, () => { return 'WHIP';  } ],
-  [0xF0, () => { return 'BELL';  } ],
-  [0xF1, () => { return 'SHLD';  } ],
-  [0xF2, () => { return 'HELM';  } ],
-  [0xF3, () => { return 'ARMR';  } ],
-  [0xF4, () => { return 'RING';  } ],
+const textReadMap = new Map<number, string>([
+  [0x1, '\n'],
+  [0x2, 'Bartz'],
+  [0x20, 'A '],
+  [0x21, 'B '],
+  [0x22, 'C '],
+  [0x23, 'D '],
+  [0x24, 'E '],
+  [0x25, 'F '],
+  [0x26, 'G '],
+  [0x27, 'H '],
+  [0x28, 'I '],
+  [0x29, 'J '],
+  [0x2A, 'K '],
+  [0x2B, 'L '],
+  [0x2C, 'M '],
+  [0x2D, 'N '],
+  [0x2E, 'O '],
+  [0x2F, 'P '],
+  [0x30, 'Q '],
+  [0x31, 'R '],
+  [0x32, 'S '],
+  [0x33, 'T '],
+  [0x34, 'U '],
+  [0x35, 'V '],
+  [0x36, 'W '],
+  [0x37, 'X '],
+  [0x38, 'Y '],
+  [0x39, 'Z '],
+  [0x53, '0'],
+  [0x54, '1'],
+  [0x55, '2'],
+  [0x56, '3'],
+  [0x57, '4'],
+  [0x58, '5'],
+  [0x59, '6'],
+  [0x5A, '7'],
+  [0x5B, '8'],
+  [0x5C, '9'],
+  [0x60, 'A'],
+  [0x61, 'B'],
+  [0x62, 'C'],
+  [0x63, 'D'],
+  [0x64, 'E'],
+  [0x65, 'F'],
+  [0x66, 'G'],
+  [0x67, 'H'],
+  [0x68, 'I'],
+  [0x69, 'J'],
+  [0x6A, 'K'],
+  [0x6B, 'L'],
+  [0x6C, 'M'],
+  [0x6D, 'N'],
+  [0x6E, 'O'],
+  [0x6F, 'P'],
+  [0x70, 'Q'],
+  [0x71, 'R'],
+  [0x72, 'S'],
+  [0x73, 'T'],
+  [0x74, 'U'],
+  [0x75, 'V'],
+  [0x76, 'W'],
+  [0x77, 'X'],
+  [0x78, 'Y'],
+  [0x79, 'Z'],
+  [0x7A, 'a'],
+  [0x7B, 'b'],
+  [0x7C, 'c'],
+  [0x7D, 'd'],
+  [0x7E, 'e'],
+  [0x7F, 'f'],
+  [0x80, 'g'],
+  [0x81, 'h'],
+  [0x82, 'i'],
+  [0x83, 'j'],
+  [0x84, 'k'],
+  [0x85, 'l'],
+  [0x86, 'm'],
+  [0x87, 'n'],
+  [0x88, 'o'],
+  [0x89, 'p'],
+  [0x8A, 'q'],
+  [0x8B, 'r'],
+  [0x8C, 's'],
+  [0x8D, 't'],
+  [0x8E, 'u'],
+  [0x8F, 'v'],
+  [0x90, 'w'],
+  [0x91, 'x'],
+  [0x92, 'y'],
+  [0x93, 'z'],
+  [0x94, 'il'],
+  [0x95, 'it'],
+  [0x96, ' '],
+  [0x97, 'li'],
+  [0x98, 'll'],
+  [0x99, '\''],
+  [0x9B, ':'],
+  [0x9D, ','],
+  [0x9E, '('],
+  [0x9F, ')'],
+  [0xA0, '/'],
+  [0xA1, '!'],
+  [0xA2, '?'],
+  [0xA3, '.'],
+  [0xA4, 'ti'],
+  [0xA5, 'fi'],
+  [0xAC, 'if'],
+  [0xAD, 'It'],
+  [0xAE, 'tl'],
+  [0xAF, 'ir'],
+  [0xB0, 'tt'],
+  [0xBC, 'KEY'],
+  [0xBD, 'SHOE'],
+  [0xBE, 'MISC'],
+  [0xBF, 'HAMR'],
+  [0xC0, 'TENT'],
+  [0xC1, 'RIBN'],
+  [0xC2, 'DRNK'],
+  [0xC3, 'SUIT'],
+  [0xC4, 'SONG'],
+  [0xC5, '-'],
+  [0xC6, 'SHUR'],
+  [0xC7, '...'],
+  [0xC8, 'SCRL'],
+  [0xC9, '!'],
+  [0xCA, 'CLAW'],
+  [0xCB, '?'],
+  [0xCC, 'GLOV'],
+  [0xCD, '%'],
+  [0xCE, '/'],
+  [0xCF, ':'],
+  [0xD0, '|-'],
+  [0xD1, ' |'],
+  [0xE0, '/\\'],
+  [0xE1, '-}'],
+  [0xE2, '+'],
+  [0xE3, 'SWRD'],
+  [0xE4, 'WHIT'],
+  [0xE5, 'BLAK'],
+  [0xE6, 'DIMN'],
+  [0xE7, 'KNIF'],
+  [0xE8, 'SPER'],
+  [0xE9, 'AXE'],
+  [0xEA, 'KATN'],
+  [0xEB, 'ROD'],
+  [0xEC, 'STAF'],
+  [0xED, 'BOW'],
+  [0xEE, 'HARP'],
+  [0xEF, 'WHIP'],
+  [0xF0, 'BELL'],
+  [0xF1, 'SHLD'],
+  [0xF2, 'HELM'],
+  [0xF3, 'ARMR'],
+  [0xF4, 'RING'],
 ]);
 
-export const textReader = (pointer: number) => {
+const getOffset = () => {
+  return store.getState().ROM.offset;
+};
+
+const incOffset = () => {
+  store.dispatch(setOffset(getOffset() + 1));
+};
+
+const readNextByte = () => {
+  const byte = byteSelector(store.getState().ROM);
+  const altByte = store.getState().ROM.rom[getOffset()];
+  // console.log('Byte is: ', byte);
+  // console.log('Alt Byte is: ', altByte);
+  // console.log('ROM is: ', store.getState().ROM.rom);
+  incOffset();
+  return byte;
+};
+
+const toHexString = (numberS: string | undefined) => {
+  const num = Number(numberS);
+  return num.toString(16) || '';
+};
+
+export const readText = (pointer: number, sizeLimit?: number) => {
   let text = '';
-  let readNextByte = true;
-  let nextByte: number;
-  setOffset(pointer);
+  let readNext = true;
+
+  // console.log('current State: ', store.getState().ROM);
+  store.dispatch(setOffset(pointer));
+  // console.log('offset set at: ', getOffset());
   let textLength = 0;
 
-  const sizeLimit = 1000;
-  while (readNextByte) {
-    nextByte = byteSelector(store.getState);
+  while (readNext) {
+    const romstate = store.getState().ROM;
+    // console.log('textReader romstate: ', romstate);
+    const nextByte = readNextByte();
+
+    // console.log('next byte is: ', nextByte);
     textLength += 1;
-    if (textLength > sizeLimit) {
-      readNextByte = false;
+    if (textLength > (sizeLimit || 1000)) {
+      console.log('size limit of ', sizeLimit, 'reached');
+      readNext = false;
     }
 
     if (nextByte === 0xff) {
-      readNextByte = false;
+      readNext = false;
     } else {
-      text += textMap.get(nextByte);
+      const textValue = textReadMap.get(nextByte) || '';
+      console.log('Byte Value: ', nextByte.toString(16), '  Text Value: ', textValue);
+
+      text += textValue;
     }
   }
 
   return text;
 };
 
-export default textReader;
+export default readText;

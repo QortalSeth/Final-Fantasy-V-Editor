@@ -12,25 +12,24 @@ import { RootState } from '../redux/store';
 //   return result;
 // };
 
-export function byteArrayToHexString(uint8arr: Uint8Array, start: number, size: number, newline = 10) {
-  if (!uint8arr) {
-    return '';
-  }
-
+export function arrayToHexString(
+  array: number[],
+  { start = 0, size = array.length - 1, newline = 10, includePrefix = true } = {}
+) {
   let hexStr = '';
   let count = 0;
   for (let i = start; i < start + size; i++) {
-    let hex = (uint8arr[i] & 0xff).toString(16);
+    let hex = (array[i] & 0xff).toString(16);
     hex = hex.length === 1 ? `0${hex}` : hex;
-    hexStr += `0x${hex.toUpperCase()} `;
+    hexStr += includePrefix ? `0x${hex.toUpperCase()}` : hex.toUpperCase();
     count += 1;
     if (count % newline === 0 && count !== 0) hexStr += '\n';
   }
   return hexStr;
 }
 
-export const printArray = (array: Uint8Array, startIndex = 0, size = 100, newline = 10) => {
-  console.log(byteArrayToHexString(array, startIndex, size, newline));
+export const printArray = (array: number[], { start = 0, size = array.length - 1, newline = 10, includePrefix = true }) => {
+  console.log(arrayToHexString(array, { start, size, newline, includePrefix }));
 };
 
 export const stringifyBytes = (array: Uint8Array) => {

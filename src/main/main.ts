@@ -15,6 +15,7 @@ import log from 'electron-log';
 import fs from 'fs';
 import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
 import { createFileRoute } from 'electron-router-dom';
+import * as remoteMain from '@electron/remote/main';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 import { openFileAsBytes } from '../utils/ROM';
@@ -60,9 +61,7 @@ const createWindow = async () => {
     await installExtensions();
   }
 
-  const RESOURCES_PATH = app.isPackaged
-    ? path.join(process.resourcesPath, 'assets')
-    : path.join(__dirname, '../../assets');
+  const RESOURCES_PATH = app.isPackaged ? path.join(process.resourcesPath, 'assets') : path.join(__dirname, '../../assets');
 
   // eslint-disable-next-line import/prefer-default-export
   const getAssetPath = (...paths: string[]): string => {
@@ -85,6 +84,8 @@ const createWindow = async () => {
       preload: app.isPackaged ? path.join(__dirname, 'preload.js') : path.join(__dirname, '../../.erb/dll/preload.js'),
     },
   });
+  remoteMain.enable(mainWindow.webContents);
+
   // mainWindow.loadURL('http://localhost:1212');
   // mainWindow.loadURL(resolveHtmlPath('index.html'));
   mainWindow.loadURL(resolveHtmlPath(''));
@@ -171,11 +172,11 @@ app
             nodeIntegration: true,
             contextIsolation: true,
             devTools: true, // (removes inspect devtools addon window if false)
-            preload: app.isPackaged
-              ? path.join(__dirname, 'preload.js')
-              : path.join(__dirname, '../../.erb/dll/preload.js'),
+            preload: app.isPackaged ? path.join(__dirname, 'preload.js') : path.join(__dirname, '../../.erb/dll/preload.js'),
           },
         });
+        remoteMain.enable(editorWindow.webContents);
+
         editorWindow.on('closed', () => {
           mainWindow?.show();
         });
