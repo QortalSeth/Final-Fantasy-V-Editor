@@ -1,5 +1,4 @@
-import store from '../redux/store';
-import { byteSelector, setOffset } from '../redux/slices/ROM-Slice';
+import { getOffset, getNextByte, setOffset } from '../utils/ROM';
 
 // prettier-ignore
 const textReadMap = new Map<number, string>([
@@ -158,47 +157,24 @@ const textReadMap = new Map<number, string>([
   [0xF3, 'ARMR'],
   [0xF4, 'RING'],
 ]);
+export const readText = (pointer: number, sizeLimit = 20) => {
+  console.log('reading text');
 
-const getOffset = () => {
-  return store.getState().ROM.offset;
-};
-
-const incOffset = () => {
-  store.dispatch(setOffset(getOffset() + 1));
-};
-
-const readNextByte = () => {
-  const byte = byteSelector(store.getState().ROM);
-  const altByte = store.getState().ROM.rom[getOffset()];
-  // console.log('Byte is: ', byte);
-  // console.log('Alt Byte is: ', altByte);
-  // console.log('ROM is: ', store.getState().ROM.rom);
-  incOffset();
-  return byte;
-};
-
-const toHexString = (numberS: string | undefined) => {
-  const num = Number(numberS);
-  return num.toString(16) || '';
-};
-
-export const readText = (pointer: number, sizeLimit?: number) => {
   let text = '';
   let readNext = true;
 
-  // console.log('current State: ', store.getState().ROM);
-  store.dispatch(setOffset(pointer));
-  // console.log('offset set at: ', getOffset());
+  setOffset(pointer);
+  console.log('offset set at: ', getOffset());
+
   let textLength = 0;
 
   while (readNext) {
-    const romstate = store.getState().ROM;
     // console.log('textReader romstate: ', romstate);
-    const nextByte = readNextByte();
+    const nextByte = getNextByte();
 
-    // console.log('next byte is: ', nextByte);
+    console.log('next byte is: ', nextByte);
     textLength += 1;
-    if (textLength > (sizeLimit || 1000)) {
+    if (textLength > sizeLimit) {
       console.log('size limit of ', sizeLimit, 'reached');
       readNext = false;
     }

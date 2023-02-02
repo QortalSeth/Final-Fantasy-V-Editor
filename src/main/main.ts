@@ -18,7 +18,6 @@ import { createFileRoute } from 'electron-router-dom';
 import * as remoteMain from '@electron/remote/main';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
-import { openFileAsBytes } from '../utils/ROM';
 import { getHeader, ROMState } from '../redux/slices/ROM-Slice';
 
 class AppUpdater {
@@ -148,7 +147,7 @@ app
         } else return undefined;
       } else file = defaultROM;
 
-      const fileData = openFileAsBytes(file);
+      const fileData = fs.readFileSync(file);
       console.log('buffer: ', fileData);
       mainWindow?.webContents.openDevTools();
       return { rom: Array.from(fileData), data: { path: file, header: getHeader(fileData.length) } } as ROMState;
@@ -162,7 +161,7 @@ app
           show: true,
           parent: mainWindow,
           width: 1600,
-          height: 720,
+          height: 800,
           minWidth: 900,
           autoHideMenuBar: true,
           // resizable: false,

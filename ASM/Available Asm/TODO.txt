@@ -1,18 +1,22 @@
-World Conjure – Conjure command will only use summons from the World you are in. No more summing Ifrit in World 3
+1. Passive Abilities Active Patch - This is by far the most complex code I've written for this game. It makes ALL passive abilities (Weapon/Armor equip, Max HP/MP UP, innate abilities like Learning, Counter, etc.) become permanently equipped for all jobs once learned. There is no longer any need to use an ability slot for passives. This has MASSIVE ramifications for party setups as it means your options for party setup dramatically increase throughout the game.
 
-Super X-Magic – Equipping the X-Magic ability will grant you access to all the spells you have learned through their respective job classes. It is no longer needed to equip X-Magic as well as white/black/time/summon magic just to get access to spells.
+2. Super X-Magic – Equipping the X-Magic command will grant you access to all the spells you have learned through their respective job classes. It is no longer needed to equip X-Magic as well as white/black/time/summon magic just to get access to spells. There is also a minimum spell level granted (usually 3), so the command is guaranteed to give you something even if you haven't learned any magic elsewhere.
 
-Auto-Drain - If the Dragoon class is mastered, then physical weapons will drain HP, magic weapons such as rods, staves, etc. will drain magic. This does not take effect against undead monsters.
+3. Enhanced Magic Sword - The Mystic Knight's Magic Sword Command (but not magic sword spells when using X-Magic) grants an instant turn. No more waiting another turn to cast a spell on your sword. Also, all Magic Sword spells increase the attack power of both weapons by a set amount if they are magic sword compatible. The attack increase is proportional to the spell's power. This makes Dual wielding magic sword way more powerful, without relying on elemental weaknesses necessary to make magic sword useful. With this patch Magic Sword also works with Fists, so you can combine Monk's kick with Magic Sword to inflict statuses like break on all enemies in 1 turn.
 
-Enhanced Magic Sword - The Mystic Knight's Magic Sword Command (but not magic sword spells when using X-Magic) grants an instant turn. No more waiting another turn when you change spells. Also, Magic Sword offensive and status effect spells increase the attack power of both weapons if they are magic sword compatible. The attack increase is proportional to the spell's power. This makes Dual wielding magic sword way more powerful, without relying on elemental weaknesses necessary to make magic sword useful. With this patch Magic Sword also works with Fists, so you can combine Monk's kick with Magic Sword to inflict statuses like break on all enemies in 1 turn.
+4. Auto-Drain - If the Dragoon class is mastered, then physical weapons will drain HP, and magic weapons such as rods, staves, etc. will drain magic. This does not take effect against undead monsters.
 
-Passive Abilities Active Patch - This is by far the most complex code I've written for this game. It makes ALL passive abilities (Weapon/Armor equip, Max HP/MP + Counter, etc.) become permanently equipped for all jobs once learned. There is no longer any need to use an ability slot for passives. This has MASSIVE ramifications for party setups as it means your options for party setup dramatically increase throughout the game.
+5. Sing Auto-Cancel - This patch causes a character using a sing spell that raises stats (such as Speed or Heroic) 
+to stop singing when the corrosponding stat buff is maxes. You no longer need to have a character be unusable for a battle or smack them with an attack when using stat increasing songs.
 
-Sing Auto-Cancel - This patch causes a character using a sing spell that raises stats (such as Speed or Heroic) 
-to stop singing when the corrosponding stat buff is maxes. You no longer need to lose a character for a battle or
+6. World Conjure – Conjure command will only use summons from the World you are in. No more summoning Ifrit in World 3.
 
-Fast X-Fight - causes X-Fight to do 2 hits at full damage instead of 4 hits at half damage. The damage amount is the same, but the animation takes half the time.
-
-Poison matters
+7. Fast X-Fight - causes X-Fight to do 2 hits at full damage instead of 4 hits at half damage. The damage amount is the same, but the animation takes half the time.
 
 
+
+
+0x270900
+
+6C 92 8C 82 7D 82 7A 87 96 71 7A 7B 7B 82 8D
+m  y  s  i  d  i  a  n     R  a  b  b  i  t

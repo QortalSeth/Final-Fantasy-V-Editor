@@ -12,7 +12,7 @@ import shopIcon from '../../assets/Female NPC.png';
 import enemyIcon from '../../assets/Gilgamesh.png';
 import textIcon from '../../assets/Text.png';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
-import { byteSelector, setOffset, setROM } from '../redux/slices/ROM-Slice';
+import { setROM } from '../redux/slices/ROM-Slice';
 
 export const EditorChooser = () => {
   const defaultROM = '/home/seth/WebstormProjects/Final-Fantasy-V-Editor/assets/Final Fantasy V+.smc';

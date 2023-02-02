@@ -1,6 +1,5 @@
-import fs from 'fs';
-import { ROMState } from '../redux/slices/ROM-Slice';
-import { RootState } from '../redux/store';
+import { byteSelector, ROMState, setOffsetStore } from '../redux/slices/ROM-Slice';
+import store, { RootState } from '../redux/store';
 
 // eslint-disable-next-line import/prefer-default-export
 // export const openFileAsBytes = (fileName: string) => {
@@ -14,32 +13,31 @@ import { RootState } from '../redux/store';
 
 export function arrayToHexString(
   array: number[],
-  { start = 0, size = array.length - 1, newline = 10, includePrefix = true } = {}
+  { start = 0, size = array.length, newline = 10, includePrefix = true, includeSpaces = true, prefix = '' } = {}
 ) {
-  let hexStr = '';
+  let hexStr = prefix;
   let count = 0;
   for (let i = start; i < start + size; i++) {
     let hex = (array[i] & 0xff).toString(16);
     hex = hex.length === 1 ? `0${hex}` : hex;
     hexStr += includePrefix ? `0x${hex.toUpperCase()}` : hex.toUpperCase();
+    hexStr += includeSpaces ? ' ' : '';
     count += 1;
     if (count % newline === 0 && count !== 0) hexStr += '\n';
   }
   return hexStr;
 }
 
-export const printArray = (array: number[], { start = 0, size = array.length - 1, newline = 10, includePrefix = true }) => {
-  console.log(arrayToHexString(array, { start, size, newline, includePrefix }));
+export const printArray = (
+  array: number[],
+  { start = 0, size = array.length, newline = 10, includePrefix = true, includeSpaces = true } = {},
+  prefix = ''
+) => {
+  console.log(prefix + arrayToHexString(array, { start, size, newline, includePrefix, includeSpaces }));
 };
 
 export const stringifyBytes = (array: Uint8Array) => {
   return JSON.stringify(Array.from(new Uint8Array(array)));
-};
-
-export const openFileAsBytes = (fileName: string): Buffer => {
-  // console.log('file length is: ', byteArray.length);
-  // printArray(byteArray, 0, 128, 16);
-  return fs.readFileSync(fileName);
 };
 
 // function fileToByteArray(file: File) {
@@ -77,22 +75,57 @@ export function hexStringToByte(str: string) {
   return new Uint8Array(a);
 }
 
-export const getByte = (state: RootState, offset: number) => {
-  return state.ROM.rom[offset + state.ROM.data.header] & 0xff;
+export const getByte = (offset: number) => {
+  return byteSelector(store.getState().ROM, offset);
 };
 
 // this returned value is little endian
-export const getShort = (state: RootState, offset: number) => {
-  const unsignedByte1 = getByte(state, offset);
-  const unsignedByte2 = getByte(state, offset + 1) << 8;
+export const getShort = (offset: number) => {
+  const unsignedByte1 = getByte(offset);
+  const unsignedByte2 = getByte(offset + 1) << 8;
   return unsignedByte1 | unsignedByte2;
 };
 
 // this returned value is little endian
-export const getTriple = (state: RootState, offset: number) => {
-  const shortValue = getShort(state, offset);
-  const finalByte = getByte(state, offset + 2) << 16;
+export const getTriple = (offset: number) => {
+  const shortValue = getShort(offset);
+  const finalByte = getByte(offset + 2) << 16;
   return finalByte | shortValue;
+};
+
+export const getOffset = () => {
+  return store.getState().ROM.offset;
+};
+
+export const incOffset = () => {
+  store.dispatch(setOffsetStore(getOffset() + 1));
+};
+
+export const setOffset = (offset: number) => {
+  store.dispatch(setOffsetStore(offset));
+};
+
+export const getNextByte = () => {
+  const byte = getByte(store.getState().ROM.offset);
+  // const altByte = store.getState().ROM.rom[getOffset()];
+  // console.log('in readNextByte');
+  // console.log('Byte is: ', byte);
+  // console.log('Alt Byte is: ', altByte);
+  // console.log('ROM is: ', store.getState().ROM.rom);
+  incOffset();
+  return byte;
+};
+
+export const getNextShort = () => {
+  const short = getShort(store.getState().ROM.offset);
+  setOffset(store.getState().ROM.offset + 2);
+  return short;
+};
+
+export const getNextTriple = () => {
+  const triple = getTriple(store.getState().ROM.offset);
+  setOffset(store.getState().ROM.offset + 3);
+  return triple;
 };
 
 export const byteToString = (byte: number) => {

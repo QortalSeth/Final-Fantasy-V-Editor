@@ -1,6 +1,7 @@
+import { printArray } from '../utils/ROM';
+
 const textWriteMap4 = new Map<number, string>([
   [0xbd, 'SHOE'],
-
   [0xbe, 'MISC'],
   [0xbf, 'HAMR'],
   [0xc0, 'TENT'],
@@ -10,10 +11,8 @@ const textWriteMap4 = new Map<number, string>([
   [0xc4, 'SONG'],
   [0xc6, 'SHUR'],
   [0xc8, 'SCRL'],
-
   [0xca, 'CLAW'],
   [0xcc, 'GLOV'],
-
   [0xe3, 'SWRD'],
   [0xe4, 'WHIT'],
   [0xe5, 'BLAK'],
@@ -36,9 +35,7 @@ const textWriteMap3 = new Map<number, string>([
   [0xc7, '...'],
   [0xe0, '/\\'],
   [0xe9, 'AXE'],
-
   [0xeb, 'ROD'],
-
   [0xed, 'BOW'],
 ]);
 
@@ -69,10 +66,8 @@ const textWriteMap2 = new Map<number, string>([
   [0x37, 'X '],
   [0x38, 'Y '],
   [0x39, 'Z '],
-
   [0x94, 'il'],
   [0x95, 'it'],
-
   [0x97, 'li'],
   [0x98, 'll'],
   [0xa4, 'ti'],
@@ -86,6 +81,8 @@ const textWriteMap2 = new Map<number, string>([
   [0xd1, ' |'],
   [0xe1, '-}'],
 ]);
+
+const noCompressValues = [0x94, 0x95, 0x97, 0x98, 0xa4, 0xa5, 0xac, 0xad, 0xae, 0xaf, 0xb0];
 
 const textWriteMap1 = new Map<number, string>([
   [0x1, '\n'],
@@ -183,23 +180,55 @@ const getByValue = (map: Map<number, string>, searchValue: string | undefined) =
 
 const getSubString = (text: string, index: number, length: number) => {
   const endIndex = index + length;
+  // console.log('(substring) text is: ', text, ' index is ', index, ' length is: ', length, ' endIndex is: ', endIndex);
   if (endIndex > text.length) return undefined;
-  return text.substring(index, endIndex);
+  const subText = text.substring(index, endIndex);
+  // console.log('Substring of size ', length, ' is: ', subText);
+  return subText;
 };
 
-const textToBytes = (text: string): number[] => {
-  const bytes = [];
-  let index = 0;
-  while (index < text.length) {
-    const byte =
-      getByValue(textWriteMap4, getSubString(text, index, 4)) ||
-      getByValue(textWriteMap3, getSubString(text, index, 3)) ||
-      getByValue(textWriteMap2, getSubString(text, index, 2)) ||
-      getByValue(textWriteMap1, getSubString(text, index, 1));
+const getByte = (map: Map<number, string>, text: string, length: number, index: number) => {
+  // console.log('text is: ', text, 'length is: ', length, 'index is: ', index);
+  return getByValue(map, getSubString(text, index, length));
+};
 
-    if (!byte) return bytes;
-    bytes.push(byte);
+const textWriteMaps = new Map<number, Map<number, string>>([
+  [4, textWriteMap4],
+  [3, textWriteMap3],
+  [2, textWriteMap2],
+  [1, textWriteMap1],
+]);
+
+/* eslint-disable no-continue, no-labels, no-restricted-syntax */
+
+export const textToBytes = (text: string, noCompress = false): number[] => {
+  const bytes: number[] = [];
+  let index = 0;
+
+  mainLoop: while (index < text.length) {
+    for (let i = 4; i > 0; i--) {
+      const map = textWriteMaps.get(i);
+      if (map) {
+        const byte = getByte(map, text, i, index);
+
+        const noCompression = i === 2 && noCompress && byte && noCompressValues.includes(byte);
+
+        if (byte && !noCompression) {
+          console.log('byte is: ', byte.toString(16).toUpperCase());
+          // console.log('bytes before push: ', bytes);
+          bytes.push(byte);
+          // console.log('bytes after push: ', bytes);
+          index += i;
+          // printArray(bytes, { includePrefix: false, includeSpaces: true }, 'bytes with added byte: ');
+          console.log('break out of for loop');
+          continue mainLoop;
+        }
+      } else return bytes;
+    }
     index += 1;
+    // return bytes;
   }
+  // printArray(bytes, { includePrefix: false, includeSpaces: true }, 'Returned Bytes are: ');
+
   return bytes;
 };

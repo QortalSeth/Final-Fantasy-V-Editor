@@ -43,8 +43,8 @@
   "browserslist": [],
   "prettier": {
     "singleQuote": true,
-    "printWidth": 125,
-    "maxLineLength": 125,
+    "printWidth": 130,
+    "maxLineLength": 130,
     "jsxSingleQuote": true,
     "singleAttributePerLine": false,
     "overrides": [
