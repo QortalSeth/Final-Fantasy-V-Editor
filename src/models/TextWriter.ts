@@ -1,4 +1,4 @@
-import { printArray } from '../utils/ROM';
+import { printHexByteArray } from '../utils/ROM';
 
 const textWriteMap4 = new Map<number, string>([
   [0xbd, 'SHOE'],
@@ -214,13 +214,13 @@ export const textToBytes = (text: string, noCompress = false): number[] => {
         const noCompression = i === 2 && noCompress && byte && noCompressValues.includes(byte);
 
         if (byte && !noCompression) {
-          console.log('byte is: ', byte.toString(16).toUpperCase());
+          // console.log('byte is: ', byte.toString(16).toUpperCase());
           // console.log('bytes before push: ', bytes);
           bytes.push(byte);
           // console.log('bytes after push: ', bytes);
           index += i;
           // printArray(bytes, { includePrefix: false, includeSpaces: true }, 'bytes with added byte: ');
-          console.log('break out of for loop');
+          // console.log('break out of for loop');
           continue mainLoop;
         }
       } else return bytes;

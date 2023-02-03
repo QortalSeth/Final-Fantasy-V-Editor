@@ -158,13 +158,13 @@ const textReadMap = new Map<number, string>([
   [0xF4, 'RING'],
 ]);
 export const readText = (pointer: number, sizeLimit = 20) => {
-  console.log('reading text');
+  //  console.log('reading text');
 
   let text = '';
   let readNext = true;
 
   setOffset(pointer);
-  console.log('offset set at: ', getOffset());
+  // console.log('offset set at: ', getOffset());
 
   let textLength = 0;
 
@@ -172,10 +172,10 @@ export const readText = (pointer: number, sizeLimit = 20) => {
     // console.log('textReader romstate: ', romstate);
     const nextByte = getNextByte();
 
-    console.log('next byte is: ', nextByte);
+    // console.log('next byte is: ', nextByte);
     textLength += 1;
     if (textLength > sizeLimit) {
-      console.log('size limit of ', sizeLimit, 'reached');
+      // console.log('size limit of ', sizeLimit, 'reached');
       readNext = false;
     }
 
@@ -183,7 +183,7 @@ export const readText = (pointer: number, sizeLimit = 20) => {
       readNext = false;
     } else {
       const textValue = textReadMap.get(nextByte) || '';
-      console.log('Byte Value: ', nextByte.toString(16), '  Text Value: ', textValue);
+      //  console.log('Byte Value: ', nextByte.toString(16), '  Text Value: ', textValue);
 
       text += textValue;
     }

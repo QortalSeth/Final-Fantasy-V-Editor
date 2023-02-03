@@ -1,15 +1,28 @@
 import React, { useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { PointerTextfield } from '../TextFields';
 import { pointerToOffset } from '../TextFieldFunctions';
 import readText from '../../models/TextReader';
 import { useAppDispatch } from '../../redux/hooks';
-import { arrayToHexString, printArray } from '../../utils/ROM';
+import {
+  arrayToHexByteString,
+  arrayToHexPointerString,
+  getTriple,
+  hexToString,
+  printHex,
+  printHexByteArray,
+  printHexPointerArray,
+} from '../../utils/ROM';
 import { textToBytes } from '../../models/TextWriter';
+import { romState } from '../../redux/slices/ROM-Slice';
 
 export const TextEditor = () => {
   const [showCompressed, setCompressed] = useState(false);
   const [showUnCompressed, setUnCompressed] = useState(false);
   const [compressedName, setCompressedName] = useState('');
+  const [compressedBytes, setCompressedbytes] = useState<number[]>([]);
+  const [unCompressedBytes, setUnCompressedbytes] = useState<number[]>([]);
+  const state = useSelector(romState);
 
   const pointerTextField = useRef<HTMLInputElement>(null);
   const textToRead = useRef<HTMLTextAreaElement>(null);
@@ -18,9 +31,6 @@ export const TextEditor = () => {
   const textPointers = useRef<HTMLTextAreaElement>(null);
 
   const dispatch = useAppDispatch();
-
-  let compressedTextBytes: number[];
-  let unCompressedTextBytes: number[];
 
   const divStyle = {
     display: 'grid',
@@ -35,7 +45,7 @@ export const TextEditor = () => {
     if (pointerTextField.current && textToRead.current) {
       const pointerValue = pointerToOffset(pointerTextField.current.value);
       const text = readText(pointerValue, 100);
-      console.log('text is: ', text);
+      // console.log('text is: ', text);
       textToRead.current.value = text;
     }
   };
@@ -47,19 +57,22 @@ export const TextEditor = () => {
         setUnCompressed(false);
         return;
       }
-      compressedTextBytes = textToBytes(textToRead.current.value, false);
-      unCompressedTextBytes = textToBytes(textToRead.current.value, true);
-      const showOneResult = JSON.stringify(compressedTextBytes) === JSON.stringify(unCompressedTextBytes);
 
-      const compressedString = arrayToHexString(compressedTextBytes, {
-        includePrefix: false,
+      const tempCompressedBytes = textToBytes(textToRead.current.value, false);
+      const tempUnCompressedBytes = textToBytes(textToRead.current.value, true);
+      setCompressedbytes(tempCompressedBytes);
+      setUnCompressedbytes(tempUnCompressedBytes);
+      const showOneResult = JSON.stringify(tempCompressedBytes) === JSON.stringify(tempUnCompressedBytes);
+
+      const compressedString = arrayToHexByteString(tempCompressedBytes, {
+        includeHexPrefix: false,
         includeSpaces: true,
         newline: 9,
         prefix: showOneResult ? '' : 'Compressed Bytes:\n',
       });
 
-      const uncompressedString = arrayToHexString(unCompressedTextBytes, {
-        includePrefix: false,
+      const uncompressedString = arrayToHexByteString(tempUnCompressedBytes, {
+        includeHexPrefix: false,
         includeSpaces: true,
         newline: 9,
         prefix: 'Uncompressed Bytes:\n',
@@ -80,13 +93,85 @@ export const TextEditor = () => {
   };
 
   const getLocations = (bytes: number[]) => {
-    const results: number[] = [];
-  };
-  const getPointers = (bytes: number[]) => {};
+    printHexByteArray(bytes, {
+      includeHexPrefix: false,
+      includeSpaces: true,
+      newline: 9,
+      prefix: 'Text to locate: ',
+    });
 
+    let globalPointer = 0;
+    const results: number[] = [];
+    const { rom } = state;
+
+    rom.forEach(() => {
+      let match = true;
+      let localPointer = 0;
+      // eslint-disable-next-line no-restricted-syntax
+      for (const byte of bytes) {
+        // console.log('Byte is: ', byte);
+        if (byte !== rom[globalPointer + localPointer]) {
+          match = false;
+          break;
+        }
+        localPointer++;
+      }
+
+      if (match) {
+        console.log('Result found: ', globalPointer);
+        results.push(globalPointer);
+      }
+      globalPointer++;
+    });
+
+    if (textLocations.current) {
+      textLocations.current.value = arrayToHexPointerString(results, {
+        includeHexPrefix: true,
+        includeSpaces: true,
+        newline: 3,
+      });
+    }
+    return results;
+  };
+
+  const getPointers = (textLocationsArr: number[]) => {
+    const offsets: number[] = [];
+    const { rom } = state;
+    for (let i = 0; i < rom.length - 5; i++) {
+      textLocationsArr.forEach((l) => {
+        // prettier-ignore
+        const pointer = l + 0xC00000;
+        const romPointer = getTriple(i);
+        // console.log(`Pointer: ${pointer.toString(16)}`);
+        // console.log(`ROM Pointer: ${romPointer.toString(16)}`);
+
+        if (pointer === romPointer) {
+          printHex(i, 'Pointer found: ');
+
+          offsets.push(i);
+        }
+      });
+    }
+
+    if (textPointers.current) {
+      textPointers.current.value = arrayToHexPointerString(offsets, {
+        includeHexPrefix: true,
+        includeSpaces: true,
+        newline: 3,
+      });
+    }
+  };
+
+  const clearTextAreas = () => {
+    if (textLocations.current && textPointers.current) {
+      textLocations.current.value = '';
+      textPointers.current.value = '';
+    }
+  };
   const getTextLocations = (bytes: number[]) => {
-    getLocations(bytes);
-    getPointers(bytes);
+    clearTextAreas();
+    const locations = getLocations(bytes);
+    getPointers(locations);
   };
 
   return (
@@ -123,7 +208,7 @@ export const TextEditor = () => {
       <span style={labelStyle}>Byte Values:</span>
       <textarea ref={byteValues} style={{ resize: 'none', height: '150px', marginTop: '15px' }} />{' '}
       <button
-        onClick={(e) => getTextLocations(compressedTextBytes)}
+        onClick={(e) => getTextLocations(compressedBytes)}
         type='button'
         style={{ width: '100%', height: '30px', gridColumnStart: '2' }}
         hidden={!showCompressed}
@@ -131,7 +216,7 @@ export const TextEditor = () => {
         {compressedName}
       </button>
       <button
-        onClick={(e) => getTextLocations(unCompressedTextBytes)}
+        onClick={(e) => getTextLocations(unCompressedBytes)}
         type='button'
         style={{ width: '100%', height: '30px', gridColumnStart: '2' }}
         hidden={!showUnCompressed}

@@ -11,16 +11,16 @@ import store, { RootState } from '../redux/store';
 //   return result;
 // };
 
-export function arrayToHexString(
+export function arrayToHexByteString(
   array: number[],
-  { start = 0, size = array.length, newline = 10, includePrefix = true, includeSpaces = true, prefix = '' } = {}
+  { start = 0, size = array.length, newline = 10, includeHexPrefix = true, includeSpaces = true, prefix = '' } = {}
 ) {
   let hexStr = prefix;
   let count = 0;
   for (let i = start; i < start + size; i++) {
     let hex = (array[i] & 0xff).toString(16);
     hex = hex.length === 1 ? `0${hex}` : hex;
-    hexStr += includePrefix ? `0x${hex.toUpperCase()}` : hex.toUpperCase();
+    hexStr += includeHexPrefix ? `0x${hex.toUpperCase()}` : hex.toUpperCase();
     hexStr += includeSpaces ? ' ' : '';
     count += 1;
     if (count % newline === 0 && count !== 0) hexStr += '\n';
@@ -28,12 +28,35 @@ export function arrayToHexString(
   return hexStr;
 }
 
-export const printArray = (
+export const printHexByteArray = (
   array: number[],
-  { start = 0, size = array.length, newline = 10, includePrefix = true, includeSpaces = true } = {},
-  prefix = ''
+  { start = 0, size = array.length, newline = 10, includeHexPrefix = true, includeSpaces = true, prefix = '' } = {}
 ) => {
-  console.log(prefix + arrayToHexString(array, { start, size, newline, includePrefix, includeSpaces }));
+  console.log(prefix + arrayToHexByteString(array, { start, size, newline, includeHexPrefix, includeSpaces }));
+};
+
+export function arrayToHexPointerString(
+  array: number[],
+  { newline = 10, includeHexPrefix = true, includeSpaces = true, prefix = '' } = {}
+) {
+  let hexStr = prefix;
+  let count = 0;
+
+  array.forEach((pointer) => {
+    const hex = pointer.toString(16);
+    hexStr += includeHexPrefix ? `0x${hex.toUpperCase()}` : hex.toUpperCase();
+    hexStr += includeSpaces ? ' ' : '';
+    count += 1;
+    if (count % newline === 0 && count !== 0) hexStr += '\n';
+  });
+  return hexStr;
+}
+
+export const printHexPointerArray = (
+  array: number[],
+  { newline = 10, includeHexPrefix = true, includeSpaces = true, prefix = '' } = {}
+) => {
+  console.log(prefix + arrayToHexPointerString(array, { newline, includeHexPrefix, includeSpaces, prefix }));
 };
 
 export const stringifyBytes = (array: Uint8Array) => {
@@ -129,13 +152,21 @@ export const getNextTriple = () => {
 };
 
 export const byteToString = (byte: number) => {
-  return (byte & 0xff).toString(16);
+  return (byte & 0xff).toString(16).toUpperCase();
 };
 
-export const shortToString = (byte: number) => {
-  return (byte & 0xffff).toString(16);
+export const shortToString = (short: number) => {
+  return (short & 0xffff).toString(16).toUpperCase();
 };
 
-export const tripleToString = (byte: number) => {
-  return (byte & 0xffffff).toString(16);
+export const tripleToString = (triple: number) => {
+  return (triple & 0xffffff).toString(16).toUpperCase();
+};
+
+export const hexToString = (num: number) => {
+  return (num & 0xffffff).toString(16).toUpperCase();
+};
+
+export const printHex = (num: number, prefix = '') => {
+  console.log(prefix, hexToString(num));
 };

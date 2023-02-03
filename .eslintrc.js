@@ -19,7 +19,7 @@ module.exports = {
     'react/destructuring-assignment': 'off',
     'no-console': 0,
     'no-bitwise': 'off',
-    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+    'no-plusplus': 'off',
 
     'no-unused-prop-types': 'off',
     'react/require-default-props': 'off',
