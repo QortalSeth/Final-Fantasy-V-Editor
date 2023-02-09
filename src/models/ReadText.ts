@@ -3,7 +3,7 @@ import { getOffset, getNextByte, setOffset } from '../utils/ROM';
 // prettier-ignore
 const textReadMap = new Map<number, string>([
   [0x1, '\n'],
-  [0x2, 'Bartz'],
+  [0x2, '~BARTZ'],
   [0x20, 'A '],
   [0x21, 'B '],
   [0x22, 'C '],
@@ -113,23 +113,23 @@ const textReadMap = new Map<number, string>([
   [0xAE, 'tl'],
   [0xAF, 'ir'],
   [0xB0, 'tt'],
-  [0xBC, 'KEY'],
-  [0xBD, 'SHOE'],
-  [0xBE, 'MISC'],
-  [0xBF, 'HAMR'],
-  [0xC0, 'TENT'],
-  [0xC1, 'RIBN'],
-  [0xC2, 'DRNK'],
-  [0xC3, 'SUIT'],
-  [0xC4, 'SONG'],
+  [0xBC, '~KEY'],
+  [0xBD, '~SHOE'],
+  [0xBE, '~MISC'],
+  [0xBF, '~HAMMR'],
+  [0xC0, '~TENT'],
+  [0xC1, '~RIBBN'],
+  [0xC2, '~DRINK'],
+  [0xC3, '~SUIT'],
+  [0xC4, '~SONG'],
   [0xC5, '-'],
-  [0xC6, 'SHUR'],
+  [0xC6, '~SURKN'],
   [0xC7, '...'],
-  [0xC8, 'SCRL'],
+  [0xC8, '~SCRLL'],
   [0xC9, '!'],
-  [0xCA, 'CLAW'],
+  [0xCA, '~CLAW'],
   [0xCB, '?'],
-  [0xCC, 'GLOV'],
+  [0xCC, '~GLOVE'],
   [0xCD, '%'],
   [0xCE, '/'],
   [0xCF, ':'],
@@ -138,24 +138,25 @@ const textReadMap = new Map<number, string>([
   [0xE0, '/\\'],
   [0xE1, '-}'],
   [0xE2, '+'],
-  [0xE3, 'SWRD'],
-  [0xE4, 'WHIT'],
-  [0xE5, 'BLAK'],
-  [0xE6, 'DIMN'],
-  [0xE7, 'KNIF'],
-  [0xE8, 'SPER'],
-  [0xE9, 'AXE'],
-  [0xEA, 'KATN'],
-  [0xEB, 'ROD'],
-  [0xEC, 'STAF'],
-  [0xED, 'BOW'],
-  [0xEE, 'HARP'],
-  [0xEF, 'WHIP'],
-  [0xF0, 'BELL'],
-  [0xF1, 'SHLD'],
-  [0xF2, 'HELM'],
-  [0xF3, 'ARMR'],
-  [0xF4, 'RING'],
+  [0xE3, '~SWORD'],
+  [0xE4, '~WHITE'],
+  [0xE5, '~BLAKB'],
+  [0xE6, '~DIMEN'],
+  [0xE7, '~KNIFE'],
+  [0xE8, '~SPEAR'],
+  [0xE9, '~AXE'],
+  [0xEA, '~KATAN'],
+  [0xEB, '~ROD'],
+  [0xEC, '~STAFF'],
+  [0xED, '~BOW'],
+  [0xEE, '~HARP'],
+  [0xEF, '~WHIP'],
+  [0xF0, '~BELL'],
+  [0xF1, '~SHELD'],
+  [0xF2, '~HELM'],
+  [0xF3, '~ARMOR'],
+  [0xF4, '~RING'],
+  [0xFF, '~END'],
 ]);
 export const readText = (pointer: number, sizeLimit = 20) => {
   //  console.log('reading text');
@@ -181,12 +182,11 @@ export const readText = (pointer: number, sizeLimit = 20) => {
 
     if (nextByte === 0xff) {
       readNext = false;
-    } else {
-      const textValue = textReadMap.get(nextByte) || '';
-      //  console.log('Byte Value: ', nextByte.toString(16), '  Text Value: ', textValue);
-
-      text += textValue;
     }
+    const textValue = textReadMap.get(nextByte) || '';
+    //  console.log('Byte Value: ', nextByte.toString(16), '  Text Value: ', textValue);
+
+    text += textValue;
   }
 
   return text;

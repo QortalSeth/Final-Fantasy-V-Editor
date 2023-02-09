@@ -1,16 +1,26 @@
-import React, { PropsWithChildren, useState } from 'react';
+import React, { PropsWithChildren, ReactHTMLElement, useState } from 'react';
 import CSS from 'csstype';
 
 export interface IconButtonProps extends React.HTMLProps<HTMLButtonElement> {
-  buttonStyle?: object;
-  imageStyle?: object;
+  buttonStyle?: CSS.Properties;
+  imageStyle?: CSS.Properties;
   name: string;
   icon: string;
-  clickListener: () => void;
-  disabled: boolean;
+  disabled?: boolean;
+  onMouseHeldDown?: () => void;
+  timer?: number;
 }
 
-export const IconButton = ({ buttonStyle = {}, imageStyle = {}, name, icon, clickListener, disabled }: IconButtonProps) => {
+export const IconButton: React.FC<IconButtonProps> = ({
+  buttonStyle = {},
+  imageStyle = {},
+  name,
+  icon,
+  disabled = false,
+  onMouseHeldDown,
+  timer = 500,
+  ...props
+}: IconButtonProps) => {
   const buttonDefaultStyle: CSS.Properties = {
     height: '100%',
     paddingLeft: 0,
@@ -37,13 +47,29 @@ export const IconButton = ({ buttonStyle = {}, imageStyle = {}, name, icon, clic
     buttonDefaultStyle.pointerEvents = 'none';
   }
 
+  let timedFunction: NodeJS.Timeout;
+
+  const repeat = () => {
+    if (onMouseHeldDown) {
+      onMouseHeldDown();
+      timedFunction = setTimeout(repeat, timer);
+    }
+  };
+
+  const stopRepeat = () => {
+    clearTimeout(timedFunction);
+  };
+
   return (
     <button
+      {...props}
       type='button'
       className='button'
       style={{ ...buttonDefaultStyle, ...buttonStyle }}
-      onClick={clickListener}
       disabled={disabled}
+      onMouseDown={repeat}
+      onMouseUp={() => (onMouseHeldDown ? stopRepeat() : props.onMouseUp)}
+      onMouseLeave={() => (onMouseHeldDown ? stopRepeat() : props.onMouseLeave)}
     >
       <img src={icon} alt='' style={{ ...imageDefaultStyle, ...imageStyle }} />
       {name}

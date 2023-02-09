@@ -1,8 +1,8 @@
 import { createDraftSafeSelector, createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Buffer } from 'buffer';
-import { useSelector } from 'react-redux';
+
 /* eslint-disable import/no-cycle */
 import { RootState } from '../store';
+import { tripleToString } from '../../utils/ROM';
 
 export interface ROMState {
   rom: number[];
@@ -44,8 +44,8 @@ const ROMSlice = createSlice({
     },
     setOffsetStore(state, action: PayloadAction<number>) {
       state.offset = action.payload + state.data.header;
-      console.log('Offset Payload: ', action.payload);
-      console.log('New offset is: ', state.offset);
+      console.log('Offset Payload: ', tripleToString(action.payload));
+      console.log('New offset is: ', tripleToString(state.offset));
     },
   },
 });

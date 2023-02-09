@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import IconButton, { IconButtonProps } from './IconButton';
+import IconButton, { IconButtonProps } from './Buttons/IconButton';
 import openIcon from '../../assets/Open Icon.png';
 import saveIcon from '../../assets/Save Icon.png';
 import characterIcon from '../../assets/Bartz Freelancer.png';
@@ -65,17 +65,17 @@ export const EditorChooser = () => {
     {
       name: 'Open',
       icon: openIcon,
-      clickListener: useDefaultROM ? () => openFile(defaultROM) : () => openFile(),
+      onClick: useDefaultROM ? () => openFile(defaultROM) : () => openFile(),
       disabled: false,
     },
-    { name: 'Save', icon: saveIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
-    { name: 'Character', icon: characterIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
-    { name: 'Job', icon: jobIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
-    { name: 'Item', icon: itemIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
-    { name: 'Spell', icon: spellIcon, clickListener: () => openEditor('spell'), disabled: isDisabled },
-    { name: 'Shop', icon: shopIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
-    { name: 'Enemy', icon: enemyIcon, clickListener: () => console.log('clicked'), disabled: isDisabled },
-    { name: 'Text', icon: textIcon, clickListener: () => openEditor('text'), disabled: isDisabled },
+    { name: 'Save', icon: saveIcon, onClick: () => console.log('clicked'), disabled: isDisabled },
+    { name: 'Character', icon: characterIcon, onClick: () => console.log('clicked'), disabled: isDisabled },
+    { name: 'Job', icon: jobIcon, onClick: () => console.log('clicked'), disabled: isDisabled },
+    { name: 'Item', icon: itemIcon, onClick: () => console.log('clicked'), disabled: isDisabled },
+    { name: 'Spell', icon: spellIcon, onClick: () => openEditor('spell'), disabled: isDisabled },
+    { name: 'Shop', icon: shopIcon, onClick: () => console.log('clicked'), disabled: isDisabled },
+    { name: 'Enemy', icon: enemyIcon, onClick: () => console.log('clicked'), disabled: isDisabled },
+    { name: 'Text', icon: textIcon, onClick: () => openEditor('text'), disabled: isDisabled },
   ];
   const buttonWidth = `${100 / buttonProps.length}%`;
 

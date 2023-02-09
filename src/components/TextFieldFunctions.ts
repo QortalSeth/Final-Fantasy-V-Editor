@@ -1,8 +1,10 @@
 import React from 'react';
 
-export const setMaxValueDec = (value: string, maxValue: number) => {
+export const setMinMaxValueDec = (value: string, maxValue: number, minValue = 0): string => {
   const valueNum = Number(`${value}`);
-  return valueNum > maxValue ? maxValue.toString() : valueNum.toString();
+
+  const maxCheck = valueNum > maxValue ? maxValue : valueNum;
+  return maxCheck < minValue ? minValue.toString() : maxCheck.toString();
 };
 
 export const setMaxValueHex = (value: string, maxValue: string) => {
@@ -12,7 +14,12 @@ export const setMaxValueHex = (value: string, maxValue: string) => {
   return (valueNum & maxValueNum).toString(16);
 };
 
-export const pointerListener = (e: React.ChangeEvent<HTMLInputElement>, value: string) => {
+export const pointerListener = (
+  e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLInputElement, MouseEvent>,
+  value: string,
+  maxValue: number,
+  minValue = 0
+) => {
   const input = e.currentTarget.value.toUpperCase();
 
   console.log('input starting value is: ', input);
@@ -27,32 +34,32 @@ export const pointerListener = (e: React.ChangeEvent<HTMLInputElement>, value: s
   return value;
 };
 
-const numListener = (e: React.ChangeEvent<HTMLInputElement>, value: string, maxValue: number) => {
-  const input = e.currentTarget.value;
-
-  console.log('input starting value is: ', input);
-  const isNum = /^[0-9]+$/.test(input);
+export const numFilter = (value: string, maxValue: number, minValue = 0) => {
+  console.log('starting value is: ', value);
+  if (value === '') {
+    return '0';
+  }
+  const isNum = /^[0-9,-]+$/.test(value);
 
   if (isNum) {
-    return setMaxValueDec(input, maxValue);
+    const minMaxCheck = setMinMaxValueDec(value, maxValue, minValue);
+    console.log('filtered value is: ', minMaxCheck);
+    return minMaxCheck;
   }
   return value;
 };
-
-export const byteListener = (e: React.ChangeEvent<HTMLInputElement>, value: string) => {
-  return numListener(e, value, 0xff);
-};
-
-export const shortListener = (e: React.ChangeEvent<HTMLInputElement>, value: string) => {
-  return numListener(e, value, 0xffff);
-};
-
-export const tripleListener = (e: React.ChangeEvent<HTMLInputElement>, value: string) => {
-  return numListener(e, value, 0xffffff);
+export const numListener = (
+  e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLInputElement, MouseEvent>,
+  value: string,
+  maxValue: number,
+  minValue = 0
+) => {
+  const input = e.currentTarget.value;
+  return numFilter(input, maxValue, minValue);
 };
 
 export const pointerToOffset = (pointer: number | string) => {
   const pointerValue = typeof pointer === 'string' ? Number(`0x${pointer}`) : pointer;
-  const clearhighBits = 0x7fffff;
+  const clearhighBits = 0x3fffff;
   return pointerValue & clearhighBits;
 };

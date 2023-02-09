@@ -1,42 +1,50 @@
 import { printHexByteArray } from '../utils/ROM';
 
+const textWriteMap6 = new Map<number, string>([
+  [0x02, '~BARTZ'],
+  [0xbf, '~HAMMR'],
+  [0xc1, '~RIBBN'],
+  [0xc2, '~DRINK'],
+  [0xc6, '~SURKN'],
+  [0xc8, '~SCRLL'],
+  [0xcc, '~GLOVE'],
+  [0xe3, '~SWORD'],
+  [0xe4, '~WHITE'],
+  [0xe5, '~BLACK'],
+  [0xe6, '~DIMEN'],
+  [0xe7, '~KNIFE'],
+  [0xe8, '~SPEAR'],
+  [0xea, '~KATAN'],
+  [0xec, '~STAFF'],
+  [0xf1, '~SHELD'],
+  [0xf3, '~ARMOR'],
+]);
+
+const textWriteMap5 = new Map<number, string>([
+  [0xbd, '~SHOE'],
+  [0xbe, '~MISC'],
+  [0xc0, '~TENT'],
+  [0xc3, '~SUIT'],
+  [0xc4, '~SONG'],
+  [0xca, '~CLAW'],
+  [0xee, '~HARP'],
+  [0xef, '~WHIP'],
+  [0xf0, '~BELL'],
+  [0xf2, '~HELM'],
+  [0xf4, '~RING'],
+]);
+
 const textWriteMap4 = new Map<number, string>([
-  [0xbd, 'SHOE'],
-  [0xbe, 'MISC'],
-  [0xbf, 'HAMR'],
-  [0xc0, 'TENT'],
-  [0xc1, 'RIBN'],
-  [0xc2, 'DRNK'],
-  [0xc3, 'SUIT'],
-  [0xc4, 'SONG'],
-  [0xc6, 'SHUR'],
-  [0xc8, 'SCRL'],
-  [0xca, 'CLAW'],
-  [0xcc, 'GLOV'],
-  [0xe3, 'SWRD'],
-  [0xe4, 'WHIT'],
-  [0xe5, 'BLAK'],
-  [0xe6, 'DIMN'],
-  [0xe7, 'KNIF'],
-  [0xe8, 'SPER'],
-  [0xea, 'KATN'],
-  [0xec, 'STAF'],
-  [0xee, 'HARP'],
-  [0xef, 'WHIP'],
-  [0xf0, 'BELL'],
-  [0xf1, 'SHLD'],
-  [0xf2, 'HELM'],
-  [0xf3, 'ARMR'],
-  [0xf4, 'RING'],
+  [0xbc, '~KEY'],
+  [0xe9, '~AXE'],
+  [0xeb, '~ROD'],
+  [0xed, '~BOW'],
+  [0xff, '~END'],
 ]);
 
 const textWriteMap3 = new Map<number, string>([
-  [0xbc, 'KEY'],
   [0xc7, '...'],
   [0xe0, '/\\'],
-  [0xe9, 'AXE'],
-  [0xeb, 'ROD'],
-  [0xed, 'BOW'],
 ]);
 
 const textWriteMap2 = new Map<number, string>([
@@ -193,6 +201,8 @@ const getByte = (map: Map<number, string>, text: string, length: number, index: 
 };
 
 const textWriteMaps = new Map<number, Map<number, string>>([
+  [6, textWriteMap6],
+  [5, textWriteMap5],
   [4, textWriteMap4],
   [3, textWriteMap3],
   [2, textWriteMap2],

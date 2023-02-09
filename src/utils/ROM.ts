@@ -1,5 +1,6 @@
-import { byteSelector, ROMState, setOffsetStore } from '../redux/slices/ROM-Slice';
-import store, { RootState } from '../redux/store';
+/* eslint-disable import/no-cycle */
+import { byteSelector, setOffsetStore } from '../redux/slices/ROM-Slice';
+import store from '../redux/store';
 
 // eslint-disable-next-line import/prefer-default-export
 // export const openFileAsBytes = (fileName: string) => {
@@ -85,17 +86,8 @@ export const stringifyBytes = (array: Uint8Array) => {
 //   });
 // }
 
-export function hexStringToByte(str: string) {
-  if (!str) {
-    return new Uint8Array();
-  }
-
-  const a = [];
-  for (let i = 0, len = str.length; i < len; i += 2) {
-    a.push(parseInt(str.substring(i, 2), 16));
-  }
-
-  return new Uint8Array(a);
+export function stringToNumber(str: string, hex = false) {
+  return hex ? Number(`0x${str}`) : Number(str);
 }
 
 export const getByte = (offset: number) => {

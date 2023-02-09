@@ -16,20 +16,31 @@ body {
 .button {
   background-color: white;
   padding: 10px 20px;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   border: none;
   appearance: none;
   font-size: 1.3rem;
-  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
-    0px 18px 88px -4px rgba(24, 39, 75, 0.14);
+
   transition: all ease-in 0.1s;
   cursor: pointer;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 button:hover {
-  transform: scale(1.05);
-  opacity: 1;
+  transform: scale(1.02);
+  /*border-color:#1ca7d6 ;*/
+  /*opacity: 1;*/
+  outline-color:#1ca7d6 ;
+}
+
+input:focus, textarea:focus{
+  outline-color:#1ca7d6 ;
+}
+
+button:focus, button:focus-visible{
+  transform: scale(1.02);
+  border-style:solid;
+  border-color:#1ca7d6;
 }
 
 li {
