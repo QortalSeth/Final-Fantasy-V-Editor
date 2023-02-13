@@ -1,4 +1,5 @@
-import { getOffset, getNextByte, setOffset } from '../utils/ROM';
+import { getOffset, getNextByte, setOffset, printHexPointerArray, tripleToString } from '../utils/ROM';
+/* eslint-disable no-continue, no-labels, no-restricted-syntax */
 
 // prettier-ignore
 const textReadMap = new Map<number, string>([
@@ -190,6 +191,46 @@ export const readText = (pointer: number, sizeLimit = 20) => {
   }
 
   return text;
+};
+
+export const readTextBulk = (basePointer: number, sizeLimit = 20, textCount = 10) => {
+  if (textCount === 1) {
+    return readText(basePointer, sizeLimit);
+  }
+
+  const pointers: number[] = [basePointer];
+  setOffset(basePointer);
+  let stringFinished = false;
+  let count = 0;
+  while (count < textCount) {
+    // gets pointers to textCount number of strings
+    const nextByte = getNextByte();
+    if (nextByte === 0xff) {
+      // determines when the string being examined ends
+      stringFinished = true;
+    }
+
+    if (nextByte !== 0xff && stringFinished) {
+      // determines when the next string begins
+      stringFinished = false;
+      pointers.push(getOffset() - 1); // subtracting by 1 is because the getNextByte() call increments offset by 1
+      count++;
+    }
+  }
+
+  printHexPointerArray(pointers, {
+    includeHexPrefix: true,
+    includeSpaces: true,
+    newline: 5,
+    prefix: 'pointers to text to read are: ',
+  });
+
+  let textValues = '';
+  pointers.forEach((pointer) => {
+    textValues += `${tripleToString(pointer, true)} ${readText(pointer, sizeLimit)}\n\n`;
+  });
+
+  return textValues;
 };
 
 export default readText;

@@ -4,6 +4,7 @@ import { createDraftSafeSelector, createSelector, createSlice, PayloadAction } f
 import { RootState } from '../store';
 import { tripleToString } from '../../utils/ROM';
 
+const debugRomSlice = false;
 export interface ROMState {
   rom: number[];
   data: ROMData;
@@ -32,7 +33,7 @@ const ROMSlice = createSlice({
     setROM(state, action: PayloadAction<ROMState>) {
       state.rom = action.payload.rom;
       state.data = action.payload.data;
-      console.log('action types', typeof ROMSlice.actions.setROM);
+      if (debugRomSlice) console.log('action types', typeof ROMSlice.actions.setROM);
     },
     setByte(state, action: PayloadAction<{ offset?: number; value: number }>) {
       if (action.payload.offset) {
@@ -44,8 +45,8 @@ const ROMSlice = createSlice({
     },
     setOffsetStore(state, action: PayloadAction<number>) {
       state.offset = action.payload + state.data.header;
-      console.log('Offset Payload: ', tripleToString(action.payload));
-      console.log('New offset is: ', tripleToString(state.offset));
+      if (debugRomSlice) console.log('Offset Payload: ', tripleToString(action.payload));
+      if (debugRomSlice) console.log('New offset is: ', tripleToString(state.offset));
     },
   },
 });
@@ -54,7 +55,7 @@ export const romState = (state: RootState) => state.ROM;
 
 export const byteSelector = (state: ROMState, offset?: number) => {
   const finalOffset = (offset || state.offset) + state.data.header;
-  //  console.log('byteSelector Final Offset is: ', finalOffset);
+  if (debugRomSlice) console.log('byteSelector Final Offset is: ', finalOffset);
   return state.rom[finalOffset];
 };
 

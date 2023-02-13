@@ -91,6 +91,7 @@
     }
   },
   "dependencies": {
+    "@bedrock-layout/use-forwarded-ref": "^2.0.4",
     "@electron/remote": "^2.0.9",
     "@reduxjs/toolkit": "^1.9.1",
     "buffer": "^6.0.3",

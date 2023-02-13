@@ -1,5 +1,6 @@
 import React from 'react';
 
+const debugTextFieldFunctions = false;
 export const setMinMaxValueDec = (value: string, maxValue: number, minValue = 0): string => {
   const valueNum = Number(`${value}`);
 
@@ -15,14 +16,14 @@ export const setMaxValueHex = (value: string, maxValue: string) => {
 };
 
 export const pointerListener = (
-  e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLInputElement, MouseEvent>,
+  e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLInputElement, MouseEvent> | string,
   value: string,
   maxValue: number,
   minValue = 0
 ) => {
-  const input = e.currentTarget.value.toUpperCase();
+  const input = typeof e !== 'string' ? e.currentTarget.value.toUpperCase() : e.toUpperCase();
 
-  console.log('input starting value is: ', input);
+  if (debugTextFieldFunctions) console.log('input starting value is: ', input);
   const isHex = /^[0-9A-F]+$/.test(input);
 
   if (input.length > 6) {
@@ -34,28 +35,29 @@ export const pointerListener = (
   return value;
 };
 
-export const numFilter = (value: string, maxValue: number, minValue = 0) => {
-  console.log('starting value is: ', value);
+export const numFilter = (value: string, maxValue: number, minValue = 0, emptyReturn = '') => {
+  if (debugTextFieldFunctions) console.log('starting value is: ', value);
   if (value === '') {
-    return '0';
+    return emptyReturn;
   }
   const isNum = /^[0-9,-]+$/.test(value);
 
   if (isNum) {
     const minMaxCheck = setMinMaxValueDec(value, maxValue, minValue);
-    console.log('filtered value is: ', minMaxCheck);
+    if (debugTextFieldFunctions) console.log('filtered value is: ', minMaxCheck);
     return minMaxCheck;
   }
   return value;
 };
 export const numListener = (
-  e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLInputElement, MouseEvent>,
+  e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLInputElement, MouseEvent> | string,
   value: string,
   maxValue: number,
-  minValue = 0
+  minValue = 0,
+  emptyReturn = ''
 ) => {
-  const input = e.currentTarget.value;
-  return numFilter(input, maxValue, minValue);
+  const input = typeof e !== 'string' ? e.currentTarget.value : e;
+  return numFilter(input, maxValue, minValue, emptyReturn);
 };
 
 export const pointerToOffset = (pointer: number | string) => {

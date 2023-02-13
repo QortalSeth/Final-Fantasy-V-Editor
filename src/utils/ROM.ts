@@ -57,7 +57,7 @@ export const printHexPointerArray = (
   array: number[],
   { newline = 10, includeHexPrefix = true, includeSpaces = true, prefix = '' } = {}
 ) => {
-  console.log(prefix + arrayToHexPointerString(array, { newline, includeHexPrefix, includeSpaces, prefix }));
+  console.log(arrayToHexPointerString(array, { newline, includeHexPrefix, includeSpaces, prefix }));
 };
 
 export const stringifyBytes = (array: Uint8Array) => {
@@ -151,8 +151,9 @@ export const shortToString = (short: number) => {
   return (short & 0xffff).toString(16).toUpperCase();
 };
 
-export const tripleToString = (triple: number) => {
-  return (triple & 0xffffff).toString(16).toUpperCase();
+export const tripleToString = (triple: number, addPrefix = false) => {
+  const prefix = addPrefix ? '0x' : '';
+  return prefix + (triple & 0xffffff).toString(16).toUpperCase();
 };
 
 export const hexToString = (num: number) => {

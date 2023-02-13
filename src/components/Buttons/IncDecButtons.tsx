@@ -1,14 +1,16 @@
-import React, { CSSProperties, ReactHTMLElement, Ref, RefObject, useRef, useState } from 'react';
+import React, { useImperativeHandle, useRef } from 'react';
 import CSS from 'csstype';
+import { useForwardedRef } from '@bedrock-layout/use-forwarded-ref';
 import IconButton from './IconButton';
 import Triangle from '../../../assets/Triangle.png';
-import { stringToNumber } from '../../utils/ROM';
-import { CustomTextfield } from '../TextFields';
+import { stringToNumber, tripleToString } from '../../utils/ROM';
+import { BaseTextfieldRef, CustomTextfield } from '../TextFields';
 import { numFilter } from '../TextFieldFunctions';
 
+const debugIncDecInput = true;
 const buttonColor = 230;
 const buttonTimer = 200;
-interface IncDecProps {
+interface IncDecProps extends React.HTMLProps<HTMLButtonElement> {
   listener: () => void;
 }
 const incDecStyle = {
@@ -32,8 +34,31 @@ const DecButton: React.FC<IncDecProps> = ({ listener }) => {
 interface Props extends React.HTMLProps<HTMLDivElement> {
   divStyle?: CSS.Properties;
 }
-export const IncDecTextField: React.FC<Props> = ({ divStyle = {} }: Props) => {
-  const textfield = useRef<HTMLInputElement>(null);
+
+export const IncDecInput = React.forwardRef<BaseTextfieldRef, Props>(({ divStyle = {} }: Props, ref) => {
+  const childInputRef = useRef<BaseTextfieldRef>(null);
+
+  const setValue = (newValue: string | number) => {
+    if (childInputRef.current) {
+      const finalValue = typeof newValue === 'string' ? newValue : newValue.toString();
+      childInputRef.current.setValue(finalValue);
+      console.log('state set from outside');
+    }
+  };
+  const getValue = () => {
+    const getValueFailed = '-1';
+    if (childInputRef.current) {
+      // console.log('state read from outside');
+      return childInputRef.current.getValue();
+    }
+    return getValueFailed;
+  };
+
+  useImperativeHandle(ref, () => ({
+    getValue,
+    setValue,
+  }));
+
   const gridStyle = {
     display: 'grid',
     gridTemplateColumns: 'auto',
@@ -45,12 +70,10 @@ export const IncDecTextField: React.FC<Props> = ({ divStyle = {} }: Props) => {
   const minValue = 1;
   const maxValue = 99;
   const incDecListener = (amount: number) => {
-    const t = textfield.current;
-    if (t) {
-      const currentValue = stringToNumber(t.value);
-      const newValue = numFilter((currentValue + amount).toString(), maxValue, minValue);
-      t.value = newValue;
-      console.log('incDecListener new value: ', newValue);
+    const childTextfield = childInputRef.current;
+    if (childTextfield) {
+      const currentValue = stringToNumber(childTextfield.getValue());
+      childTextfield.setValue(currentValue + amount);
     } else console.log('no textfield');
   };
 
@@ -61,15 +84,15 @@ export const IncDecTextField: React.FC<Props> = ({ divStyle = {} }: Props) => {
         <DecButton listener={() => incDecListener(-1)} />
       </div>
       <CustomTextfield
-        initialValue='1'
-        ref={textfield}
+        initialValue={minValue.toString()}
+        ref={childInputRef}
         textFieldStyle={{ width: '20%' }}
         minValue={minValue}
         maxValue={maxValue}
       />
     </div>
   );
-};
+});
 
 // textFieldStyle={{ width: '50px' }}
-export default IncDecTextField;
+export default IncDecInput;
