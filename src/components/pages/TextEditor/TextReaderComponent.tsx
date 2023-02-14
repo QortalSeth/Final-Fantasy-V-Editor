@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { BaseTextfieldRef, ByteTextfield, CustomTextfield, PointerTextfield } from './TextFields';
-import { pointerToOffset } from './TextFieldFunctions';
-import readText, { readTextBulk } from '../models/ReadText';
-import { useAppDispatch } from '../redux/hooks';
-import { arrayToHexByteString, arrayToHexPointerString, getTriple, printHex, printHexByteArray } from '../utils/ROM';
-import { textToBytes } from '../models/WriteText';
-import { romState } from '../redux/slices/ROM-Slice';
-import IncDecInput from './Buttons/IncDecButtons';
+import { BaseTextfieldRef, ByteTextfield, CustomTextfield, PointerTextfield } from '../../TextFields';
+import { pointerToOffset } from '../../TextFieldFunctions';
+import readText, { readTextBulk } from '../../../models/ReadText';
+import { useAppDispatch } from '../../../redux/hooks';
+import { arrayToHexByteString, arrayToHexPointerString, getTriple, printHex, printHexByteArray } from '../../../utils/ROM';
+import { textToBytes } from '../../../models/WriteText';
+import { romState } from '../../../redux/slices/ROM-Slice';
+import IncDecInput from '../../Buttons/IncDecButtons';
 
 export const TextReaderComponent = () => {
   const [showCompressed, setCompressed] = useState(false);
@@ -16,7 +16,6 @@ export const TextReaderComponent = () => {
   const [compressedBytes, setCompressedbytes] = useState<number[]>([]);
   const [unCompressedBytes, setUnCompressedbytes] = useState<number[]>([]);
   const state = useSelector(romState);
-  const [bulkRead, setBulkRead] = useState(false);
 
   const pointerTextField = useRef<BaseTextfieldRef>(null);
   const stringsToReadCount = useRef<BaseTextfieldRef>(null);
@@ -33,20 +32,30 @@ export const TextReaderComponent = () => {
     minHeight: '30px',
   };
   const labelStyle = { justifySelf: 'right', marginRight: '3px', alignSelf: 'center' };
-
+  const getStringsToReadCount = () => {
+    if (stringsToReadCount.current) {
+      const stringsToReadCountNum = Number(stringsToReadCount.current.getValue());
+      return stringsToReadCountNum === 0 ? 1 : stringsToReadCountNum;
+    }
+    return -1;
+  };
   const readTextToMainTextArea = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (pointerTextField.current && textToRead.current && stringsToReadCount.current) {
       const pointerValue = pointerToOffset(pointerTextField.current.getValue());
 
-      let stringsToReadCountNum = Number(stringsToReadCount.current.getValue());
-      stringsToReadCountNum = stringsToReadCountNum === 0 ? 1 : stringsToReadCountNum;
+      const stringsToReadCountNum = getStringsToReadCount();
 
       const text = readTextBulk(pointerValue, 100, stringsToReadCountNum);
       textToRead.current.value = text;
-      setBulkRead(stringsToReadCountNum > 1);
 
       stringsToReadCount.current.setValue(stringsToReadCountNum);
       pointerTextField.current.setValue(pointerTextField.current.getValue() || '0');
+
+      if (stringsToReadCountNum !== 1) {
+        // don't show extra buttons on bulk reads
+        setCompressed(false);
+        setUnCompressed(false);
+      }
     } else {
       console.log(
         `PointerTextField: ${pointerTextField.current}\n, textToRead: '${textToRead.current}\n, stringsToReadCount: ${stringsToReadCount.current}`
@@ -90,8 +99,13 @@ export const TextReaderComponent = () => {
       } else {
         byteValues.current.value = `${compressedString}\n\n${uncompressedString}`;
         setCompressedName('Get Compressed Locations');
-        setCompressed(true);
-        setUnCompressed(true);
+        if (getStringsToReadCount() === 1) {
+          setCompressed(true);
+          setUnCompressed(true);
+        } else {
+          setCompressed(false);
+          setUnCompressed(false);
+        }
       }
     }
   };
@@ -113,7 +127,7 @@ export const TextReaderComponent = () => {
       let localPointer = 0;
       // eslint-disable-next-line no-restricted-syntax
       for (const byte of bytes) {
-        if (debugTextReader) console.log('Byte is: ', byte);
+        // if (debugTextReader) console.log('Byte is: ', byte);
         if (byte !== rom[globalPointer + localPointer]) {
           match = false;
           break;
@@ -135,6 +149,7 @@ export const TextReaderComponent = () => {
         newline: 3,
       });
     }
+    console.log('Locating Text Finished');
     return results;
   };
 
@@ -146,8 +161,8 @@ export const TextReaderComponent = () => {
         // prettier-ignore
         const pointer = l + 0xC00000;
         const romPointer = getTriple(i);
-        if (debugTextReader) console.log(`Pointer: ${pointer.toString(16)}`);
-        if (debugTextReader) console.log(`ROM Pointer: ${romPointer.toString(16)}`);
+        // if (debugTextReader) console.log(`Pointer: ${pointer.toString(16)}`);
+        // if (debugTextReader) console.log(`ROM Pointer: ${romPointer.toString(16)}`);
 
         if (pointer === romPointer) {
           printHex(i, 'Pointer found: ');
@@ -164,6 +179,7 @@ export const TextReaderComponent = () => {
         newline: 3,
       });
     }
+    console.log('Locating Pointers Finished');
   };
 
   const clearTextAreas = () => {
@@ -203,7 +219,7 @@ export const TextReaderComponent = () => {
         Read Text
       </button>
       <span style={labelStyle}>Text to Bytes:</span>
-      <textarea ref={textToRead} style={{ resize: 'none', height: '150px', marginTop: '15px' }} />
+      <textarea ref={textToRead} style={{ resize: 'none', height: '150px', marginTop: '15px' }} readOnly />
       <button
         onClick={(e) => displayedTextToBytes()}
         type='button'
@@ -212,7 +228,7 @@ export const TextReaderComponent = () => {
         Get Byte Values
       </button>
       <span style={labelStyle}>Byte Values:</span>
-      <textarea ref={byteValues} style={{ resize: 'none', height: '150px', marginTop: '15px' }} />{' '}
+      <textarea ref={byteValues} style={{ resize: 'none', height: '150px', marginTop: '15px' }} readOnly />{' '}
       <button
         onClick={(e) => getTextLocations(compressedBytes)}
         type='button'
@@ -230,9 +246,9 @@ export const TextReaderComponent = () => {
         Get Uncompressed Locations
       </button>
       <span style={labelStyle}>Possible Text Locations:</span>
-      <textarea ref={textLocations} style={{ resize: 'none', height: '100px', marginTop: '15px' }} />
+      <textarea ref={textLocations} style={{ resize: 'none', height: '100px', marginTop: '15px' }} readOnly />
       <span style={labelStyle}>Possible Pointers to Locations:</span>
-      <textarea ref={textPointers} style={{ resize: 'none', height: '100px', marginTop: '15px' }} />
+      <textarea ref={textPointers} style={{ resize: 'none', height: '100px', marginTop: '15px' }} readOnly />
     </div>
   );
 };

@@ -202,7 +202,7 @@ export const readTextBulk = (basePointer: number, sizeLimit = 20, textCount = 10
   setOffset(basePointer);
   let stringFinished = false;
   let count = 0;
-  while (count < textCount) {
+  while (count < textCount - 1) {
     // gets pointers to textCount number of strings
     const nextByte = getNextByte();
     if (nextByte === 0xff) {
@@ -227,7 +227,7 @@ export const readTextBulk = (basePointer: number, sizeLimit = 20, textCount = 10
 
   let textValues = '';
   pointers.forEach((pointer) => {
-    textValues += `${tripleToString(pointer, true)} ${readText(pointer, sizeLimit)}\n\n`;
+    textValues += `${tripleToString(pointer, true)}:\n${readText(pointer, sizeLimit)}\n\n`;
   });
 
   return textValues;

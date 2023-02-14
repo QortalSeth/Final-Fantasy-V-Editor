@@ -216,7 +216,7 @@ export const textToBytes = (text: string, noCompress = false): number[] => {
   let index = 0;
 
   mainLoop: while (index < text.length) {
-    for (let i = 4; i > 0; i--) {
+    for (let i = 6; i > 0; i--) {
       const map = textWriteMaps.get(i);
       if (map) {
         const byte = getByte(map, text, i, index);

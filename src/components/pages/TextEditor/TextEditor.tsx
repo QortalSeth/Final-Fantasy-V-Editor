@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react';
-import TextReaderComponent from '../TextReaderComponent';
+import TextReaderComponent from './TextReaderComponent';
+import { TextEditorFooter } from './TextEditorFooter';
 
 export const TextEditor = () => {
   return (
     <div>
       <TextReaderComponent />
+      <TextEditorFooter />
     </div>
   );
 };

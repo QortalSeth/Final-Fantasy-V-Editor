@@ -38,7 +38,7 @@ export const BaseTextfield = React.forwardRef<BaseTextfieldRef, BaseProps>(
     const setValue = (newValue: string | number) => {
       const finalValue = typeof newValue === 'string' ? newValue : newValue.toString();
       setStateValue(listener(finalValue, value, maxValue, minValue));
-      console.log('state set from outside');
+      // console.log('state set from outside');
     };
     const getValue = () => {
       return value;

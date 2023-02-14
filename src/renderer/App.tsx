@@ -13,7 +13,7 @@ import { store } from '../redux/store';
 import './App.css';
 import { MainMenu } from '../components/pages/MainMenu';
 import SpellEditor from '../components/pages/SpellEditor';
-import TextEditor from '../components/pages/TextEditor';
+import TextEditor from '../components/pages/TextEditor/TextEditor';
 
 // const router = createHashRouter(
 //   createRoutesFromElements(

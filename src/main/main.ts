@@ -161,7 +161,7 @@ app
           show: true,
           parent: mainWindow,
           width: 1600,
-          height: 800,
+          height: 930,
           minWidth: 900,
           autoHideMenuBar: true,
           // resizable: false,

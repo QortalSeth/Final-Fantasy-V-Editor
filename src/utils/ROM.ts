@@ -60,6 +60,17 @@ export const printHexPointerArray = (
   console.log(arrayToHexPointerString(array, { newline, includeHexPrefix, includeSpaces, prefix }));
 };
 
+export const arrayToString = (arr: string[], newline = 10, space = ' ') => {
+  let finalText = '';
+  let count = 1;
+  arr.forEach((text) => {
+    finalText += `${text}${space}`;
+    if (count % newline === 0 && count !== 0) finalText += '\n';
+    count++;
+  });
+  return finalText;
+};
+
 export const stringifyBytes = (array: Uint8Array) => {
   return JSON.stringify(Array.from(new Uint8Array(array)));
 };

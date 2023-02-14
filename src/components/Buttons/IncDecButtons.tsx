@@ -1,13 +1,12 @@
 import React, { useImperativeHandle, useRef } from 'react';
 import CSS from 'csstype';
-import { useForwardedRef } from '@bedrock-layout/use-forwarded-ref';
 import IconButton from './IconButton';
 import Triangle from '../../../assets/Triangle.png';
 import { stringToNumber, tripleToString } from '../../utils/ROM';
 import { BaseTextfieldRef, CustomTextfield } from '../TextFields';
 import { numFilter } from '../TextFieldFunctions';
 
-const debugIncDecInput = true;
+const debugIncDecInput = false;
 const buttonColor = 230;
 const buttonTimer = 200;
 interface IncDecProps extends React.HTMLProps<HTMLButtonElement> {
@@ -31,24 +30,25 @@ const DecButton: React.FC<IncDecProps> = ({ listener }) => {
   return <IconButton onMouseHeldDown={listener} imageStyle={{ transform: 'rotate(180deg)' }} {...incDecProps} />;
 };
 
-interface Props extends React.HTMLProps<HTMLDivElement> {
+interface Props {
   divStyle?: CSS.Properties;
+  onChange?: () => void;
 }
 
-export const IncDecInput = React.forwardRef<BaseTextfieldRef, Props>(({ divStyle = {} }: Props, ref) => {
+export const IncDecInput = React.forwardRef<BaseTextfieldRef, Props>(({ divStyle = {}, onChange }: Props, ref) => {
   const childInputRef = useRef<BaseTextfieldRef>(null);
 
   const setValue = (newValue: string | number) => {
     if (childInputRef.current) {
       const finalValue = typeof newValue === 'string' ? newValue : newValue.toString();
       childInputRef.current.setValue(finalValue);
-      console.log('state set from outside');
+      if (debugIncDecInput) console.log('state set from outside');
     }
   };
   const getValue = () => {
     const getValueFailed = '-1';
     if (childInputRef.current) {
-      // console.log('state read from outside');
+      if (debugIncDecInput) console.log('state read from outside');
       return childInputRef.current.getValue();
     }
     return getValueFailed;
