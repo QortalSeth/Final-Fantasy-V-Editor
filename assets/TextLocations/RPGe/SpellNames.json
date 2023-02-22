@@ -1,0 +1,611 @@
+[
+ {
+  "index": "000",
+  "offset": "111C80",
+  "byteLength": 6,
+  "text": "~SWORD~Fire~SPACE~",
+  "bytes": "E3 65 82 8B 7E FF"
+ },
+ {
+  "index": "001",
+  "offset": "111C86",
+  "byteLength": 6,
+  "text": "~SWORD~Ice~SPACE~~SPACE~",
+  "bytes": "E3 68 7C 7E FF FF"
+ },
+ {
+  "index": "002",
+  "offset": "111C8C",
+  "byteLength": 6,
+  "text": "~SWORD~Bolt ",
+  "bytes": "E3 61 88 85 8D 96"
+ },
+ {
+  "index": "003",
+  "offset": "111C92",
+  "byteLength": 6,
+  "text": "~SWORD~Venom",
+  "bytes": "E3 75 7E 87 88 86"
+ },
+ {
+  "index": "004",
+  "offset": "111C98",
+  "byteLength": 6,
+  "text": "~SWORD~Mute~SPACE~",
+  "bytes": "E3 6C 8E 8D 7E FF"
+ },
+ {
+  "index": "005",
+  "offset": "111C9E",
+  "byteLength": 6,
+  "text": "~SWORD~Sleep",
+  "bytes": "E3 72 85 7E 7E 89"
+ },
+ {
+  "index": "006",
+  "offset": "111CA4",
+  "byteLength": 6,
+  "text": "~SWORD~Fire2",
+  "bytes": "E3 65 82 8B 7E 55"
+ },
+ {
+  "index": "007",
+  "offset": "111CAA",
+  "byteLength": 6,
+  "text": "~SWORD~Ice 2",
+  "bytes": "E3 68 7C 7E 96 55"
+ },
+ {
+  "index": "008",
+  "offset": "111CB0",
+  "byteLength": 6,
+  "text": "~SWORD~Bolt2",
+  "bytes": "E3 61 88 85 8D 55"
+ },
+ {
+  "index": "009",
+  "offset": "111CB6",
+  "byteLength": 6,
+  "text": "~SWORD~Drain",
+  "bytes": "E3 63 8B 7A 82 87"
+ },
+ {
+  "index": "00A",
+  "offset": "111CBC",
+  "byteLength": 6,
+  "text": "~SWORD~Break",
+  "bytes": "E3 61 8B 7E 7A 84"
+ },
+ {
+  "index": "00B",
+  "offset": "111CC2",
+  "byteLength": 6,
+  "text": "~SWORD~Bio~SPACE~~SPACE~",
+  "bytes": "E3 61 82 88 FF FF"
+ },
+ {
+  "index": "00C",
+  "offset": "111CC8",
+  "byteLength": 6,
+  "text": "~SWORD~Fire3",
+  "bytes": "E3 65 82 8B 7E 56"
+ },
+ {
+  "index": "00D",
+  "offset": "111CCE",
+  "byteLength": 6,
+  "text": "~SWORD~Ice 3",
+  "bytes": "E3 68 7C 7E 96 56"
+ },
+ {
+  "index": "00E",
+  "offset": "111CD4",
+  "byteLength": 6,
+  "text": "~SWORD~Bolt3",
+  "bytes": "E3 61 88 85 8D 56"
+ },
+ {
+  "index": "00F",
+  "offset": "111CDA",
+  "byteLength": 6,
+  "text": "~SWORD~Holy~SPACE~",
+  "bytes": "E3 67 88 85 92 FF"
+ },
+ {
+  "index": "010",
+  "offset": "111CE0",
+  "byteLength": 6,
+  "text": "~SWORD~Flare",
+  "bytes": "E3 65 85 7A 8B 7E"
+ },
+ {
+  "index": "011",
+  "offset": "111CE6",
+  "byteLength": 6,
+  "text": "~SWORD~Psych",
+  "bytes": "E3 6F 8C 92 7C 81"
+ },
+ {
+  "index": "012",
+  "offset": "111CEC",
+  "byteLength": 6,
+  "text": "~WHITE~Cure~SPACE~",
+  "bytes": "E4 62 8E 8B 7E FF"
+ },
+ {
+  "index": "013",
+  "offset": "111CF2",
+  "byteLength": 6,
+  "text": "~WHITE~Scan~SPACE~",
+  "bytes": "E4 72 7C 7A 87 FF"
+ },
+ {
+  "index": "014",
+  "offset": "111CF8",
+  "byteLength": 6,
+  "text": "~WHITE~Antdt",
+  "bytes": "E4 60 87 8D 7D 8D"
+ },
+ {
+  "index": "015",
+  "offset": "111CFE",
+  "byteLength": 6,
+  "text": "~WHITE~Mute~SPACE~",
+  "bytes": "E4 6C 8E 8D 7E FF"
+ },
+ {
+  "index": "016",
+  "offset": "111D04",
+  "byteLength": 6,
+  "text": "~WHITE~Armor",
+  "bytes": "E4 60 8B 86 88 8B"
+ },
+ {
+  "index": "017",
+  "offset": "111D0A",
+  "byteLength": 6,
+  "text": "~WHITE~Size~SPACE~",
+  "bytes": "E4 72 82 93 7E FF"
+ },
+ {
+  "index": "018",
+  "offset": "111D10",
+  "byteLength": 6,
+  "text": "~WHITE~Cure2",
+  "bytes": "E4 62 8E 8B 7E 55"
+ },
+ {
+  "index": "019",
+  "offset": "111D16",
+  "byteLength": 6,
+  "text": "~WHITE~Life~SPACE~",
+  "bytes": "E4 6B 82 7F 7E FF"
+ },
+ {
+  "index": "01A",
+  "offset": "111D1C",
+  "byteLength": 6,
+  "text": "~WHITE~Charm",
+  "bytes": "E4 62 81 7A 8B 86"
+ },
+ {
+  "index": "01B",
+  "offset": "111D22",
+  "byteLength": 6,
+  "text": "~WHITE~Image",
+  "bytes": "E4 68 86 7A 80 7E"
+ },
+ {
+  "index": "01C",
+  "offset": "111D28",
+  "byteLength": 6,
+  "text": "~WHITE~Shell",
+  "bytes": "E4 72 81 7E 85 85"
+ },
+ {
+  "index": "01D",
+  "offset": "111D2E",
+  "byteLength": 6,
+  "text": "~WHITE~Heal~SPACE~",
+  "bytes": "E4 67 7E 7A 85 FF"
+ },
+ {
+  "index": "01E",
+  "offset": "111D34",
+  "byteLength": 6,
+  "text": "~WHITE~Cure3",
+  "bytes": "E4 62 8E 8B 7E 56"
+ },
+ {
+  "index": "01F",
+  "offset": "111D3A",
+  "byteLength": 6,
+  "text": "~WHITE~Wall~SPACE~",
+  "bytes": "E4 76 7A 85 85 FF"
+ },
+ {
+  "index": "020",
+  "offset": "111D40",
+  "byteLength": 6,
+  "text": "~WHITE~Bersk",
+  "bytes": "E4 61 7E 8B 8C 84"
+ },
+ {
+  "index": "021",
+  "offset": "111D46",
+  "byteLength": 6,
+  "text": "~WHITE~Life2",
+  "bytes": "E4 6B 82 7F 7E 55"
+ },
+ {
+  "index": "022",
+  "offset": "111D4C",
+  "byteLength": 6,
+  "text": "~WHITE~Holy~SPACE~",
+  "bytes": "E4 67 88 85 92 FF"
+ },
+ {
+  "index": "023",
+  "offset": "111D52",
+  "byteLength": 6,
+  "text": "~WHITE~Dispel",
+  "bytes": "E4 63 82 8C A8 A9"
+ },
+ {
+  "index": "024",
+  "offset": "111D58",
+  "byteLength": 6,
+  "text": "~BLACK~Fire~SPACE~",
+  "bytes": "E5 65 82 8B 7E FF"
+ },
+ {
+  "index": "025",
+  "offset": "111D5E",
+  "byteLength": 6,
+  "text": "~BLACK~Ice~SPACE~~SPACE~",
+  "bytes": "E5 68 7C 7E FF FF"
+ },
+ {
+  "index": "026",
+  "offset": "111D64",
+  "byteLength": 6,
+  "text": "~BLACK~Bolt~SPACE~",
+  "bytes": "E5 61 88 85 8D FF"
+ },
+ {
+  "index": "027",
+  "offset": "111D6A",
+  "byteLength": 6,
+  "text": "~BLACK~Venom",
+  "bytes": "E5 75 7E 87 88 86"
+ },
+ {
+  "index": "028",
+  "offset": "111D70",
+  "byteLength": 6,
+  "text": "~BLACK~Sleep",
+  "bytes": "E5 72 85 7E 7E 89"
+ },
+ {
+  "index": "029",
+  "offset": "111D76",
+  "byteLength": 6,
+  "text": "~BLACK~Toad~SPACE~",
+  "bytes": "E5 73 88 7A 7D FF"
+ },
+ {
+  "index": "02A",
+  "offset": "111D7C",
+  "byteLength": 6,
+  "text": "~BLACK~Fire2",
+  "bytes": "E5 65 82 8B 7E 55"
+ },
+ {
+  "index": "02B",
+  "offset": "111D82",
+  "byteLength": 6,
+  "text": "~BLACK~Ice 2",
+  "bytes": "E5 68 7C 7E 96 55"
+ },
+ {
+  "index": "02C",
+  "offset": "111D88",
+  "byteLength": 6,
+  "text": "~BLACK~Bolt2",
+  "bytes": "E5 61 88 85 8D 55"
+ },
+ {
+  "index": "02D",
+  "offset": "111D8E",
+  "byteLength": 6,
+  "text": "~BLACK~Drain",
+  "bytes": "E5 63 8B 7A 82 87"
+ },
+ {
+  "index": "02E",
+  "offset": "111D94",
+  "byteLength": 6,
+  "text": "~BLACK~Break",
+  "bytes": "E5 61 8B 7E 7A 84"
+ },
+ {
+  "index": "02F",
+  "offset": "111D9A",
+  "byteLength": 6,
+  "text": "~BLACK~Bio~SPACE~~SPACE~",
+  "bytes": "E5 61 82 88 FF FF"
+ },
+ {
+  "index": "030",
+  "offset": "111DA0",
+  "byteLength": 6,
+  "text": "~BLACK~Fire3",
+  "bytes": "E5 65 82 8B 7E 56"
+ },
+ {
+  "index": "031",
+  "offset": "111DA6",
+  "byteLength": 6,
+  "text": "~BLACK~Ice 3",
+  "bytes": "E5 68 7C 7E 96 56"
+ },
+ {
+  "index": "032",
+  "offset": "111DAC",
+  "byteLength": 6,
+  "text": "~BLACK~Bolt3",
+  "bytes": "E5 61 88 85 8D 56"
+ },
+ {
+  "index": "033",
+  "offset": "111DB2",
+  "byteLength": 6,
+  "text": "~BLACK~Flare",
+  "bytes": "E5 65 85 7A 8B 7E"
+ },
+ {
+  "index": "034",
+  "offset": "111DB8",
+  "byteLength": 6,
+  "text": "~BLACK~Doom~SPACE~",
+  "bytes": "E5 63 88 88 86 FF"
+ },
+ {
+  "index": "035",
+  "offset": "111DBE",
+  "byteLength": 6,
+  "text": "~BLACK~Psych",
+  "bytes": "E5 6F 8C 92 7C 81"
+ },
+ {
+  "index": "036",
+  "offset": "111DC4",
+  "byteLength": 6,
+  "text": "~DIMEN~Drag~SPACE~",
+  "bytes": "E6 63 8B 7A 80 FF"
+ },
+ {
+  "index": "037",
+  "offset": "111DCA",
+  "byteLength": 6,
+  "text": "~DIMEN~Slow~SPACE~",
+  "bytes": "E6 72 85 88 90 FF"
+ },
+ {
+  "index": "038",
+  "offset": "111DD0",
+  "byteLength": 6,
+  "text": "~DIMEN~Regen",
+  "bytes": "E6 71 7E 80 7E 87"
+ },
+ {
+  "index": "039",
+  "offset": "111DD6",
+  "byteLength": 6,
+  "text": "~DIMEN~Void~SPACE~",
+  "bytes": "E6 75 88 82 7D FF"
+ },
+ {
+  "index": "03A",
+  "offset": "111DDC",
+  "byteLength": 6,
+  "text": "~DIMEN~Haste",
+  "bytes": "E6 67 7A 8C 8D 7E"
+ },
+ {
+  "index": "03B",
+  "offset": "111DE2",
+  "byteLength": 6,
+  "text": "~DIMEN~Float",
+  "bytes": "E6 65 85 88 7A 8D"
+ },
+ {
+  "index": "03C",
+  "offset": "111DE8",
+  "byteLength": 6,
+  "text": "~DIMEN~Demi~SPACE~",
+  "bytes": "E6 63 7E 86 82 FF"
+ },
+ {
+  "index": "03D",
+  "offset": "111DEE",
+  "byteLength": 6,
+  "text": "~DIMEN~Stop~SPACE~",
+  "bytes": "E6 72 8D 88 89 FF"
+ },
+ {
+  "index": "03E",
+  "offset": "111DF4",
+  "byteLength": 6,
+  "text": "~DIMEN~Exit~SPACE~",
+  "bytes": "E6 64 91 82 8D FF"
+ },
+ {
+  "index": "03F",
+  "offset": "111DFA",
+  "byteLength": 6,
+  "text": "~DIMEN~Comet",
+  "bytes": "E6 62 88 86 7E 8D"
+ },
+ {
+  "index": "040",
+  "offset": "111E00",
+  "byteLength": 6,
+  "text": "~DIMEN~Slow2",
+  "bytes": "E6 72 85 88 90 55"
+ },
+ {
+  "index": "041",
+  "offset": "111E06",
+  "byteLength": 6,
+  "text": "~DIMEN~Reset",
+  "bytes": "E6 71 7E 8C 7E 8D"
+ },
+ {
+  "index": "042",
+  "offset": "111E0C",
+  "byteLength": 6,
+  "text": "~DIMEN~Qrter",
+  "bytes": "E6 70 8B 8D 7E 8B"
+ },
+ {
+  "index": "043",
+  "offset": "111E12",
+  "byteLength": 6,
+  "text": "~DIMEN~Hast2",
+  "bytes": "E6 67 7A 8C 8D 55"
+ },
+ {
+  "index": "044",
+  "offset": "111E18",
+  "byteLength": 6,
+  "text": "~DIMEN~Old~SPACE~~SPACE~",
+  "bytes": "E6 6E 85 7D FF FF"
+ },
+ {
+  "index": "045",
+  "offset": "111E1E",
+  "byteLength": 6,
+  "text": "~DIMEN~Meteo",
+  "bytes": "E6 6C 7E 8D 7E 88"
+ },
+ {
+  "index": "046",
+  "offset": "111E24",
+  "byteLength": 6,
+  "text": "~DIMEN~Quick",
+  "bytes": "E6 70 8E 82 7C 84"
+ },
+ {
+  "index": "047",
+  "offset": "111E2A",
+  "byteLength": 6,
+  "text": "~DIMEN~XZone",
+  "bytes": "E6 77 79 88 87 7E"
+ },
+ {
+  "index": "048",
+  "offset": "111E30",
+  "byteLength": 6,
+  "text": "Chocob",
+  "bytes": "62 81 88 7C 88 7B"
+ },
+ {
+  "index": "049",
+  "offset": "111E36",
+  "byteLength": 6,
+  "text": "Sylph~SPACE~",
+  "bytes": "72 92 85 89 81 FF"
+ },
+ {
+  "index": "04A",
+  "offset": "111E3C",
+  "byteLength": 6,
+  "text": "Remora",
+  "bytes": "71 7E 86 88 8B 7A"
+ },
+ {
+  "index": "04B",
+  "offset": "111E42",
+  "byteLength": 6,
+  "text": "Shiva~SPACE~",
+  "bytes": "72 81 82 8F 7A FF"
+ },
+ {
+  "index": "04C",
+  "offset": "111E48",
+  "byteLength": 6,
+  "text": "Ramuh~SPACE~",
+  "bytes": "71 7A 86 8E 81 FF"
+ },
+ {
+  "index": "04D",
+  "offset": "111E4E",
+  "byteLength": 6,
+  "text": "Ifrit~SPACE~",
+  "bytes": "68 7F 8B 82 8D FF"
+ },
+ {
+  "index": "04E",
+  "offset": "111E54",
+  "byteLength": 6,
+  "text": "Titan~SPACE~",
+  "bytes": "73 82 8D 7A 87 FF"
+ },
+ {
+  "index": "04F",
+  "offset": "111E5A",
+  "byteLength": 6,
+  "text": "Golem~SPACE~",
+  "bytes": "66 88 85 7E 86 FF"
+ },
+ {
+  "index": "050",
+  "offset": "111E60",
+  "byteLength": 6,
+  "text": "Shoat~SPACE~",
+  "bytes": "72 81 88 7A 8D FF"
+ },
+ {
+  "index": "051",
+  "offset": "111E66",
+  "byteLength": 6,
+  "text": "Crbnkl",
+  "bytes": "62 8B 7B 87 84 85"
+ },
+ {
+  "index": "052",
+  "offset": "111E6C",
+  "byteLength": 6,
+  "text": "Syldra",
+  "bytes": "72 92 85 7D 8B 7A"
+ },
+ {
+  "index": "053",
+  "offset": "111E72",
+  "byteLength": 6,
+  "text": "Odin~SPACE~~SPACE~",
+  "bytes": "6E 7D 82 87 FF FF"
+ },
+ {
+  "index": "054",
+  "offset": "111E78",
+  "byteLength": 6,
+  "text": "Phenix",
+  "bytes": "6F 81 7E 87 82 91"
+ },
+ {
+  "index": "055",
+  "offset": "111E7E",
+  "byteLength": 6,
+  "text": "Levia~SPACE~",
+  "bytes": "6B 7E 8F 82 7A FF"
+ },
+ {
+  "index": "056",
+  "offset": "111E84",
+  "byteLength": 6,
+  "text": "Bahmut",
+  "bytes": "61 7A 81 86 8E 8D"
+ }
+]

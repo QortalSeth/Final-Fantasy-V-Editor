@@ -92,6 +92,9 @@
   },
   "dependencies": {
     "@electron/remote": "^2.0.9",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/lab": "^5.0.0-alpha.120",
     "@reduxjs/toolkit": "^1.9.1",
     "buffer": "^6.0.3",
     "electron-debug": "^3.2.0",

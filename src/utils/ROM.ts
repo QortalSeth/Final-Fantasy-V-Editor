@@ -123,6 +123,10 @@ export const getOffset = () => {
   return store.getState().ROM.offset;
 };
 
+export const getOffsetWithoutHeader = () => {
+  return store.getState().ROM.offset - store.getState().ROM.data.header;
+};
+
 export const incOffset = () => {
   store.dispatch(setOffsetStore(getOffset() + 1));
 };
@@ -167,10 +171,10 @@ export const tripleToString = (triple: number, addPrefix = false) => {
   return prefix + (triple & 0xffffff).toString(16).toUpperCase();
 };
 
-export const hexToString = (num: number) => {
+export const numToHexString = (num: number) => {
   return (num & 0xffffff).toString(16).toUpperCase();
 };
 
 export const printHex = (num: number, prefix = '') => {
-  console.log(prefix, hexToString(num));
+  console.log(prefix, numToHexString(num));
 };

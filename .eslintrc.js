@@ -24,6 +24,7 @@ module.exports = {
     'no-unused-prop-types': 'off',
     'react/require-default-props': 'off',
     '@typescript-eslint/no-unused-expressions': 'off',
+    'no-nested-ternary': 'off',
   },
   parserOptions: {
     ecmaVersion: 2020,

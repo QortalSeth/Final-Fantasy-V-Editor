@@ -1,6 +1,6 @@
 import React from 'react';
 
-const debugTextFieldFunctions = false;
+const debugTextFieldFunctions = true;
 export const setMinMaxValueDec = (value: string, maxValue: number, minValue = 0): string => {
   const valueNum = Number(`${value}`);
 
@@ -40,14 +40,15 @@ export const numFilter = (value: string, maxValue: number, minValue = 0, emptyRe
   if (value === '') {
     return emptyReturn;
   }
-  const isNum = /^[0-9,-]+$/.test(value);
+  const isNum = /^[0-9]+$/.test(value);
 
   if (isNum) {
     const minMaxCheck = setMinMaxValueDec(value, maxValue, minValue);
     if (debugTextFieldFunctions) console.log('filtered value is: ', minMaxCheck);
     return minMaxCheck;
   }
-  return value;
+  const isNotNum = /[^0-9]/;
+  return value.replace(isNotNum, '');
 };
 export const numListener = (
   e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLInputElement, MouseEvent> | string,

@@ -4,8 +4,9 @@ declare global {
   interface Window {
     electron: {
       ipcRenderer: {
-        openROM(params: object, defaultROM?: string): Promise<ROMState>;
+        openROM(dialogOptions: object, defaultROM?: string): Promise<ROMState>;
         openEditor(url: string): Promise<void>;
+        saveJSONfile(dialogOptions: object, data: string): Promise<void>;
       };
     };
   }

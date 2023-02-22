@@ -15,7 +15,7 @@ import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { setROM } from '../redux/slices/ROM-Slice';
 
 export const EditorChooser = () => {
-  const defaultROM = '/home/seth/WebstormProjects/Final-Fantasy-V-Editor/assets/Final Fantasy V+.smc';
+  const defaultROM = '/home/seth/WebstormProjects/Final-Fantasy-V-Editor/assets/Final Fantasy V translated.smc';
   const useDefaultROM = true;
   const [isDisabled, setDisabled] = useState(true);
   const dispatch = useAppDispatch();

@@ -153,6 +153,17 @@ app
       return { rom: Array.from(fileData), data: { path: file, header: getHeader(fileData.length) } } as ROMState;
     });
 
+    ipcMain.handle('saveJSONfile', async (event, params, data: string) => {
+      let file: string;
+      const fileNames = dialog.showOpenDialogSync(params);
+
+      if (fileNames) {
+        [file] = fileNames;
+        console.log('Selected File is: ', file.toString());
+        fs.writeFileSync(file, data);
+      }
+    });
+
     ipcMain.handle('openEditor', async (event, url) => {
       if (mainWindow) {
         mainWindow.hide();
@@ -161,7 +172,7 @@ app
           show: true,
           parent: mainWindow,
           width: 1600,
-          height: 930,
+          height: 940,
           minWidth: 900,
           autoHideMenuBar: true,
           // resizable: false,
