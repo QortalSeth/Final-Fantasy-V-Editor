@@ -112,6 +112,11 @@ export const getShort = (offset: number) => {
   return unsignedByte1 | unsignedByte2;
 };
 
+export const inferTriple = (offset: number) => {
+  const dataBank = offset & 0xff0000;
+  const short = getShort(offset);
+  return dataBank + short;
+};
 // this returned value is little endian
 export const getTriple = (offset: number) => {
   const shortValue = getShort(offset);
@@ -155,6 +160,12 @@ export const getNextShort = () => {
 export const getNextTriple = () => {
   const triple = getTriple(store.getState().ROM.offset);
   setOffset(store.getState().ROM.offset + 3);
+  return triple;
+};
+
+export const inferNextTriple = () => {
+  const triple = inferTriple(store.getState().ROM.offset);
+  setOffset(store.getState().ROM.offset + 2);
   return triple;
 };
 

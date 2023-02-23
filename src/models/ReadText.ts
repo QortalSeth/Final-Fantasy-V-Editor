@@ -124,7 +124,11 @@ export const readBytes = (pointer: number, sizeLimit = 20, endText = defaultEndT
   }
   return bytes;
 };
-
+const formatText = (text: string, prefix: string, newLineAfter: number) => {
+  const textWithPrefix = prefix + text;
+  const finalTextString = text.length > newLineAfter ? `\n${textWithPrefix.trim()}` : textWithPrefix;
+  return finalTextString;
+};
 const processPointers = (
   pointers: number[],
   sizeLimit = 10,
@@ -143,11 +147,20 @@ const processPointers = (
         : numToHexString(indexMod);
 
     const pointerString = tripleToString(pointer, false);
-    const textString = readText(pointer, sizeLimit, endText);
+    const text = readText(pointer, sizeLimit, endText).trim();
+    const textString = formatText(text, '    Text is: ', 40);
+
     const bytes = readBytes(pointer, sizeLimit, endText);
     const bytesString = bytes.toString().replaceAll(',', ' ');
-    jsonText.push({ index: indexString, offset: pointerString, byteLength: bytes.length, text: textString, bytes: bytesString });
-    returnText += `Offset ${indexString}: ${pointerString}  Bytes are: ${bytesString}  Text is: ${textString}\n\n`;
+    const bytesFinalString = formatText(bytesString, '    Bytes: ', 40);
+    jsonText.push({
+      index: indexString,
+      offset: pointerString,
+      byteLength: bytes.length,
+      text: textString,
+      bytes: bytesFinalString,
+    });
+    returnText += `Offset ${indexString}: ${pointerString}${bytesFinalString}${textString}\n\n`;
   });
 
   return [returnText, jsonText];

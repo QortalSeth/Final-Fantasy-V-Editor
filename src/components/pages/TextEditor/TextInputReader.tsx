@@ -21,7 +21,7 @@ import {
 } from '../../../utils/ROM';
 import { textToBytes } from '../../../models/WriteText';
 import { romState } from '../../../redux/slices/ROM-Slice';
-import IncDecInput from '../../Buttons/IncDecButtons';
+import IncDecInput from '../../Buttons/IncDecInput';
 
 export const TextInputReader: React.FC = () => {
   const state = useSelector(romState);

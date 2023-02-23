@@ -12,7 +12,8 @@ import {
 } from '../../../models/ReadText';
 import { getNextTriple, setOffset } from '../../../utils/ROM';
 import { romState } from '../../../redux/slices/ROM-Slice';
-import IncDecInput from '../../Buttons/IncDecButtons';
+import IncDecInput from '../../Buttons/IncDecInput';
+import IncDecSelect from '../../Buttons/IncDecSelect';
 
 export const TextPointerReader: React.FC = () => {
   const [disableFixedLength, setDisableFixedLength] = useState(false);
@@ -55,24 +56,20 @@ export const TextPointerReader: React.FC = () => {
     <div style={gridStyle}>
       <span style={labelStyle}>Location to read:</span>
       <PointerTextfield ref={pointerTextField} textFieldStyle={{ width: '100px' }} />
-      <span style={labelStyle}># of Items to Read:</span>
-      <IncDecInput ref={stringsToReadCount} minValue={1} maxValue={99} />
-      <span style={labelStyle}>Text Size: </span>
-      <IncDecInput ref={textLength} minValue={6} maxValue={99} disable={disableFixedLength} />
-      <label htmlFor='varLength' style={{ gridColumnStart: '2' }}>
-        <input
-          type='checkbox'
-          id='varLength'
-          checked={disableFixedLength}
-          onChange={(e) => setDisableFixedLength(!disableFixedLength)}
-        />
-        Read Variable Length Text
-      </label>
-      <div style={{ gridColumnStart: '2', gridRowStart: '5' }}>
-        <button type='button' style={{ width: '50%', height: '30px' }} onClick={(e) => readTextPointers()}>
-          Read Pointer Table
-        </button>
-      </div>
+      <span style={labelStyle}>Pointer Size:</span>
+      <IncDecSelect
+        divStyle={{ height: '30px' }}
+        label=''
+        value='prop value'
+        options={[
+          { label: '2', value: '2' },
+          { label: '3', value: '3' },
+        ]}
+      />
+      <button type='button' style={{ width: '30%', height: '30px', gridColumnStart: '2' }} onClick={(e) => readTextPointers()}>
+        Read Pointer Table
+      </button>
+
       <textarea ref={textToRead} style={{ resize: 'none', height: '500px', marginTop: '5px', gridColumn: 'span 2' }} />
     </div>
   );

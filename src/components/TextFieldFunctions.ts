@@ -5,7 +5,8 @@ export const setMinMaxValueDec = (value: string, maxValue: number, minValue = 0)
   const valueNum = Number(`${value}`);
 
   const maxCheck = valueNum > maxValue ? maxValue : valueNum;
-  return maxCheck < minValue ? minValue.toString() : maxCheck.toString();
+  const minCheck = maxCheck < minValue ? minValue.toString() : maxCheck.toString();
+  return minCheck;
 };
 
 export const setMaxValueHex = (value: string, maxValue: string) => {
@@ -40,14 +41,16 @@ export const numFilter = (value: string, maxValue: number, minValue = 0, emptyRe
   if (value === '') {
     return emptyReturn;
   }
-  const isNum = /^[0-9]+$/.test(value);
+  const isPositiveNum = /^[0-9]+$/.test(value);
+  const isNegativeNum = /^[0-9,-]+$/.test(value);
+  const isNotNum = /[^0-9]/;
 
-  if (isNum) {
+  if (isPositiveNum || isNegativeNum) {
     const minMaxCheck = setMinMaxValueDec(value, maxValue, minValue);
     if (debugTextFieldFunctions) console.log('filtered value is: ', minMaxCheck);
     return minMaxCheck;
   }
-  const isNotNum = /[^0-9]/;
+
   return value.replace(isNotNum, '');
 };
 export const numListener = (
@@ -58,7 +61,8 @@ export const numListener = (
   emptyReturn = ''
 ) => {
   const input = typeof e !== 'string' ? e.currentTarget.value : e;
-  return numFilter(input, maxValue, minValue, emptyReturn);
+  const result = numFilter(input, maxValue, minValue, emptyReturn);
+  return result;
 };
 
 export const pointerToOffset = (pointer: number | string) => {

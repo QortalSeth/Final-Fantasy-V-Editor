@@ -30,6 +30,7 @@ export type BaseTextfieldRef = {
 export const BaseTextfield = React.forwardRef<BaseTextfieldRef, BaseProps>(
   ({ textFieldStyle = {}, initialValue = '', listener, maxValue, minValue, disabled = false, ...props }: BaseProps, ref) => {
     const [value, setStateValue] = useState(initialValue);
+
     const setValue = (newValue: string | number) => {
       const finalValue = typeof newValue === 'string' ? newValue : newValue.toString();
       setStateValue(listener(finalValue, value, maxValue, minValue));

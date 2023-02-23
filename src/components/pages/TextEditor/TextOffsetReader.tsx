@@ -13,7 +13,7 @@ import {
 } from '../../../models/ReadText';
 import { getNextTriple, setOffset } from '../../../utils/ROM';
 import { romState } from '../../../redux/slices/ROM-Slice';
-import IncDecInput from '../../Buttons/IncDecButtons';
+import IncDecInput from '../../Buttons/IncDecInput';
 import { saveJSONoptions } from '../../../utils/SaveData';
 
 export const TextOffsetReader: React.FC = () => {
@@ -87,7 +87,7 @@ export const TextOffsetReader: React.FC = () => {
       <PointerTextfield ref={pointerTextField} textFieldStyle={{ width: '100px' }} />
       <span style={labelStyle}># to Read:</span>
       <IncDecInput ref={stringsToReadCount} minValue={1} maxValue={99} />
-      <span style={labelStyle}>Starting Index:</span>
+      <span style={labelStyle}>Start Index:</span>
       <IncDecInput ref={startIndex} minValue={0} maxValue={255} />
       <span style={labelStyle}>Text Size: </span>
       <IncDecInput ref={textLength} minValue={6} maxValue={99} disable={disableFixedLength} />
@@ -101,7 +101,7 @@ export const TextOffsetReader: React.FC = () => {
         />
         Read Variable Length Text
       </label>
-      <div style={{ gridColumnStart: '2', gridRowStart: '5' }}>
+      <div style={{ gridColumnStart: '2', gridRowStart: '6' }}>
         <button type='button' style={{ width: '50%', height: '30px' }} onClick={(e) => readTextFromPointers()}>
           Read Text
         </button>
