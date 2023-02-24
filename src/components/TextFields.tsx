@@ -39,6 +39,7 @@ export const BaseTextfield = React.forwardRef<BaseTextfieldRef, BaseProps>(
     const getValue = () => {
       return value;
     };
+
     useImperativeHandle(ref, () => ({
       getValue,
       setValue: (newValue: string | number) => setValue(newValue),
@@ -51,6 +52,7 @@ export const BaseTextfield = React.forwardRef<BaseTextfieldRef, BaseProps>(
         value={value}
         style={{ boxSizing: 'border-box', ...textFieldStyle }}
         disabled={disabled}
+        spellCheck={false}
       />
     );
   }

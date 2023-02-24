@@ -151,7 +151,11 @@ export const TextInputReader: React.FC = () => {
   return (
     <div style={gridStyle}>
       <span style={{ ...labelStyle }}>Text to Read:</span>
-      <textarea ref={textToRead} style={{ resize: 'none', height: '150px', marginTop: '5px', gridColumnStart: 2 }} />
+      <textarea
+        ref={textToRead}
+        style={{ resize: 'none', height: '150px', marginTop: '5px', gridColumnStart: 2 }}
+        spellCheck={false}
+      />
       <button onClick={(e) => processText(true)} type='button' style={{ width: '100%', height: '30px', gridColumnStart: '2' }}>
         Process Text with Compression
       </button>
@@ -159,11 +163,11 @@ export const TextInputReader: React.FC = () => {
         Process Text without Compression
       </button>
       <span style={labelStyle}>Byte Values:</span>
-      <textarea ref={byteValues} style={{ resize: 'none', height: '150px', marginTop: '15px' }} readOnly />
+      <textarea ref={byteValues} style={{ resize: 'none', height: '150px', marginTop: '15px' }} readOnly spellCheck={false} />
       <span style={labelStyle}>Text Locations:</span>
-      <textarea ref={textLocations} style={{ resize: 'none', height: '100px', marginTop: '15px' }} readOnly />
+      <textarea ref={textLocations} style={{ resize: 'none', height: '100px', marginTop: '15px' }} readOnly spellCheck={false} />
       <span style={labelStyle}>Pointers to Locations:</span>
-      <textarea ref={textPointers} style={{ resize: 'none', height: '100px', marginTop: '15px' }} readOnly />
+      <textarea ref={textPointers} style={{ resize: 'none', height: '100px', marginTop: '15px' }} readOnly spellCheck={false} />
     </div>
   );
 };

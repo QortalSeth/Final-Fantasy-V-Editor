@@ -71,35 +71,14 @@ export const arrayToString = (arr: string[], newline = 10, space = ' ') => {
   return finalText;
 };
 
-export const stringifyBytes = (array: Uint8Array) => {
-  return JSON.stringify(Array.from(new Uint8Array(array)));
-};
-
-// function fileToByteArray(file: File) {
-//   return new Promise((resolve, reject) => {
-//     try {
-//       const reader = new FileReader();
-//       const fileByteArray = [];
-//       reader.readAsArrayBuffer(file);
-//       reader.onloadend = (evt) => {
-//         if (evt.target.readyState === FileReader.DONE) {
-//           const arrayBuffer = evt.target.result;
-//           const array = new Uint8Array(arrayBuffer);
-//           for (byte of array) {
-//             fileByteArray.push(byte);
-//           }
-//         }
-//         resolve(fileByteArray);
-//       };
-//     } catch (e) {
-//       reject(e);
-//     }
-//   });
-// }
-
 export function stringToNumber(str: string, hex = false) {
   return hex ? Number(`0x${str}`) : Number(str);
 }
+
+export const pointerInROM = (offset: number) => {
+  const romLength = store.getState().ROM.rom.length;
+  return offset < romLength;
+};
 
 export const getByte = (offset: number) => {
   return byteSelector(store.getState().ROM, offset);
@@ -124,6 +103,9 @@ export const getTriple = (offset: number) => {
   return finalByte | shortValue;
 };
 
+export const getState = () => {
+  return store.getState();
+};
 export const getOffset = () => {
   return store.getState().ROM.offset;
 };
@@ -169,6 +151,10 @@ export const inferNextTriple = () => {
   return triple;
 };
 
+export const nextPointerInROM = () => {
+  return pointerInROM(getTriple(store.getState().ROM.offset));
+};
+
 export const byteToString = (byte: number) => {
   return (byte & 0xff).toString(16).toUpperCase();
 };
@@ -183,7 +169,9 @@ export const tripleToString = (triple: number, addPrefix = false) => {
 };
 
 export const numToHexString = (num: number) => {
-  return (num & 0xffffff).toString(16).toUpperCase();
+  const formatByte = (num & 0xffffff).toString(16).toUpperCase();
+  const addedPrefix = num < 16 ? `0${formatByte}` : formatByte;
+  return addedPrefix;
 };
 
 export const printHex = (num: number, prefix = '') => {

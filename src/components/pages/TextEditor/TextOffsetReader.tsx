@@ -20,6 +20,7 @@ export const TextOffsetReader: React.FC = () => {
   const [disableFixedLength, setDisableFixedLength] = useState(false);
   const [showExportJSON, setExportJSON] = useState(false);
   const [JSONdata, setJSONdata] = useState<Array<TextToJSON>>([]);
+
   const pointerTextField = useRef<BaseTextfieldRef>(null);
   const stringsToReadCount = useRef<BaseTextfieldRef>(null);
   const startIndex = useRef<BaseTextfieldRef>(null);
@@ -90,7 +91,7 @@ export const TextOffsetReader: React.FC = () => {
       <span style={labelStyle}>Start Index:</span>
       <IncDecInput ref={startIndex} minValue={0} maxValue={255} />
       <span style={labelStyle}>Text Size: </span>
-      <IncDecInput ref={textLength} minValue={6} maxValue={99} disable={disableFixedLength} />
+      <IncDecInput ref={textLength} minValue={6} maxValue={20} disable={disableFixedLength} />
 
       <label htmlFor='varLength' style={{ gridColumnStart: '2' }}>
         <input
@@ -109,7 +110,12 @@ export const TextOffsetReader: React.FC = () => {
           Export Pointers to JSON
         </button>
       </div>
-      <textarea ref={textToRead} style={{ resize: 'none', height: '500px', marginTop: '5px', gridColumn: 'span 2' }} readOnly />
+      <textarea
+        ref={textToRead}
+        style={{ resize: 'none', height: '500px', marginTop: '5px', gridColumn: 'span 2' }}
+        readOnly
+        spellCheck={false}
+      />
     </div>
   );
 };

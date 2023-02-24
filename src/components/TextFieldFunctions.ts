@@ -1,12 +1,14 @@
 import React from 'react';
 
-const debugTextFieldFunctions = true;
+const debugTextFieldFunctions = false;
 export const setMinMaxValueDec = (value: string, maxValue: number, minValue = 0): string => {
-  const valueNum = Number(`${value}`);
+  let valueNum = Number(`${value}`);
 
-  const maxCheck = valueNum > maxValue ? maxValue : valueNum;
-  const minCheck = maxCheck < minValue ? minValue.toString() : maxCheck.toString();
-  return minCheck;
+  // Bounds checking on valueNum
+  valueNum = Math.min(valueNum, maxValue);
+  valueNum = Math.max(valueNum, minValue);
+
+  return valueNum.toString();
 };
 
 export const setMaxValueHex = (value: string, maxValue: string) => {

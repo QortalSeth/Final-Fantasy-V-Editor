@@ -1,28 +1,17 @@
 import React, { useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { BaseTextfieldRef, CustomTextfield, PointerTextfield } from '../../TextFields';
+import { BaseTextfieldRef, PointerTextfield } from '../../TextFields';
 import { pointerToOffset } from '../../TextFieldFunctions';
-import {
-  alternateEndText,
-  defaultEndText,
-  metaCharacters,
-  readText,
-  readTextBulkFixedLength,
-  readTextBulkVarLength,
-} from '../../../models/ReadText';
-import { getNextTriple, setOffset } from '../../../utils/ROM';
-import { romState } from '../../../redux/slices/ROM-Slice';
+import { defaultEndText, processPointers } from '../../../models/ReadText';
+import { getNextTriple, inferNextTriple, pointerInROM, setOffset } from '../../../utils/ROM';
 import IncDecInput from '../../Buttons/IncDecInput';
-import IncDecSelect from '../../Buttons/IncDecSelect';
+import IncDecSelect, { IncDecSelectRef } from '../../Buttons/IncDecSelect';
 
 export const TextPointerReader: React.FC = () => {
-  const [disableFixedLength, setDisableFixedLength] = useState(false);
-
   const pointerTextField = useRef<BaseTextfieldRef>(null);
+  const textLength = useRef<IncDecSelectRef>(null);
   const stringsToReadCount = useRef<BaseTextfieldRef>(null);
-  const textLength = useRef<BaseTextfieldRef>(null);
-
   const textToRead = useRef<HTMLTextAreaElement>(null);
+
   const debugTextReader = true;
   const gridStyle = {
     display: 'grid',
@@ -40,18 +29,39 @@ export const TextPointerReader: React.FC = () => {
   };
 
   const readTextPointers = () => {
-    if (pointerTextField.current && textToRead.current && stringsToReadCount.current && textLength.current) {
+    if (pointerTextField.current && stringsToReadCount.current && textToRead.current && textLength.current) {
       // Get data from textfields
       const pointersStart = pointerToOffset(pointerTextField.current.getValue());
-      const pointersNum = refStringToNumber(stringsToReadCount.current);
-      const pointerSize = refStringToNumber(textLength.current);
-      const pointers: number[] = [];
-      setOffset(pointersStart);
+      const pointerSize = Number(textLength.current.getValue());
+      const stringsToReadNum = refStringToNumber(stringsToReadCount.current);
 
-      // assemble pointer list
-      for (let i = 0; i < pointersNum; i++) pointers.push(getNextTriple());
+      // Some pointer tables have 2 bytes, which means the third byte is the databank the pointer is located in
+      // readPointer is a function that uses a 3 byte pointer if available or infers the 3rd byte
+      const readPointer = () => (pointerSize === 2 ? pointerToOffset(inferNextTriple()) : pointerToOffset(getNextTriple()));
+      if (pointerSize) {
+        const pointers: number[] = [];
+        setOffset(pointersStart);
+        for (let i = 0; i < stringsToReadNum; i++) {
+          const pointer = readPointer();
+          const pointerIsInROM = pointerInROM(pointer);
+          if (pointerIsInROM) {
+            pointers.push(pointer);
+          }
+        }
+        const [text, json] = processPointers(pointers, 9999, defaultEndText, 0);
+
+        textToRead.current.value = text;
+      }
+    } else {
+      console.log(
+        `PointerTextField: ${pointerTextField.current}
+        textToRead: ${textToRead.current}
+        stringsToReadCount: ${stringsToReadCount.current}
+        textLength: ${textLength.current}`
+      );
     }
   };
+
   return (
     <div style={gridStyle}>
       <span style={labelStyle}>Location to read:</span>
@@ -60,17 +70,24 @@ export const TextPointerReader: React.FC = () => {
       <IncDecSelect
         divStyle={{ height: '30px' }}
         label=''
-        value='prop value'
+        initialValue='2'
         options={[
           { label: '2', value: '2' },
           { label: '3', value: '3' },
         ]}
+        ref={textLength}
       />
+      <span style={labelStyle}># to Read:</span>
+      <IncDecInput ref={stringsToReadCount} minValue={1} maxValue={9999} />
       <button type='button' style={{ width: '30%', height: '30px', gridColumnStart: '2' }} onClick={(e) => readTextPointers()}>
         Read Pointer Table
       </button>
 
-      <textarea ref={textToRead} style={{ resize: 'none', height: '500px', marginTop: '5px', gridColumn: 'span 2' }} />
+      <textarea
+        ref={textToRead}
+        style={{ resize: 'none', height: '500px', marginTop: '5px', gridColumn: 'span 2' }}
+        spellCheck={false}
+      />
     </div>
   );
 };

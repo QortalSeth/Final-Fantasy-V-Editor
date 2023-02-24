@@ -1,5 +1,5 @@
 import { start } from 'repl';
-import { getOffset, getNextByte, setOffset, printHexPointerArray, tripleToString, numToHexString } from '../utils/ROM';
+import { getOffset, getNextByte, setOffset, printHexPointerArray, tripleToString, numToHexString, getState } from '../utils/ROM';
 /* eslint-disable no-continue, no-labels, no-restricted-syntax */
 import textTable from '../../assets/TextLocations/RPGe/Table.json';
 
@@ -49,7 +49,7 @@ export const allText = jsonToHexMap(textTable.allText);
 // prettier-ignore
 const textReadMap = jsonToHexMap(textTable.allText)
 
-export const defaultEndText = [0x00];
+export const defaultEndText = [0x00, 0xff];
 export const alternateEndText = [...defaultEndText, ...Array.from(metaCharacters.keys())];
 
 export const readText = (pointer: number, sizeLimit = 20, endText = defaultEndText) => {
@@ -80,7 +80,7 @@ export const readText = (pointer: number, sizeLimit = 20, endText = defaultEndTe
     }
     const textValue =
       textReadMap.get(nextByte) !== undefined ? textReadMap.get(nextByte) : `(Value: 0x${numToHexString(nextByte)} Missing)`;
-    if (debugReadText) console.log('Byte Value: ', nextByte.toString(16), '  Text Value: ', textValue);
+    if (debugReadText) console.log('Byte Value: ', nextByte, '  Text Value: ', textValue);
 
     text += textValue;
     firstChar = false;
@@ -126,10 +126,10 @@ export const readBytes = (pointer: number, sizeLimit = 20, endText = defaultEndT
 };
 const formatText = (text: string, prefix: string, newLineAfter: number) => {
   const textWithPrefix = prefix + text;
-  const finalTextString = text.length > newLineAfter ? `\n${textWithPrefix.trim()}` : textWithPrefix;
+  const finalTextString = text.length > newLineAfter ? `\n${textWithPrefix.trim()}\n` : textWithPrefix;
   return finalTextString;
 };
-const processPointers = (
+export const processPointers = (
   pointers: number[],
   sizeLimit = 10,
   endText = defaultEndText,
