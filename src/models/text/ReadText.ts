@@ -1,7 +1,16 @@
 import { start } from 'repl';
-import { getOffset, getNextByte, setOffset, printHexPointerArray, tripleToString, numToHexString, getState } from '../utils/ROM';
+import {
+  getOffset,
+  getNextByte,
+  setOffset,
+  printHexPointerArray,
+  tripleToString,
+  numToHexString,
+  getState,
+  numToHexDigits,
+} from '../../utils/ROM';
 /* eslint-disable no-continue, no-labels, no-restricted-syntax */
-import textTable from '../../assets/TextLocations/RPGe/Table.json';
+import textTable from '../../../assets/TextLocations/RPGe/Table.json';
 
 const debugReadText = false;
 
@@ -9,8 +18,8 @@ export interface TextToJSON {
   index: string;
   offset: string;
   byteLength: number;
-  text: string;
   bytes: string;
+  text: string;
 }
 
 const jsonToHexMap = (object: { [s: string]: unknown } | ArrayLike<unknown>) => {
@@ -137,17 +146,20 @@ export const processPointers = (
 ): [string, TextToJSON[]] => {
   let returnText = '';
   const jsonText: TextToJSON[] = [];
+  const maxOffsetDigits = numToHexDigits(startIndex + pointers.length);
   pointers.forEach((pointer, index) => {
     const indexMod = index + startIndex;
-    const indexString =
-      indexMod < 0x10
-        ? `00${numToHexString(indexMod)}`
-        : indexMod < 0xff
-        ? `0${numToHexString(indexMod)}`
-        : numToHexString(indexMod);
+    // const indexString =
+    //   indexMod < 0x10
+    //     ? `00${numToHexString(indexMod)}`
+    //     : indexMod < 0xff
+    //     ? `0${numToHexString(indexMod)}`
+    //     : numToHexString(indexMod);
+    let indexString = numToHexString(indexMod, false);
+    while (numToHexDigits(indexString) < maxOffsetDigits) indexString = `0${indexString}`;
 
     const pointerString = tripleToString(pointer, false);
-    const text = readText(pointer, sizeLimit, endText).trim();
+    const text = readText(pointer, sizeLimit, endText).trim().replaceAll('~SPACE~', '');
     const textString = formatText(text, '    Text is: ', 40);
 
     const bytes = readBytes(pointer, sizeLimit, endText);
@@ -157,8 +169,8 @@ export const processPointers = (
       index: indexString,
       offset: pointerString,
       byteLength: bytes.length,
-      text: textString,
-      bytes: bytesFinalString,
+      bytes: bytesString.trim(),
+      text,
     });
     returnText += `Offset ${indexString}: ${pointerString}${bytesFinalString}${textString}\n\n`;
   });
@@ -245,7 +257,7 @@ export const readTextBulkFixedLength = (basePointer: number, maxByteCount = 6, m
     prefix: 'pointers to text to read are: ',
   });
 
-  return processPointers(pointers, maxByteCount, defaultEndText, startIndex);
+  return processPointers(pointers, maxByteCount, [], startIndex);
 };
 
 export default readText;

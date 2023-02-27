@@ -9,7 +9,7 @@ import {
   readText,
   readTextBulkFixedLength,
   readTextBulkVarLength,
-} from '../../../models/ReadText';
+} from '../../../models/text/ReadText';
 import {
   arrayToHexByteString,
   arrayToHexPointerString,
@@ -19,7 +19,7 @@ import {
   printHexByteArray,
   setOffset,
 } from '../../../utils/ROM';
-import { textToBytes } from '../../../models/WriteText';
+import { textToBytes } from '../../../models/text/WriteText';
 import { romState } from '../../../redux/slices/ROM-Slice';
 import IncDecInput from '../../Buttons/IncDecInput';
 

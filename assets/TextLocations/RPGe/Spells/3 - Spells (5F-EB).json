@@ -1,0 +1,989 @@
+[
+ {
+  "index": "5F",
+  "offset": "271840",
+  "byteLength": 24,
+  "text": "Chocobo Kick",
+  "bytes": "62 81 88 7C 88 7B 88 96 6A 82 7C 84 FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "60",
+  "offset": "271858",
+  "byteLength": 24,
+  "text": "Whispering Wind",
+  "bytes": "76 81 82 8C 89 7E 8B 82 87 80 96 76 82 87 7D FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "61",
+  "offset": "271870",
+  "byteLength": 24,
+  "text": "Latch On",
+  "bytes": "6B 7A 8D 7C 81 96 6E 87 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "62",
+  "offset": "271888",
+  "byteLength": 24,
+  "text": "Diamond Dust",
+  "bytes": "63 82 7A 86 88 87 7D 96 63 8E 8C 8D FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "63",
+  "offset": "2718A0",
+  "byteLength": 24,
+  "text": "Bolt of Judgement",
+  "bytes": "61 88 85 8D 96 88 7F 96 69 8E 7D 80 7E 86 7E 87 8D FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "64",
+  "offset": "2718B8",
+  "byteLength": 24,
+  "text": "Hellfire",
+  "bytes": "67 7E 85 85 7F 82 8B 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "65",
+  "offset": "2718D0",
+  "byteLength": 24,
+  "text": "Rage of the Earth",
+  "bytes": "71 7A 80 7E 96 88 7F 96 8D 81 7E 96 64 7A 8B 8D 81 FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "66",
+  "offset": "2718E8",
+  "byteLength": 24,
+  "text": "Earth Wall",
+  "bytes": "64 7A 8B 8D 81 96 76 7A 85 85 FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "67",
+  "offset": "271900",
+  "byteLength": 24,
+  "text": "Demon's Eye",
+  "bytes": "63 7E 86 88 87 99 8C 96 64 92 7E FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "68",
+  "offset": "271918",
+  "byteLength": 24,
+  "text": "Ruby Light",
+  "bytes": "71 8E 7B 92 96 6B 82 80 81 8D FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "69",
+  "offset": "271930",
+  "byteLength": 24,
+  "text": "Thunderstorm",
+  "bytes": "73 81 8E 87 7D 7E 8B 8C 8D 88 8B 86 FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "6A",
+  "offset": "271948",
+  "byteLength": 24,
+  "text": "True Edge",
+  "bytes": "73 8B 8E 7E 96 64 7D 80 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "6B",
+  "offset": "271960",
+  "byteLength": 24,
+  "text": "Fire of Resurrection",
+  "bytes": "65 82 8B 7E 96 88 7F 96 71 7E 8C 8E 8B 8B 7E 7C 8D 82 88 87 FF FF FF FF"
+ },
+ {
+  "index": "6C",
+  "offset": "271978",
+  "byteLength": 24,
+  "text": "Big Wave",
+  "bytes": "61 82 80 96 76 7A 8F 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "6D",
+  "offset": "271990",
+  "byteLength": 24,
+  "text": "Mega Flare",
+  "bytes": "6C 7E 80 7A 96 65 85 7A 8B 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "6E",
+  "offset": "2719A8",
+  "byteLength": 24,
+  "text": "Fat Chocobo",
+  "bytes": "65 7A 8D 96 62 81 88 7C 88 7B 88 FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "6F",
+  "offset": "2719C0",
+  "byteLength": 24,
+  "text": "Gungnir",
+  "bytes": "66 8E 87 80 87 82 8B FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "70",
+  "offset": "2719D8",
+  "byteLength": 24,
+  "text": "Fire of Resurrection",
+  "bytes": "65 82 8B 7E 96 88 7F 96 71 7E 8C 8E 8B 8B 7E 7C 8D 82 88 87 FF FF FF FF"
+ },
+ {
+  "index": "71",
+  "offset": "2719F0",
+  "byteLength": 24,
+  "text": "Dragon Sword 1",
+  "bytes": "63 8B 7A 80 88 87 96 72 90 88 8B 7D 96 54 FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "72",
+  "offset": "271A08",
+  "byteLength": 24,
+  "text": "Dragon Sword 2",
+  "bytes": "63 8B 7A 80 88 87 96 72 90 88 8B 7D 96 55 FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "73",
+  "offset": "271A20",
+  "byteLength": 24,
+  "text": "Egg Chop",
+  "bytes": "64 80 80 96 62 81 88 89 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "74",
+  "offset": "271A38",
+  "byteLength": 24,
+  "text": "ItemMagic05",
+  "bytes": "68 8D 7E 86 6C 7A 80 82 7C 53 58 FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "75",
+  "offset": "271A50",
+  "byteLength": 24,
+  "text": "ItemMagic06",
+  "bytes": "68 8D 7E 86 6C 7A 80 82 7C 53 59 FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "76",
+  "offset": "271A68",
+  "byteLength": 24,
+  "text": "ItemMagic07",
+  "bytes": "68 8D 7E 86 6C 7A 80 82 7C 53 5A FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "77",
+  "offset": "271A80",
+  "byteLength": 24,
+  "text": "ItemMagic08",
+  "bytes": "68 8D 7E 86 6C 7A 80 82 7C 53 5B FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "78",
+  "offset": "271A98",
+  "byteLength": 24,
+  "text": "ItemMagic09",
+  "bytes": "68 8D 7E 86 6C 7A 80 82 7C 53 5C FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "79",
+  "offset": "271AB0",
+  "byteLength": 24,
+  "text": "Mystery Waltz",
+  "bytes": "6C 92 8C 8D 7E 8B 92 96 76 7A 85 8D 93 FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "7A",
+  "offset": "271AC8",
+  "byteLength": 24,
+  "text": "Jitterbug Duet",
+  "bytes": "69 82 8D 8D 7E 8B 7B 8E 80 96 63 8E 7E 8D FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "7B",
+  "offset": "271AE0",
+  "byteLength": 24,
+  "text": "Tempting Tango",
+  "bytes": "73 7E 86 89 8D 82 87 80 96 73 7A 87 80 88 FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "7C",
+  "offset": "271AF8",
+  "byteLength": 24,
+  "text": "Magic Barrier",
+  "bytes": "6C 7A 80 82 7C 96 61 7A 8B 8B 82 7E 8B FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "7D",
+  "offset": "271B10",
+  "byteLength": 24,
+  "text": "Sword Dance",
+  "bytes": "72 90 88 8B 7D 96 63 7A 87 7C 7E FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "7E",
+  "offset": "271B28",
+  "byteLength": 24,
+  "text": "Ice Aura",
+  "bytes": "68 7C 7E 96 60 8E 8B 7A FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "7F",
+  "offset": "271B40",
+  "byteLength": 24,
+  "text": "Entangle",
+  "bytes": "64 87 8D 7A 87 80 85 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "80",
+  "offset": "271B58",
+  "byteLength": 24,
+  "text": "Fight",
+  "bytes": "65 82 80 81 8D FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "81",
+  "offset": "271B70",
+  "byteLength": 24,
+  "text": "Specialty",
+  "bytes": "72 89 7E 7C 82 7A 85 8D 92 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "82",
+  "offset": "271B88",
+  "byteLength": 24,
+  "text": "Condemn",
+  "bytes": "62 88 87 7D 7E 86 87 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "83",
+  "offset": "271BA0",
+  "byteLength": 24,
+  "text": "Roulette",
+  "bytes": "71 88 8E 85 7E 8D 8D 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "84",
+  "offset": "271BB8",
+  "byteLength": 24,
+  "text": "Aqua Rake",
+  "bytes": "60 8A 8E 7A 96 71 7A 84 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "85",
+  "offset": "271BD0",
+  "byteLength": 24,
+  "text": "L.5 Doom",
+  "bytes": "6B A3 58 96 63 88 88 86 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "86",
+  "offset": "271BE8",
+  "byteLength": 24,
+  "text": "L.4 Quarter",
+  "bytes": "6B A3 57 96 70 8E 7A 8B 8D 7E 8B FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "87",
+  "offset": "271C00",
+  "byteLength": 24,
+  "text": "L.2 Old",
+  "bytes": "6B A3 55 96 6E 85 7D FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "88",
+  "offset": "271C18",
+  "byteLength": 24,
+  "text": "L.3 Flare",
+  "bytes": "6B A3 56 96 65 85 7A 8B 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "89",
+  "offset": "271C30",
+  "byteLength": 24,
+  "text": "Frog Song",
+  "bytes": "65 8B 88 80 96 72 88 87 80 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "8A",
+  "offset": "271C48",
+  "byteLength": 24,
+  "text": "Tiny Song",
+  "bytes": "73 82 87 92 96 72 88 87 80 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "8B",
+  "offset": "271C60",
+  "byteLength": 24,
+  "text": "Flash",
+  "bytes": "65 85 7A 8C 81 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "8C",
+  "offset": "271C78",
+  "byteLength": 24,
+  "text": "Time Slip",
+  "bytes": "73 82 86 7E 96 72 85 82 89 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "8D",
+  "offset": "271C90",
+  "byteLength": 24,
+  "text": "Moon Flute",
+  "bytes": "6C 88 88 87 96 65 85 8E 8D 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "8E",
+  "offset": "271CA8",
+  "byteLength": 24,
+  "text": "Death Claw",
+  "bytes": "63 7E 7A 8D 81 96 62 85 7A 90 FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "8F",
+  "offset": "271CC0",
+  "byteLength": 24,
+  "text": "Aero",
+  "bytes": "60 7E 8B 88 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "90",
+  "offset": "271CD8",
+  "byteLength": 24,
+  "text": "Aero2",
+  "bytes": "60 7E 8B 88 55 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "91",
+  "offset": "271CF0",
+  "byteLength": 24,
+  "text": "Aero3",
+  "bytes": "60 7E 8B 88 56 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "92",
+  "offset": "271D08",
+  "byteLength": 24,
+  "text": "Emission",
+  "bytes": "64 86 82 8C 8C 82 88 87 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "93",
+  "offset": "271D20",
+  "byteLength": 24,
+  "text": "Goblin Punch",
+  "bytes": "66 88 7B 85 82 87 96 6F 8E 87 7C 81 FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "94",
+  "offset": "271D38",
+  "byteLength": 24,
+  "text": "Dark Shock",
+  "bytes": "63 7A 8B 84 96 72 81 88 7C 84 FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "95",
+  "offset": "271D50",
+  "byteLength": 24,
+  "text": "Guard Off",
+  "bytes": "66 8E 7A 8B 7D 96 6E 7F 7F FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "96",
+  "offset": "271D68",
+  "byteLength": 24,
+  "text": "Fusion",
+  "bytes": "65 8E 8C 82 88 87 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "97",
+  "offset": "271D80",
+  "byteLength": 24,
+  "text": "Mind Blast",
+  "bytes": "6C 82 87 7D 96 61 85 7A 8C 8D FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "98",
+  "offset": "271D98",
+  "byteLength": 24,
+  "text": "Vampire",
+  "bytes": "75 7A 86 89 82 8B 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "99",
+  "offset": "271DB0",
+  "byteLength": 24,
+  "text": "Magic Hammer",
+  "bytes": "6C 7A 80 82 7C 96 67 7A 86 86 7E 8B FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "9A",
+  "offset": "271DC8",
+  "byteLength": 24,
+  "text": "Big Guard",
+  "bytes": "61 82 80 96 66 8E 7A 8B 7D FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "9B",
+  "offset": "271DE0",
+  "byteLength": 24,
+  "text": "Exploder",
+  "bytes": "64 91 89 85 88 7D 7E 8B FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "9C",
+  "offset": "271DF8",
+  "byteLength": 24,
+  "text": "????",
+  "bytes": "A2 A2 A2 A2 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "9D",
+  "offset": "271E10",
+  "byteLength": 24,
+  "text": "Blowfish",
+  "bytes": "61 85 88 90 7F 82 8C 81 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "9E",
+  "offset": "271E28",
+  "byteLength": 24,
+  "text": "White Wind",
+  "bytes": "76 81 82 8D 7E 96 76 82 87 7D FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "9F",
+  "offset": "271E40",
+  "byteLength": 24,
+  "text": "Missile",
+  "bytes": "6C 82 8C 8C 82 85 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "A0",
+  "offset": "271E58",
+  "byteLength": 24,
+  "text": "Kurururu!",
+  "bytes": "6A 8E 8B 8E 8B 8E 8B 8E A1 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "A1",
+  "offset": "271E70",
+  "byteLength": 24,
+  "text": "Level Down",
+  "bytes": "6B 7E 8F 7E 85 96 63 88 90 87 FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "A2",
+  "offset": "271E88",
+  "byteLength": 24,
+  "text": "Escape",
+  "bytes": "64 8C 7C 7A 89 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "A3",
+  "offset": "271EA0",
+  "byteLength": 24,
+  "text": "Stalker Attack",
+  "bytes": "72 8D 7A 85 84 7E 8B 96 60 8D 8D 7A 7C 84 FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "A4",
+  "offset": "271EB8",
+  "byteLength": 24,
+  "text": "Byblos Attack",
+  "bytes": "61 92 7B 85 88 8C 96 60 8D 8D 7A 7C 84 FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "A5",
+  "offset": "271ED0",
+  "byteLength": 24,
+  "text": "No Clue",
+  "bytes": "6D 88 96 62 85 8E 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "A6",
+  "offset": "271EE8",
+  "byteLength": 24,
+  "text": "Grand Cross",
+  "bytes": "66 8B 7A 87 7D 96 62 8B 88 8C 8C FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "A7",
+  "offset": "271F00",
+  "byteLength": 24,
+  "text": "Delta Attack",
+  "bytes": "63 7E 85 8D 7A 96 60 8D 8D 7A 7C 84 FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "A8",
+  "offset": "271F18",
+  "byteLength": 24,
+  "text": "Interceptor Rocket",
+  "bytes": "68 87 8D 7E 8B 7C 7E 89 8D 88 8B 96 71 88 7C 84 7E 8D FF FF FF FF FF FF"
+ },
+ {
+  "index": "A9",
+  "offset": "271F30",
+  "byteLength": 24,
+  "text": "Barrier Change",
+  "bytes": "61 7A 8B 8B 82 7E 8B 96 62 81 7A 87 80 7E FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "AA",
+  "offset": "271F48",
+  "byteLength": 24,
+  "text": "Regeneration",
+  "bytes": "71 7E 80 7E 87 7E 8B 7A 8D 82 88 87 FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "AB",
+  "offset": "271F60",
+  "byteLength": 24,
+  "text": "Wind Slash",
+  "bytes": "76 82 87 7D 96 72 85 7A 8C 81 FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "AC",
+  "offset": "271F78",
+  "byteLength": 24,
+  "text": "No-Damage Magic",
+  "bytes": "6D 88 C5 63 7A 86 7A 80 7E 96 6C 7A 80 82 7C FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "AD",
+  "offset": "271F90",
+  "byteLength": 24,
+  "text": "Targeting",
+  "bytes": "73 7A 8B 80 7E 8D 82 87 80 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "AE",
+  "offset": "271FA8",
+  "byteLength": 24,
+  "text": "Gravity 100",
+  "bytes": "66 8B 7A 8F 82 8D 92 96 54 53 53 FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "AF",
+  "offset": "271FC0",
+  "byteLength": 24,
+  "text": "Darkness",
+  "bytes": "63 7A 8B 84 87 7E 8C 8C FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "B0",
+  "offset": "271FD8",
+  "byteLength": 24,
+  "text": "Reaper's Sword",
+  "bytes": "71 7E 7A 89 7E 8B 99 8C 96 72 90 88 8B 7D FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "B1",
+  "offset": "271FF0",
+  "byteLength": 24,
+  "text": "Punishment",
+  "bytes": "6F 8E 87 82 8C 81 86 7E 87 8D FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "B2",
+  "offset": "272008",
+  "byteLength": 24,
+  "text": "Blaster",
+  "bytes": "61 85 7A 8C 8D 7E 8B FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "B3",
+  "offset": "272020",
+  "byteLength": 24,
+  "text": "Beak",
+  "bytes": "61 7E 7A 84 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "B4",
+  "offset": "272038",
+  "byteLength": 24,
+  "text": "Hug",
+  "bytes": "67 8E 80 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "B5",
+  "offset": "272050",
+  "byteLength": 24,
+  "text": "Spore",
+  "bytes": "72 89 88 8B 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "B6",
+  "offset": "272068",
+  "byteLength": 24,
+  "text": "Poison Breath",
+  "bytes": "6F 88 82 8C 88 87 96 61 8B 7E 7A 8D 81 FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "B7",
+  "offset": "272080",
+  "byteLength": 24,
+  "text": "Dance of the Dead",
+  "bytes": "63 7A 87 7C 7E 96 88 7F 96 8D 81 7E 96 63 7E 7A 7D FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "B8",
+  "offset": "272098",
+  "byteLength": 24,
+  "text": "Zombie Powder",
+  "bytes": "79 88 86 7B 82 7E 96 6F 88 90 7D 7E 8B FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "B9",
+  "offset": "2720B0",
+  "byteLength": 24,
+  "text": "Zombie Breath",
+  "bytes": "79 88 86 7B 82 7E 96 61 8B 7E 7A 8D 81 FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "BA",
+  "offset": "2720C8",
+  "byteLength": 24,
+  "text": "Spirit",
+  "bytes": "72 89 82 8B 82 8D FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "BB",
+  "offset": "2720E0",
+  "byteLength": 24,
+  "text": "Allure",
+  "bytes": "60 85 85 8E 8B 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "BC",
+  "offset": "2720F8",
+  "byteLength": 24,
+  "text": "Entangle",
+  "bytes": "64 87 8D 7A 87 80 85 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "BD",
+  "offset": "272110",
+  "byteLength": 24,
+  "text": "Rainbow Wind",
+  "bytes": "71 7A 82 87 7B 88 90 96 76 82 87 7D FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "BE",
+  "offset": "272128",
+  "byteLength": 24,
+  "text": "Strange Dance",
+  "bytes": "72 8D 8B 7A 87 80 7E 96 63 7A 87 7C 7E FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "BF",
+  "offset": "272140",
+  "byteLength": 24,
+  "text": "Electromagnetic Field",
+  "bytes": "64 85 7E 7C 8D 8B 88 86 7A 80 87 7E 8D 82 7C 96 65 82 7E 85 7D FF FF FF"
+ },
+ {
+  "index": "C0",
+  "offset": "272158",
+  "byteLength": 24,
+  "text": "White Hole",
+  "bytes": "76 81 82 8D 7E 96 67 88 85 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "C1",
+  "offset": "272170",
+  "byteLength": 24,
+  "text": "Needle",
+  "bytes": "6D 7E 7E 7D 85 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "C2",
+  "offset": "272188",
+  "byteLength": 24,
+  "text": "Maelstrom",
+  "bytes": "6C 7A 7E 85 8C 8D 8B 88 86 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "C3",
+  "offset": "2721A0",
+  "byteLength": 24,
+  "text": "Bone",
+  "bytes": "61 88 87 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "C4",
+  "offset": "2721B8",
+  "byteLength": 24,
+  "text": "Tailscrew",
+  "bytes": "73 7A 82 85 8C 7C 8B 7E 90 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "C5",
+  "offset": "2721D0",
+  "byteLength": 24,
+  "text": "Stomach Acid",
+  "bytes": "72 8D 88 86 7A 7C 81 96 60 7C 82 7D FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "C6",
+  "offset": "2721E8",
+  "byteLength": 24,
+  "text": "Rocket Punch",
+  "bytes": "71 88 7C 84 7E 8D 96 6F 8E 87 7C 81 FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "C7",
+  "offset": "272200",
+  "byteLength": 24,
+  "text": "Mustard Bomb",
+  "bytes": "6C 8E 8C 8D 7A 8B 7D 96 61 88 86 7B FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "C8",
+  "offset": "272218",
+  "byteLength": 24,
+  "text": "Almagest",
+  "bytes": "60 85 86 7A 80 7E 8C 8D FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "C9",
+  "offset": "272230",
+  "byteLength": 24,
+  "text": "Quicksand",
+  "bytes": "70 8E 82 7C 84 8C 7A 87 7D FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "CA",
+  "offset": "272248",
+  "byteLength": 24,
+  "text": "Atomic Ray",
+  "bytes": "60 8D 88 86 82 7C 96 71 7A 92 FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "CB",
+  "offset": "272260",
+  "byteLength": 24,
+  "text": "Mini Blaze",
+  "bytes": "6C 82 87 82 96 61 85 7A 93 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "CC",
+  "offset": "272278",
+  "byteLength": 24,
+  "text": "Snowstorm",
+  "bytes": "72 87 88 90 8C 8D 88 8B 86 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "CD",
+  "offset": "272290",
+  "byteLength": 24,
+  "text": "Blaze",
+  "bytes": "61 85 7A 93 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "CE",
+  "offset": "2722A8",
+  "byteLength": 24,
+  "text": "Electric Shock",
+  "bytes": "64 85 7E 7C 8D 8B 82 7C 96 72 81 88 7C 84 FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "CF",
+  "offset": "2722C0",
+  "byteLength": 24,
+  "text": "Earth Shaker",
+  "bytes": "64 7A 8B 8D 81 96 72 81 7A 84 7E 8B FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "D0",
+  "offset": "2722D8",
+  "byteLength": 24,
+  "text": "True Edge",
+  "bytes": "73 8B 8E 7E 96 64 7D 80 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "D1",
+  "offset": "2722F0",
+  "byteLength": 24,
+  "text": "Tidal Wave",
+  "bytes": "73 82 7D 7A 85 96 76 7A 8F 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "D2",
+  "offset": "272308",
+  "byteLength": 24,
+  "text": "Mega Flare",
+  "bytes": "6C 7E 80 7A 96 65 85 7A 8B 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "D3",
+  "offset": "272320",
+  "byteLength": 24,
+  "text": "Sonic Wave",
+  "bytes": "72 88 87 82 7C 96 76 7A 8F 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "D4",
+  "offset": "272338",
+  "byteLength": 24,
+  "text": "Thread",
+  "bytes": "73 81 8B 7E 7A 7D FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "D5",
+  "offset": "272350",
+  "byteLength": 24,
+  "text": "Mucus",
+  "bytes": "6C 8E 7C 8E 8C FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "D6",
+  "offset": "272368",
+  "byteLength": 24,
+  "text": "Quake",
+  "bytes": "70 8E 7A 84 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "D7",
+  "offset": "272380",
+  "byteLength": 24,
+  "text": "Fight",
+  "bytes": "65 82 80 81 8D FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "D8",
+  "offset": "272398",
+  "byteLength": 24,
+  "text": "Medicine",
+  "bytes": "6C 7E 7D 82 7C 82 87 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "D9",
+  "offset": "2723B0",
+  "byteLength": 24,
+  "text": "Image",
+  "bytes": "68 86 7A 80 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "DA",
+  "offset": "2723C8",
+  "byteLength": 24,
+  "text": "Breath Wing",
+  "bytes": "61 8B 7E 7A 8D 81 96 76 82 87 80 FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "DB",
+  "offset": "2723E0",
+  "byteLength": 24,
+  "text": "Flame",
+  "bytes": "65 85 7A 86 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "DC",
+  "offset": "2723F8",
+  "byteLength": 24,
+  "text": "Thunder",
+  "bytes": "73 81 8E 87 7D 7E 8B FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "DD",
+  "offset": "272410",
+  "byteLength": 24,
+  "text": "Surge Beam",
+  "bytes": "72 8E 8B 80 7E 96 61 7E 7A 86 FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "DE",
+  "offset": "272428",
+  "byteLength": 24,
+  "text": "Explosion",
+  "bytes": "64 91 89 85 88 8C 82 88 87 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "DF",
+  "offset": "272440",
+  "byteLength": 24,
+  "text": "Remedy",
+  "bytes": "71 7E 86 7E 7D 92 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "E0",
+  "offset": "272458",
+  "byteLength": 24,
+  "text": "Valiant Attack",
+  "bytes": "75 7A 85 82 7A 87 8D 96 60 8D 8D 7A 7C 84 FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "E1",
+  "offset": "272470",
+  "byteLength": 24,
+  "text": "Giga Flare",
+  "bytes": "66 82 80 7A 96 65 85 7A 8B 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "E2",
+  "offset": "272488",
+  "byteLength": 24,
+  "text": "Circle",
+  "bytes": "62 82 8B 7C 85 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "E3",
+  "offset": "2724A0",
+  "byteLength": 24,
+  "text": "Wormhole",
+  "bytes": "76 88 8B 86 81 88 85 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "E4",
+  "offset": "2724B8",
+  "byteLength": 24,
+  "text": "Possess",
+  "bytes": "6F 88 8C 8C 7E 8C 8C FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "E5",
+  "offset": "2724D0",
+  "byteLength": 24,
+  "text": "Dynamo",
+  "bytes": "63 92 87 7A 86 88 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "E6",
+  "offset": "2724E8",
+  "byteLength": 24,
+  "text": "Magnet",
+  "bytes": "6C 7A 80 87 7E 8D FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "E7",
+  "offset": "272500",
+  "byteLength": 24,
+  "text": "Reverse Polarity",
+  "bytes": "71 7E 8F 7E 8B 8C 7E 96 6F 88 85 7A 8B 82 8D 92 FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "E8",
+  "offset": "272518",
+  "byteLength": 24,
+  "text": "Jump",
+  "bytes": "69 8E 86 89 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "E9",
+  "offset": "272530",
+  "byteLength": 24,
+  "text": "X-Zone",
+  "bytes": "77 C5 79 88 87 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "EA",
+  "offset": "272548",
+  "byteLength": 24,
+  "text": "Hurricane",
+  "bytes": "67 8E 8B 8B 82 7C 7A 87 7E FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "EB",
+  "offset": "272560",
+  "byteLength": 24,
+  "text": "Demon's Eye",
+  "bytes": "63 7E 86 88 87 99 8C 96 64 92 7E FF FF FF FF FF FF FF FF FF FF FF FF FF"
+ }
+]

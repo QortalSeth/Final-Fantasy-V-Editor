@@ -1,0 +1,58 @@
+[
+ {
+  "index": "57",
+  "offset": "270F90",
+  "byteLength": 12,
+  "text": "~SONG~Power",
+  "bytes": "C4 6F 88 90 7E 8B FF FF FF FF FF FF"
+ },
+ {
+  "index": "58",
+  "offset": "270F9C",
+  "byteLength": 12,
+  "text": "~SONG~Speed",
+  "bytes": "C4 72 89 7E 7E 7D FF FF FF FF FF FF"
+ },
+ {
+  "index": "59",
+  "offset": "270FA8",
+  "byteLength": 12,
+  "text": "~SONG~Vitality",
+  "bytes": "C4 75 82 8D 7A 85 82 8D 92 FF FF FF"
+ },
+ {
+  "index": "5A",
+  "offset": "270FB4",
+  "byteLength": 12,
+  "text": "~SONG~Magic",
+  "bytes": "C4 6C 7A 80 82 7C FF FF FF FF FF FF"
+ },
+ {
+  "index": "5B",
+  "offset": "270FC0",
+  "byteLength": 12,
+  "text": "~SONG~Hero",
+  "bytes": "C4 67 7E 8B 88 FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "5C",
+  "offset": "270FCC",
+  "byteLength": 12,
+  "text": "~SONG~Requiem",
+  "bytes": "C4 71 7E 8A 8E 82 7E 86 FF FF FF FF"
+ },
+ {
+  "index": "5D",
+  "offset": "270FD8",
+  "byteLength": 12,
+  "text": "~SONG~Love",
+  "bytes": "C4 6B 88 8F 7E FF FF FF FF FF FF FF"
+ },
+ {
+  "index": "5E",
+  "offset": "270FE4",
+  "byteLength": 12,
+  "text": "~SONG~Charm",
+  "bytes": "C4 62 81 7A 8B 86 FF FF FF FF FF FF"
+ }
+]

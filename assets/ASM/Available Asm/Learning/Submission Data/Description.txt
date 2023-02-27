@@ -1,0 +1,15 @@
+The innate ability Learning in Final Fantasy 5 comes with a lot of headaches that make learning blue magic difficult such as:
+
+1) Blue Magic that misses (especially important for spells like Level 5 Death) can’t be learned.
+
+2) The target of the spell must be a party member with learning, so spells controlled monsters use against themselves can’t be learned unless you cast wall on them.
+
+3) Because of #2, to maximize the probability of learning blue magic players need learning on all characters, which is a chore that begins almost immediately after the game starts.
+
+To fix these problems there are 2 patches:
+
+1) Auto Learning - If blue magic is cast, the player is guaranteed to learn it under any circumstances, even if no characters have the learning ability.
+
+2) Easy Learning - If blue magic is cast, the player must have 1 character with learning who does not have the following conditions: Removed from party, (such as during the Pyramid dungeon and Fork Tower), currently Jumping, or suffering from any status effects that prevent them from observing enemies properly. Exact details are in the Readme.
+
+Both patches have .asm and .ips formats available

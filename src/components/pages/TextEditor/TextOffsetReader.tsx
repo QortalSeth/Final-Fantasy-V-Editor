@@ -1,18 +1,7 @@
 import React, { useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { BaseTextfieldRef, CustomTextfield, PointerTextfield } from '../../TextFields';
+import { BaseTextfieldRef, PointerTextfield } from '../../TextFields';
 import { pointerToOffset } from '../../TextFieldFunctions';
-import {
-  alternateEndText,
-  defaultEndText,
-  metaCharacters,
-  readText,
-  readTextBulkFixedLength,
-  readTextBulkVarLength,
-  TextToJSON,
-} from '../../../models/ReadText';
-import { getNextTriple, setOffset } from '../../../utils/ROM';
-import { romState } from '../../../redux/slices/ROM-Slice';
+import { defaultEndText, readTextBulkFixedLength, readTextBulkVarLength, TextToJSON } from '../../../models/text/ReadText';
 import IncDecInput from '../../Buttons/IncDecInput';
 import { saveJSONoptions } from '../../../utils/SaveData';
 
@@ -79,19 +68,18 @@ export const TextOffsetReader: React.FC = () => {
 
   const exportPointers = async () => {
     const jsonData = JSON.stringify(JSONdata, null, ' ');
-    const dialogOptions = saveJSONoptions;
-    await window.electron.ipcRenderer.saveJSONfile(dialogOptions, jsonData);
+    await window.electron.ipcRenderer.saveJSONfile(saveJSONoptions, jsonData);
   };
   return (
     <div style={gridStyle}>
       <span style={labelStyle}>Location to read:</span>
       <PointerTextfield ref={pointerTextField} textFieldStyle={{ width: '100px' }} />
       <span style={labelStyle}># to Read:</span>
-      <IncDecInput ref={stringsToReadCount} minValue={1} maxValue={99} />
+      <IncDecInput ref={stringsToReadCount} minValue={1} maxValue={999} />
       <span style={labelStyle}>Start Index:</span>
-      <IncDecInput ref={startIndex} minValue={0} maxValue={255} />
+      <IncDecInput ref={startIndex} minValue={0} maxValue={999} />
       <span style={labelStyle}>Text Size: </span>
-      <IncDecInput ref={textLength} minValue={6} maxValue={20} disable={disableFixedLength} />
+      <IncDecInput ref={textLength} minValue={1} maxValue={99} disable={disableFixedLength} />
 
       <label htmlFor='varLength' style={{ gridColumnStart: '2' }}>
         <input

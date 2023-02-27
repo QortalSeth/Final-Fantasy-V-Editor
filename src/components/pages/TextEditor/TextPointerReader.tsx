@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { BaseTextfieldRef, PointerTextfield } from '../../TextFields';
 import { pointerToOffset } from '../../TextFieldFunctions';
-import { defaultEndText, processPointers } from '../../../models/ReadText';
+import { defaultEndText, processPointers } from '../../../models/text/ReadText';
 import { getNextTriple, inferNextTriple, pointerInROM, setOffset } from '../../../utils/ROM';
 import IncDecInput from '../../Buttons/IncDecInput';
 import IncDecSelect, { IncDecSelectRef } from '../../Buttons/IncDecSelect';

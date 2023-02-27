@@ -168,12 +168,18 @@ export const tripleToString = (triple: number, addPrefix = false) => {
   return prefix + (triple & 0xffffff).toString(16).toUpperCase();
 };
 
-export const numToHexString = (num: number) => {
+export const numToHexString = (num: number, addPrefixZero = true) => {
   const formatByte = (num & 0xffffff).toString(16).toUpperCase();
-  const addedPrefix = num < 16 ? `0${formatByte}` : formatByte;
+  const unevenBytes = formatByte.length % 2 > 0;
+  const addedPrefix = unevenBytes && addPrefixZero ? `0${formatByte}` : formatByte;
   return addedPrefix;
 };
 
+export const numToHexDigits = (num: number | string) => {
+  const numString = typeof num === 'number' ? num.toString(16) : num;
+  const digits = Math.log10(numString.length);
+  return digits;
+};
 export const printHex = (num: number, prefix = '') => {
   console.log(prefix, numToHexString(num));
 };

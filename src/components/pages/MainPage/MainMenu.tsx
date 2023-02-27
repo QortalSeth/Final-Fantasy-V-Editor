@@ -1,8 +1,8 @@
 import React from 'react';
 
 import CSS from 'csstype';
-import icon from '../../../assets/Title Screen.png';
-import EditorChooser from '../EditorChooser';
+import icon from '../../../../assets/Title Screen.png';
+import EditorChooser from './EditorChooser';
 
 const imageStyle = {
   width: '100%',

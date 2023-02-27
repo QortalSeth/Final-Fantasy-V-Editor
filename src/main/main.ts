@@ -29,6 +29,7 @@ class AppUpdater {
 }
 
 let mainWindow: BrowserWindow | null = null;
+let editorWindow: BrowserWindow | null = null;
 app.commandLine.appendSwitch('remote-debugging-port', '9229');
 
 if (process.env.NODE_ENV === 'production') {
@@ -139,7 +140,7 @@ app
       console.log('default ROM: ', defaultROM);
       let file: string;
       if (!defaultROM) {
-        const fileNames = dialog.showOpenDialogSync(params);
+        const fileNames = dialog.showOpenDialogSync({ ...params, browserWindow: mainWindow });
 
         if (fileNames) {
           [file] = fileNames;
@@ -155,12 +156,11 @@ app
 
     ipcMain.handle('saveJSONfile', async (event, params, data: string) => {
       let file: string;
-      const fileNames = dialog.showOpenDialogSync(params);
+      const fileName = dialog.showSaveDialogSync({ ...params, browserWindow: editorWindow });
 
-      if (fileNames) {
-        [file] = fileNames;
-        console.log('Selected File is: ', file.toString());
-        fs.writeFileSync(file, data);
+      if (fileName) {
+        console.log('Selected File is: ', fileName.toString());
+        fs?.writeFileSync(fileName, data);
       }
     });
 
@@ -168,7 +168,7 @@ app
       if (mainWindow) {
         mainWindow.hide();
 
-        const editorWindow = new BrowserWindow({
+        editorWindow = new BrowserWindow({
           show: true,
           parent: mainWindow,
           width: 1600,
@@ -192,7 +192,7 @@ app
         });
         editorWindow.on('ready-to-show', () => {
           //  editorWindow.webContents.send('routeChange', url);
-          editorWindow.show();
+          if (editorWindow) editorWindow.show();
         });
         editorWindow.loadURL(resolveHtmlPath('/spell'));
 
