@@ -4,7 +4,9 @@ import { pointerToOffset } from '../../TextFieldFunctions';
 import { defaultEndText, processPointers } from '../../../models/text/ReadText';
 import { getNextTriple, inferNextTriple, pointerInROM, setOffset } from '../../../utils/ROM';
 import IncDecInput from '../../Buttons/IncDecInput';
-import IncDecSelect, { IncDecSelectRef } from '../../Buttons/IncDecSelect';
+import IncDecSelect, { IncDecProps, IncDecSelectRef } from '../../Buttons/IncDecSelect';
+import weaponIcon from '../../../../assets/Excalibur.png';
+import { ObservableItem } from '../../../models/Model';
 
 export const TextPointerReader: React.FC = () => {
   const pointerTextField = useRef<BaseTextfieldRef>(null);
@@ -32,7 +34,8 @@ export const TextPointerReader: React.FC = () => {
     if (pointerTextField.current && stringsToReadCount.current && textToRead.current && textLength.current) {
       // Get data from textfields
       const pointersStart = pointerToOffset(pointerTextField.current.getValue());
-      const pointerSize = Number(textLength.current.getValue());
+
+      const pointerSize = Number(textLength.current.getValue()?.value);
       const stringsToReadNum = refStringToNumber(stringsToReadCount.current);
 
       // Some pointer tables have 2 bytes, which means the third byte is the databank the pointer is located in
@@ -61,6 +64,9 @@ export const TextPointerReader: React.FC = () => {
       );
     }
   };
+  console.log('weapon icon type is: ', typeof weaponIcon);
+
+  const options = [new ObservableItem('2', 0), new ObservableItem('3', 1)];
 
   return (
     <div style={gridStyle}>
@@ -68,15 +74,12 @@ export const TextPointerReader: React.FC = () => {
       <PointerTextfield ref={pointerTextField} textFieldStyle={{ width: '100px' }} />
       <span style={labelStyle}>Pointer Size:</span>
       <IncDecSelect
-        divStyle={{ height: '30px' }}
-        label=''
-        initialValue='2'
-        options={[
-          { label: '2', value: '2' },
-          { label: '3', value: '3' },
-        ]}
+        selectStyle={{ width: '75px', height: '30px' }}
+        initialValue={options[0]}
+        options={options}
         ref={textLength}
       />
+
       <span style={labelStyle}># to Read:</span>
       <IncDecInput ref={stringsToReadCount} minValue={1} maxValue={9999} />
       <button type='button' style={{ width: '30%', height: '30px', gridColumnStart: '2' }} onClick={(e) => readTextPointers()}>

@@ -26,7 +26,7 @@ class Spell extends Model {
   }
 
   getValuesFromROM() {
-    super.setOffset();
+    super.initializeOffset();
     this.targeting = this.getNextByte();
     this.type = this.getNextByte();
     this.attributes = this.getNextByte();
@@ -39,7 +39,7 @@ class Spell extends Model {
   }
 
   writeValuesToROM() {
-    super.setOffset();
+    super.initializeOffset();
     this.setNextByte(this.targeting);
     this.setNextByte(this.type);
     this.setNextByte(this.attributes);

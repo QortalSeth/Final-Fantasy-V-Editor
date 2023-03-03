@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { byteSelector, setOffsetStore } from '../redux/slices/ROM-Slice';
+import { byteSelector, setByte, setOffsetStore } from '../redux/slices/ROM-Slice';
 import store from '../redux/store';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -114,21 +114,20 @@ export const getOffsetWithoutHeader = () => {
   return store.getState().ROM.offset - store.getState().ROM.data.header;
 };
 
-export const incOffset = () => {
-  store.dispatch(setOffsetStore(getOffset() + 1));
+export const incOffset = (amount = 1) => {
+  store.dispatch(setOffsetStore(getOffset() + amount));
 };
 
 export const setOffset = (offset: number) => {
   store.dispatch(setOffsetStore(offset));
 };
 
+export const getHeader = () => {
+  return store.getState().ROM.data.header;
+};
+
 export const getNextByte = () => {
   const byte = getByte(store.getState().ROM.offset);
-  // const altByte = store.getState().ROM.rom[getOffset()];
-  // console.log('in readNextByte');
-  // console.log('Byte is: ', byte);
-  // console.log('Alt Byte is: ', altByte);
-  // console.log('ROM is: ', store.getState().ROM.rom);
   incOffset();
   return byte;
 };
@@ -149,6 +148,28 @@ export const inferNextTriple = () => {
   const triple = inferTriple(store.getState().ROM.offset);
   setOffset(store.getState().ROM.offset + 2);
   return triple;
+};
+
+export const setNextByte = (byte: number) => {
+  const finalByte = byte & 0xff;
+  store.dispatch(setByte({ value: finalByte }));
+  incOffset();
+};
+
+export const setNextShort = (short: number) => {
+  const unsignedByte1 = short & 0xff;
+  const unsignedByte2 = short << 8;
+  setNextByte(unsignedByte1);
+  setNextByte(unsignedByte2);
+};
+
+export const setNextTriple = (short: number) => {
+  const unsignedByte1 = short & 0xff;
+  const unsignedByte2 = short << 8;
+  const unsignedByte3 = short << 16;
+  setNextByte(unsignedByte1);
+  setNextByte(unsignedByte2);
+  setNextByte(unsignedByte3);
 };
 
 export const nextPointerInROM = () => {

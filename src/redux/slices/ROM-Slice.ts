@@ -56,7 +56,7 @@ export const romState = (state: RootState) => state.ROM;
 export const byteSelector = (state: ROMState, offset?: number) => {
   const finalOffset = (offset || state.offset) + state.data.header;
   if (debugRomSlice) console.log('byteSelector Final Offset is: ', finalOffset);
-  return state.rom[finalOffset];
+  return state.rom[finalOffset] & 0xff;
 };
 
 export const { setROM, setOffsetStore, setByte } = ROMSlice.actions;

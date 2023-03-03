@@ -1,81 +1,89 @@
+// eslint-disable-next-line max-classes-per-file
 import store from '../redux/store';
-import ROMSlice, {
-  romState,
+import {
+  getNextByte,
+  getNextShort,
+  getNextTriple,
+  setNextByte,
+  setNextShort,
+  setNextTriple,
   setOffset,
-  byteSelector,
-  shortSelector,
-  tripleSelector,
-  setByte,
-} from '../redux/slices/ROM-Slice';
+  getHeader,
+} from '../utils/ROM';
 
-abstract class Model {
+export class ObservableItem {
   name: string = '';
 
+  value: string = '';
+
+  label: string = '';
+
+  icon: string = '';
+
+  listIndex: number = 0;
+
+  chronologicalIndex: number = 0;
+
+  constructor(name = '', listIndex = 0, icon = '', chronologicalIndex = 0) {
+    this.name = name;
+    this.value = name;
+    this.label = name;
+    this.icon = icon;
+    this.listIndex = listIndex;
+    this.chronologicalIndex = chronologicalIndex;
+  }
+}
+abstract class Model extends ObservableItem {
   gameIndex: number;
 
   namePointer: number = 0;
 
-  chronologicalIndex: number = 0;
-
-  listIndex: number = 0;
-
   store = store;
-
-  state = romState(store.getState());
 
   abstract baseOffset: number;
 
   abstract bytesPerModel: number;
 
   constructor(index: number) {
+    super();
     this.gameIndex = index;
     this.getValuesFromROM();
   }
 
+  getModelOffset() {
+    return this.gameIndex * this.bytesPerModel + this.baseOffset + getHeader();
+  }
+
   modelConstructor(m: Model) {
     this.name = m.name;
+    this.icon = m.icon;
     this.gameIndex = m.gameIndex;
     this.namePointer = m.namePointer;
     this.chronologicalIndex = m.chronologicalIndex;
     this.listIndex = m.listIndex;
   }
 
-  setOffset() {
-    const offset = this.baseOffset + this.bytesPerModel * this.gameIndex + store.getState().ROM.data.header;
-    store.dispatch(setOffset(offset));
-    console.log('offset set, value is: ', offset === store.getState().ROM.offset ? 'correct' : 'incorrect');
-  }
+  initializeOffset = (offset?: number) => setOffset(offset || this.getModelOffset());
+
+  getHeader = () => getHeader();
 
   abstract getValuesFromROM(): void;
   abstract writeValuesToROM(): void;
 
-  getNextByte() {
-    return byteSelector(this.state);
-  }
+  getNextByte = () => getNextByte();
 
-  getNextShort() {
-    return shortSelector(this.state);
-  }
+  getNextShort = () => getNextShort();
 
-  getNextTriple() {
-    return tripleSelector(this.state);
-  }
+  getNextTriple = () => getNextTriple();
 
-  setNextByte(byte: number) {
-    this.store.dispatch(setByte({ value: byte }));
-  }
+  setNextByte = (byte: number) => setNextByte(byte);
 
-  setNextShort(short: number) {
-    this.store.dispatch(setByte({ value: short }));
-  }
+  setNextShort = (short: number) => setNextShort(short);
 
-  setNextTriple(triple: number) {
-    this.store.dispatch(setByte({ value: triple }));
-  }
+  setNextTriple = (triple: number) => setNextTriple(triple);
 
   toString(): string {
-    if (this.name.trim().length === 0) return '(empty)';
-    return this.name;
+    return this.name.trim().length === 0 ? '(empty)' : this.name;
   }
 }
 

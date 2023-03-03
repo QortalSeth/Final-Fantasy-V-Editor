@@ -50,7 +50,7 @@ export const BaseTextfield = React.forwardRef<BaseTextfieldRef, BaseProps>(
         {...props}
         onChange={(e) => setStateValue(listener(e, value, maxValue, minValue))}
         value={value}
-        style={{ boxSizing: 'border-box', ...textFieldStyle }}
+        style={{ boxSizing: 'border-box', fontSize: '16px', ...textFieldStyle }}
         disabled={disabled}
         spellCheck={false}
       />
@@ -60,7 +60,7 @@ export const BaseTextfield = React.forwardRef<BaseTextfieldRef, BaseProps>(
 
 export const PointerTextfield = React.forwardRef<BaseTextfieldRef, StyleProp>(
   ({ textFieldStyle = {}, initialValue = '' }: StyleProp, ref) => {
-    const defaultStyle = { width: '60px', height: '25px' };
+    const defaultStyle = { width: '60px', height: '30px' };
     return (
       <BaseTextfield
         ref={ref}

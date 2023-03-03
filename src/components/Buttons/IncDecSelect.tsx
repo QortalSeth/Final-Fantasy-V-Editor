@@ -1,80 +1,103 @@
-import React, { useImperativeHandle, useRef } from 'react';
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import CSS from 'csstype';
+import Select, { ActionMeta, OnChangeValue, SelectInstance } from 'react-select';
 import { IncDecButtons } from './IncDecButtons';
-import { BaseTextfieldRef } from '../TextFields';
+import { ObservableItem } from '../../models/Model';
 
 const debugIncDecSelect = false;
+type SelectType = ObservableItem;
 
-interface Props {
-  divStyle?: CSS.Properties;
-  onChange?: () => void;
+type BasicOption = {
   label: string;
-  initialValue: string;
-  options: { label: string; value: string }[];
+  value: string;
+};
+export interface IncDecProps<T extends SelectType> {
+  divStyle?: CSS.Properties;
+  selectStyle?: CSS.Properties;
+  onChange?: () => void;
+  initialValue: T;
+  isSearchable?: boolean;
+  options: T[];
 }
 
 export type IncDecSelectRef = {
-  getValue: () => string;
-  setNewValue: (newValue: string) => void;
-  current: () => HTMLSelectElement | null;
+  getValue: () => SelectType | null | undefined;
+  setValue: (newValue: SelectType) => void;
+  current: () => SelectInstance<SelectType> | null;
 };
 
-export const IncDecSelect = React.forwardRef<IncDecSelectRef, Props>(
-  ({ divStyle = {}, onChange, label, initialValue, options }: Props, ref) => {
-    const [value, setValue] = React.useState(initialValue);
-    const selectRef = useRef<HTMLSelectElement>(null);
+export const IncDecSelect = forwardRef(
+  <T extends SelectType>(
+    { divStyle = {}, selectStyle = {}, onChange, initialValue, isSearchable = false, options }: IncDecProps<SelectType>,
+    ref?: React.Ref<IncDecSelectRef>
+  ) => {
+    const selectRef = useRef<SelectInstance<SelectType>>(null);
     const getValue = () => {
+      const value = selectRef.current?.getValue()[0];
+      if (debugIncDecSelect) console.log('value is: ', value);
       return value;
     };
-    const setNewValue = (newValue: string) => {
-      setValue(newValue);
-    };
+    const setValue = (newValue: SelectType) => selectRef.current?.setValue(newValue, 'select-option');
 
     useImperativeHandle(ref, () => ({
-      getValue: () => value,
-      setNewValue: (newValue: string) => setValue(newValue),
+      getValue: () => getValue(),
+      setValue: (newValue: SelectType) => setValue(newValue),
       current: () => selectRef.current,
     }));
-    const onChangeListener = (e: React.ChangeEvent<HTMLSelectElement>) => {
-      setValue(e.target.value);
-      if (onChange) {
+    const onChangeListener = (v: OnChangeValue<SelectType, false>, a: ActionMeta<SelectType>) => {
+      if (v && a && onChange) {
+        // setValue(v);
         onChange();
+        console.log('onchange is:', onChange);
       }
     };
 
     const select = (indexChange: number) => {
       if (selectRef.current) {
-        let newIndex = selectRef.current.selectedIndex + indexChange;
+        if (debugIncDecSelect) console.log('value is: ', getValue());
+        if (debugIncDecSelect) console.log('options are: ', options);
+        const value = getValue();
+        if (value) {
+          let newIndex = value.listIndex + indexChange;
+          newIndex = Math.min(newIndex, options.length - 1);
+          newIndex = Math.max(newIndex, 0);
 
-        // bounds checking on newIndex
-        newIndex = Math.min(newIndex, selectRef.current.options.length - 1);
-        newIndex = Math.max(newIndex, 0);
-
-        selectRef.current.selectedIndex = newIndex;
+          selectRef.current.selectOption(options[newIndex]);
+        }
       }
     };
-
+    const borderColor = '#767676';
     return (
       <div style={{ display: 'flex', paddingTop: '2px', ...divStyle }}>
         <IncDecButtons incListener={() => select(1)} decListener={() => select(-1)} />
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label>
-          {label}
-          <select
-            value={value}
-            onChange={(e) => onChangeListener(e)}
-            style={{ width: '75px', height: '30px', boxSizing: 'border-box' }}
-            ref={selectRef}
-          >
-            {options.map((option) => {
-              return (
-                <option value={option.value} key={option.value}>
-                  {option.label}
-                </option>
-              );
-            })}
-          </select>
-        </label>
+
+        <Select
+          options={options}
+          defaultValue={options[0]}
+          onChange={(v, a) => onChangeListener(v, a)}
+          ref={selectRef}
+          styles={{
+            control: (baseStyles, state) => ({
+              ...baseStyles,
+              ...selectStyle,
+              borderColor,
+              '&:hover': { borderColor },
+            }),
+            dropdownIndicator: (base) => ({ color: borderColor, width: '20px' }),
+          }}
+          formatOptionLabel={(option) => (
+            <div style={{ display: 'flex', verticalAlign: 'center', alignItems: 'center' }}>
+              {option.icon ? (
+                <img src={option.icon} alt='missing Icon' width='25 px' height='25 px' style={{ marginRight: '5px' }} />
+              ) : (
+                ''
+              )}
+              <span style={{ fontSize: '20px' }}>{option.label}</span>
+            </div>
+          )}
+          isSearchable={isSearchable}
+          placeholder='Placeholder Text'
+        />
       </div>
     );
   }

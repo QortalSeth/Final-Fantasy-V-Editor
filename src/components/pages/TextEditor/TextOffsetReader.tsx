@@ -79,7 +79,7 @@ export const TextOffsetReader: React.FC = () => {
       <span style={labelStyle}>Start Index:</span>
       <IncDecInput ref={startIndex} minValue={0} maxValue={999} />
       <span style={labelStyle}>Text Size: </span>
-      <IncDecInput ref={textLength} minValue={1} maxValue={99} disable={disableFixedLength} />
+      <IncDecInput ref={textLength} minValue={1} maxValue={99} initialValue='6' disable={disableFixedLength} />
 
       <label htmlFor='varLength' style={{ gridColumnStart: '2' }}>
         <input

@@ -14,11 +14,12 @@ interface Props {
   onChange?: () => void;
   minValue: number;
   maxValue: number;
+  initialValue?: string;
   disable?: boolean;
 }
 
 export const IncDecInput = React.forwardRef<BaseTextfieldRef, Props>(
-  ({ divStyle = {}, onChange, minValue, maxValue, disable = false }: Props, ref) => {
+  ({ divStyle = {}, onChange, minValue, maxValue, initialValue = '', disable = false }: Props, ref) => {
     const childInputRef = useRef<BaseTextfieldRef>(null);
 
     const setValue = (newValue: string | number) => {
@@ -55,7 +56,7 @@ export const IncDecInput = React.forwardRef<BaseTextfieldRef, Props>(
       <div style={{ display: 'flex', paddingTop: '2px' }}>
         <IncDecButtons incListener={() => incDecInputListener(1)} decListener={() => incDecInputListener(-1)} />
         <CustomTextfield
-          initialValue={minValue.toString()}
+          initialValue={initialValue || minValue.toString()}
           ref={childInputRef}
           textFieldStyle={{ width: '75px' }}
           minValue={minValue}
