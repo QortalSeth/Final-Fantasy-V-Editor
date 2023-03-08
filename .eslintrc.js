@@ -1,5 +1,5 @@
 module.exports = {
-  extends: 'erb',
+  extends: ['erb', 'plugin:import/errors', 'plugin:import/warnings', 'plugin:import/typescript'],
   rules: {
     // A temporary hack related to IDE not resolving correct package.json
     'import/no-extraneous-dependencies': 'off',
@@ -25,6 +25,8 @@ module.exports = {
     'react/require-default-props': 'off',
     '@typescript-eslint/no-unused-expressions': 'off',
     'no-nested-ternary': 'off',
+    'promise/always-return': 'off',
+    'no-useless-return': 'off',
   },
   parserOptions: {
     ecmaVersion: 2020,
@@ -36,7 +38,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       // See https://github.com/benmosher/eslint-plugin-import/issues/1396#issuecomment-575727774 for line below
-      node: {},
+      node: { extensions: ['.js', '.jsx', '.ts', '.tsx'], moduleDirectory: ['node_modules', '.'] },
       webpack: {
         config: require.resolve('./.erb/configs/webpack.config.eslint.ts'),
       },

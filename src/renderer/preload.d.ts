@@ -1,12 +1,14 @@
+import { TextToJSON } from 'src/models/text/ReadText';
 import { ROMState } from '../redux/slices/ROM-Slice';
 
 declare global {
   interface Window {
     electron: {
       ipcRenderer: {
-        openROM(dialogOptions: object, defaultROM?: string): Promise<ROMState>;
+        openROM(defaultROM?: string): Promise<ROMState>;
         openEditor(url: string): Promise<void>;
-        saveJSONfile(dialogOptions: object, data: string): Promise<void>;
+        openJSONfiles(directory: string): Promise<TextToJSON[][]>;
+        saveJSONfile(data: string): Promise<void>;
       };
     };
   }

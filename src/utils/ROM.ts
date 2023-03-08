@@ -1,16 +1,10 @@
 /* eslint-disable import/no-cycle */
+
 import { byteSelector, setByte, setOffsetStore } from '../redux/slices/ROM-Slice';
 import store from '../redux/store';
 
-// eslint-disable-next-line import/prefer-default-export
-// export const openFileAsBytes = (fileName: string) => {
-//   const fileData = fs.readFileSync(fileName).toString('hex');
-//   console.log('fileData:', fileData.substring(0, 100));
-//   const result = [];
-//   for (let i = 0; i < fileData.length; i += 2) result.push(`0x${fileData[i]}${fileData[i + 1]}`);
-//   console.log('file: ', result.toString().substring(0, 100));
-//   return result;
-// };
+// export const baseDir = rootPath.path;
+// export const assetDir = (fileName: string) => `${baseDir}/assets/${fileName}`;
 
 export function arrayToHexByteString(
   array: number[],
@@ -80,26 +74,26 @@ export const pointerInROM = (offset: number) => {
   return offset < romLength;
 };
 
-export const getByte = (offset: number) => {
-  return byteSelector(store.getState().ROM, offset);
+export const getByte = (offset: number, defaultROM = false) => {
+  return byteSelector(store.getState().ROM, offset, defaultROM);
 };
 
 // this returned value is little endian
-export const getShort = (offset: number) => {
-  const unsignedByte1 = getByte(offset);
-  const unsignedByte2 = getByte(offset + 1) << 8;
+export const getShort = (offset: number, defaultROM = false) => {
+  const unsignedByte1 = getByte(offset, defaultROM);
+  const unsignedByte2 = getByte(offset + 1, defaultROM) << 8;
   return unsignedByte1 | unsignedByte2;
 };
 
-export const inferTriple = (offset: number) => {
+export const inferTriple = (offset: number, defaultROM = false) => {
   const dataBank = offset & 0xff0000;
-  const short = getShort(offset);
+  const short = getShort(offset, defaultROM);
   return dataBank + short;
 };
 // this returned value is little endian
-export const getTriple = (offset: number) => {
-  const shortValue = getShort(offset);
-  const finalByte = getByte(offset + 2) << 16;
+export const getTriple = (offset: number, defaultROM = false) => {
+  const shortValue = getShort(offset, defaultROM);
+  const finalByte = getByte(offset + 2, defaultROM) << 16;
   return finalByte | shortValue;
 };
 
@@ -126,26 +120,26 @@ export const getHeader = () => {
   return store.getState().ROM.data.header;
 };
 
-export const getNextByte = () => {
-  const byte = getByte(store.getState().ROM.offset);
+export const getNextByte = (defaultROM = false) => {
+  const byte = getByte(store.getState().ROM.offset, defaultROM);
   incOffset();
   return byte;
 };
 
-export const getNextShort = () => {
-  const short = getShort(store.getState().ROM.offset);
+export const getNextShort = (defaultROM = false) => {
+  const short = getShort(store.getState().ROM.offset, defaultROM);
   setOffset(store.getState().ROM.offset + 2);
   return short;
 };
 
-export const getNextTriple = () => {
-  const triple = getTriple(store.getState().ROM.offset);
+export const getNextTriple = (defaultROM = false) => {
+  const triple = getTriple(store.getState().ROM.offset, defaultROM);
   setOffset(store.getState().ROM.offset + 3);
   return triple;
 };
 
-export const inferNextTriple = () => {
-  const triple = inferTriple(store.getState().ROM.offset);
+export const inferNextTriple = (defaultROM = false) => {
+  const triple = inferTriple(store.getState().ROM.offset, defaultROM);
   setOffset(store.getState().ROM.offset + 2);
   return triple;
 };

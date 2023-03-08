@@ -16,6 +16,8 @@ import fs from 'fs';
 import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
 import { createFileRoute } from 'electron-router-dom';
 import * as remoteMain from '@electron/remote/main';
+import { TextToJSON } from '../models/text/ReadText';
+import { openFileOptions, openJSONdirOptions, saveJSONoptions } from '../utils/DialogOptions';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 import { getHeader, ROMState } from '../redux/slices/ROM-Slice';
@@ -136,11 +138,14 @@ app.on('window-all-closed', () => {
 app
   .whenReady()
   .then(() => {
-    ipcMain.handle('openROM', async (event, params, defaultROM?: string) => {
+    ipcMain.handle('openROM', async (event, defaultROM?: string) => {
       console.log('default ROM: ', defaultROM);
       let file: string;
+      let fileNames: string[] | undefined;
       if (!defaultROM) {
-        const fileNames = dialog.showOpenDialogSync({ ...params, browserWindow: mainWindow });
+        if (mainWindow instanceof Electron.BrowserWindow) {
+          fileNames = dialog.showOpenDialogSync(mainWindow, openFileOptions);
+        }
 
         if (fileNames) {
           [file] = fileNames;
@@ -154,14 +159,40 @@ app
       return { rom: Array.from(fileData), data: { path: file, header: getHeader(fileData.length) } } as ROMState;
     });
 
-    ipcMain.handle('saveJSONfile', async (event, params, data: string) => {
+    ipcMain.handle('saveJSONfile', async (event, data: string) => {
       let file: string;
-      const fileName = dialog.showSaveDialogSync({ ...params, browserWindow: editorWindow });
+      let fileName: string | undefined;
+      if (editorWindow instanceof Electron.BrowserWindow) {
+        fileName = dialog.showSaveDialogSync(editorWindow, saveJSONoptions);
+      }
 
       if (fileName) {
         console.log('Selected File is: ', fileName.toString());
         fs?.writeFileSync(fileName, data);
       }
+    });
+
+    ipcMain.handle('readJSONfiles', async (event, directory: string) => {
+      console.log('diectory is: ', directory);
+      const files = fs.readdirSync(directory, { withFileTypes: true });
+      const jsonFiles = files.filter((file) => {
+        return path.extname(file.name) === '.json';
+      });
+      const JSONdata: TextToJSON[][] = [];
+      if (jsonFiles) {
+        files.forEach((f) => {
+          const readFile = fs.readFileSync(`${directory}/${f.name}`);
+
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          const data = JSON.parse(readFile) as TextToJSON[];
+          JSONdata.push(data);
+          // console.log('json from file data: ', JSONdata);
+        });
+        // console.log('returning JSON data ', JSONdata);
+        return JSONdata;
+      }
+      return undefined;
     });
 
     ipcMain.handle('openEditor', async (event, url) => {

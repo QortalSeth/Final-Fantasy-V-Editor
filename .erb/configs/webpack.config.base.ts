@@ -3,6 +3,7 @@
  */
 
 import webpack = require('webpack');
+import path from 'path';
 import webpackPaths from './webpack.paths';
 import { dependencies as externals } from '../../release/app/package.json';
 
@@ -46,6 +47,7 @@ const configuration: webpack.Configuration = {
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
     modules: [webpackPaths.srcPath, 'node_modules'],
+    alias: { src: path.resolve('src'), assets: path.resolve('assets') },
   },
 
   plugins: [

@@ -1,6 +1,7 @@
+import { spellIconIndexes } from 'src/models/Utils/IconIndexes';
 import Model from './Model';
 
-class Spell extends Model {
+export class Spell extends Model {
   baseOffset = 0x110b80;
 
   bytesPerModel = 8;
@@ -25,21 +26,24 @@ class Spell extends Model {
     super.modelConstructor(m);
   }
 
-  getValuesFromROM() {
-    super.initializeOffset();
-    this.targeting = this.getNextByte();
-    this.type = this.getNextByte();
-    this.attributes = this.getNextByte();
-    this.costAndReflect = this.getNextByte();
-    this.attackFormula = this.getNextByte();
-    this.parameter1 = this.getNextByte();
-    this.parameter2 = this.getNextByte();
-    this.parameter3 = this.getNextByte();
-    this.name = String(this.gameIndex);
+  constructor(index: number, name: string, defaultROM = false) {
+    super(index, name, defaultROM, spellIconIndexes);
+  }
+
+  getValuesFromROM(defaultROM = false) {
+    this.initializeOffset();
+    this.targeting = this.getNextByte(defaultROM);
+    this.type = this.getNextByte(defaultROM);
+    this.attributes = this.getNextByte(defaultROM);
+    this.costAndReflect = this.getNextByte(defaultROM);
+    this.attackFormula = this.getNextByte(defaultROM);
+    this.parameter1 = this.getNextByte(defaultROM);
+    this.parameter2 = this.getNextByte(defaultROM);
+    this.parameter3 = this.getNextByte(defaultROM);
   }
 
   writeValuesToROM() {
-    super.initializeOffset();
+    this.initializeOffset();
     this.setNextByte(this.targeting);
     this.setNextByte(this.type);
     this.setNextByte(this.attributes);

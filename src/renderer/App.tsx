@@ -11,9 +11,9 @@ import { Provider, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 import { store } from '../redux/store';
 import './App.css';
-import { MainMenu } from '../components/pages/MainPage/MainMenu';
-import SpellEditor from '../components/pages/SpellEditor/SpellEditor';
-import TextEditor from '../components/pages/TextEditor/TextEditor';
+import { MainMenu } from '../pages/MainPage/MainMenu';
+import SpellEditor from '../pages/SpellEditor/SpellEditor';
+import TextEditor from '../pages/TextEditor/TextEditor';
 
 // const router = createHashRouter(
 //   createRoutesFromElements(

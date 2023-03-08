@@ -1,4 +1,4 @@
-import { createDraftSafeSelector, createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 /* eslint-disable import/no-cycle */
 import { RootState } from '../store';
@@ -7,6 +7,7 @@ import { tripleToString } from '../../utils/ROM';
 const debugRomSlice = false;
 export interface ROMState {
   rom: number[];
+  defaultRom: number[];
   data: ROMData;
   offset: number;
 }
@@ -21,6 +22,7 @@ export const getHeader = (size: number): number => {
 
 const initialState: ROMState = {
   rom: [],
+  defaultRom: [],
   data: { path: 'Final Fantasy V.smc', header: 0 },
   offset: 0,
 };
@@ -35,6 +37,11 @@ const ROMSlice = createSlice({
       state.data = action.payload.data;
       if (debugRomSlice) console.log('action types', typeof ROMSlice.actions.setROM);
     },
+    setDefaultROM(state, action: PayloadAction<ROMState>) {
+      state.defaultRom = action.payload.rom;
+      if (debugRomSlice) console.log('action types', typeof ROMSlice.actions.setROM);
+    },
+
     setByte(state, action: PayloadAction<{ offset?: number; value: number }>) {
       if (action.payload.offset) {
         state.rom[action.payload.offset + state.data.header] = action.payload.value & 0xff;
@@ -53,11 +60,11 @@ const ROMSlice = createSlice({
 
 export const romState = (state: RootState) => state.ROM;
 
-export const byteSelector = (state: ROMState, offset?: number) => {
+export const byteSelector = (state: ROMState, offset?: number, defaultROM = false) => {
   const finalOffset = (offset || state.offset) + state.data.header;
   if (debugRomSlice) console.log('byteSelector Final Offset is: ', finalOffset);
-  return state.rom[finalOffset] & 0xff;
+  return defaultROM ? state.defaultRom[finalOffset] : state.rom[finalOffset] & 0xff;
 };
 
-export const { setROM, setOffsetStore, setByte } = ROMSlice.actions;
+export const { setROM, setDefaultROM, setOffsetStore, setByte } = ROMSlice.actions;
 export default ROMSlice.reducer;

@@ -44,10 +44,16 @@ abstract class Model extends ObservableItem {
 
   abstract bytesPerModel: number;
 
-  constructor(index: number) {
-    super();
+  protected constructor(
+    index: number,
+    name: string,
+    defaultROM = false,
+    iconIndexes?: { start: number; end: number; key: string }[]
+  ) {
+    super(name);
     this.gameIndex = index;
-    this.getValuesFromROM();
+    this.getValuesFromROM(defaultROM);
+    this.icon = this.getIconFromGameIndex(iconIndexes);
   }
 
   getModelOffset() {
@@ -63,18 +69,48 @@ abstract class Model extends ObservableItem {
     this.listIndex = m.listIndex;
   }
 
-  initializeOffset = (offset?: number) => setOffset(offset || this.getModelOffset());
+  initializeOffset = (offset?: number) => {
+    setOffset(offset || this.getModelOffset());
+  };
 
   getHeader = () => getHeader();
 
-  abstract getValuesFromROM(): void;
+  abstract getValuesFromROM(defaultROM: boolean): void;
   abstract writeValuesToROM(): void;
+  baseIconDir = 'assets/TextIcons/';
 
-  getNextByte = () => getNextByte();
+  icons = new Map<string, string>([
+    ['sword', '00 - Sword Icon.png'],
+    ['white', '01 - White Magic Icon (FF4).png'],
+    ['black', '02 - Black Magic Icon (FF4).png'],
+    ['time', '03 - Time Magic Icon.png'],
+    ['summon', '04 - Summon Icon.png'],
+    ['song', '05 - Song Icon.png'],
+    ['dragoon', '06 - Dragoon Icon.png'],
+    ['harp', '07 - Harp.png'],
+    ['dancer', '08 - Dancer Icon?.png'],
+    ['blue', '09 - Blue Magic Icon.png'],
+    ['enemy', '10 - Apocalypse Icon.png'],
+    ['whip', '11 - Whip Icon.png'],
+  ]);
 
-  getNextShort = () => getNextShort();
+  getIconFromGameIndex(iconIndexes?: { start: number; end: number; key: string }[]) {
+    if (iconIndexes) {
+      // eslint-disable-next-line consistent-return
+      iconIndexes.forEach(({ start, end, key }) => {
+        if (this.gameIndex >= start && this.gameIndex <= end) {
+          return this.icons.get(key) || '';
+        }
+      });
+    }
+    return '';
+  }
 
-  getNextTriple = () => getNextTriple();
+  getNextByte = (defaultROM = false) => getNextByte(defaultROM);
+
+  getNextShort = (defaultROM = false) => getNextShort(defaultROM);
+
+  getNextTriple = (defaultROM = false) => getNextTriple(defaultROM);
 
   setNextByte = (byte: number) => setNextByte(byte);
 
@@ -84,6 +120,10 @@ abstract class Model extends ObservableItem {
 
   toString(): string {
     return this.name.trim().length === 0 ? '(empty)' : this.name;
+  }
+
+  equals(o: Model): boolean {
+    return this.gameIndex !== o.gameIndex;
   }
 }
 
