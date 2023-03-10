@@ -14,7 +14,7 @@ import textTable from '../../../assets/TextLocations/RPGe/Table.json';
 
 const debugReadText = false;
 
-export interface TextToJSON {
+export interface TextData {
   index: string;
   offset: string;
   byteLength: number;
@@ -143,9 +143,9 @@ export const processPointers = (
   sizeLimit = 10,
   endText = defaultEndText,
   startIndex = 0
-): [string, TextToJSON[]] => {
+): [string, TextData[]] => {
   let returnText = '';
-  const jsonText: TextToJSON[] = [];
+  const jsonText: TextData[] = [];
   const maxOffsetDigits = numToHexDigits(startIndex + pointers.length);
   pointers.forEach((pointer, index) => {
     const indexMod = index + startIndex;

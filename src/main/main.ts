@@ -16,7 +16,8 @@ import fs from 'fs';
 import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
 import { createFileRoute } from 'electron-router-dom';
 import * as remoteMain from '@electron/remote/main';
-import { TextToJSON } from '../models/text/ReadText';
+import * as electron from 'electron';
+import { TextData } from '../models/text/ReadText';
 import { openFileOptions, openJSONdirOptions, saveJSONoptions } from '../utils/DialogOptions';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
@@ -159,16 +160,15 @@ app
       return { rom: Array.from(fileData), data: { path: file, header: getHeader(fileData.length) } } as ROMState;
     });
 
-    ipcMain.handle('saveJSONfile', async (event, data: string) => {
-      let file: string;
-      let fileName: string | undefined;
-      if (editorWindow instanceof Electron.BrowserWindow) {
+    ipcMain.handle('saveJSONfile', async (event, json: string, fileName?: string) => {
+      if (editorWindow instanceof electron.BrowserWindow && !fileName) {
+        // eslint-disable-next-line no-param-reassign
         fileName = dialog.showSaveDialogSync(editorWindow, saveJSONoptions);
       }
 
       if (fileName) {
         console.log('Selected File is: ', fileName.toString());
-        fs?.writeFileSync(fileName, data);
+        fs?.writeFileSync(fileName, json);
       }
     });
 
@@ -178,14 +178,14 @@ app
       const jsonFiles = files.filter((file) => {
         return path.extname(file.name) === '.json';
       });
-      const JSONdata: TextToJSON[][] = [];
+      const JSONdata: object[] = [];
       if (jsonFiles) {
         files.forEach((f) => {
           const readFile = fs.readFileSync(`${directory}/${f.name}`);
 
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
-          const data = JSON.parse(readFile) as TextToJSON[];
+          const data = JSON.parse(readFile) as TextData[];
           JSONdata.push(data);
           // console.log('json from file data: ', JSONdata);
         });

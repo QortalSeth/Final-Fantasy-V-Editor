@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 /* eslint-disable import/no-cycle */
+import { tripleToString } from 'src/utils/ROM';
 import { RootState } from '../store';
-import { tripleToString } from '../../utils/ROM';
 
 const debugRomSlice = false;
+
 export interface ROMState {
   rom: number[];
   defaultRom: number[];

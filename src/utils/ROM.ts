@@ -108,6 +108,9 @@ export const getOffsetWithoutHeader = () => {
   return store.getState().ROM.offset - store.getState().ROM.data.header;
 };
 
+export const getUsingDefaultROM = () => {
+  return store.getState().ROM.defaultRom !== undefined;
+};
 export const incOffset = (amount = 1) => {
   store.dispatch(setOffsetStore(getOffset() + amount));
 };

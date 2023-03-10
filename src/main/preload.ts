@@ -1,5 +1,5 @@
 import { contextBridge, ipcMain, ipcRenderer } from 'electron';
-import { TextToJSON } from 'src/models/text/ReadText';
+import { TextData } from 'src/models/text/ReadText';
 import { ROMState } from '../redux/slices/ROM-Slice';
 
 contextBridge.exposeInMainWorld('electron', {
@@ -12,11 +12,11 @@ contextBridge.exposeInMainWorld('electron', {
     openEditor: async (url: string) => {
       await ipcRenderer.invoke('openEditor', url);
     },
-    saveJSONfile: async (data: string): Promise<void> => {
-      await ipcRenderer.invoke('saveJSONfile', data);
+    saveJSONfile: async (json: string, fileName?: string) => {
+      await ipcRenderer.invoke('saveJSONfile', json, fileName);
     },
 
-    openJSONfiles: async (directory: string): Promise<TextToJSON[][]> => {
+    openJSONfiles: async (directory: string): Promise<object[]> => {
       const result = await ipcRenderer.invoke('readJSONfiles', directory);
       // console.log('preload JSON results', result);
       return result;

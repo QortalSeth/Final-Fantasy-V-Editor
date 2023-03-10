@@ -12,4 +12,8 @@ export const spellIconIndexes = [
   { start: 0x7f, end: 0x7f, key: 'whip' },
   { start: 0x82, end: 0x9f, key: 'blue' },
   { start: 0xa0, end: 0xeb, key: 'enemy' },
+  { start: 0x73, end: 0x73, key: 'enemy' },
+  { start: 0x78, end: 0x78, key: 'enemy' },
+  { start: 0x7e, end: 0x7e, key: 'enemy' },
+  { start: 0x80, end: 0x81, key: 'enemy' },
 ];

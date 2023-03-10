@@ -1,4 +1,4 @@
-import { TextToJSON } from 'src/models/text/ReadText';
+import { TextData } from 'src/models/text/ReadText';
 import { ROMState } from '../redux/slices/ROM-Slice';
 
 declare global {
@@ -7,8 +7,8 @@ declare global {
       ipcRenderer: {
         openROM(defaultROM?: string): Promise<ROMState>;
         openEditor(url: string): Promise<void>;
-        openJSONfiles(directory: string): Promise<TextToJSON[][]>;
-        saveJSONfile(data: string): Promise<void>;
+        openJSONfiles(directory: string): Promise<object[]>;
+        saveJSONfile(json: string, fileName?: string): Promise<void>;
       };
     };
   }

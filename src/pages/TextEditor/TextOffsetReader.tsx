@@ -1,14 +1,13 @@
 import React, { useRef, useState } from 'react';
-import { defaultEndText, readTextBulkFixedLength, readTextBulkVarLength, TextToJSON } from 'src/models/text/ReadText';
-import { saveJSONoptions } from 'src/utils/DialogOptions';
-import { BaseTextfieldRef, PointerTextfield } from '../../components/TextFields';
-import { pointerToOffset } from '../../components/TextFieldFunctions';
+import { defaultEndText, readTextBulkFixedLength, readTextBulkVarLength, TextData } from 'src/models/text/ReadText';
+import { BaseTextfieldRef, PointerTextfield } from 'src/components/TextFields';
+import { pointerToOffset } from 'src/components/TextFieldFunctions';
 import IncDecInput from '../../components/Buttons/IncDecInput';
 
 export const TextOffsetReader: React.FC = () => {
   const [disableFixedLength, setDisableFixedLength] = useState(false);
   const [showExportJSON, setExportJSON] = useState(false);
-  const [JSONdata, setJSONdata] = useState<Array<TextToJSON>>([]);
+  const [JSONdata, setJSONdata] = useState<Array<TextData>>([]);
 
   const pointerTextField = useRef<BaseTextfieldRef>(null);
   const stringsToReadCount = useRef<BaseTextfieldRef>(null);
