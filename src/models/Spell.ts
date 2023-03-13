@@ -3,6 +3,21 @@ import { TextData } from 'src/models/text/ReadText';
 import { getHeader } from 'src/utils/ROM';
 import Model from './Model';
 
+export enum SpellType {
+  SWORD = 'SWORD',
+  WHITE = 'WHITE',
+  BLACK = 'BLACK',
+  TIME = 'TIME',
+  SUMMON = 'SUMMON',
+  SONG = 'SONG',
+  DRAGOON = 'DRAGOON',
+  HARP = 'HARP',
+  DANCE = 'DANCE',
+  WHIP = 'WHIP',
+  BLUE = 'BLUE',
+  ENEMY = 'ENEMY',
+}
+
 export class Spell extends Model {
   targeting!: number;
 

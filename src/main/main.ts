@@ -180,17 +180,15 @@ app
       });
       const JSONdata: object[] = [];
       if (jsonFiles) {
-        files.forEach((f) => {
+        jsonFiles.forEach((f) => {
           const readFile = fs.readFileSync(`${directory}/${f.name}`);
-
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          const data = JSON.parse(readFile) as TextData[];
+          // console.log('readfile: ', readFile.toString());
+          const data = JSON.parse(readFile.toString()) as TextData[];
           JSONdata.push(data);
           // console.log('json from file data: ', JSONdata);
         });
         // console.log('returning JSON data ', JSONdata);
-        return JSONdata;
+        return JSONdata; // returns array of files with JSON data
       }
       return undefined;
     });

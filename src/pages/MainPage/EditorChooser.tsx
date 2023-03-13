@@ -12,8 +12,7 @@ import shopIcon from 'assets/Female NPC.png';
 import enemyIcon from 'assets/Gilgamesh.png';
 import textIcon from 'assets/Text.png';
 
-import { initializeModels } from 'src/models/Utils/ModelsManager';
-import { openFileOptions } from 'src/utils/DialogOptions';
+import { initializeDmodels, initializeModels } from 'src/models/Utils/ModelsManager';
 import IconButton, { IconButtonProps } from '../../components/Buttons/IconButton';
 
 export const EditorChooser = () => {
@@ -43,20 +42,14 @@ export const EditorChooser = () => {
       await window.electron.ipcRenderer.openROM(defaultUneditedROM).then((romState) => {
         dispatch(setDefaultROM(romState));
       });
-    initializeModels(); // after ROMs loaded, load models with ROM and DefaultROM data values
+    // after ROM is loaded, load models with ROM and DefaultROM data values
+    initializeModels();
+    initializeDmodels();
   };
 
   const openEditor = async (editorURL: string) => {
     await window.electron.ipcRenderer.openEditor(editorURL);
-    //  navigate('/spell');
   };
-
-  // useEffect(() => {
-  //   if (useDefaultROM) {
-  //     openFile(defaultROM);
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   const buttonProps: IconButtonProps[] = [
     {

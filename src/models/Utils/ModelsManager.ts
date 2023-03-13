@@ -1,9 +1,9 @@
-import { Models } from 'src/models/lists/Models';
+import { DefaultJSON, Models } from 'src/models/lists/Models';
 import Model from 'src/models/Model';
 // eslint-disable-next-line import/no-cycle
 import { Spells } from 'src/models/lists/Spells';
 import { metaCharacters, TextData } from 'src/models/text/ReadText';
-import { Spell } from 'src/models/Spell';
+import { getUsingDefaultROM } from 'src/utils/ROM';
 
 export const baseNamesDir = 'assets/TextLocations';
 export const fullNamesDir = `${baseNamesDir}/RPGe`;
@@ -51,19 +51,14 @@ const assembleNames = async () => {
   });
 };
 
-export interface DefaultJSON<T extends Model> {
-  name: string;
-  Dmodels: T[];
-}
 export const writeDefaultModelsToJSON = () => {
-  let defaultData = {} as DefaultJSON<Model>;
+  const defaultData = [] as DefaultJSON<Model>[];
   models.forEach((value, key) => {
     const newData = { name: key, Dmodels: value.Dmodels };
-    defaultData = { ...defaultData, ...newData };
+    defaultData.push(newData);
   });
   if (defaultData) {
     const json = JSON.stringify(defaultData, null, ' ');
-    // console.log('default data json is: ', json);
     window.electron.ipcRenderer.saveJSONfile(json, 'src/models/DefaultData.json');
     console.log('Writing Default Models to JSON Complete');
   }
@@ -80,4 +75,20 @@ export const initializeModels = () => {
     .catch((e) => {
       console.log('assembleNames error', e);
     });
+};
+
+export const initializeDmodels = () => {
+  if (!getUsingDefaultROM() || Models.readDefaultJSON) {
+    models.forEach((model, className) => {
+      window.electron.ipcRenderer
+        .openJSONfiles('src/models')
+        .then((json) => {
+          const defaultModelsJSON = json[0];
+          model.initializeDefaultModels(defaultModelsJSON);
+        })
+        .catch((e) => {
+          console.log('default JSON file not found');
+        });
+    });
+  }
 };
