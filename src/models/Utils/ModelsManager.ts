@@ -2,12 +2,15 @@ import { DefaultJSON, Models } from 'src/models/lists/Models';
 import Model from 'src/models/Model';
 // eslint-disable-next-line import/no-cycle
 import { Spells } from 'src/models/lists/Spells';
-import { metaCharacters, TextData } from 'src/models/text/ReadText';
-import { getUsingDefaultROM } from 'src/utils/ROM';
+import { getUsingDefaultROM } from 'src/utils/StoreAccess';
+import store from 'src/redux/store';
+import { setModels } from 'src/redux/slices/ROM-Slice';
+import { AllModels, serializeModels } from 'src/models/Utils/ModelsToState';
+import { metaCharacters, TextData } from 'src/models/text/TextManager';
 
 export const baseNamesDir = 'assets/TextLocations';
 export const fullNamesDir = `${baseNamesDir}/RPGe`;
-export const models = new Map<string, Models<Model>>();
+
 // eslint-disable-next-line import/no-mutable-exports
 export let spellNames: TextData[] = [];
 
@@ -51,10 +54,10 @@ const assembleNames = async () => {
   });
 };
 
-export const writeDefaultModelsToJSON = () => {
+export const writeDefaultModelsToJSON = (models: AllModels) => {
   const defaultData = [] as DefaultJSON<Model>[];
   models.forEach((value, key) => {
-    const newData = { name: key, Dmodels: value.Dmodels };
+    const newData = { name: String(key), Dmodels: value.models.Dmodels };
     defaultData.push(newData);
   });
   if (defaultData) {
@@ -64,31 +67,35 @@ export const writeDefaultModelsToJSON = () => {
   }
 };
 
+export const initializeDmodels = (models: AllModels) => {
+  if (!getUsingDefaultROM() || Models.readDefaultJSON) {
+    models.forEach((model) => {
+      window.electron.ipcRenderer
+        .openJSONfiles('src/models')
+        .then((json) => {
+          const defaultModelsJSON = json[0];
+          model.models.initializeDefaultModels(defaultModelsJSON);
+        })
+        .catch(() => {
+          console.log('default JSON file not found');
+        });
+    });
+  }
+};
+
 export const initializeModels = () => {
   assembleNames()
     // eslint-disable-next-line promise/always-return
     .then(() => {
       // eslint-disable-next-line promise/always-return
-      models.set('Spells', new Spells(spellNames));
-      writeDefaultModelsToJSON();
+      const models: AllModels = [];
+      models.push({ name: 'Spells', models: new Spells(spellNames) });
+      writeDefaultModelsToJSON(models);
+      initializeDmodels(models);
+      store.dispatch(setModels(serializeModels(models)));
+      console.log('after initializeDmodels');
     })
     .catch((e) => {
       console.log('assembleNames error', e);
     });
-};
-
-export const initializeDmodels = () => {
-  if (!getUsingDefaultROM() || Models.readDefaultJSON) {
-    models.forEach((model, className) => {
-      window.electron.ipcRenderer
-        .openJSONfiles('src/models')
-        .then((json) => {
-          const defaultModelsJSON = json[0];
-          model.initializeDefaultModels(defaultModelsJSON);
-        })
-        .catch((e) => {
-          console.log('default JSON file not found');
-        });
-    });
-  }
 };

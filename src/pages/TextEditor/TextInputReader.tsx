@@ -1,35 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { BaseTextfieldRef, CustomTextfield, PointerTextfield } from '../../components/TextFields';
-import { pointerToOffset } from '../../components/TextFieldFunctions';
-import {
-  alternateEndText,
-  defaultEndText,
-  metaCharacters,
-  readText,
-  readTextBulkFixedLength,
-  readTextBulkVarLength,
-} from '../../models/text/ReadText';
-import {
-  arrayToHexByteString,
-  arrayToHexPointerString,
-  getNextTriple,
-  getTriple,
-  printHex,
-  printHexByteArray,
-  setOffset,
-} from '../../utils/ROM';
-import { textToBytes } from '../../models/text/WriteText';
-import { romState } from '../../redux/slices/ROM-Slice';
-import IncDecInput from '../../components/Buttons/IncDecInput';
+import { arrayToHexByteString, arrayToHexPointerString, printHex, printHexByteArray } from 'src/utils/NumberFormatConverter';
+import { getTriple } from 'src/utils/StoreAccess';
+import { textToBytes } from 'src/models/text/WriteText';
+import { romState } from 'src/redux/slices/ROM-Slice';
 
 export const TextInputReader: React.FC = () => {
   const state = useSelector(romState);
-  const [disableFixedLength, setDisableFixedLength] = useState(false);
-
-  const pointerTextField = useRef<BaseTextfieldRef>(null);
-  const stringsToReadCount = useRef<BaseTextfieldRef>(null);
-  const textLength = useRef<BaseTextfieldRef>(null);
 
   const textToRead = useRef<HTMLTextAreaElement>(null);
   const byteValues = useRef<HTMLTextAreaElement>(null);

@@ -12,7 +12,7 @@ import React, { useEffect } from 'react';
 import { store } from '../redux/store';
 import './App.css';
 import { MainMenu } from '../pages/MainPage/MainMenu';
-import SpellEditor from '../pages/SpellEditor/SpellEditor';
+import SpellEditor from '../pages/ModelEditors/SpellEditor/SpellEditor';
 import TextEditor from '../pages/TextEditor/TextEditor';
 
 // const router = createHashRouter(

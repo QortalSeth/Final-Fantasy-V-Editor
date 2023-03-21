@@ -1,4 +1,4 @@
-import { allText, metaCharacters, singleChars, getSortedMapValues } from './ReadText';
+import { allText, getSortedMapValues, metaCharacters, singleChars } from 'src/models/text/TextManager';
 
 const debugWriteText = false;
 

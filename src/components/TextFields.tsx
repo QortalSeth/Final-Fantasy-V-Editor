@@ -1,7 +1,6 @@
-import React, { ChangeEvent, CSSProperties, useImperativeHandle, useState } from 'react';
+import React, { ChangeEvent, useImperativeHandle, useRef, useState } from 'react';
 import CSS from 'csstype';
 import { numListener, pointerListener } from './TextFieldFunctions';
-import { stringToNumber, tripleToString } from '../utils/ROM';
 
 interface BaseProps extends React.HTMLProps<HTMLInputElement> {
   textFieldStyle?: CSS.Properties;
@@ -11,22 +10,11 @@ interface BaseProps extends React.HTMLProps<HTMLInputElement> {
   maxValue: number;
 }
 
-interface StyleProp extends React.HTMLProps<HTMLInputElement> {
-  textFieldStyle?: CSS.Properties;
-  initialValue?: string;
-}
-
-interface CustomStyleProp extends React.HTMLProps<HTMLInputElement> {
-  textFieldStyle?: CSS.Properties;
-  initialValue?: string;
-  minValue: number;
-  maxValue: number;
-}
-
 export type BaseTextfieldRef = {
   getValue: () => string;
   setValue: (newValue: string | number) => void;
 };
+
 export const BaseTextfield = React.forwardRef<BaseTextfieldRef, BaseProps>(
   ({ textFieldStyle = {}, initialValue = '', listener, maxValue, minValue, disabled = false, ...props }: BaseProps, ref) => {
     const [value, setStateValue] = useState(initialValue);
@@ -57,6 +45,11 @@ export const BaseTextfield = React.forwardRef<BaseTextfieldRef, BaseProps>(
     );
   }
 );
+
+interface StyleProp extends React.HTMLProps<HTMLInputElement> {
+  textFieldStyle?: CSS.Properties;
+  initialValue?: string;
+}
 
 export const PointerTextfield = React.forwardRef<BaseTextfieldRef, StyleProp>(
   ({ textFieldStyle = {}, initialValue = '' }: StyleProp, ref) => {
@@ -126,6 +119,13 @@ export const TripleTextfield = React.forwardRef<BaseTextfieldRef, StyleProp>(
   }
 );
 
+interface CustomStyleProp extends React.HTMLProps<HTMLInputElement> {
+  textFieldStyle?: CSS.Properties;
+  initialValue?: string;
+  minValue: number;
+  maxValue: number;
+}
+
 export const CustomTextfield = React.forwardRef<BaseTextfieldRef, CustomStyleProp>(
   ({ textFieldStyle = {}, initialValue = '', minValue = 0, ...props }: CustomStyleProp, ref) => {
     const defaultStyle = { width: '60px', height: '30px' };
@@ -138,6 +138,87 @@ export const CustomTextfield = React.forwardRef<BaseTextfieldRef, CustomStylePro
         listener={numListener}
         minValue={minValue}
       />
+    );
+  }
+);
+
+export type TextfieldWithDefaultRef = {
+  getMainRef: () => React.RefObject<BaseTextfieldRef>;
+  getDefaultRef: () => React.RefObject<BaseTextfieldRef>;
+  getMainValue: () => string;
+  getDefaultValue: () => string;
+  setMainValue: (value: string) => void;
+  setDefaultValue: (value: string) => void;
+};
+
+export enum Size {
+  BYTE,
+  SHORT,
+  TRIPLE,
+}
+
+interface DefaultStyleProp extends React.HTMLProps<HTMLInputElement> {
+  textFieldStyle?: CSS.Properties;
+  initialValue?: string;
+  size: Size;
+}
+
+export const TextfieldWithDefault = React.forwardRef<TextfieldWithDefaultRef, DefaultStyleProp>(
+  ({ textFieldStyle = {}, initialValue = '', size, ...props }: DefaultStyleProp, ref) => {
+    const defaultStyle = { width: '60px', height: '30px' };
+    const mainRef = useRef<BaseTextfieldRef>(null);
+    const defaultRef = useRef<BaseTextfieldRef>(null);
+
+    const getMainRef = () => {
+      return mainRef;
+    };
+    const getDefaultRef = () => {
+      return defaultRef;
+    };
+    const getValue = (usedRef: React.RefObject<BaseTextfieldRef>) => {
+      const refCurrent = usedRef.current;
+      if (refCurrent) return refCurrent.getValue();
+      return 'Ref Not Found';
+    };
+
+    const setValue = (value: string, usedRef: React.RefObject<BaseTextfieldRef>) => {
+      const refCurrent = usedRef.current;
+      if (refCurrent) refCurrent.setValue(value);
+    };
+
+    useImperativeHandle(ref, () => ({
+      getMainRef,
+      getDefaultRef,
+      getMainValue: () => getValue(mainRef),
+      getDefaultValue: () => getValue(defaultRef),
+      setMainValue: (value: string) => setValue(value, mainRef),
+      setDefaultValue: (value: string) => setValue(value, defaultRef),
+    }));
+    const minValue = 0;
+    const maxValue = size === Size.BYTE ? 0xff : size === Size.SHORT ? 0xffff : 0xffffff;
+
+    return (
+      <div style={{ padding: '5px' }}>
+        <BaseTextfield
+          {...props}
+          ref={mainRef}
+          textFieldStyle={{ ...defaultStyle, ...textFieldStyle }}
+          initialValue={initialValue}
+          listener={numListener}
+          minValue={minValue}
+          maxValue={maxValue}
+        />
+        <BaseTextfield
+          {...props}
+          ref={defaultRef}
+          textFieldStyle={{ ...defaultStyle, ...textFieldStyle }}
+          initialValue={initialValue}
+          listener={numListener}
+          minValue={minValue}
+          maxValue={maxValue}
+          disabled
+        />
+      </div>
     );
   }
 );

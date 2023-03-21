@@ -17,7 +17,8 @@ import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
 import { createFileRoute } from 'electron-router-dom';
 import * as remoteMain from '@electron/remote/main';
 import * as electron from 'electron';
-import { TextData } from '../models/text/ReadText';
+
+import { TextData } from 'src/models/text/TextManager';
 import { openFileOptions, openJSONdirOptions, saveJSONoptions } from '../utils/DialogOptions';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';

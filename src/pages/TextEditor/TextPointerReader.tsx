@@ -1,12 +1,14 @@
 import React, { useRef, useState } from 'react';
 import weaponIcon from 'assets/Excalibur.png';
-import { BaseTextfieldRef, PointerTextfield } from '../../components/TextFields';
-import { pointerToOffset } from '../../components/TextFieldFunctions';
-import { defaultEndText, processPointers } from '../../models/text/ReadText';
-import { getNextTriple, inferNextTriple, pointerInROM, setOffset } from '../../utils/ROM';
-import IncDecInput from '../../components/Buttons/IncDecInput';
+import { defaultEndText } from 'src/models/text/TextManager';
+import { ObservableItem } from 'src/models/ObservableItem';
+import { BaseTextfieldRef, PointerTextfield } from 'src/components/TextFields';
+import { pointerToOffset } from 'src/components/TextFieldFunctions';
+import { processPointers } from 'src/models/text/ReadText';
+import { getNextTriple, inferNextTriple, pointerInROM, setOffset } from 'src/utils/StoreAccess';
+import swordIcon from 'assets/TextIcons/00 - Sword Icon.png';
+import IncDecInput from 'src/components/Buttons/IncDecInput';
 import IncDecSelect, { IncDecProps, IncDecSelectRef } from '../../components/Buttons/IncDecSelect';
-import { ObservableItem } from '../../models/Model';
 
 export const TextPointerReader: React.FC = () => {
   const pointerTextField = useRef<BaseTextfieldRef>(null);
@@ -66,7 +68,7 @@ export const TextPointerReader: React.FC = () => {
   };
   console.log('weapon icon type is: ', typeof weaponIcon);
 
-  const options = [new ObservableItem('2', 0), new ObservableItem('3', 1)];
+  const options = ObservableItem.setListIndexes([new ObservableItem('2'), new ObservableItem('3')]);
 
   return (
     <div style={gridStyle}>
@@ -74,7 +76,7 @@ export const TextPointerReader: React.FC = () => {
       <PointerTextfield ref={pointerTextField} textFieldStyle={{ width: '100px' }} />
       <span style={labelStyle}>Pointer Size:</span>
       <IncDecSelect
-        selectStyle={{ width: '75px', height: '30px' }}
+        selectStyle={{ width: '75px', height: '40px' }}
         initialValue={options[0]}
         options={options}
         ref={textLength}

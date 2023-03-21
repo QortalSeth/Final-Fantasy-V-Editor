@@ -1,16 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
 /* eslint-disable import/no-cycle */
-import { tripleToString } from 'src/utils/ROM';
+import { tripleToString } from 'src/utils/NumberFormatConverter';
 import { RootState } from '../store';
 
 const debugRomSlice = false;
+
+export type SerialzedModels = Array<{ name: string; models: string }>;
 
 export interface ROMState {
   rom: number[];
   defaultRom: number[];
   data: ROMData;
   offset: number;
+  models: SerialzedModels;
 }
 export interface ROMData {
   path: string;
@@ -26,6 +28,7 @@ const initialState: ROMState = {
   defaultRom: [],
   data: { path: 'Final Fantasy V.smc', header: 0 },
   offset: 0,
+  models: [],
 };
 
 const ROMSlice = createSlice({
@@ -42,7 +45,14 @@ const ROMSlice = createSlice({
       state.defaultRom = action.payload.rom;
       if (debugRomSlice) console.log('action types', typeof ROMSlice.actions.setROM);
     },
-
+    setModels(state, action: PayloadAction<SerialzedModels>) {
+      state.models = action.payload;
+      if (debugRomSlice) console.log('action types', typeof ROMSlice.actions.setModels);
+    },
+    updateModels(state, action: PayloadAction<{ index: number; models: string }>) {
+      const { index, models } = action.payload;
+      state.models[index].models = models;
+    },
     setByte(state, action: PayloadAction<{ offset?: number; value: number }>) {
       if (action.payload.offset) {
         state.rom[action.payload.offset + state.data.header] = action.payload.value & 0xff;
@@ -67,5 +77,5 @@ export const byteSelector = (state: ROMState, offset?: number, defaultROM = fals
   return defaultROM ? state.defaultRom[finalOffset] : state.rom[finalOffset] & 0xff;
 };
 
-export const { setROM, setDefaultROM, setOffsetStore, setByte } = ROMSlice.actions;
+export const { setROM, setDefaultROM, setModels, setOffsetStore, setByte } = ROMSlice.actions;
 export default ROMSlice.reducer;

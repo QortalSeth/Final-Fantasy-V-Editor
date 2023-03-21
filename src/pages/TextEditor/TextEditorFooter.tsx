@@ -1,5 +1,5 @@
 import React from 'react';
-import { arrayToString } from '../../utils/ROM';
+import { arrayToString } from 'src/utils/NumberFormatConverter';
 
 export const TextEditorFooter = () => {
   const gridStyle = {
@@ -13,7 +13,7 @@ export const TextEditorFooter = () => {
 
   const textAreaStyle = { height: '135px' };
 
-  const miscText = ['0x00, ~END~', '0x02 ~BARTZ~', '0xBE ~MISC~', '0xC2 ~DRINK~', '0xC0 ~TENT~', '0xBC ~KEY~', '0xFF ~SPACE~'];
+  const miscText = ['0x00 ~END~', '0x02 ~BARTZ~', '0xBE ~MISC~', '0xC2 ~DRINK~', '0xC0 ~TENT~', '0xBC ~KEY~', '0xFF ~SPACE~'];
 
   const weaponText = [
     '0xE7 ~KNIFE~',

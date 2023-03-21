@@ -1,7 +1,5 @@
 import Model from 'src/models/Model';
-import { TextData } from 'src/models/text/ReadText';
-import { Spell } from 'src/models/Spell';
-import { getUsingDefaultROM } from 'src/utils/ROM';
+import { TextData } from 'src/models/text/TextManager';
 
 export interface DefaultJSON<T extends Model> {
   name: string;
@@ -19,7 +17,7 @@ export abstract class Models<T extends Model> {
 
   abstract className: string;
 
-  constructor(namePointers: TextData[]) {
+  constructor(namePointers: TextData[] = []) {
     this.nameData = namePointers;
   }
 
@@ -36,6 +34,12 @@ export abstract class Models<T extends Model> {
     this.Dmodels = [];
   };
 
+  resetListIndexes = () => {
+    this.models.forEach((m, index) => {
+      m.listIndex = index;
+    });
+  };
+
   initializeDefaultModels = (dModelsObject: object) => {
     const dModels = dModelsObject as DefaultJSON<T>[];
     const dModel = dModels.find(({ name }) => {
@@ -43,5 +47,11 @@ export abstract class Models<T extends Model> {
       return name === this.className;
     });
     if (dModel) this.Dmodels = dModel.Dmodels;
+  };
+
+  findModel = (name: string, models: { name: string; models: Models<Model> }[]) => {
+    return models.find((m) => {
+      return m.name === name;
+    });
   };
 }

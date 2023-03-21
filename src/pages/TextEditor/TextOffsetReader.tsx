@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { defaultEndText, readTextBulkFixedLength, readTextBulkVarLength, TextData } from 'src/models/text/ReadText';
+import { readTextBulkFixedLength, readTextBulkVarLength } from 'src/models/text/ReadText';
 import { BaseTextfieldRef, PointerTextfield } from 'src/components/TextFields';
 import { pointerToOffset } from 'src/components/TextFieldFunctions';
+import { defaultEndText, TextData } from 'src/models/text/TextManager';
 import IncDecInput from '../../components/Buttons/IncDecInput';
 
 export const TextOffsetReader: React.FC = () => {

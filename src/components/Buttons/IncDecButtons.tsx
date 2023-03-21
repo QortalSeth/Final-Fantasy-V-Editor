@@ -1,8 +1,8 @@
 import React from 'react';
 import CSS from 'csstype';
-import Triangle from '../../../assets/Triangle.png';
+import { stringToNumber } from 'src/utils/NumberFormatConverter';
+import Triangle from 'assets/Triangle.png';
 import IconButton from './IconButton';
-import { stringToNumber } from '../../utils/ROM';
 
 const buttonColor = 230;
 const buttonTimer = 200;

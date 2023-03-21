@@ -1,5 +1,5 @@
-// eslint-disable-next-line max-classes-per-file
-import { metaCharacters, TextData } from 'src/models/text/ReadText';
+import { metaCharacters, TextData } from 'src/models/text/TextManager';
+import { IconData, ObservableItem } from 'src/models/ObservableItem';
 
 import {
   getHeader,
@@ -10,39 +10,7 @@ import {
   setNextShort,
   setNextTriple,
   setOffset,
-} from '../utils/ROM';
-
-export class ObservableItem {
-  name: string = '';
-
-  value: string = '';
-
-  label: string = '';
-
-  icon: string = '';
-
-  listIndex: number = 0;
-
-  chronologicalIndex: number = 0;
-
-  constructor(name = '', listIndex = 0, icon = '', chronologicalIndex = 0) {
-    this.name = name;
-    this.value = name;
-    this.label = name;
-    this.icon = icon;
-    this.listIndex = listIndex;
-    this.chronologicalIndex = chronologicalIndex;
-  }
-
-  modelConstructor(m: Model) {
-    this.name = m.name;
-    this.value = m.value;
-    this.label = m.label;
-    this.icon = m.icon;
-    this.listIndex = m.listIndex;
-    this.chronologicalIndex = m.chronologicalIndex;
-  }
-}
+} from '../utils/StoreAccess';
 
 export const formatName = (name: string) => {
   const metaCharactersS = Array.from(metaCharacters.values());
@@ -65,7 +33,7 @@ abstract class Model extends ObservableItem {
     super(formatName(nameData.text));
     this.nameData = nameData;
     this.gameIndex = index;
-    this.icon = this.getValueFromGameIndex(Model.icons, iconIndexes);
+    this.iconData = this.getIconData(Model.icons, iconIndexes);
   }
 
   modelConstructor(m: Model) {
@@ -83,33 +51,32 @@ abstract class Model extends ObservableItem {
   abstract getValuesFromROM(defaultROM: boolean): void;
   abstract writeValuesToROM(): void;
 
-  static baseIconDir = 'assets/TextIcons/';
-
-  static icons = new Map<string, string>([
-    ['sword', '00 - Sword Icon.png'],
-    ['white', '01 - White Magic Icon (FF4).png'],
-    ['black', '02 - Black Magic Icon (FF4).png'],
-    ['time', '03 - Time Magic Icon.png'],
-    ['summon', '04 - Summon Icon.png'],
-    ['song', '05 - Song Icon.png'],
-    ['dragoon', '06 - Dragoon Icon.png'],
-    ['harp', '07 - Harp.png'],
-    ['dancer', '08 - Dancer Icon?.png'],
-    ['blue', '09 - Blue Magic Icon.png'],
-    ['enemy', '10 - Apocalypse Icon.png'],
-    ['whip', '11 - Whip Icon.png'],
+  static icons = new Map<string, IconData>([
+    ['sword', { name: 'swordIcon', width: '30px', height: '20px' }],
+    ['white', { name: 'whiteIcon', width: '30px', height: '20px' }],
+    ['black', { name: 'blackIcon', width: '30px', height: '20px' }],
+    ['time', { name: 'timeIcon', width: '30px', height: '20px' }],
+    ['summon1', { name: 'summonIcon1', width: '30px', height: '20px' }],
+    ['summon2', { name: 'summonIcon2', width: '30px', height: '20px' }],
+    ['song', { name: 'songIcon', width: '30px', height: '20px' }],
+    ['dragoon', { name: 'dragoonIcon', width: '30px', height: '20px' }],
+    ['harp', { name: 'harpIcon', width: '30px', height: '20px' }],
+    ['dance', { name: 'danceIcon', width: '30px', height: '20px' }],
+    ['blue', { name: 'blueIcon', width: '30px', height: '20px' }],
+    ['enemy', { name: 'enemyIcon', width: '30px', height: '20px' }],
+    ['whip', { name: 'whipIcon', width: '30px', height: '20px' }],
   ]);
 
-  getValueFromGameIndex(valueMap: Map<string, string>, iconIndexes?: { start: number; end: number; key: string }[]) {
+  getIconData(valueMap: Map<string, IconData>, iconIndexes?: { start: number; end: number; key: string }[]) {
     if (iconIndexes) {
       // eslint-disable-next-line consistent-return,no-restricted-syntax
       for (const { start, end, key } of iconIndexes) {
         if (this.gameIndex >= start && this.gameIndex <= end) {
-          return valueMap.get(key) || '';
+          return valueMap.get(key) || ObservableItem.emptyIconData;
         }
       }
     }
-    return '';
+    return ObservableItem.emptyIconData;
   }
 
   getNextByte = (defaultROM = false) => getNextByte(defaultROM);

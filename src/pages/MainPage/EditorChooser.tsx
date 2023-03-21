@@ -44,7 +44,7 @@ export const EditorChooser = () => {
       });
     // after ROM is loaded, load models with ROM and DefaultROM data values
     initializeModels();
-    initializeDmodels();
+    console.log('models initialized');
   };
 
   const openEditor = async (editorURL: string) => {

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactHTMLElement, useState } from 'react';
+import React from 'react';
 import CSS from 'csstype';
 
 export interface IconButtonProps extends React.HTMLProps<HTMLButtonElement> {
@@ -57,6 +57,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
   };
 
   const stopRepeat = () => {
+    console.log('repeat stopped');
     clearTimeout(timedFunction);
   };
 

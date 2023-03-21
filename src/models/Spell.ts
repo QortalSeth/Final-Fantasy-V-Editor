@@ -1,14 +1,16 @@
 import { spellIconIndexes } from 'src/models/Utils/IconIndexes';
-import { TextData } from 'src/models/text/ReadText';
-import { getHeader } from 'src/utils/ROM';
+import { getHeader } from 'src/utils/StoreAccess';
+import { TextData } from 'src/models/text/TextManager';
+import { IconData, ObservableItem } from 'src/models/ObservableItem';
 import Model from './Model';
 
 export enum SpellType {
-  SWORD = 'SWORD',
+  MAGICSWORD = 'MAGICSWORD',
   WHITE = 'WHITE',
   BLACK = 'BLACK',
   TIME = 'TIME',
-  SUMMON = 'SUMMON',
+  SUMMON1 = 'SUMMON1',
+  SUMMON2 = 'SUMMON2',
   SONG = 'SONG',
   DRAGOON = 'DRAGOON',
   HARP = 'HARP',
@@ -42,19 +44,19 @@ export class Spell extends Model {
   static bytesPerModel = 8;
 
   static spellTypes = new Map<string, string>([
-    ['sword', 'Magic Sword'],
-    ['white', 'White'],
-    ['black', 'Black'],
-    ['time', 'Time'],
-    ['summon', 'Summon'],
-    ['song', 'Song'],
-    ['summon', 'Summon'],
-    ['dragoon', 'Dragoon'],
-    ['harp', 'Harp'],
-    ['dance', 'Dance'],
-    ['whip', 'Whip'],
-    ['blue', 'Blue'],
-    ['enemy', 'Enemy'],
+    ['sword', SpellType.MAGICSWORD],
+    ['white', SpellType.WHITE],
+    ['black', SpellType.BLACK],
+    ['time', SpellType.TIME],
+    ['summon1', SpellType.SUMMON1],
+    ['song', SpellType.SONG],
+    ['summon2', SpellType.SUMMON2],
+    ['dragoon', SpellType.DRAGOON],
+    ['harp', SpellType.HARP],
+    ['dance', SpellType.DANCE],
+    ['whip', SpellType.WHIP],
+    ['blue', SpellType.BLUE],
+    ['enemy', SpellType.ENEMY],
   ]);
 
   modelConstructor(m: Spell) {
@@ -71,7 +73,7 @@ export class Spell extends Model {
     super(index, nameData, spellIconIndexes);
     this.offset = this.gameIndex * Spell.bytesPerModel + Spell.baseOffset + getHeader();
     this.getValuesFromROM(defaultROM);
-    this.spellType = this.getValueFromGameIndex(Spell.spellTypes, spellIconIndexes);
+    this.spellType = this.getSpellType(Spell.spellTypes, spellIconIndexes);
   }
 
   getValuesFromROM(defaultROM = false) {
@@ -96,6 +98,18 @@ export class Spell extends Model {
     this.setNextByte(this.parameter1);
     this.setNextByte(this.parameter2);
     this.setNextByte(this.parameter3);
+  }
+
+  getSpellType(valueMap: Map<string, string>, iconIndexes?: { start: number; end: number; key: string }[]) {
+    if (iconIndexes) {
+      // eslint-disable-next-line consistent-return,no-restricted-syntax
+      for (const { start, end, key } of iconIndexes) {
+        if (this.gameIndex >= start && this.gameIndex <= end) {
+          return valueMap.get(key) || '';
+        }
+      }
+    }
+    return '';
   }
 
   // toJSON() {
