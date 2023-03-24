@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react';
-import weaponIcon from 'assets/Excalibur.png';
+import weaponIcon from 'assets/Images/Excalibur.png';
 import { defaultEndText } from 'src/models/text/TextManager';
 import { ObservableItem } from 'src/models/ObservableItem';
 import { BaseTextfieldRef, PointerTextfield } from 'src/components/TextFields';
 import { pointerToOffset } from 'src/components/TextFieldFunctions';
 import { processPointers } from 'src/models/text/ReadText';
 import { getNextTriple, inferNextTriple, pointerInROM, setOffset } from 'src/utils/StoreAccess';
-import swordIcon from 'assets/TextIcons/00 - Sword Icon.png';
+import swordIcon from 'assets/Images/TextIcons/00 - Sword Icon.png';
 import IncDecInput from 'src/components/Buttons/IncDecInput';
 import IncDecSelect, { IncDecProps, IncDecSelectRef } from '../../components/Buttons/IncDecSelect';
 

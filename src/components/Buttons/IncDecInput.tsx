@@ -1,8 +1,8 @@
 import React, { useImperativeHandle, useRef } from 'react';
 import CSS from 'csstype';
 import { stringToNumber, tripleToString } from 'src/utils/NumberFormatConverter';
+import Triangle from 'assets/Images/Triangle.png';
 import IconButton from './IconButton';
-import Triangle from '../../../assets/Triangle.png';
 import { BaseTextfieldRef, CustomTextfield } from '../TextFields';
 import { numFilter } from '../TextFieldFunctions';
 import IncDecButtons from './IncDecButtons';

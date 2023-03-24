@@ -8,7 +8,7 @@ import { setModels } from 'src/redux/slices/ROM-Slice';
 import { AllModels, serializeModels } from 'src/models/Utils/ModelsToState';
 import { metaCharacters, TextData } from 'src/models/text/TextManager';
 
-export const baseNamesDir = 'assets/TextLocations';
+export const baseNamesDir = 'assets/Text';
 export const fullNamesDir = `${baseNamesDir}/RPGe`;
 
 // eslint-disable-next-line import/no-mutable-exports

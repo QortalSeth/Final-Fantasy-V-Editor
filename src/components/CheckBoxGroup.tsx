@@ -25,8 +25,8 @@ export const CheckBoxGroup = ({
   console.log('Ystart: ', yStart);
   console.log('checkBoxYstart: ', checkBoxYstart);
   return (
-    <div>
-      <span style={{ position: 'absolute', left: xStart, top: yStart }}>Targeting</span>
+    <div className='noselect'>
+      <span style={{ position: 'absolute', left: xStart, top: yStart }}>{name}</span>
       <div
         style={{
           display: 'grid',

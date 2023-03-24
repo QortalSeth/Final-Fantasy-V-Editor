@@ -8,6 +8,7 @@ interface BaseProps extends React.HTMLProps<HTMLInputElement> {
   listener: (e: React.ChangeEvent<HTMLInputElement> | string, value: string, maxValue: number, minValue: number) => string;
   minValue: number;
   maxValue: number;
+  id?: string;
 }
 
 export type BaseTextfieldRef = {
@@ -16,7 +17,10 @@ export type BaseTextfieldRef = {
 };
 
 export const BaseTextfield = React.forwardRef<BaseTextfieldRef, BaseProps>(
-  ({ textFieldStyle = {}, initialValue = '', listener, maxValue, minValue, disabled = false, ...props }: BaseProps, ref) => {
+  (
+    { id = '', textFieldStyle = {}, initialValue = '', listener, maxValue, minValue, disabled = false, ...props }: BaseProps,
+    ref
+  ) => {
     const [value, setStateValue] = useState(initialValue);
 
     const setValue = (newValue: string | number) => {
@@ -35,6 +39,7 @@ export const BaseTextfield = React.forwardRef<BaseTextfieldRef, BaseProps>(
 
     return (
       <input
+        id={id}
         {...props}
         onChange={(e) => setStateValue(listener(e, value, maxValue, minValue))}
         value={value}
@@ -151,20 +156,16 @@ export type TextfieldWithDefaultRef = {
   setDefaultValue: (value: string) => void;
 };
 
-export enum Size {
-  BYTE,
-  SHORT,
-  TRIPLE,
-}
-
 interface DefaultStyleProp extends React.HTMLProps<HTMLInputElement> {
   textFieldStyle?: CSS.Properties;
   initialValue?: string;
-  size: Size;
+  minValue: number;
+  maxValue: number;
+  labelText: string;
 }
 
 export const TextfieldWithDefault = React.forwardRef<TextfieldWithDefaultRef, DefaultStyleProp>(
-  ({ textFieldStyle = {}, initialValue = '', size, ...props }: DefaultStyleProp, ref) => {
+  ({ textFieldStyle = {}, initialValue = '', minValue, maxValue, labelText, ...props }: DefaultStyleProp, ref) => {
     const defaultStyle = { width: '60px', height: '30px' };
     const mainRef = useRef<BaseTextfieldRef>(null);
     const defaultRef = useRef<BaseTextfieldRef>(null);
@@ -194,30 +195,33 @@ export const TextfieldWithDefault = React.forwardRef<TextfieldWithDefaultRef, De
       setMainValue: (value: string) => setValue(value, mainRef),
       setDefaultValue: (value: string) => setValue(value, defaultRef),
     }));
-    const minValue = 0;
-    const maxValue = size === Size.BYTE ? 0xff : size === Size.SHORT ? 0xffff : 0xffffff;
 
     return (
       <div style={{ padding: '5px' }}>
-        <BaseTextfield
-          {...props}
-          ref={mainRef}
-          textFieldStyle={{ ...defaultStyle, ...textFieldStyle }}
-          initialValue={initialValue}
-          listener={numListener}
-          minValue={minValue}
-          maxValue={maxValue}
-        />
-        <BaseTextfield
-          {...props}
-          ref={defaultRef}
-          textFieldStyle={{ ...defaultStyle, ...textFieldStyle }}
-          initialValue={initialValue}
-          listener={numListener}
-          minValue={minValue}
-          maxValue={maxValue}
-          disabled
-        />
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        <label htmlFor={labelText} style={{ ...defaultStyle }} className='noselect'>
+          <BaseTextfield
+            id={labelText}
+            {...props}
+            ref={mainRef}
+            textFieldStyle={{ ...defaultStyle, ...textFieldStyle }}
+            initialValue={initialValue}
+            listener={numListener}
+            minValue={minValue}
+            maxValue={maxValue}
+          />
+          <BaseTextfield
+            id=''
+            {...props}
+            ref={defaultRef}
+            textFieldStyle={{ ...defaultStyle, ...textFieldStyle }}
+            initialValue={initialValue}
+            listener={numListener}
+            minValue={minValue}
+            maxValue={maxValue}
+            disabled
+          />
+        </label>
       </div>
     );
   }

@@ -107,8 +107,28 @@ export const SpellEditor: React.FC = () => {
       { labelText: 'Side Selectable' },
       { labelText: 'Target Enemy' },
       { labelText: 'Roulette' },
-      { labelText: 'Unknown 1' },
-      { labelText: 'Unknown2' },
+      { labelText: 'Not Used 1' },
+      { labelText: 'Not Used 2' },
+    ];
+
+    const attackTypeCheckBoxes: CheckBoxWithDefaultProps[] = [
+      { labelText: 'Physical' },
+      { labelText: 'Aerial' },
+      { labelText: 'White' },
+      { labelText: 'Black' },
+      { labelText: 'Time' },
+      { labelText: 'Summon' },
+      { labelText: 'Song' },
+      { labelText: 'Enemy' },
+    ];
+
+    const miscCheckBoxes: CheckBoxWithDefaultProps[] = [
+      { labelText: 'Learnable' },
+      { labelText: 'Monster Bit?' },
+      { labelText: "Can't Reflect" },
+      { labelText: "Can't Avoid" },
+      { labelText: 'Not Used 3' },
+      { labelText: 'Not Used 4' },
     ];
     return (
       <div>
@@ -120,7 +140,7 @@ export const SpellEditor: React.FC = () => {
             divStyle={{ paddingTop: '0px' }}
             incDecStyle={{ height: '100%%' }}
             selectStyle={{
-              width: '20vh',
+              width: '40vh',
               height: '100%',
               backgroundColor: '#d8d8d8',
             }}
@@ -132,6 +152,16 @@ export const SpellEditor: React.FC = () => {
           />
         </div>
         <CheckBoxGroup xStart='41vw' yStart='3.8vh' checkBoxes={targetingCheckBoxes} width='45vw' columns={2} name='Targeting' />
+        <CheckBoxGroup
+          xStart='41vw'
+          yStart='17vh'
+          checkBoxes={attackTypeCheckBoxes}
+          width='45vw'
+          columns={2}
+          name='Attack Type'
+        />
+
+        <CheckBoxGroup xStart='41vw' yStart='30vh' checkBoxes={miscCheckBoxes} width='45vw' columns={2} name='Miscellaneous' />
       </div>
     );
   }

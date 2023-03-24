@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { useAppDispatch } from 'src/redux/hooks';
 import { setDefaultROM, setROM } from 'src/redux/slices/ROM-Slice';
 
-import openIcon from 'assets/Open Icon.png';
-import saveIcon from 'assets/Save Icon.png';
-import characterIcon from 'assets/Bartz Freelancer.png';
-import jobIcon from 'assets/Lenna Mime Mod.png';
-import itemIcon from 'assets/Excalibur.png';
-import spellIcon from 'assets/Comet.png';
-import shopIcon from 'assets/Female NPC.png';
-import enemyIcon from 'assets/Gilgamesh.png';
-import textIcon from 'assets/Text.png';
+import openIcon from 'assets/Images/Open Icon.png';
+import saveIcon from 'assets/Images/Save Icon.png';
+import characterIcon from 'assets/Images/Bartz Freelancer.png';
+import jobIcon from 'assets/Images/Lenna Mime Mod.png';
+import itemIcon from 'assets/Images/Excalibur.png';
+import spellIcon from 'assets/Images/Comet.png';
+import shopIcon from 'assets/Images/Female NPC.png';
+import enemyIcon from 'assets/Images/Gilgamesh.png';
+import textIcon from 'assets/Images/Text.png';
 
 import { initializeDmodels, initializeModels } from 'src/models/Utils/ModelsManager';
 import IconButton, { IconButtonProps } from '../../components/Buttons/IconButton';

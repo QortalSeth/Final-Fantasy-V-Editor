@@ -1,4 +1,4 @@
-import textTable from 'assets/TextLocations/RPGe/Table.json';
+import textTable from 'assets/Text/RPGe/Table.json';
 
 export interface TextData {
   index: string;

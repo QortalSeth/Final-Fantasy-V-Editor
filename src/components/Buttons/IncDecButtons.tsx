@@ -1,7 +1,7 @@
 import React from 'react';
 import CSS from 'csstype';
 import { stringToNumber } from 'src/utils/NumberFormatConverter';
-import Triangle from 'assets/Triangle.png';
+import Triangle from 'assets/Images/Triangle.png';
 import IconButton from './IconButton';
 
 const buttonColor = 230;
