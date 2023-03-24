@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import { Models } from 'src/models/lists/Models';
 import Model from 'src/models/Model';
 import smallCrystal from 'assets/TextIcons/12 - Crystal (Small).png';
@@ -23,6 +23,7 @@ import { ObservableItem } from 'src/models/ObservableItem';
 interface Props<T extends Model> {
   models: Models<T>;
   divStyle?: CSS.Properties;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => T;
 }
 
 export const spellTypes: ObservableItem[] = ObservableItem.setListIndexes([
@@ -38,7 +39,7 @@ export const spellTypes: ObservableItem[] = ObservableItem.setListIndexes([
   new ObservableItem('Misc', { name: miscIcon, width: '120 px', height: '20 px' }),
 ]);
 
-export const IconMenu = <T extends Model>({ models, divStyle = {} }: Props<T>) => {
+export const IconMenu = <T extends Model>({ models, divStyle = {}, onClick }: Props<T>) => {
   const getIcon = (icon: string) => {
     // console.log('icon is: ', icon);
     switch (icon) {
@@ -74,20 +75,31 @@ export const IconMenu = <T extends Model>({ models, divStyle = {} }: Props<T>) =
   };
 
   const defaultStyle = { overflow: 'scroll' };
+  const { backgroundColor } = divStyle || '#e0e020';
+  const buttonStyle = {
+    width: '100%',
+    border: 'none',
+  };
   return (
     <div style={{ ...defaultStyle, ...divStyle }}>
       {models.models.map((m, index) => {
         return (
-          // eslint-disable-next-line react/no-array-index-key
-          <div key={index + m.name}>
-            <img
-              src={getIcon(m.iconData.name)}
-              alt='(No Icon)'
-              width={m.iconData.width}
-              height={m.iconData.height}
-              style={{ marginRight: '5px' }}
-            />
-            <span style={{ fontSize: '25px' }}>{` 0x${numToHexString(m.gameIndex)}: ${m.label}`}</span>
+          <div key={m.gameIndex}>
+            <button
+              className='iconMenu'
+              type='button'
+              onClick={(e) => !onClick || onClick(e)}
+              style={{ ...buttonStyle, textAlign: 'left' }}
+            >
+              <img
+                src={getIcon(m.iconData.name)}
+                alt='(No Icon)'
+                width={m.iconData.width}
+                height={m.iconData.height}
+                style={{ marginRight: '5px' }}
+              />
+              <span style={{ fontSize: '25px', textAlign: 'left' }}>{` 0x${numToHexString(m.gameIndex)}: ${m.label}`}</span>
+            </button>
           </div>
         );
       })}

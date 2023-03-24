@@ -60,6 +60,19 @@ export function stringToNumber(str: string, hex = false) {
   return hex ? Number(`0x${str}`) : Number(str);
 }
 
+export function numberUnitSplit(str: string) {
+  const strAsNumber = str.replaceAll(/[^0-9.]/g, '');
+  // console.log('strAsNumber is: ', strAsNumber);
+  const number = Number(strAsNumber);
+  const unit = str.replaceAll(/[0-9.]/g, '');
+  // console.log('number is: ', number);
+  // console.log('unit is: ', unit);
+  return { number, unit };
+}
+
+export function numberUnitCombine(numUnit: { number: number; unit: string }) {
+  return `${numUnit.number.toString()}${numUnit.unit}`;
+}
 export const byteToString = (byte: number) => {
   return (byte & 0xff).toString(16).toUpperCase();
 };

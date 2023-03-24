@@ -207,7 +207,7 @@ app
           autoHideMenuBar: true,
           // resizable: false,
           // useContentSize: true, // (auto width/height)
-          // icon: getAssetPath('FF5 Icon (Square).png'),
+          icon: `assets/FF5 Icon (Square).png`,
           webPreferences: {
             nodeIntegration: true,
             contextIsolation: true,

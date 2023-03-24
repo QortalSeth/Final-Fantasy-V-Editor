@@ -6,9 +6,6 @@ import IconButton from './IconButton';
 
 const buttonColor = 230;
 const buttonTimer = 200;
-interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
-  listener: () => void;
-}
 const incDecStyle = {
   height: '100%',
   backgroundColor: `rgb(${buttonColor},${buttonColor},${buttonColor})`,
@@ -19,29 +16,20 @@ const incDecStyle = {
 
 const incDecProps = { name: '', icon: Triangle, buttonStyle: incDecStyle, timer: buttonTimer };
 
-const IncButton: React.FC<ButtonProps> = ({ listener, disabled }) => {
-  return <IconButton onMouseHeldDown={listener} {...incDecProps} disabled={disabled} tabIndex={-1} />;
-};
-
-const DecButton: React.FC<ButtonProps> = ({ listener, disabled }) => {
-  return (
-    <IconButton
-      onMouseHeldDown={listener}
-      imageStyle={{ transform: 'rotate(180deg)' }}
-      {...incDecProps}
-      disabled={disabled}
-      tabIndex={-1}
-    />
-  );
-};
-
 interface IncDecProps {
   divStyle?: CSS.Properties;
   incListener: () => void;
   decListener: () => void;
+  eventType?: string;
   disabled?: boolean;
 }
-export const IncDecButtons: React.FC<IncDecProps> = ({ divStyle = {}, incListener, decListener, disabled = false }) => {
+export const IncDecButtons: React.FC<IncDecProps> = ({
+  divStyle = {},
+  incListener,
+  decListener,
+  eventType = 'down',
+  disabled = false,
+}) => {
   const gridStyle = {
     display: 'grid',
     gridTemplateColumns: 'auto',
@@ -52,8 +40,21 @@ export const IncDecButtons: React.FC<IncDecProps> = ({ divStyle = {}, incListene
 
   return (
     <div style={{ ...gridStyle, ...divStyle }}>
-      <IncButton listener={incListener} disabled={disabled} />
-      <DecButton listener={decListener} disabled={disabled} />
+      <IconButton
+        onMouseHeldDown={eventType === 'down' ? incListener : undefined}
+        {...incDecProps}
+        onClick={eventType === 'click' ? incListener : () => {}}
+        disabled={disabled}
+        tabIndex={-1}
+      />
+      <IconButton
+        onMouseHeldDown={eventType === 'down' ? decListener : undefined}
+        imageStyle={{ transform: 'rotate(180deg)' }}
+        {...incDecProps}
+        onClick={eventType === 'click' ? decListener : () => {}}
+        disabled={disabled}
+        tabIndex={-1}
+      />
     </div>
   );
 };

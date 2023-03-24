@@ -69,8 +69,8 @@ export const IconButton: React.FC<IconButtonProps> = ({
       style={{ ...buttonDefaultStyle, ...buttonStyle }}
       disabled={disabled}
       onMouseDown={repeat}
-      onMouseUp={() => (onMouseHeldDown ? stopRepeat() : props.onMouseUp)}
-      onMouseLeave={() => (onMouseHeldDown ? stopRepeat() : props.onMouseLeave)}
+      onMouseUp={() => (onMouseHeldDown ? stopRepeat() : undefined)}
+      onMouseLeave={() => (onMouseHeldDown ? stopRepeat() : undefined)}
     >
       <img src={icon} alt='' style={{ ...imageDefaultStyle, ...imageStyle }} />
       {name}

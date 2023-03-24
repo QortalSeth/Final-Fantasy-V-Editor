@@ -26,12 +26,25 @@ body {
   opacity: 1;
 }
 
-button:hover {
+.button:hover {
   transform: scale(1.02);
   /*border-color:#1ca7d6 ;*/
   /*opacity: 1;*/
   outline-color:#1ca7d6 ;
 }
+
+.iconMenu{
+  background-color:#e0e0e0;
+}
+span{font-size: 20px}
+.iconMenu:hover{
+  background-color: rgba(0, 120, 215, 0.3);
+}
+.boldSpan{font-size: 20px; font-weight: bold}
+.iconMenu:focus, .iconMenu:focus-visible{
+  background-color: #0078d7;
+}
+
 
 input:focus, textarea:focus{
   outline-color:#1ca7d6 ;
@@ -39,7 +52,7 @@ input:focus, textarea:focus{
 
 select:focus{outline-color: #1ca7d6}
 
-button:focus, button:focus-visible{
+.button:focus, .button:focus-visible{
   transform: scale(1.02);
   border-style:solid;
   border-color:#1ca7d6;

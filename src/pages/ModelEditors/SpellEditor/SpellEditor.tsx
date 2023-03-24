@@ -8,6 +8,8 @@ import IncDecSelect, { IncDecSelectRef } from 'src/components/Buttons/IncDecSele
 import { Spells } from 'src/models/lists/Spells';
 import { ObservableItem } from 'src/models/ObservableItem';
 import { SingleValue } from 'react-select';
+import { CheckBoxWithDefault, CheckBoxWithDefaultProps } from 'src/components/CheckBoxes';
+import { CheckBoxGroup } from 'src/components/CheckBoxGroup';
 
 const debugSpellEditor = false;
 export const SpellEditor: React.FC = () => {
@@ -98,25 +100,38 @@ export const SpellEditor: React.FC = () => {
         }
       }
     };
+    const targetingCheckBoxes: CheckBoxWithDefaultProps[] = [
+      { labelText: 'Can Multi-Target' },
+      { labelText: 'Hits all Targets' },
+      { labelText: 'Target Selectable' },
+      { labelText: 'Side Selectable' },
+      { labelText: 'Target Enemy' },
+      { labelText: 'Roulette' },
+      { labelText: 'Unknown 1' },
+      { labelText: 'Unknown2' },
+    ];
     return (
-      <div style={{ position: 'fixed', top: '0', height: '5%' }}>
-        <IncDecSelect
-          ref={selectRef}
-          options={spellTypes}
-          initialValue={spellTypes[0]}
-          divStyle={{ paddingTop: '0px' }}
-          incDecStyle={{ height: '100%%' }}
-          selectStyle={{
-            width: '200px',
-            height: '100%',
-            backgroundColor: '#d8d8d8',
-          }}
-          onChange={filterSpells}
-        />
-        <IconMenu
-          models={displayedSpells || spells}
-          divStyle={{ position: 'fixed', top: '5%', width: '50%', bottom: '0', backgroundColor: '#e0e0e0' }}
-        />
+      <div>
+        <div style={{ position: 'fixed', top: '0', height: '5%' }}>
+          <IncDecSelect
+            ref={selectRef}
+            options={spellTypes}
+            initialValue={spellTypes[0]}
+            divStyle={{ paddingTop: '0px' }}
+            incDecStyle={{ height: '100%%' }}
+            selectStyle={{
+              width: '20vh',
+              height: '100%',
+              backgroundColor: '#d8d8d8',
+            }}
+            onChange={filterSpells}
+          />{' '}
+          <IconMenu
+            models={displayedSpells || spells}
+            divStyle={{ position: 'fixed', top: '5%', width: '40vw', bottom: '0', backgroundColor: '#e0e0e0' }}
+          />
+        </div>
+        <CheckBoxGroup xStart='41vw' yStart='3.8vh' checkBoxes={targetingCheckBoxes} width='45vw' columns={2} name='Targeting' />
       </div>
     );
   }

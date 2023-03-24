@@ -83,7 +83,7 @@ export const IncDecSelect = forwardRef(
 
     return (
       <div style={{ display: 'flex', paddingTop: '2px', ...divStyle }}>
-        <IncDecButtons divStyle={incDecStyle} incListener={() => select(-1)} decListener={() => select(1)} />
+        <IncDecButtons divStyle={incDecStyle} incListener={() => select(-1)} decListener={() => select(1)} eventType='click' />
 
         <Select
           options={options}
