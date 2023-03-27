@@ -10,6 +10,8 @@ import { ObservableItem } from 'src/models/ObservableItem';
 import { SingleValue } from 'react-select';
 import { CheckBoxWithDefault, CheckBoxWithDefaultProps } from 'src/components/CheckBoxes';
 import { CheckBoxGroup } from 'src/components/CheckBoxGroup';
+import { DefaultTextfieldProp, DefaultTextfieldGrid, TextfieldWithDefault } from 'src/components/TextFields';
+import { text } from 'stream/consumers';
 
 const debugSpellEditor = false;
 export const SpellEditor: React.FC = () => {
@@ -130,6 +132,12 @@ export const SpellEditor: React.FC = () => {
       { labelText: 'Not Used 3' },
       { labelText: 'Not Used 4' },
     ];
+
+    const textFieldStyle = { width: '40px' };
+    const textFieldProps: DefaultTextfieldProp[] = [
+      { minValue: 1, maxValue: 0x0f, labelText: '# of hits:', textFieldStyle },
+      { minValue: 1, maxValue: 0x7f, labelText: 'MP Cost:', textFieldStyle },
+    ];
     return (
       <div>
         <div style={{ position: 'fixed', top: '0', height: '5%' }}>
@@ -140,7 +148,7 @@ export const SpellEditor: React.FC = () => {
             divStyle={{ paddingTop: '0px' }}
             incDecStyle={{ height: '100%%' }}
             selectStyle={{
-              width: '40vh',
+              width: '37vh',
               height: '100%',
               backgroundColor: '#d8d8d8',
             }}
@@ -160,8 +168,19 @@ export const SpellEditor: React.FC = () => {
           columns={2}
           name='Attack Type'
         />
-
         <CheckBoxGroup xStart='41vw' yStart='30vh' checkBoxes={miscCheckBoxes} width='45vw' columns={2} name='Miscellaneous' />
+
+        <DefaultTextfieldGrid
+          textfieldProps={textFieldProps}
+          gridStyle={{
+            left: '40vw',
+            top: '40vh',
+            width: '60vh',
+            position: 'absolute',
+            gridTemplateColumns: '90px 150px 90px 150px',
+          }}
+          columns={4}
+        />
       </div>
     );
   }

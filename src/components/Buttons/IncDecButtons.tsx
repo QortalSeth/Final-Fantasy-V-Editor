@@ -34,7 +34,7 @@ export const IncDecButtons: React.FC<IncDecProps> = ({
     display: 'grid',
     gridTemplateColumns: 'auto',
     gridGap: '0px',
-    width: '25px',
+    width: '3vw',
     height: '100%',
   };
 

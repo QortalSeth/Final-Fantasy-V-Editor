@@ -80,7 +80,7 @@ const createWindow = async () => {
     autoHideMenuBar: true,
     // resizable: false,
     // useContentSize: true, // (auto width/height)
-    icon: getAssetPath('FF5 Icon (Square).png'),
+    icon: getAssetPath('Images/FF5 Icon (Square).png'),
     webPreferences: {
       // nodeIntegration: true,
       contextIsolation: true,
@@ -207,7 +207,7 @@ app
           autoHideMenuBar: true,
           // resizable: false,
           // useContentSize: true, // (auto width/height)
-          icon: `assets/FF5 Icon (Square).png`,
+          icon: `assets/Images/FF5 Icon (Square).png`,
           webPreferences: {
             nodeIntegration: true,
             contextIsolation: true,

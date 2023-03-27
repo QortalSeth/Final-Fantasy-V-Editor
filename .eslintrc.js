@@ -27,6 +27,13 @@ module.exports = {
     'no-nested-ternary': 'off',
     'promise/always-return': 'off',
     'no-useless-return': 'off',
+    'jsx-a11y/label-has-associated-control': [
+      2,
+      {
+        controlComponents: ['BaseTextfield'],
+        depth: 3,
+      },
+    ],
   },
   parserOptions: {
     ecmaVersion: 2020,

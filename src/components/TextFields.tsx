@@ -36,14 +36,13 @@ export const BaseTextfield = React.forwardRef<BaseTextfieldRef, BaseProps>(
       getValue,
       setValue: (newValue: string | number) => setValue(newValue),
     }));
-
     return (
       <input
         id={id}
         {...props}
         onChange={(e) => setStateValue(listener(e, value, maxValue, minValue))}
         value={value}
-        style={{ boxSizing: 'border-box', fontSize: '16px', ...textFieldStyle }}
+        style={{ fontSize: '16px', ...textFieldStyle }}
         disabled={disabled}
         spellCheck={false}
       />
@@ -156,7 +155,7 @@ export type TextfieldWithDefaultRef = {
   setDefaultValue: (value: string) => void;
 };
 
-interface DefaultStyleProp extends React.HTMLProps<HTMLInputElement> {
+export interface DefaultTextfieldProp extends React.HTMLProps<HTMLInputElement> {
   textFieldStyle?: CSS.Properties;
   initialValue?: string;
   minValue: number;
@@ -164,9 +163,12 @@ interface DefaultStyleProp extends React.HTMLProps<HTMLInputElement> {
   labelText: string;
 }
 
-export const TextfieldWithDefault = React.forwardRef<TextfieldWithDefaultRef, DefaultStyleProp>(
-  ({ textFieldStyle = {}, initialValue = '', minValue, maxValue, labelText, ...props }: DefaultStyleProp, ref) => {
-    const defaultStyle = { width: '60px', height: '30px' };
+export const TextfieldWithDefault = React.forwardRef<TextfieldWithDefaultRef, DefaultTextfieldProp>(
+  (
+    { textFieldStyle = {}, initialValue = '', minValue, maxValue, labelText, style = {}, ...props }: DefaultTextfieldProp,
+    ref
+  ) => {
+    const defaultStyle = { width: '60px', height: '30px', marginRight: '8px' };
     const mainRef = useRef<BaseTextfieldRef>(null);
     const defaultRef = useRef<BaseTextfieldRef>(null);
 
@@ -197,9 +199,17 @@ export const TextfieldWithDefault = React.forwardRef<TextfieldWithDefaultRef, De
     }));
 
     return (
-      <div style={{ padding: '5px' }}>
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor={labelText} style={{ ...defaultStyle }} className='noselect'>
+      <div style={{ padding: '5px', display: 'contents', ...style }}>
+        <span
+          style={{
+            justifySelf: 'right',
+            alignSelf: 'center',
+            marginRight: '5px',
+          }}
+        >
+          {labelText}
+        </span>
+        <div>
           <BaseTextfield
             id={labelText}
             {...props}
@@ -210,6 +220,7 @@ export const TextfieldWithDefault = React.forwardRef<TextfieldWithDefaultRef, De
             minValue={minValue}
             maxValue={maxValue}
           />
+
           <BaseTextfield
             id=''
             {...props}
@@ -221,8 +232,32 @@ export const TextfieldWithDefault = React.forwardRef<TextfieldWithDefaultRef, De
             maxValue={maxValue}
             disabled
           />
-        </label>
+        </div>
       </div>
     );
   }
 );
+
+export interface DefaultTextfieldGridProps {
+  textfieldProps: DefaultTextfieldProp[];
+  gridStyle?: CSS.Properties;
+  columns?: number;
+}
+export const DefaultTextfieldGrid = ({ textfieldProps = [], gridStyle = {}, columns = 2 }: DefaultTextfieldGridProps) => {
+  const defaultStyle = { display: 'grid', gridTemplateColumns: `repeat(${columns}, auto)` };
+  return (
+    <div style={{ ...defaultStyle, ...gridStyle }}>
+      {textfieldProps.map((t) => {
+        return (
+          <TextfieldWithDefault
+            key={t.labelText}
+            minValue={t.minValue}
+            maxValue={t.maxValue}
+            labelText={t.labelText}
+            textFieldStyle={t.textFieldStyle}
+          />
+        );
+      })}
+    </div>
+  );
+};
