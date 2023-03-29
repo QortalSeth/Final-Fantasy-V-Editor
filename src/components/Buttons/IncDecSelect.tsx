@@ -11,8 +11,7 @@ export interface IncDecProps<T extends SelectType> {
   divStyle?: CSS.Properties;
   selectStyle?: CSS.Properties;
   incDecStyle?: CSS.Properties;
-  onChange?: (v: ObservableItem) => void;
-  initialValue: T;
+  onChange?: (v: T) => void;
   isSearchable?: boolean;
   options: T[];
 }
@@ -25,15 +24,7 @@ export type IncDecSelectRef = {
 
 export const IncDecSelect = forwardRef(
   <T extends SelectType>(
-    {
-      divStyle = {},
-      selectStyle = {},
-      incDecStyle = {},
-      onChange,
-      initialValue,
-      isSearchable = false,
-      options,
-    }: IncDecProps<SelectType>,
+    { divStyle = {}, selectStyle = {}, incDecStyle = {}, onChange, isSearchable = false, options }: IncDecProps<SelectType>,
     ref?: React.Ref<IncDecSelectRef>
   ) => {
     const selectRef = useRef<SelectInstance<SelectType>>(null);

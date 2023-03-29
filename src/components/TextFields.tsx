@@ -1,5 +1,7 @@
 import React, { ChangeEvent, useImperativeHandle, useRef, useState } from 'react';
 import CSS from 'csstype';
+import IncDecButtons from 'src/components/Buttons/IncDecButtons';
+import { stringToNumber } from 'src/utils/NumberFormatConverter';
 import { numListener, pointerListener } from './TextFieldFunctions';
 
 interface BaseProps extends React.HTMLProps<HTMLInputElement> {
@@ -171,7 +173,6 @@ export const TextfieldWithDefault = React.forwardRef<TextfieldWithDefaultRef, De
     const defaultStyle = { width: '60px', height: '30px', marginRight: '8px' };
     const mainRef = useRef<BaseTextfieldRef>(null);
     const defaultRef = useRef<BaseTextfieldRef>(null);
-
     const getMainRef = () => {
       return mainRef;
     };
@@ -197,6 +198,13 @@ export const TextfieldWithDefault = React.forwardRef<TextfieldWithDefaultRef, De
       setMainValue: (value: string) => setValue(value, mainRef),
       setDefaultValue: (value: string) => setValue(value, defaultRef),
     }));
+    const incDecInputListener = (amount: number) => {
+      const childTextfield = mainRef.current;
+      if (childTextfield) {
+        const currentValue = stringToNumber(childTextfield.getValue() || minValue.toString());
+        childTextfield.setValue(currentValue + amount);
+      } else console.log('no textfield');
+    };
 
     return (
       <div style={{ padding: '5px', display: 'contents', ...style }}>
@@ -209,7 +217,12 @@ export const TextfieldWithDefault = React.forwardRef<TextfieldWithDefaultRef, De
         >
           {labelText}
         </span>
-        <div>
+        <div style={{ display: 'flex' }}>
+          <IncDecButtons
+            divStyle={{ width: '3vw', height: '100%' }}
+            incListener={() => incDecInputListener(1)}
+            decListener={() => incDecInputListener(-1)}
+          />
           <BaseTextfield
             id={labelText}
             {...props}

@@ -46,6 +46,7 @@ export const IncDecButtons: React.FC<IncDecProps> = ({
         onClick={eventType === 'click' ? incListener : () => {}}
         disabled={disabled}
         tabIndex={-1}
+        className='buttonAlt'
       />
       <IconButton
         onMouseHeldDown={eventType === 'down' ? decListener : undefined}
@@ -54,6 +55,7 @@ export const IncDecButtons: React.FC<IncDecProps> = ({
         onClick={eventType === 'click' ? decListener : () => {}}
         disabled={disabled}
         tabIndex={-1}
+        className='buttonAlt'
       />
     </div>
   );

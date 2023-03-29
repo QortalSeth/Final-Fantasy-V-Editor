@@ -9,6 +9,7 @@ export interface IconButtonProps extends React.HTMLProps<HTMLButtonElement> {
   disabled?: boolean;
   onMouseHeldDown?: () => void;
   timer?: number;
+  className?: string;
 }
 
 export const IconButton: React.FC<IconButtonProps> = ({
@@ -19,6 +20,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
   disabled = false,
   onMouseHeldDown,
   timer = 500,
+  className = 'button',
   ...props
 }: IconButtonProps) => {
   const buttonDefaultStyle: CSS.Properties = {
@@ -57,7 +59,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
   };
 
   const stopRepeat = () => {
-    console.log('repeat stopped');
+    // console.log('repeat stopped');
     clearTimeout(timedFunction);
   };
 
@@ -65,7 +67,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
     <button
       {...props}
       type='button'
-      className='button'
+      className={className}
       style={{ ...buttonDefaultStyle, ...buttonStyle }}
       disabled={disabled}
       onMouseDown={repeat}

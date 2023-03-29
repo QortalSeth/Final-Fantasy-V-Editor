@@ -35,6 +35,29 @@ body {
   opacity: 1;
 }
 
+.buttonAlt {
+  background-color: white;
+  padding: 10px 20px;
+  /*border-radius: 10px;*/
+  border: none;
+  appearance: none;
+  font-size: 1.3rem;
+
+  transition: all ease-in 0.1s;
+  cursor: pointer;
+  opacity: 1;
+}
+.buttonAlt:hover {
+  /*border-color:#1ca7d6 ;*/
+  /*opacity: 1;*/
+  outline-color:#1ca7d6 ;
+}
+
+.buttonAlt:focus, .buttonAlt:focus-visible{
+  border-style:solid;
+  border-color:#1ca7d6;
+}
+
 .button:hover {
   transform: scale(1.02);
   /*border-color:#1ca7d6 ;*/

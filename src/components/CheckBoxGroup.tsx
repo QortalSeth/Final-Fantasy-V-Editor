@@ -22,8 +22,8 @@ export const CheckBoxGroup = ({
 }: CheckBoxGroupProps) => {
   const yStartSplit = numberUnitSplit(yStart);
   const checkBoxYstart = numberUnitCombine({ number: yStartSplit.number + 2.5, unit: yStartSplit.unit });
-  console.log('Ystart: ', yStart);
-  console.log('checkBoxYstart: ', checkBoxYstart);
+  // console.log('Ystart: ', yStart);
+  // console.log('checkBoxYstart: ', checkBoxYstart);
   return (
     <div className='noselect'>
       <span style={{ position: 'absolute', left: xStart, top: yStart }}>{name}</span>
