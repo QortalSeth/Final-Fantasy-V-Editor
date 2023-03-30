@@ -11,9 +11,9 @@ import { Provider, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 import { store } from '../redux/store';
 import './App.css';
-import { MainMenu } from '../pages/MainPage/MainMenu';
-import SpellEditor from '../pages/ModelEditors/SpellEditor/SpellEditor';
-import TextEditor from '../pages/TextEditor/TextEditor';
+import { MainMenu } from '../components/pages/MainPage/MainMenu';
+import SpellEditor from '../components/pages/ModelEditors/SpellEditor/SpellEditor';
+import TextEditor from '../components/pages/TextEditor/TextEditor';
 
 // const router = createHashRouter(
 //   createRoutesFromElements(
@@ -23,7 +23,6 @@ import TextEditor from '../pages/TextEditor/TextEditor';
 //     </Route>
 //   )
 // );
-
 export default function App() {
   return (
     <Provider store={store}>

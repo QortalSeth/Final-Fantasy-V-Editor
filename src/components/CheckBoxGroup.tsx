@@ -21,7 +21,21 @@ export const CheckBoxGroup = ({
   border = '2px solid gray',
 }: CheckBoxGroupProps) => {
   const yStartSplit = numberUnitSplit(yStart);
-  const checkBoxYstart = numberUnitCombine({ number: yStartSplit.number + 2.5, unit: yStartSplit.unit });
+  const unitAddAmount = (unit: string) => {
+    switch (unit) {
+      case 'px':
+        return 23;
+      case 'vh':
+        return 2.5;
+      default:
+        return 0;
+    }
+  };
+  const checkBoxYstart = numberUnitCombine({
+    number: yStartSplit.number + unitAddAmount(yStartSplit.unit),
+    unit: yStartSplit.unit,
+  });
+
   // console.log('Ystart: ', yStart);
   // console.log('checkBoxYstart: ', checkBoxYstart);
   return (

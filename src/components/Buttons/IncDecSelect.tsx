@@ -2,7 +2,7 @@ import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import CSS from 'csstype';
 import Select, { ActionMeta, OnChangeValue, SelectInstance } from 'react-select';
 import { ObservableItem } from 'src/models/ObservableItem';
-import incDecButtons, { IncDecButtons } from './IncDecButtons';
+import { IncDecButtons } from './IncDecButtons';
 
 const debugIncDecSelect = false;
 type SelectType = ObservableItem;
@@ -64,6 +64,7 @@ export const IncDecSelect = forwardRef(
           if (debugIncDecSelect) console.log('high check new index is: ', newIndex);
           newIndex = Math.max(newIndex, 0);
           if (debugIncDecSelect) console.log('low check new index is: ', newIndex);
+          if (debugIncDecSelect) console.log(options);
           selectRef.current.selectOption(options[newIndex]);
         }
       }

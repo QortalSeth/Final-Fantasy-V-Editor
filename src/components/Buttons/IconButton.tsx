@@ -75,7 +75,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
       onMouseLeave={() => (onMouseHeldDown ? stopRepeat() : undefined)}
     >
       <img src={icon} alt='' style={{ ...imageDefaultStyle, ...imageStyle }} />
-      {name}
+      <span>{name}</span>
     </button>
   );
 };

@@ -26,7 +26,7 @@ interface Props<T extends Model> {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => T;
 }
 
-export const spellTypes: ObservableItem[] = ObservableItem.setListIndexes([
+export const spellTypes: ObservableItem[] = ObservableItem.resetListIndexes([
   new ObservableItem('All', { name: smallCrystal, width: '30 px', height: '20 px' }),
   new ObservableItem('Magic Sword', { name: swordIcon, width: '30 px', height: '20 px' }),
   new ObservableItem('White', { name: whiteIcon, width: '30 px', height: '20 px' }),

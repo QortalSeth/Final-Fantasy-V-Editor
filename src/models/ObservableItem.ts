@@ -6,6 +6,8 @@ export interface IconData {
 }
 
 export class ObservableItem {
+  listIndex: number = 0;
+
   name: string = '';
 
   value: string = '';
@@ -16,11 +18,9 @@ export class ObservableItem {
 
   iconData: IconData = ObservableItem.emptyIconData;
 
-  listIndex: number = 0;
-
   chronologicalIndex: number = 0;
 
-  static setListIndexes = (list: ObservableItem[]) => {
+  static resetListIndexes = (list: ObservableItem[]) => {
     list.forEach((item, index) => {
       item.listIndex = index;
     });

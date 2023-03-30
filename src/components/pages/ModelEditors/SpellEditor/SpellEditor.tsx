@@ -8,7 +8,7 @@ import { Spells } from 'src/models/lists/Spells';
 import { ObservableItem } from 'src/models/ObservableItem';
 import { SingleValue } from 'react-select';
 import { CheckBoxWithDefaultProps } from 'src/components/CheckBoxes';
-import { CheckBoxGroup } from 'src/components/CheckBoxGroup';
+import CheckBoxGroups from 'src/components/pages/ModelEditors/SpellEditor/CheckboxGroups';
 import { DefaultTextfieldProp, DefaultTextfieldGrid, CustomTextfield, TextfieldWithDefault } from 'src/components/TextFields';
 import jsonData from 'assets/Text/Magic Parameter Labels.json';
 import {
@@ -17,8 +17,9 @@ import {
   observableParameterData,
   targetingCheckBoxes,
   textFieldProps,
-} from 'src/pages/ModelEditors/SpellEditor/SpellEditorData';
+} from 'src/components/pages/ModelEditors/SpellEditor/SpellEditorData';
 import { createObservableParameterLabels, ParameterLabel } from 'src/models/ParameterLabel';
+import WithResponsiveSize from 'src/components/pages/ModelEditors/WithResponsiveSize';
 
 const debugSpellEditor = false;
 export const SpellEditor: React.FC = () => {
@@ -44,6 +45,8 @@ export const SpellEditor: React.FC = () => {
         const selectedValue = v;
         if (selectedValue) {
           const filteredSpells = spells;
+          filteredSpells.resetListIndexes();
+
           switch (selectedValue.name) {
             case 'Magic Sword':
               filteredSpells.models = spells.models.filter((spell) => {
@@ -108,7 +111,7 @@ export const SpellEditor: React.FC = () => {
             default:
               filteredSpells.models = spells.models;
           }
-          filteredSpells.resetListIndexes();
+
           setDisplayedSpells(filteredSpells); // THIS LINE ACTIVATES CHANGELISTENER DUE TO STATE UPDATE
           // console.log('filtered Spells: ', filteredSpells);
         }
@@ -121,7 +124,7 @@ export const SpellEditor: React.FC = () => {
       { minValue: 0, maxValue: 0xff, labelText: parameter3, textFieldStyle },
     ];
 
-    const parameterStyle = { display: 'block', justifySelf: 'right' };
+    const parameterStyle = { display: 'block', alignSelf: 'center', justifySelf: 'right' };
     return (
       <div>
         <div style={{ position: 'fixed', top: '0', height: '5%' }}>
@@ -142,16 +145,7 @@ export const SpellEditor: React.FC = () => {
             divStyle={{ position: 'fixed', top: '5%', width: '40vw', bottom: '0', backgroundColor: '#e0e0e0' }}
           />
         </div>
-        <CheckBoxGroup xStart='41vw' yStart='3.8vh' checkBoxes={targetingCheckBoxes} width='45vw' columns={2} name='Targeting' />
-        <CheckBoxGroup
-          xStart='41vw'
-          yStart='17vh'
-          checkBoxes={attackTypeCheckBoxes}
-          width='45vw'
-          columns={2}
-          name='Attack Type'
-        />
-        <CheckBoxGroup xStart='41vw' yStart='30vh' checkBoxes={miscCheckBoxes} width='45vw' columns={2} name='Miscellaneous' />
+        <CheckBoxGroups />
         <DefaultTextfieldGrid
           textfieldProps={textFieldProps}
           gridStyle={{
@@ -171,7 +165,7 @@ export const SpellEditor: React.FC = () => {
             left: '41vw',
             top: '50vh',
             width: '58vw',
-            gridTemplateColumns: '11vw 40vw',
+            gridTemplateColumns: '18vw 40vw',
             border: '2px solid blue',
             gap: '5px',
           }}
@@ -179,10 +173,10 @@ export const SpellEditor: React.FC = () => {
           <IncDecSelect
             options={observableParameterData}
             divStyle={{ gridColumn: 'span 2' }}
-            selectStyle={{ width: '40vw' }}
+            selectStyle={{ width: '50vw' }}
             incDecStyle={{ width: '3vw' }}
           />
-          <span style={{ ...parameterStyle, marginTop: '1vh' }}>{parameter1}</span>
+          <span style={{ ...parameterStyle }}>{parameter1}</span>
           <TextfieldWithDefault labelText='' minValue={0} maxValue={0xff} style={{ display: 'flex', padding: '0px' }} />
           <span style={{ ...parameterStyle, marginTop: '0.6vh' }}>{parameter2}</span>
           <TextfieldWithDefault
@@ -205,4 +199,4 @@ export const SpellEditor: React.FC = () => {
   return <span />;
 };
 
-export default SpellEditor;
+export default WithResponsiveSize(SpellEditor);

@@ -68,7 +68,9 @@ body {
 .iconMenu{
   background-color:#e0e0e0;
 }
-span{font-size: 20px}
+
+
+
 .iconMenu:hover{
   background-color: rgba(0, 120, 215, 0.3);
 }

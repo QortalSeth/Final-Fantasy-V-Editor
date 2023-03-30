@@ -8,7 +8,7 @@ import { processPointers } from 'src/models/text/ReadText';
 import { getNextTriple, inferNextTriple, pointerInROM, setOffset } from 'src/utils/StoreAccess';
 import swordIcon from 'assets/Images/TextIcons/00 - Sword Icon.png';
 import IncDecInput from 'src/components/Buttons/IncDecInput';
-import IncDecSelect, { IncDecProps, IncDecSelectRef } from '../../components/Buttons/IncDecSelect';
+import IncDecSelect, { IncDecProps, IncDecSelectRef } from '../../Buttons/IncDecSelect';
 
 export const TextPointerReader: React.FC = () => {
   const pointerTextField = useRef<BaseTextfieldRef>(null);
@@ -68,7 +68,7 @@ export const TextPointerReader: React.FC = () => {
   };
   console.log('weapon icon type is: ', typeof weaponIcon);
 
-  const options = ObservableItem.setListIndexes([new ObservableItem('2'), new ObservableItem('3')]);
+  const options = ObservableItem.resetListIndexes([new ObservableItem('2'), new ObservableItem('3')]);
 
   return (
     <div style={gridStyle}>

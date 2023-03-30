@@ -3,6 +3,7 @@
   "name": "0",
   "Dmodels": [
    {
+    "listIndex": 0,
     "name": "Fire",
     "value": "Fire",
     "label": "Fire",
@@ -11,7 +12,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117056,
     "nameData": {
@@ -33,6 +33,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Ice",
     "value": "Ice",
     "label": "Ice",
@@ -41,7 +42,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117064,
     "nameData": {
@@ -63,6 +63,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Bolt",
     "value": "Bolt",
     "label": "Bolt",
@@ -71,7 +72,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117072,
     "nameData": {
@@ -93,6 +93,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Venom",
     "value": "Venom",
     "label": "Venom",
@@ -101,7 +102,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117080,
     "nameData": {
@@ -123,6 +123,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "Mute",
     "value": "Mute",
     "label": "Mute",
@@ -131,7 +132,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117088,
     "nameData": {
@@ -153,6 +153,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "Sleep",
     "value": "Sleep",
     "label": "Sleep",
@@ -161,7 +162,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117096,
     "nameData": {
@@ -183,6 +183,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "Fire2",
     "value": "Fire2",
     "label": "Fire2",
@@ -191,7 +192,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117104,
     "nameData": {
@@ -213,6 +213,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Ice2",
     "value": "Ice2",
     "label": "Ice2",
@@ -221,7 +222,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117112,
     "nameData": {
@@ -243,6 +243,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Bolt2",
     "value": "Bolt2",
     "label": "Bolt2",
@@ -251,7 +252,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117120,
     "nameData": {
@@ -273,6 +273,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Drain",
     "value": "Drain",
     "label": "Drain",
@@ -281,7 +282,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117128,
     "nameData": {
@@ -303,6 +303,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "Break",
     "value": "Break",
     "label": "Break",
@@ -311,7 +312,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117136,
     "nameData": {
@@ -333,6 +333,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "Bio",
     "value": "Bio",
     "label": "Bio",
@@ -341,7 +342,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117144,
     "nameData": {
@@ -363,6 +363,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Fire3",
     "value": "Fire3",
     "label": "Fire3",
@@ -371,7 +372,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117152,
     "nameData": {
@@ -393,6 +393,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Ice3",
     "value": "Ice3",
     "label": "Ice3",
@@ -401,7 +402,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117160,
     "nameData": {
@@ -423,6 +423,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Bolt3",
     "value": "Bolt3",
     "label": "Bolt3",
@@ -431,7 +432,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117168,
     "nameData": {
@@ -453,6 +453,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Holy",
     "value": "Holy",
     "label": "Holy",
@@ -461,7 +462,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117176,
     "nameData": {
@@ -483,6 +483,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Flare",
     "value": "Flare",
     "label": "Flare",
@@ -491,7 +492,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117184,
     "nameData": {
@@ -513,6 +513,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "Psych",
     "value": "Psych",
     "label": "Psych",
@@ -521,7 +522,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117192,
     "nameData": {
@@ -543,6 +543,7 @@
     "parameter3": 32
    },
    {
+    "listIndex": 0,
     "name": "Cure",
     "value": "Cure",
     "label": "Cure",
@@ -551,7 +552,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117200,
     "nameData": {
@@ -573,6 +573,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Scan",
     "value": "Scan",
     "label": "Scan",
@@ -581,7 +582,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117208,
     "nameData": {
@@ -603,6 +603,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Antdt",
     "value": "Antdt",
     "label": "Antdt",
@@ -611,7 +612,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117216,
     "nameData": {
@@ -633,6 +633,7 @@
     "parameter3": 255
    },
    {
+    "listIndex": 0,
     "name": "Mute",
     "value": "Mute",
     "label": "Mute",
@@ -641,7 +642,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117224,
     "nameData": {
@@ -663,6 +663,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "Armor",
     "value": "Armor",
     "label": "Armor",
@@ -671,7 +672,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117232,
     "nameData": {
@@ -693,6 +693,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "Size",
     "value": "Size",
     "label": "Size",
@@ -701,7 +702,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117240,
     "nameData": {
@@ -723,6 +723,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "Cure2",
     "value": "Cure2",
     "label": "Cure2",
@@ -731,7 +732,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117248,
     "nameData": {
@@ -753,6 +753,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Life",
     "value": "Life",
     "label": "Life",
@@ -761,7 +762,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117256,
     "nameData": {
@@ -783,6 +783,7 @@
     "parameter3": 1
    },
    {
+    "listIndex": 0,
     "name": "Charm",
     "value": "Charm",
     "label": "Charm",
@@ -791,7 +792,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117264,
     "nameData": {
@@ -813,6 +813,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "Image",
     "value": "Image",
     "label": "Image",
@@ -821,7 +822,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117272,
     "nameData": {
@@ -843,6 +843,7 @@
     "parameter3": 2
    },
    {
+    "listIndex": 0,
     "name": "Shell",
     "value": "Shell",
     "label": "Shell",
@@ -851,7 +852,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117280,
     "nameData": {
@@ -873,6 +873,7 @@
     "parameter3": 32
    },
    {
+    "listIndex": 0,
     "name": "Heal",
     "value": "Heal",
     "label": "Heal",
@@ -881,7 +882,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117288,
     "nameData": {
@@ -903,6 +903,7 @@
     "parameter3": 255
    },
    {
+    "listIndex": 0,
     "name": "Cure3",
     "value": "Cure3",
     "label": "Cure3",
@@ -911,7 +912,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117296,
     "nameData": {
@@ -933,6 +933,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Wall",
     "value": "Wall",
     "label": "Wall",
@@ -941,7 +942,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117304,
     "nameData": {
@@ -963,6 +963,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "Bersk",
     "value": "Bersk",
     "label": "Bersk",
@@ -971,7 +972,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117312,
     "nameData": {
@@ -993,6 +993,7 @@
     "parameter3": 8
    },
    {
+    "listIndex": 0,
     "name": "Life2",
     "value": "Life2",
     "label": "Life2",
@@ -1001,7 +1002,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117320,
     "nameData": {
@@ -1023,6 +1023,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "Holy",
     "value": "Holy",
     "label": "Holy",
@@ -1031,7 +1032,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117328,
     "nameData": {
@@ -1053,6 +1053,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "Dispel",
     "value": "Dispel",
     "label": "Dispel",
@@ -1061,7 +1062,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117336,
     "nameData": {
@@ -1083,6 +1083,7 @@
     "parameter3": 2
    },
    {
+    "listIndex": 0,
     "name": "Fire",
     "value": "Fire",
     "label": "Fire",
@@ -1091,7 +1092,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117344,
     "nameData": {
@@ -1113,6 +1113,7 @@
     "parameter3": 1
    },
    {
+    "listIndex": 0,
     "name": "Ice",
     "value": "Ice",
     "label": "Ice",
@@ -1121,7 +1122,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117352,
     "nameData": {
@@ -1143,6 +1143,7 @@
     "parameter3": 2
    },
    {
+    "listIndex": 0,
     "name": "Bolt",
     "value": "Bolt",
     "label": "Bolt",
@@ -1151,7 +1152,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117360,
     "nameData": {
@@ -1173,6 +1173,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "Venom",
     "value": "Venom",
     "label": "Venom",
@@ -1181,7 +1182,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117368,
     "nameData": {
@@ -1203,6 +1203,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "Sleep",
     "value": "Sleep",
     "label": "Sleep",
@@ -1211,7 +1212,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117376,
     "nameData": {
@@ -1233,6 +1233,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "Toad",
     "value": "Toad",
     "label": "Toad",
@@ -1241,7 +1242,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117384,
     "nameData": {
@@ -1263,6 +1263,7 @@
     "parameter3": 32
    },
    {
+    "listIndex": 0,
     "name": "Fire2",
     "value": "Fire2",
     "label": "Fire2",
@@ -1271,7 +1272,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117392,
     "nameData": {
@@ -1293,6 +1293,7 @@
     "parameter3": 1
    },
    {
+    "listIndex": 0,
     "name": "Ice2",
     "value": "Ice2",
     "label": "Ice2",
@@ -1301,7 +1302,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117400,
     "nameData": {
@@ -1323,6 +1323,7 @@
     "parameter3": 2
    },
    {
+    "listIndex": 0,
     "name": "Bolt2",
     "value": "Bolt2",
     "label": "Bolt2",
@@ -1331,7 +1332,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117408,
     "nameData": {
@@ -1353,6 +1353,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "Drain",
     "value": "Drain",
     "label": "Drain",
@@ -1361,7 +1362,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117416,
     "nameData": {
@@ -1383,6 +1383,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Break",
     "value": "Break",
     "label": "Break",
@@ -1391,7 +1392,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117424,
     "nameData": {
@@ -1413,6 +1413,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "Bio",
     "value": "Bio",
     "label": "Bio",
@@ -1421,7 +1422,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117432,
     "nameData": {
@@ -1443,6 +1443,7 @@
     "parameter3": 255
    },
    {
+    "listIndex": 0,
     "name": "Fire3",
     "value": "Fire3",
     "label": "Fire3",
@@ -1451,7 +1452,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117440,
     "nameData": {
@@ -1473,6 +1473,7 @@
     "parameter3": 1
    },
    {
+    "listIndex": 0,
     "name": "Ice3",
     "value": "Ice3",
     "label": "Ice3",
@@ -1481,7 +1482,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117448,
     "nameData": {
@@ -1503,6 +1503,7 @@
     "parameter3": 2
    },
    {
+    "listIndex": 0,
     "name": "Bolt3",
     "value": "Bolt3",
     "label": "Bolt3",
@@ -1511,7 +1512,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117456,
     "nameData": {
@@ -1533,6 +1533,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "Flare",
     "value": "Flare",
     "label": "Flare",
@@ -1541,7 +1542,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117464,
     "nameData": {
@@ -1563,6 +1563,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Doom",
     "value": "Doom",
     "label": "Doom",
@@ -1571,7 +1572,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117472,
     "nameData": {
@@ -1593,6 +1593,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "Psych",
     "value": "Psych",
     "label": "Psych",
@@ -1601,7 +1602,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117480,
     "nameData": {
@@ -1623,6 +1623,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Drag",
     "value": "Drag",
     "label": "Drag",
@@ -1631,7 +1632,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117488,
     "nameData": {
@@ -1653,6 +1653,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Slow",
     "value": "Slow",
     "label": "Slow",
@@ -1661,7 +1662,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117496,
     "nameData": {
@@ -1683,6 +1683,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "Regen",
     "value": "Regen",
     "label": "Regen",
@@ -1691,7 +1692,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117504,
     "nameData": {
@@ -1713,6 +1713,7 @@
     "parameter3": 1
    },
    {
+    "listIndex": 0,
     "name": "Void",
     "value": "Void",
     "label": "Void",
@@ -1721,7 +1722,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117512,
     "nameData": {
@@ -1743,6 +1743,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Haste",
     "value": "Haste",
     "label": "Haste",
@@ -1751,7 +1752,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117520,
     "nameData": {
@@ -1773,6 +1773,7 @@
     "parameter3": 8
    },
    {
+    "listIndex": 0,
     "name": "Float",
     "value": "Float",
     "label": "Float",
@@ -1781,7 +1782,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117528,
     "nameData": {
@@ -1803,6 +1803,7 @@
     "parameter3": 8
    },
    {
+    "listIndex": 0,
     "name": "Demi",
     "value": "Demi",
     "label": "Demi",
@@ -1811,7 +1812,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117536,
     "nameData": {
@@ -1833,6 +1833,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Stop",
     "value": "Stop",
     "label": "Stop",
@@ -1841,7 +1842,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117544,
     "nameData": {
@@ -1863,6 +1863,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "Exit",
     "value": "Exit",
     "label": "Exit",
@@ -1871,7 +1872,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117552,
     "nameData": {
@@ -1893,6 +1893,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Comet",
     "value": "Comet",
     "label": "Comet",
@@ -1901,7 +1902,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117560,
     "nameData": {
@@ -1923,6 +1923,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Slow2",
     "value": "Slow2",
     "label": "Slow2",
@@ -1931,7 +1932,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117568,
     "nameData": {
@@ -1953,6 +1953,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "Reset",
     "value": "Reset",
     "label": "Reset",
@@ -1961,7 +1962,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117576,
     "nameData": {
@@ -1983,6 +1983,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Qrter",
     "value": "Qrter",
     "label": "Qrter",
@@ -1991,7 +1992,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117584,
     "nameData": {
@@ -2013,6 +2013,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Hast2",
     "value": "Hast2",
     "label": "Hast2",
@@ -2021,7 +2022,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117592,
     "nameData": {
@@ -2043,6 +2043,7 @@
     "parameter3": 8
    },
    {
+    "listIndex": 0,
     "name": "Old",
     "value": "Old",
     "label": "Old",
@@ -2051,7 +2052,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117600,
     "nameData": {
@@ -2073,6 +2073,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "Meteo",
     "value": "Meteo",
     "label": "Meteo",
@@ -2081,7 +2082,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117608,
     "nameData": {
@@ -2103,6 +2103,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Quick",
     "value": "Quick",
     "label": "Quick",
@@ -2111,7 +2112,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117616,
     "nameData": {
@@ -2133,6 +2133,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "XZone",
     "value": "XZone",
     "label": "XZone",
@@ -2141,7 +2142,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117624,
     "nameData": {
@@ -2163,6 +2163,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Chocob",
     "value": "Chocob",
     "label": "Chocob",
@@ -2171,7 +2172,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117632,
     "nameData": {
@@ -2193,6 +2193,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Sylph",
     "value": "Sylph",
     "label": "Sylph",
@@ -2201,7 +2202,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117640,
     "nameData": {
@@ -2223,6 +2223,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Remora",
     "value": "Remora",
     "label": "Remora",
@@ -2231,7 +2232,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117648,
     "nameData": {
@@ -2253,6 +2253,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Shiva",
     "value": "Shiva",
     "label": "Shiva",
@@ -2261,7 +2262,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117656,
     "nameData": {
@@ -2283,6 +2283,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Ramuh",
     "value": "Ramuh",
     "label": "Ramuh",
@@ -2291,7 +2292,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117664,
     "nameData": {
@@ -2313,6 +2313,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Ifrit",
     "value": "Ifrit",
     "label": "Ifrit",
@@ -2321,7 +2322,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117672,
     "nameData": {
@@ -2343,6 +2343,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Titan",
     "value": "Titan",
     "label": "Titan",
@@ -2351,7 +2352,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117680,
     "nameData": {
@@ -2373,6 +2373,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Golem",
     "value": "Golem",
     "label": "Golem",
@@ -2381,7 +2382,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117688,
     "nameData": {
@@ -2403,6 +2403,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Shoat",
     "value": "Shoat",
     "label": "Shoat",
@@ -2411,7 +2412,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117696,
     "nameData": {
@@ -2433,6 +2433,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Crbnkl",
     "value": "Crbnkl",
     "label": "Crbnkl",
@@ -2441,7 +2442,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117704,
     "nameData": {
@@ -2463,6 +2463,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Syldra",
     "value": "Syldra",
     "label": "Syldra",
@@ -2471,7 +2472,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117712,
     "nameData": {
@@ -2493,6 +2493,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Odin",
     "value": "Odin",
     "label": "Odin",
@@ -2501,7 +2502,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117720,
     "nameData": {
@@ -2523,6 +2523,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Phenix",
     "value": "Phenix",
     "label": "Phenix",
@@ -2531,7 +2532,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117728,
     "nameData": {
@@ -2553,6 +2553,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Levia",
     "value": "Levia",
     "label": "Levia",
@@ -2561,7 +2562,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117736,
     "nameData": {
@@ -2583,6 +2583,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Bahmut",
     "value": "Bahmut",
     "label": "Bahmut",
@@ -2591,7 +2592,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117744,
     "nameData": {
@@ -2613,6 +2613,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Power",
     "value": "Power",
     "label": "Power",
@@ -2621,7 +2622,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117752,
     "nameData": {
@@ -2643,6 +2643,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "Speed",
     "value": "Speed",
     "label": "Speed",
@@ -2651,7 +2652,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117760,
     "nameData": {
@@ -2673,6 +2673,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "Vitality",
     "value": "Vitality",
     "label": "Vitality",
@@ -2681,7 +2682,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117768,
     "nameData": {
@@ -2703,6 +2703,7 @@
     "parameter3": 1
    },
    {
+    "listIndex": 0,
     "name": "Magic",
     "value": "Magic",
     "label": "Magic",
@@ -2711,7 +2712,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117776,
     "nameData": {
@@ -2733,6 +2733,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "Hero",
     "value": "Hero",
     "label": "Hero",
@@ -2741,7 +2742,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117784,
     "nameData": {
@@ -2763,6 +2763,7 @@
     "parameter3": 8
    },
    {
+    "listIndex": 0,
     "name": "Requiem",
     "value": "Requiem",
     "label": "Requiem",
@@ -2771,7 +2772,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117792,
     "nameData": {
@@ -2793,6 +2793,7 @@
     "parameter3": 255
    },
    {
+    "listIndex": 0,
     "name": "Love",
     "value": "Love",
     "label": "Love",
@@ -2801,7 +2802,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117800,
     "nameData": {
@@ -2823,6 +2823,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "Charm",
     "value": "Charm",
     "label": "Charm",
@@ -2831,7 +2832,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117808,
     "nameData": {
@@ -2853,6 +2853,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "ChocoboKick",
     "value": "ChocoboKick",
     "label": "ChocoboKick",
@@ -2861,7 +2862,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117816,
     "nameData": {
@@ -2883,6 +2883,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "WhisperingWind",
     "value": "WhisperingWind",
     "label": "WhisperingWind",
@@ -2891,7 +2892,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117824,
     "nameData": {
@@ -2913,6 +2913,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "LatchOn",
     "value": "LatchOn",
     "label": "LatchOn",
@@ -2921,7 +2922,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117832,
     "nameData": {
@@ -2943,6 +2943,7 @@
     "parameter3": 32
    },
    {
+    "listIndex": 0,
     "name": "DiamondDust",
     "value": "DiamondDust",
     "label": "DiamondDust",
@@ -2951,7 +2952,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117840,
     "nameData": {
@@ -2973,6 +2973,7 @@
     "parameter3": 2
    },
    {
+    "listIndex": 0,
     "name": "BoltofJudgement",
     "value": "BoltofJudgement",
     "label": "BoltofJudgement",
@@ -2981,7 +2982,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117848,
     "nameData": {
@@ -3003,6 +3003,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "Hellfire",
     "value": "Hellfire",
     "label": "Hellfire",
@@ -3011,7 +3012,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117856,
     "nameData": {
@@ -3033,6 +3033,7 @@
     "parameter3": 1
    },
    {
+    "listIndex": 0,
     "name": "RageoftheEarth",
     "value": "RageoftheEarth",
     "label": "RageoftheEarth",
@@ -3041,7 +3042,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117864,
     "nameData": {
@@ -3063,6 +3063,7 @@
     "parameter3": 32
    },
    {
+    "listIndex": 0,
     "name": "EarthWall",
     "value": "EarthWall",
     "label": "EarthWall",
@@ -3071,7 +3072,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117872,
     "nameData": {
@@ -3093,6 +3093,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "DemonsEye",
     "value": "DemonsEye",
     "label": "DemonsEye",
@@ -3101,7 +3102,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117880,
     "nameData": {
@@ -3123,6 +3123,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "RubyLight",
     "value": "RubyLight",
     "label": "RubyLight",
@@ -3131,7 +3132,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117888,
     "nameData": {
@@ -3153,6 +3153,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "Thunderstorm",
     "value": "Thunderstorm",
     "label": "Thunderstorm",
@@ -3161,7 +3162,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117896,
     "nameData": {
@@ -3183,6 +3183,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "TrueEdge",
     "value": "TrueEdge",
     "label": "TrueEdge",
@@ -3191,7 +3192,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117904,
     "nameData": {
@@ -3213,6 +3213,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "FireofResurrection",
     "value": "FireofResurrection",
     "label": "FireofResurrection",
@@ -3221,7 +3222,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117912,
     "nameData": {
@@ -3243,6 +3243,7 @@
     "parameter3": 1
    },
    {
+    "listIndex": 0,
     "name": "BigWave",
     "value": "BigWave",
     "label": "BigWave",
@@ -3251,7 +3252,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117920,
     "nameData": {
@@ -3273,6 +3273,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "MegaFlare",
     "value": "MegaFlare",
     "label": "MegaFlare",
@@ -3281,7 +3282,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117928,
     "nameData": {
@@ -3303,6 +3303,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "FatChocobo",
     "value": "FatChocobo",
     "label": "FatChocobo",
@@ -3311,7 +3312,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117936,
     "nameData": {
@@ -3333,6 +3333,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Gungnir",
     "value": "Gungnir",
     "label": "Gungnir",
@@ -3341,7 +3342,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117944,
     "nameData": {
@@ -3363,6 +3363,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "FireofResurrection",
     "value": "FireofResurrection",
     "label": "FireofResurrection",
@@ -3371,7 +3372,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117952,
     "nameData": {
@@ -3393,6 +3393,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "DragonSword1",
     "value": "DragonSword1",
     "label": "DragonSword1",
@@ -3401,7 +3402,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117960,
     "nameData": {
@@ -3423,6 +3423,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "DragonSword2",
     "value": "DragonSword2",
     "label": "DragonSword2",
@@ -3431,7 +3432,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117968,
     "nameData": {
@@ -3453,6 +3453,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "EggChop",
     "value": "EggChop",
     "label": "EggChop",
@@ -3461,7 +3462,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117976,
     "nameData": {
@@ -3483,6 +3483,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "ItemMagic05",
     "value": "ItemMagic05",
     "label": "ItemMagic05",
@@ -3491,7 +3492,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117984,
     "nameData": {
@@ -3513,6 +3513,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "ItemMagic06",
     "value": "ItemMagic06",
     "label": "ItemMagic06",
@@ -3521,7 +3522,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1117992,
     "nameData": {
@@ -3543,6 +3543,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "ItemMagic07",
     "value": "ItemMagic07",
     "label": "ItemMagic07",
@@ -3551,7 +3552,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118000,
     "nameData": {
@@ -3573,6 +3573,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "ItemMagic08",
     "value": "ItemMagic08",
     "label": "ItemMagic08",
@@ -3581,7 +3582,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118008,
     "nameData": {
@@ -3603,6 +3603,7 @@
     "parameter3": 17
    },
    {
+    "listIndex": 0,
     "name": "ItemMagic09",
     "value": "ItemMagic09",
     "label": "ItemMagic09",
@@ -3611,7 +3612,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118016,
     "nameData": {
@@ -3633,6 +3633,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "MysteryWaltz",
     "value": "MysteryWaltz",
     "label": "MysteryWaltz",
@@ -3641,7 +3642,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118024,
     "nameData": {
@@ -3663,6 +3663,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "JitterbugDuet",
     "value": "JitterbugDuet",
     "label": "JitterbugDuet",
@@ -3671,7 +3672,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118032,
     "nameData": {
@@ -3693,6 +3693,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "TemptingTango",
     "value": "TemptingTango",
     "label": "TemptingTango",
@@ -3701,7 +3702,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118040,
     "nameData": {
@@ -3723,6 +3723,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "MagicBarrier",
     "value": "MagicBarrier",
     "label": "MagicBarrier",
@@ -3731,7 +3732,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118048,
     "nameData": {
@@ -3753,6 +3753,7 @@
     "parameter3": 32
    },
    {
+    "listIndex": 0,
     "name": "SwordDance",
     "value": "SwordDance",
     "label": "SwordDance",
@@ -3761,7 +3762,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118056,
     "nameData": {
@@ -3783,6 +3783,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "IceAura",
     "value": "IceAura",
     "label": "IceAura",
@@ -3791,7 +3792,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118064,
     "nameData": {
@@ -3813,6 +3813,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Entangle",
     "value": "Entangle",
     "label": "Entangle",
@@ -3821,7 +3822,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118072,
     "nameData": {
@@ -3843,6 +3843,7 @@
     "parameter3": 32
    },
    {
+    "listIndex": 0,
     "name": "Fight",
     "value": "Fight",
     "label": "Fight",
@@ -3851,7 +3852,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118080,
     "nameData": {
@@ -3873,6 +3873,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Specialty",
     "value": "Specialty",
     "label": "Specialty",
@@ -3881,7 +3882,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118088,
     "nameData": {
@@ -3903,6 +3903,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Condemn",
     "value": "Condemn",
     "label": "Condemn",
@@ -3911,7 +3912,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118096,
     "nameData": {
@@ -3933,6 +3933,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "Roulette",
     "value": "Roulette",
     "label": "Roulette",
@@ -3941,7 +3942,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118104,
     "nameData": {
@@ -3963,6 +3963,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "AquaRake",
     "value": "AquaRake",
     "label": "AquaRake",
@@ -3971,7 +3972,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118112,
     "nameData": {
@@ -3993,6 +3993,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "L.5Doom",
     "value": "L.5Doom",
     "label": "L.5Doom",
@@ -4001,7 +4002,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118120,
     "nameData": {
@@ -4023,6 +4023,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "L.4Quarter",
     "value": "L.4Quarter",
     "label": "L.4Quarter",
@@ -4031,7 +4032,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118128,
     "nameData": {
@@ -4053,6 +4053,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "L.2Old",
     "value": "L.2Old",
     "label": "L.2Old",
@@ -4061,7 +4062,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118136,
     "nameData": {
@@ -4083,6 +4083,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "L.3Flare",
     "value": "L.3Flare",
     "label": "L.3Flare",
@@ -4091,7 +4092,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118144,
     "nameData": {
@@ -4113,6 +4113,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "FrogSong",
     "value": "FrogSong",
     "label": "FrogSong",
@@ -4121,7 +4122,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118152,
     "nameData": {
@@ -4143,6 +4143,7 @@
     "parameter3": 32
    },
    {
+    "listIndex": 0,
     "name": "TinySong",
     "value": "TinySong",
     "label": "TinySong",
@@ -4151,7 +4152,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118160,
     "nameData": {
@@ -4173,6 +4173,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "Flash",
     "value": "Flash",
     "label": "Flash",
@@ -4181,7 +4182,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118168,
     "nameData": {
@@ -4203,6 +4203,7 @@
     "parameter3": 1
    },
    {
+    "listIndex": 0,
     "name": "TimeSlip",
     "value": "TimeSlip",
     "label": "TimeSlip",
@@ -4211,7 +4212,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118176,
     "nameData": {
@@ -4233,6 +4233,7 @@
     "parameter3": 192
    },
    {
+    "listIndex": 0,
     "name": "MoonFlute",
     "value": "MoonFlute",
     "label": "MoonFlute",
@@ -4241,7 +4242,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118184,
     "nameData": {
@@ -4263,6 +4263,7 @@
     "parameter3": 8
    },
    {
+    "listIndex": 0,
     "name": "DeathClaw",
     "value": "DeathClaw",
     "label": "DeathClaw",
@@ -4271,7 +4272,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118192,
     "nameData": {
@@ -4293,6 +4293,7 @@
     "parameter3": 32
    },
    {
+    "listIndex": 0,
     "name": "Aero",
     "value": "Aero",
     "label": "Aero",
@@ -4301,7 +4302,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118200,
     "nameData": {
@@ -4323,6 +4323,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "Aero2",
     "value": "Aero2",
     "label": "Aero2",
@@ -4331,7 +4332,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118208,
     "nameData": {
@@ -4353,6 +4353,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "Aero3",
     "value": "Aero3",
     "label": "Aero3",
@@ -4361,7 +4362,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118216,
     "nameData": {
@@ -4383,6 +4383,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "Emission",
     "value": "Emission",
     "label": "Emission",
@@ -4391,7 +4392,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118224,
     "nameData": {
@@ -4413,6 +4413,7 @@
     "parameter3": 1
    },
    {
+    "listIndex": 0,
     "name": "GoblinPunch",
     "value": "GoblinPunch",
     "label": "GoblinPunch",
@@ -4421,7 +4422,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118232,
     "nameData": {
@@ -4443,6 +4443,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "DarkShock",
     "value": "DarkShock",
     "label": "DarkShock",
@@ -4451,7 +4452,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118240,
     "nameData": {
@@ -4473,6 +4473,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "GuardOff",
     "value": "GuardOff",
     "label": "GuardOff",
@@ -4481,7 +4482,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118248,
     "nameData": {
@@ -4503,6 +4503,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Fusion",
     "value": "Fusion",
     "label": "Fusion",
@@ -4511,7 +4512,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118256,
     "nameData": {
@@ -4533,6 +4533,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "MindBlast",
     "value": "MindBlast",
     "label": "MindBlast",
@@ -4541,7 +4542,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118264,
     "nameData": {
@@ -4563,6 +4563,7 @@
     "parameter3": 45
    },
    {
+    "listIndex": 0,
     "name": "Vampire",
     "value": "Vampire",
     "label": "Vampire",
@@ -4571,7 +4572,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118272,
     "nameData": {
@@ -4593,6 +4593,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "MagicHammer",
     "value": "MagicHammer",
     "label": "MagicHammer",
@@ -4601,7 +4602,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118280,
     "nameData": {
@@ -4623,6 +4623,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "BigGuard",
     "value": "BigGuard",
     "label": "BigGuard",
@@ -4631,7 +4632,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118288,
     "nameData": {
@@ -4653,6 +4653,7 @@
     "parameter3": 96
    },
    {
+    "listIndex": 0,
     "name": "Exploder",
     "value": "Exploder",
     "label": "Exploder",
@@ -4661,7 +4662,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118296,
     "nameData": {
@@ -4683,6 +4683,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "????",
     "value": "????",
     "label": "????",
@@ -4691,7 +4692,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118304,
     "nameData": {
@@ -4713,6 +4713,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Blowfish",
     "value": "Blowfish",
     "label": "Blowfish",
@@ -4721,7 +4722,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118312,
     "nameData": {
@@ -4743,6 +4743,7 @@
     "parameter3": 3
    },
    {
+    "listIndex": 0,
     "name": "WhiteWind",
     "value": "WhiteWind",
     "label": "WhiteWind",
@@ -4751,7 +4752,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118320,
     "nameData": {
@@ -4773,6 +4773,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Missile",
     "value": "Missile",
     "label": "Missile",
@@ -4781,7 +4782,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118328,
     "nameData": {
@@ -4803,6 +4803,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Kurururu!",
     "value": "Kurururu!",
     "label": "Kurururu!",
@@ -4811,7 +4812,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118336,
     "nameData": {
@@ -4833,6 +4833,7 @@
     "parameter3": 32
    },
    {
+    "listIndex": 0,
     "name": "LevelDown",
     "value": "LevelDown",
     "label": "LevelDown",
@@ -4841,7 +4842,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118344,
     "nameData": {
@@ -4863,6 +4863,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Escape",
     "value": "Escape",
     "label": "Escape",
@@ -4871,7 +4872,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118352,
     "nameData": {
@@ -4893,6 +4893,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "StalkerAttack",
     "value": "StalkerAttack",
     "label": "StalkerAttack",
@@ -4901,7 +4902,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118360,
     "nameData": {
@@ -4923,6 +4923,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "ByblosAttack",
     "value": "ByblosAttack",
     "label": "ByblosAttack",
@@ -4931,7 +4932,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118368,
     "nameData": {
@@ -4953,6 +4953,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "NoClue",
     "value": "NoClue",
     "label": "NoClue",
@@ -4961,7 +4962,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118376,
     "nameData": {
@@ -4983,6 +4983,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "GrandCross",
     "value": "GrandCross",
     "label": "GrandCross",
@@ -4991,7 +4992,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118384,
     "nameData": {
@@ -5013,6 +5013,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "DeltaAttack",
     "value": "DeltaAttack",
     "label": "DeltaAttack",
@@ -5021,7 +5022,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118392,
     "nameData": {
@@ -5043,6 +5043,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "InterceptorRocket",
     "value": "InterceptorRocket",
     "label": "InterceptorRocket",
@@ -5051,7 +5052,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118400,
     "nameData": {
@@ -5073,6 +5073,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "BarrierChange",
     "value": "BarrierChange",
     "label": "BarrierChange",
@@ -5081,7 +5082,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118408,
     "nameData": {
@@ -5103,6 +5103,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Regeneration",
     "value": "Regeneration",
     "label": "Regeneration",
@@ -5111,7 +5112,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118416,
     "nameData": {
@@ -5133,6 +5133,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "WindSlash",
     "value": "WindSlash",
     "label": "WindSlash",
@@ -5141,7 +5142,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118424,
     "nameData": {
@@ -5163,6 +5163,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "No-DamageMagic",
     "value": "No-DamageMagic",
     "label": "No-DamageMagic",
@@ -5171,7 +5172,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118432,
     "nameData": {
@@ -5193,6 +5193,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Targeting",
     "value": "Targeting",
     "label": "Targeting",
@@ -5201,7 +5202,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118440,
     "nameData": {
@@ -5223,6 +5223,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Gravity100",
     "value": "Gravity100",
     "label": "Gravity100",
@@ -5231,7 +5232,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118448,
     "nameData": {
@@ -5253,6 +5253,7 @@
     "parameter3": 255
    },
    {
+    "listIndex": 0,
     "name": "Darkness",
     "value": "Darkness",
     "label": "Darkness",
@@ -5261,7 +5262,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118456,
     "nameData": {
@@ -5283,6 +5283,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "ReapersSword",
     "value": "ReapersSword",
     "label": "ReapersSword",
@@ -5291,7 +5292,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118464,
     "nameData": {
@@ -5313,6 +5313,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "Punishment",
     "value": "Punishment",
     "label": "Punishment",
@@ -5321,7 +5322,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118472,
     "nameData": {
@@ -5343,6 +5343,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Blaster",
     "value": "Blaster",
     "label": "Blaster",
@@ -5351,7 +5352,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118480,
     "nameData": {
@@ -5373,6 +5373,7 @@
     "parameter3": 32
    },
    {
+    "listIndex": 0,
     "name": "Beak",
     "value": "Beak",
     "label": "Beak",
@@ -5381,7 +5382,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118488,
     "nameData": {
@@ -5403,6 +5403,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "Hug",
     "value": "Hug",
     "label": "Hug",
@@ -5411,7 +5412,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118496,
     "nameData": {
@@ -5433,6 +5433,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "Spore",
     "value": "Spore",
     "label": "Spore",
@@ -5441,7 +5442,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118504,
     "nameData": {
@@ -5463,6 +5463,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "PoisonBreath",
     "value": "PoisonBreath",
     "label": "PoisonBreath",
@@ -5471,7 +5472,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118512,
     "nameData": {
@@ -5493,6 +5493,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "DanceoftheDead",
     "value": "DanceoftheDead",
     "label": "DanceoftheDead",
@@ -5501,7 +5502,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118520,
     "nameData": {
@@ -5523,6 +5523,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "ZombiePowder",
     "value": "ZombiePowder",
     "label": "ZombiePowder",
@@ -5531,7 +5532,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118528,
     "nameData": {
@@ -5553,6 +5553,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "ZombieBreath",
     "value": "ZombieBreath",
     "label": "ZombieBreath",
@@ -5561,7 +5562,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118536,
     "nameData": {
@@ -5583,6 +5583,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Spirit",
     "value": "Spirit",
     "label": "Spirit",
@@ -5591,7 +5592,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118544,
     "nameData": {
@@ -5613,6 +5613,7 @@
     "parameter3": 2
    },
    {
+    "listIndex": 0,
     "name": "Allure",
     "value": "Allure",
     "label": "Allure",
@@ -5621,7 +5622,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118552,
     "nameData": {
@@ -5643,6 +5643,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "Entangle",
     "value": "Entangle",
     "label": "Entangle",
@@ -5651,7 +5652,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118560,
     "nameData": {
@@ -5673,6 +5673,7 @@
     "parameter3": 32
    },
    {
+    "listIndex": 0,
     "name": "RainbowWind",
     "value": "RainbowWind",
     "label": "RainbowWind",
@@ -5681,7 +5682,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118568,
     "nameData": {
@@ -5703,6 +5703,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "StrangeDance",
     "value": "StrangeDance",
     "label": "StrangeDance",
@@ -5711,7 +5712,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118576,
     "nameData": {
@@ -5733,6 +5733,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "ElectromagneticField",
     "value": "ElectromagneticField",
     "label": "ElectromagneticField",
@@ -5741,7 +5742,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118584,
     "nameData": {
@@ -5763,6 +5763,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "WhiteHole",
     "value": "WhiteHole",
     "label": "WhiteHole",
@@ -5771,7 +5772,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118592,
     "nameData": {
@@ -5793,6 +5793,7 @@
     "parameter3": 192
    },
    {
+    "listIndex": 0,
     "name": "Needle",
     "value": "Needle",
     "label": "Needle",
@@ -5801,7 +5802,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118600,
     "nameData": {
@@ -5823,6 +5823,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "Maelstrom",
     "value": "Maelstrom",
     "label": "Maelstrom",
@@ -5831,7 +5832,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118608,
     "nameData": {
@@ -5853,6 +5853,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Bone",
     "value": "Bone",
     "label": "Bone",
@@ -5861,7 +5862,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118616,
     "nameData": {
@@ -5883,6 +5883,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Tailscrew",
     "value": "Tailscrew",
     "label": "Tailscrew",
@@ -5891,7 +5892,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118624,
     "nameData": {
@@ -5913,6 +5913,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "StomachAcid",
     "value": "StomachAcid",
     "label": "StomachAcid",
@@ -5921,7 +5922,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118632,
     "nameData": {
@@ -5943,6 +5943,7 @@
     "parameter3": 120
    },
    {
+    "listIndex": 0,
     "name": "RocketPunch",
     "value": "RocketPunch",
     "label": "RocketPunch",
@@ -5951,7 +5952,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118640,
     "nameData": {
@@ -5973,6 +5973,7 @@
     "parameter3": 16
    },
    {
+    "listIndex": 0,
     "name": "MustardBomb",
     "value": "MustardBomb",
     "label": "MustardBomb",
@@ -5981,7 +5982,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118648,
     "nameData": {
@@ -6003,6 +6003,7 @@
     "parameter3": 120
    },
    {
+    "listIndex": 0,
     "name": "Almagest",
     "value": "Almagest",
     "label": "Almagest",
@@ -6011,7 +6012,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118656,
     "nameData": {
@@ -6033,6 +6033,7 @@
     "parameter3": 120
    },
    {
+    "listIndex": 0,
     "name": "Quicksand",
     "value": "Quicksand",
     "label": "Quicksand",
@@ -6041,7 +6042,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118664,
     "nameData": {
@@ -6063,6 +6063,7 @@
     "parameter3": 255
    },
    {
+    "listIndex": 0,
     "name": "AtomicRay",
     "value": "AtomicRay",
     "label": "AtomicRay",
@@ -6071,7 +6072,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118672,
     "nameData": {
@@ -6093,6 +6093,7 @@
     "parameter3": 1
    },
    {
+    "listIndex": 0,
     "name": "MiniBlaze",
     "value": "MiniBlaze",
     "label": "MiniBlaze",
@@ -6101,7 +6102,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118680,
     "nameData": {
@@ -6123,6 +6123,7 @@
     "parameter3": 2
    },
    {
+    "listIndex": 0,
     "name": "Snowstorm",
     "value": "Snowstorm",
     "label": "Snowstorm",
@@ -6131,7 +6132,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118688,
     "nameData": {
@@ -6153,6 +6153,7 @@
     "parameter3": 2
    },
    {
+    "listIndex": 0,
     "name": "Blaze",
     "value": "Blaze",
     "label": "Blaze",
@@ -6161,7 +6162,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118696,
     "nameData": {
@@ -6183,6 +6183,7 @@
     "parameter3": 120
    },
    {
+    "listIndex": 0,
     "name": "ElectricShock",
     "value": "ElectricShock",
     "label": "ElectricShock",
@@ -6191,7 +6192,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118704,
     "nameData": {
@@ -6213,6 +6213,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "EarthShaker",
     "value": "EarthShaker",
     "label": "EarthShaker",
@@ -6221,7 +6222,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118712,
     "nameData": {
@@ -6243,6 +6243,7 @@
     "parameter3": 32
    },
    {
+    "listIndex": 0,
     "name": "TrueEdge",
     "value": "TrueEdge",
     "label": "TrueEdge",
@@ -6251,7 +6252,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118720,
     "nameData": {
@@ -6273,6 +6273,7 @@
     "parameter3": 64
    },
    {
+    "listIndex": 0,
     "name": "TidalWave",
     "value": "TidalWave",
     "label": "TidalWave",
@@ -6281,7 +6282,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118728,
     "nameData": {
@@ -6303,6 +6303,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "MegaFlare",
     "value": "MegaFlare",
     "label": "MegaFlare",
@@ -6311,7 +6312,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118736,
     "nameData": {
@@ -6333,6 +6333,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "SonicWave",
     "value": "SonicWave",
     "label": "SonicWave",
@@ -6341,7 +6342,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118744,
     "nameData": {
@@ -6363,6 +6363,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Thread",
     "value": "Thread",
     "label": "Thread",
@@ -6371,7 +6372,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118752,
     "nameData": {
@@ -6393,6 +6393,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "Mucus",
     "value": "Mucus",
     "label": "Mucus",
@@ -6401,7 +6402,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118760,
     "nameData": {
@@ -6423,6 +6423,7 @@
     "parameter3": 4
    },
    {
+    "listIndex": 0,
     "name": "Quake",
     "value": "Quake",
     "label": "Quake",
@@ -6431,7 +6432,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118768,
     "nameData": {
@@ -6453,6 +6453,7 @@
     "parameter3": 32
    },
    {
+    "listIndex": 0,
     "name": "Fight",
     "value": "Fight",
     "label": "Fight",
@@ -6461,7 +6462,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118776,
     "nameData": {
@@ -6483,6 +6483,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Medicine",
     "value": "Medicine",
     "label": "Medicine",
@@ -6491,7 +6492,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118784,
     "nameData": {
@@ -6513,6 +6513,7 @@
     "parameter3": 255
    },
    {
+    "listIndex": 0,
     "name": "Image",
     "value": "Image",
     "label": "Image",
@@ -6521,7 +6522,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118792,
     "nameData": {
@@ -6543,6 +6543,7 @@
     "parameter3": 2
    },
    {
+    "listIndex": 0,
     "name": "BreathWing",
     "value": "BreathWing",
     "label": "BreathWing",
@@ -6551,7 +6552,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118800,
     "nameData": {
@@ -6573,6 +6573,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Flame",
     "value": "Flame",
     "label": "Flame",
@@ -6581,7 +6582,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118808,
     "nameData": {
@@ -6603,6 +6603,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Thunder",
     "value": "Thunder",
     "label": "Thunder",
@@ -6611,7 +6612,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118816,
     "nameData": {
@@ -6633,6 +6633,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "SurgeBeam",
     "value": "SurgeBeam",
     "label": "SurgeBeam",
@@ -6641,7 +6642,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118824,
     "nameData": {
@@ -6663,6 +6663,7 @@
     "parameter3": 255
    },
    {
+    "listIndex": 0,
     "name": "Explosion",
     "value": "Explosion",
     "label": "Explosion",
@@ -6671,7 +6672,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118832,
     "nameData": {
@@ -6693,6 +6693,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Remedy",
     "value": "Remedy",
     "label": "Remedy",
@@ -6701,7 +6702,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118840,
     "nameData": {
@@ -6723,6 +6723,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "ValiantAttack",
     "value": "ValiantAttack",
     "label": "ValiantAttack",
@@ -6731,7 +6732,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118848,
     "nameData": {
@@ -6753,6 +6753,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "GigaFlare",
     "value": "GigaFlare",
     "label": "GigaFlare",
@@ -6761,7 +6762,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118856,
     "nameData": {
@@ -6783,6 +6783,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Circle",
     "value": "Circle",
     "label": "Circle",
@@ -6791,7 +6792,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118864,
     "nameData": {
@@ -6813,6 +6813,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "Wormhole",
     "value": "Wormhole",
     "label": "Wormhole",
@@ -6821,7 +6822,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118872,
     "nameData": {
@@ -6843,6 +6843,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "Possess",
     "value": "Possess",
     "label": "Possess",
@@ -6851,7 +6852,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118880,
     "nameData": {
@@ -6873,6 +6873,7 @@
     "parameter3": 128
    },
    {
+    "listIndex": 0,
     "name": "Dynamo",
     "value": "Dynamo",
     "label": "Dynamo",
@@ -6881,7 +6882,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118888,
     "nameData": {
@@ -6903,6 +6903,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Magnet",
     "value": "Magnet",
     "label": "Magnet",
@@ -6911,7 +6912,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118896,
     "nameData": {
@@ -6933,6 +6933,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "ReversePolarity",
     "value": "ReversePolarity",
     "label": "ReversePolarity",
@@ -6941,7 +6942,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118904,
     "nameData": {
@@ -6963,6 +6963,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Jump",
     "value": "Jump",
     "label": "Jump",
@@ -6971,7 +6972,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118912,
     "nameData": {
@@ -6993,6 +6993,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "X-Zone",
     "value": "X-Zone",
     "label": "X-Zone",
@@ -7001,7 +7002,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118920,
     "nameData": {
@@ -7023,6 +7023,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "Hurricane",
     "value": "Hurricane",
     "label": "Hurricane",
@@ -7031,7 +7032,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118928,
     "nameData": {
@@ -7053,6 +7053,7 @@
     "parameter3": 0
    },
    {
+    "listIndex": 0,
     "name": "DemonsEye",
     "value": "DemonsEye",
     "label": "DemonsEye",
@@ -7061,7 +7062,6 @@
      "width": "30px",
      "height": "20px"
     },
-    "listIndex": 0,
     "chronologicalIndex": 0,
     "offset": 1118936,
     "nameData": {

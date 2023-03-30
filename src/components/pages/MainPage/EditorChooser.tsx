@@ -13,7 +13,7 @@ import enemyIcon from 'assets/Images/Gilgamesh.png';
 import textIcon from 'assets/Images/Text.png';
 
 import { initializeDmodels, initializeModels } from 'src/models/Utils/ModelsManager';
-import IconButton, { IconButtonProps } from '../../components/Buttons/IconButton';
+import IconButton, { IconButtonProps } from '../../Buttons/IconButton';
 
 export const EditorChooser = () => {
   const defaultROM = 'assets/Final Fantasy V translated.smc';

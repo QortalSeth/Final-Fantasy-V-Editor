@@ -58,8 +58,8 @@ export const CheckBoxWithDefault = React.forwardRef<CheckboxRef, CheckBoxWithDef
       <div>
         <label htmlFor={labelText} style={{ ...defaultStyle, ...labelStyle }} className='noselect'>
           <input type='checkbox' id={labelText} checked={checked} ref={mainRef} onChange={(e) => setChecked(!checked)} />
-          <input type='checkbox' id='' checked={defaultChecked} ref={defaultRef} disabled />
-          {labelText}
+          <input type='checkbox' id='' checked={defaultChecked} ref={defaultRef} disabled style={{ marginRight: '5px' }} />
+          <span>{labelText}</span>
         </label>
       </div>
     );

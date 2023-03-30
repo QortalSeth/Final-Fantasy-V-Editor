@@ -3,7 +3,7 @@ import { readTextBulkFixedLength, readTextBulkVarLength } from 'src/models/text/
 import { BaseTextfieldRef, PointerTextfield } from 'src/components/TextFields';
 import { pointerToOffset } from 'src/components/TextFieldFunctions';
 import { defaultEndText, TextData } from 'src/models/text/TextManager';
-import IncDecInput from '../../components/Buttons/IncDecInput';
+import IncDecInput from '../../Buttons/IncDecInput';
 
 export const TextOffsetReader: React.FC = () => {
   const [disableFixedLength, setDisableFixedLength] = useState(false);
