@@ -8,7 +8,13 @@ import { processPointers } from 'src/models/text/ReadText';
 import { getNextTriple, inferNextTriple, pointerInROM, setOffset } from 'src/utils/StoreAccess';
 import swordIcon from 'assets/Images/TextIcons/00 - Sword Icon.png';
 import IncDecInput from 'src/components/Buttons/IncDecInput';
-import IncDecSelect, { IncDecProps, IncDecSelectRef } from '../../Buttons/IncDecSelect';
+import {
+  buttonHalf2ndColumnStyle,
+  labelStyle,
+  textAreaLarge2Col,
+  textAreaMediumStyle2ndC,
+} from 'src/components/pages/ModelEditors/TextEditor/TextEditorStyles';
+import IncDecSelect, { IncDecProps, IncDecSelectRef } from '../../../Buttons/IncDecSelect';
 
 export const TextPointerReader: React.FC = () => {
   const pointerTextField = useRef<BaseTextfieldRef>(null);
@@ -20,11 +26,9 @@ export const TextPointerReader: React.FC = () => {
   const gridStyle = {
     display: 'grid',
     gridTemplateColumns: '25% auto',
-    gridGap: '0px',
-    width: '100%',
-    minHeight: '30px',
+    gridGap: '5px',
+    paddingTop: '5px',
   };
-  const labelStyle = { justifySelf: 'right', marginRight: '3px', alignSelf: 'center' };
 
   const refStringToNumber = (ref: BaseTextfieldRef) => {
     // Used to check if reading single or multiple lines of text
@@ -66,33 +70,24 @@ export const TextPointerReader: React.FC = () => {
       );
     }
   };
-  console.log('weapon icon type is: ', typeof weaponIcon);
 
   const options = ObservableItem.resetListIndexes([new ObservableItem('2'), new ObservableItem('3')]);
-
+  const incDecInputSize = { buttonWidth: '3vw', inputWidth: '10vw', height: '4vh' };
   return (
     <div style={gridStyle}>
       <span style={labelStyle}>Location to read:</span>
-      <PointerTextfield ref={pointerTextField} textFieldStyle={{ width: '100px' }} />
+      <PointerTextfield ref={pointerTextField} textFieldStyle={{ width: '12.75vw', height: '3.5vh' }} />
       <span style={labelStyle}>Pointer Size:</span>
-      <IncDecSelect
-        selectStyle={{ width: '75px', height: '40px' }}
-        initialValue={options[0]}
-        options={options}
-        ref={textLength}
-      />
+      <IncDecSelect size={incDecInputSize} options={options} ref={textLength} />
 
       <span style={labelStyle}># to Read:</span>
-      <IncDecInput ref={stringsToReadCount} minValue={1} maxValue={9999} />
-      <button type='button' style={{ width: '30%', height: '30px', gridColumnStart: '2' }} onClick={(e) => readTextPointers()}>
-        Read Pointer Table
+      <IncDecInput ref={stringsToReadCount} minValue={1} maxValue={9999} size={incDecInputSize} />
+      <button type='button' style={buttonHalf2ndColumnStyle} onClick={(e) => readTextPointers()}>
+        <span>Read Pointers</span>
       </button>
-
-      <textarea
-        ref={textToRead}
-        style={{ resize: 'none', height: '500px', marginTop: '5px', gridColumn: 'span 2' }}
-        spellCheck={false}
-      />
+      <div style={{ gridColumn: 'span 2', textAlign: 'center' }}>
+        <textarea ref={textToRead} style={textAreaLarge2Col} spellCheck={false} />
+      </div>
     </div>
   );
 };

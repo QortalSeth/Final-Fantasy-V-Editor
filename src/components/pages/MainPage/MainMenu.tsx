@@ -1,6 +1,4 @@
 import React from 'react';
-
-import CSS from 'csstype';
 import icon from 'assets/Images/Title Screen.png';
 import EditorChooser from './EditorChooser';
 
@@ -15,7 +13,7 @@ export const MainMenu = () => {
     <div>
       <EditorChooser />
       {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
-      <img src={icon} className='fillImage' alt='' style={imageStyle} draggable={false} onMouseDown={() => false} />
+      <img src={icon} alt='' style={imageStyle} draggable={false} onMouseDown={() => false} />
     </div>
   );
 };

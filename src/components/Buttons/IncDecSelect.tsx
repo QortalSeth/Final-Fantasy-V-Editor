@@ -2,6 +2,7 @@ import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import CSS from 'csstype';
 import Select, { ActionMeta, OnChangeValue, SelectInstance } from 'react-select';
 import { ObservableItem } from 'src/models/ObservableItem';
+import { addUnits, numberUnitSplit } from 'src/utils/NumberFormatConverter';
 import { IncDecButtons } from './IncDecButtons';
 
 const debugIncDecSelect = false;
@@ -14,6 +15,11 @@ export interface IncDecProps<T extends SelectType> {
   onChange?: (v: T) => void;
   isSearchable?: boolean;
   options: T[];
+  size: {
+    buttonWidth: string;
+    inputWidth: string;
+    height: string;
+  };
 }
 
 export type IncDecSelectRef = {
@@ -24,7 +30,7 @@ export type IncDecSelectRef = {
 
 export const IncDecSelect = forwardRef(
   <T extends SelectType>(
-    { divStyle = {}, selectStyle = {}, incDecStyle = {}, onChange, isSearchable = false, options }: IncDecProps<SelectType>,
+    { divStyle = {}, selectStyle = {}, incDecStyle = {}, onChange, isSearchable = false, options, size }: IncDecProps<SelectType>,
     ref?: React.Ref<IncDecSelectRef>
   ) => {
     const selectRef = useRef<SelectInstance<SelectType>>(null);
@@ -72,10 +78,18 @@ export const IncDecSelect = forwardRef(
     const borderColor = '#767676';
     const { backgroundColor } = selectStyle;
     if (debugIncDecSelect) console.log('background color is: ', backgroundColor);
-
+    const fullWidth = addUnits(size.buttonWidth, size.inputWidth);
     return (
-      <div style={{ display: 'flex', paddingTop: '2px', ...divStyle }}>
-        <IncDecButtons divStyle={incDecStyle} incListener={() => select(-1)} decListener={() => select(1)} eventType='click' />
+      <div style={{ display: 'flex', gap: '0px', padding: '0px', ...divStyle }}>
+        <IncDecButtons
+          divStyle={{ ...incDecStyle }}
+          buttonStyle={{ minHeight: '13px' }}
+          incListener={() => select(-1)}
+          decListener={() => select(1)}
+          eventType='click'
+          height={size.height}
+          width={size.buttonWidth}
+        />
 
         <Select
           options={options}
@@ -83,30 +97,47 @@ export const IncDecSelect = forwardRef(
           onChange={(v, a) => onChangeListener(v, a)}
           ref={selectRef}
           styles={{
+            input: (baseStyle) => ({ ...baseStyle }),
+            valueContainer: (baseStyle) => ({ ...baseStyle, paddingLeft: '0px', alignItems: 'center', textAlign: 'center' }),
+            singleValue: (baseStyle) => ({
+              ...baseStyle,
+              height: `calc(${size.height} - 2px)`,
+              minHeight: '20px',
+            }),
             control: (baseStyles) => ({
               ...baseStyles,
               ...selectStyle,
               borderColor,
+              width: `calc(${size.inputWidth} + 4px)`,
+              minHeight: '20px',
               '&:hover': { borderColor },
             }),
-            // menu: (baseStyle) => ({ ...baseStyle, height: '400px' }),
+            // menu: (baseStyle) => ({ ...baseStyle, paddingLeft: '0px' }),
             menuList: (baseStyle) => ({ ...baseStyle, backgroundColor }),
-            dropdownIndicator: (base) => ({ color: borderColor, width: '20px' }),
+            dropdownIndicator: (base) => ({ color: borderColor, width: '1.5%' }),
           }}
           formatOptionLabel={(option) => (
-            <div style={{ display: 'flex', verticalAlign: 'center', alignItems: 'center' }}>
+            <div
+              style={{
+                display: 'flex',
+                verticalAlign: 'center',
+                alignItems: 'center',
+                paddingLeft: '0px',
+                height: `calc(${size.height} - 2px)`,
+              }}
+            >
               {option.iconData.name ? (
                 <img
                   src={option.iconData.name}
                   alt='missing Icon'
                   width={option.iconData.width}
                   height={option.iconData.height}
-                  style={{ marginRight: '5px' }}
+                  style={{ marginRight: '1vw' }}
                 />
               ) : (
                 ''
               )}
-              <span style={{ fontSize: '20px' }}>{option.label}</span>
+              <span>{option.label}</span>
             </div>
           )}
           isSearchable={isSearchable}

@@ -3,53 +3,24 @@ import React from 'react';
 import { numberUnitCombine, numberUnitSplit } from 'src/utils/NumberFormatConverter';
 
 interface CheckBoxGroupProps {
-  xStart: string;
-  yStart: string;
   checkBoxes: CheckBoxWithDefaultProps[];
   width: string;
   name: string;
   columns: number;
   border?: string;
 }
-export const CheckBoxGroup = ({
-  xStart,
-  yStart,
-  checkBoxes,
-  width,
-  name,
-  columns,
-  border = '2px solid gray',
-}: CheckBoxGroupProps) => {
-  const yStartSplit = numberUnitSplit(yStart);
-  const unitAddAmount = (unit: string) => {
-    switch (unit) {
-      case 'px':
-        return 23;
-      case 'vh':
-        return 2.5;
-      default:
-        return 0;
-    }
-  };
-  const checkBoxYstart = numberUnitCombine({
-    number: yStartSplit.number + unitAddAmount(yStartSplit.unit),
-    unit: yStartSplit.unit,
-  });
-
-  // console.log('Ystart: ', yStart);
-  // console.log('checkBoxYstart: ', checkBoxYstart);
+export const CheckBoxGroup = ({ checkBoxes, width, name, columns, border = '2px solid gray' }: CheckBoxGroupProps) => {
   return (
     <div className='noselect'>
-      <span style={{ position: 'absolute', left: xStart, top: yStart }}>{name}</span>
+      <span>{name}</span>
       <div
         style={{
           display: 'grid',
-          position: 'absolute',
-          gridTemplateColumns: `repeat(${columns}, auto)`,
-          left: `${xStart}`,
-          top: `${checkBoxYstart}`,
+          gridTemplateColumns: `repeat(${columns}, 50%)`,
           width,
           border,
+          paddingLeft: '1vw',
+          paddingBottom: '0.5vw',
         }}
       >
         {checkBoxes.map((props) => {

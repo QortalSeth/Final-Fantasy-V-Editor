@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useImperativeHandle, useRef, useState } from 'react';
 import CSS from 'csstype';
 import IncDecButtons from 'src/components/Buttons/IncDecButtons';
-import { stringToNumber } from 'src/utils/NumberFormatConverter';
+import { divideUnits, stringToNumber } from 'src/utils/NumberFormatConverter';
 import { numListener, pointerListener } from './TextFieldFunctions';
 
 interface BaseProps extends React.HTMLProps<HTMLInputElement> {
@@ -44,9 +44,10 @@ export const BaseTextfield = React.forwardRef<BaseTextfieldRef, BaseProps>(
         {...props}
         onChange={(e) => setStateValue(listener(e, value, maxValue, minValue))}
         value={value}
-        style={{ fontSize: '16px', ...textFieldStyle }}
+        style={{ ...textFieldStyle, minHeight: '20px', padding: '0px' }}
         disabled={disabled}
         spellCheck={false}
+        type='text'
       />
     );
   }
@@ -163,14 +164,26 @@ export interface DefaultTextfieldProp extends React.HTMLProps<HTMLInputElement> 
   minValue: number;
   maxValue: number;
   labelText: string;
+  width: string;
+  height: string;
 }
 
 export const TextfieldWithDefault = React.forwardRef<TextfieldWithDefaultRef, DefaultTextfieldProp>(
   (
-    { textFieldStyle = {}, initialValue = '', minValue, maxValue, labelText, style = {}, ...props }: DefaultTextfieldProp,
+    {
+      textFieldStyle = {},
+      initialValue = '',
+      minValue,
+      maxValue,
+      labelText,
+      width,
+      height,
+      style = {},
+      ...props
+    }: DefaultTextfieldProp,
     ref
   ) => {
-    const defaultStyle = { width: '60px', height: '30px', marginRight: '8px' };
+    const defaultStyle = { marginRight: '1vw' };
     const mainRef = useRef<BaseTextfieldRef>(null);
     const defaultRef = useRef<BaseTextfieldRef>(null);
     const getMainRef = () => {
@@ -207,27 +220,29 @@ export const TextfieldWithDefault = React.forwardRef<TextfieldWithDefaultRef, De
     };
 
     return (
-      <div style={{ padding: '5px', display: 'contents', ...style }}>
+      <div style={{ display: 'contents', ...style }}>
         <span
           style={{
             justifySelf: 'right',
             alignSelf: 'center',
-            marginRight: '5px',
+            marginRight: '0.5vw',
           }}
         >
           {labelText}
         </span>
         <div style={{ display: 'flex' }}>
           <IncDecButtons
-            divStyle={{ width: '3vw', height: '100%' }}
+            divStyle={{}}
             incListener={() => incDecInputListener(1)}
             decListener={() => incDecInputListener(-1)}
+            width={divideUnits(width, 3)}
+            height={height}
           />
           <BaseTextfield
             id={labelText}
             {...props}
             ref={mainRef}
-            textFieldStyle={{ ...defaultStyle, ...textFieldStyle }}
+            textFieldStyle={{ ...defaultStyle, ...textFieldStyle, width, height }}
             initialValue={initialValue}
             listener={numListener}
             minValue={minValue}
@@ -238,7 +253,7 @@ export const TextfieldWithDefault = React.forwardRef<TextfieldWithDefaultRef, De
             id=''
             {...props}
             ref={defaultRef}
-            textFieldStyle={{ ...defaultStyle, ...textFieldStyle }}
+            textFieldStyle={{ ...defaultStyle, ...textFieldStyle, width, height }}
             initialValue={initialValue}
             listener={numListener}
             minValue={minValue}
@@ -268,6 +283,8 @@ export const DefaultTextfieldGrid = ({ textfieldProps = [], gridStyle = {}, colu
             maxValue={t.maxValue}
             labelText={t.labelText}
             textFieldStyle={t.textFieldStyle}
+            width={t.width}
+            height={t.height}
           />
         );
       })}

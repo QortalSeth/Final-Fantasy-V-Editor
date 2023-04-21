@@ -83,7 +83,7 @@ export const EditorChooser = () => {
     <div style={divStyle}>
       {buttonProps.map((props) => (
         // eslint-disable-next-line react/prop-types
-        <IconButton key={props.name} {...props} />
+        <IconButton className='button fontLarge' key={props.name} {...props} />
       ))}
     </div>
   );

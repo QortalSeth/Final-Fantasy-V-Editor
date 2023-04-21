@@ -4,6 +4,13 @@ import { arrayToHexByteString, arrayToHexPointerString, printHex, printHexByteAr
 import { getTriple } from 'src/utils/StoreAccess';
 import { textToBytes } from 'src/models/text/WriteText';
 import { romState } from 'src/redux/slices/ROM-Slice';
+import {
+  buttonMediumStyle2ndC,
+  grid2ColumnStyle,
+  labelStyle,
+  textAreaMediumStyle2ndC,
+  textAreaSmallStyle2ndC,
+} from 'src/components/pages/ModelEditors/TextEditor/TextEditorStyles';
 
 export const TextInputReader: React.FC = () => {
   const state = useSelector(romState);
@@ -13,14 +20,6 @@ export const TextInputReader: React.FC = () => {
   const textLocations = useRef<HTMLTextAreaElement>(null);
   const textPointers = useRef<HTMLTextAreaElement>(null);
   const debugTextReader = true;
-  const gridStyle = {
-    display: 'grid',
-    gridTemplateColumns: '25% auto',
-    gridGap: '0px',
-    width: '100%',
-    minHeight: '30px',
-  };
-  const labelStyle = { justifySelf: 'right', marginRight: '3px', alignSelf: 'center' };
 
   const displayedTextToBytes = (compress: boolean) => {
     if (textToRead.current && byteValues.current) {
@@ -113,38 +112,39 @@ export const TextInputReader: React.FC = () => {
   };
 
   const clearTextAreas = () => {
-    if (textLocations.current && textPointers.current) {
+    if (byteValues.current && textLocations.current && textPointers.current) {
+      byteValues.current.value = '';
       textLocations.current.value = '';
       textPointers.current.value = '';
     }
   };
   const processText = (compress: boolean) => {
-    const textBytes = displayedTextToBytes(compress);
-    clearTextAreas();
-    const locations = getLocations(textBytes);
-    getPointers(locations);
+    if (textToRead.current) {
+      if (textToRead.current.value !== '') {
+        const textBytes = displayedTextToBytes(compress);
+        // clearTextAreas();
+        const locations = getLocations(textBytes);
+        getPointers(locations);
+      } else clearTextAreas();
+    }
   };
 
   return (
-    <div style={gridStyle}>
-      <span style={{ ...labelStyle }}>Text to Read:</span>
-      <textarea
-        ref={textToRead}
-        style={{ resize: 'none', height: '150px', marginTop: '5px', gridColumnStart: 2 }}
-        spellCheck={false}
-      />
-      <button onClick={(e) => processText(true)} type='button' style={{ width: '100%', height: '30px', gridColumnStart: '2' }}>
-        Process Text with Compression
+    <div style={grid2ColumnStyle}>
+      <span style={labelStyle}>Text to Read:</span>
+      <textarea ref={textToRead} style={textAreaMediumStyle2ndC} spellCheck={false} />
+      <button onClick={(e) => processText(true)} type='button' style={buttonMediumStyle2ndC}>
+        <span>Process Text with Compression</span>
       </button>
-      <button onClick={(e) => processText(false)} type='button' style={{ width: '100%', height: '30px', gridColumnStart: '2' }}>
-        Process Text without Compression
+      <button onClick={(e) => processText(false)} type='button' style={buttonMediumStyle2ndC}>
+        <span> Process Text without Compression</span>
       </button>
       <span style={labelStyle}>Byte Values:</span>
-      <textarea ref={byteValues} style={{ resize: 'none', height: '150px', marginTop: '15px' }} readOnly spellCheck={false} />
+      <textarea ref={byteValues} style={textAreaMediumStyle2ndC} readOnly spellCheck={false} />
       <span style={labelStyle}>Text Locations:</span>
-      <textarea ref={textLocations} style={{ resize: 'none', height: '100px', marginTop: '15px' }} readOnly spellCheck={false} />
+      <textarea ref={textLocations} style={textAreaSmallStyle2ndC} readOnly spellCheck={false} />
       <span style={labelStyle}>Pointers to Locations:</span>
-      <textarea ref={textPointers} style={{ resize: 'none', height: '100px', marginTop: '15px' }} readOnly spellCheck={false} />
+      <textarea ref={textPointers} style={textAreaSmallStyle2ndC} readOnly spellCheck={false} />
     </div>
   );
 };

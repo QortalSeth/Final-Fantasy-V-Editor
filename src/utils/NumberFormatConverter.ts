@@ -70,6 +70,31 @@ export function numberUnitSplit(str: string) {
   return { number, unit };
 }
 
+export const changeUnitAmount = (value1: string, operation: (num1: number, num2: number) => number, value2?: string | number) => {
+  const num1 = numberUnitSplit(value1);
+  let newValue: number;
+  if (value2) {
+    const num2 = typeof value2 === 'string' ? numberUnitSplit(value2).number : value2;
+    newValue = operation(num1.number, num2);
+  } else {
+    newValue = operation(num1.number, 0);
+  }
+
+  return newValue.toString() + num1.unit;
+};
+
+export const divideUnits = (str1: string, str2: string | number) => {
+  return changeUnitAmount(str1, (num1, num2) => num1 / num2, str2);
+};
+
+export const addUnits = (str1: string, str2: string | number) => {
+  return changeUnitAmount(str1, (num1, num2) => num1 + num2, str2);
+};
+
+export const multiplyUnits = (str1: string, str2: string | number) => {
+  return changeUnitAmount(str1, (num1, num2) => num1 * num2, str2);
+};
+
 export function numberUnitCombine(numUnit: { number: number; unit: string }) {
   return `${numUnit.number.toString()}${numUnit.unit}`;
 }

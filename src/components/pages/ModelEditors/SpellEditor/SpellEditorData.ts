@@ -33,11 +33,12 @@ export const miscCheckBoxes: CheckBoxWithDefaultProps[] = [
   { labelText: 'Not Used 3' },
   { labelText: 'Not Used 4' },
 ];
-
-const textFieldStyle = { width: '40px' };
+const textfieldWidth = '5vw';
+const textfieldHeight = '3vh';
+const textFieldStyle = {};
 export const textFieldProps: DefaultTextfieldProp[] = [
-  { minValue: 1, maxValue: 0x0f, labelText: '# of hits:', textFieldStyle },
-  { minValue: 1, maxValue: 0x7f, labelText: 'MP Cost:', textFieldStyle },
+  { minValue: 1, maxValue: 0x0f, labelText: '# of hits:', textFieldStyle, width: textfieldWidth, height: textfieldHeight },
+  { minValue: 1, maxValue: 0x7f, labelText: 'MP Cost:', textFieldStyle, width: textfieldWidth, height: textfieldHeight },
 ];
 
 console.log('jsondata is ', jsonData);

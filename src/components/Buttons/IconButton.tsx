@@ -1,5 +1,6 @@
 import React from 'react';
 import CSS from 'csstype';
+import WithResponsiveSize from 'src/components/pages/ModelEditors/WithResponsiveSize';
 
 export interface IconButtonProps extends React.HTMLProps<HTMLButtonElement> {
   buttonStyle?: CSS.Properties;
@@ -31,7 +32,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
     paddingTop: 0,
     paddingBottom: 0,
     userSelect: 'none',
-    backgroundColor: 'white',
+    verticalAlign: 'bottom',
   };
 
   const imageDefaultStyle: CSS.Properties = {
@@ -42,6 +43,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
     marginLeft: 'auto',
     marginRight: 'auto',
     opacity: 1,
+    objectFit: 'fill',
   };
 
   if (disabled) {
@@ -75,7 +77,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
       onMouseLeave={() => (onMouseHeldDown ? stopRepeat() : undefined)}
     >
       <img src={icon} alt='' style={{ ...imageDefaultStyle, ...imageStyle }} />
-      <span>{name}</span>
+      <span style={{ lineHeight: '3vh', verticalAlign: 'bottom', display: 'inline-block' }}>{name}</span>
     </button>
   );
 };

@@ -7,13 +7,13 @@ import {
   createRoutesFromElements,
   BrowserRouter,
 } from 'react-router-dom';
-import { Provider, useDispatch } from 'react-redux';
-import React, { useEffect } from 'react';
+import { Provider } from 'react-redux';
+import React from 'react';
 import { store } from '../redux/store';
 import './App.css';
-import { MainMenu } from '../components/pages/MainPage/MainMenu';
+import MainMenu from '../components/pages/MainPage/MainMenu';
 import SpellEditor from '../components/pages/ModelEditors/SpellEditor/SpellEditor';
-import TextEditor from '../components/pages/TextEditor/TextEditor';
+import TextEditor from '../components/pages/ModelEditors/TextEditor/TextEditor';
 
 // const router = createHashRouter(
 //   createRoutesFromElements(
